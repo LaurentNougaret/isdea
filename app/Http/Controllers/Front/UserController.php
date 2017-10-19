@@ -11,7 +11,7 @@ class UserController extends Controller
     {
         $this->middleware('auth');
     }
-    public function account() {
+    public function profile() {
 
     }
 

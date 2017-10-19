@@ -21,6 +21,6 @@ Route::group(['middleware' => 'IsAdmin'], function (){
 
 /* Users routes */
 
-Route::get('/account', 'Front\UserController@account');
+Route::get('/profile', 'Front\UserController@profile');
 Route::resource('project.form', 'Front\FormController', ['except' => [
     'destroy', 'create', 'store']]);
