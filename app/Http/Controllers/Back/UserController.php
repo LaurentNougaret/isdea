@@ -7,10 +7,6 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('isSupervisor');
-    }
 
     /**
      * Display a listing of the resource.
