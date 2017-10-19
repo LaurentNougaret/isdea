@@ -15,7 +15,6 @@ Route::group(['middleware' => 'IsAdmin'], function (){
         Route::get('/', 'Back\AdminController@index');
         Route::resource('users', 'Back\UserController');
         Route::resource('project', 'Back\ProjectController');
-        Route::resource('project.form', 'Back\FormController');
     });
 });
 
