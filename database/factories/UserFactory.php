@@ -23,13 +23,13 @@ $factory->define(User::class, function (Faker $faker) {
 		'lastname' => $faker->lastName,
 		'email' => $faker->unique()->safeEmail,
 		'password' => $password ?: $password = bcrypt('secret'),
-		'role' => $faker->randomElement($array = [
+		'role' => $faker->randomElement($role = [
 			'Input operator',
 			'Input operator advanced',
 			'Supervisor',
-			'Administrator', $count = 1,
+			'Administrator',
 		]),
-		'language' => $faker->randomElement($array = [
+		'language' => $faker->randomElement($language = [
 			'french',
 			'english',
 			'spanish',

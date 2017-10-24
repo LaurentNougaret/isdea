@@ -14,8 +14,9 @@ class CreateFormProjectTable extends Migration
     public function up()
     {
         Schema::create('form_project', function (Blueprint $table) {
-            $table->integer('form_id');
-            $table->integer('project_id');
+	        $table->increments('id');
+        	$table->integer('form_id')->unsigned();
+            $table->integer('project_id')->unsigned();
 	        $table->timestamps();
         });
     }
