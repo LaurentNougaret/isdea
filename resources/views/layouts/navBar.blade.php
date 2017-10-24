@@ -19,8 +19,15 @@
             <a class="nav-item nav-link navbar-size" href="#">Statistiques</a>
         </div>
     </div>
-    <form class="form-inline">
-        <button class="btn btn-outline-secondary btn-md my-2 my-sm-2" type="submit">Se déconnecter</button>
-    </form>
+
+    @If (Auth::user())
+        <form class="form-inline">
+            <button class="btn btn-outline-secondary btn-md my-2 my-sm-2" type="submit">Se déconnecter</button>
+        </form>
+    @else
+        <form class="form-inline">
+            <button class="btn btn-outline-secondary btn-md my-2 my-sm-2" type="submit">Se connecter</button>
+        </form>
+    @endif
 </nav>
 
