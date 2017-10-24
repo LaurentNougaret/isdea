@@ -14,7 +14,7 @@
             @if(Request::is('admin/users'))
                 <a></a>
             @else
-                <a class="nav-item nav-link navbar-size" href="#">Utilisateurs</a>
+                {{--<a class="nav-item nav-link navbar-size" href="{{ route('admin/users') }}">Utilisateurs</a>--}}
             @endif
             <a class="nav-item nav-link navbar-size" href="#">Statistiques</a>
         </div>
