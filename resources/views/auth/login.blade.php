@@ -2,12 +2,12 @@
 @extends('layouts.navBar')
 @section('content')
     <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+        <div class="row ">
+            <div class="col-md-8 col-md-offset-2 border border-secondary rounded">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Login</div>
+                    <div class="panel-heading border ">Login</div>
 
-                    <div class="panel-body">
+                    <div class="panel-body col-md-12">
                         <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                             {{ csrf_field() }}
 

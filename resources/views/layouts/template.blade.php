@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="/css/app.css"/>
 </head>
 <body>
-
+<div class="container">
     @yield('content')
-
+</div>
 </body>
 <script
         src="https://code.jquery.com/jquery-3.2.1.js"
