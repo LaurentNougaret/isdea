@@ -10,12 +10,12 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 
 /* Admin Dashboard */
-Route::group(['middleware' => 'IsAdmin'], function (){
+//Route::group(['middleware' => 'IsAdmin'], function (){
     Route::prefix('admin')->group(function () {
         Route::get('/', 'Back\AdminController@index');
         Route::resource('users', 'Back\UserController');
         Route::resource('project', 'Back\ProjectController');
-    });
+//    });
 });
 
 /* Users routes */
