@@ -1,10 +1,12 @@
 <?php
 
+use App\Form;
+use App\Project;
 use Faker\Generator as Faker;
 
-$factory->define(App\Form::class, function (Faker $faker) {
+$factory->define(Form::class, function (Faker $faker) {
 	return [
-		'name' => $faker->randomElement($array = [
+		'name' => $faker->randomElement($form = [
 			'Voirie',
 			'Espace vert',
 			'Canalisation eau',
