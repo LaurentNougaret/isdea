@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Symfony\Component\Routing\Router;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -31,10 +33,19 @@ class RouteServiceProvider extends ServiceProvider
     /**
      * Define the routes for the application.
      *
+     * @param Router $router
+     * @param Request $request
      * @return void
      */
-    public function map()
+    public function map(Router $router, Request $request)
     {
+        $locale = $request->segment(1);
+        $this->app->setLocale($locale);
+
+        $router->group(['namespace' => $this->namespace, 'prefix' => $locale], function($router) {
+            require app_path('Http/routes.php');
+        });
+
         $this->mapApiRoutes();
 
         $this->mapWebRoutes();
