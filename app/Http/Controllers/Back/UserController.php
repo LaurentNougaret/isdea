@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-/* Gestion utilisateurs */
+/* Users Management */
 
     /**
      * Display a listing of the resource.
