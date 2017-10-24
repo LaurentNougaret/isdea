@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/css/app.css"/>
 </head>
 <body>
-<div class=container">
+<div class="container">
     @yield('content')
 </div>
 </body>
@@ -22,3 +22,4 @@
 {{--This path avoid the error "Uncaught Error: Bootstrap dropdown require Popper.js"--}}
 <script src="https://getbootstrap.com/assets/js/vendor/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+</html>
