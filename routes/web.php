@@ -7,19 +7,23 @@ Auth::routes();
 
 /*Home Page */
 
-Route::get('/', 'HomeController@index')->name('home');
-
 /* Admin Dashboard */
 //Route::group(['middleware' => 'IsAdmin'], function (){
-    Route::prefix('admin')->group(function () {
-        Route::get('/', 'Back\AdminController@index');
-        Route::resource('users', 'Back\UserController');
-        Route::resource('project', 'Back\ProjectController');
+Route::prefix('admin')->group(function () {
+	Route::get('/', 'Back\AdminController@index');
+	Route::resource('users', 'Back\UserController');
+	Route::resource('project', 'Back\ProjectController');
 //    });
 });
 
 /* Users routes */
-
-Route::get('/profile', 'Front\UserController@profile');
-Route::resource('project.form', 'Front\FormController', ['except' => [
-    'destroy', 'create', 'store']]);
+//Route::group(['middleware' => 'Auth'], function () {
+	Route::get( '/profile', 'Front\UserController@profile' );
+	Route::resource( 'project.form', 'Front\FormController', [
+		'except' => [
+			'destroy',
+			'create',
+			'store'
+		]
+	] );
+//});

@@ -20,14 +20,9 @@
         </div>
     </div>
 
-    @If (Auth::user())
-        <form class="form-inline">
-            <button class="btn btn-outline-secondary btn-md my-2 my-sm-2" type="submit">Se déconnecter</button>
-        </form>
-    @else
-        <form class="form-inline">
-            <button class="btn btn-outline-secondary btn-md my-2 my-sm-2" type="submit">Se connecter</button>
-        </form>
-    @endif
+    <form class="form-inline">
+        <button class="btn btn-outline-secondary btn-md my-2 my-sm-2" type="submit">Se déconnecter</button>
+    </form>
+
 </nav>
 

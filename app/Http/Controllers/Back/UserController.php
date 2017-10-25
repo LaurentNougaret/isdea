@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Back;
 
 use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -16,7 +17,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('back.user.index');
+        $users = User::all();
+        return view('back.user.index')->with('users', $users);
     }
 
     /**
@@ -26,7 +28,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+	    return view('back.user.account');
     }
 
     /**
@@ -37,7 +39,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+//	      	return view('back.user.account');
     }
 
     /**
@@ -48,7 +50,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+//	    $account = User::find($id);
+//    	return view('back.user.account')->with('account', $account);
     }
 
     /**
@@ -59,7 +62,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+//	    $account = User::find($id);
+//	    return view('back.user.account')->with('account', $account);
     }
 
     /**
@@ -71,7 +75,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**
@@ -82,6 +86,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+
     }
 }
