@@ -7,7 +7,7 @@
 
             <div class="card-body">
 
-                <form method="POST" action="{{ route('users.create') }}">
+                <form method="POST" action="{{ route('users.store') }}">
                     {{ csrf_field() }}
 
                     <div class="form-group{{ $errors->has('firstname') ? ' has-error' : '' }}">
@@ -85,6 +85,7 @@
                             </select>
                         </div>
                     </div>
+
 
                     <div class="form-group row col-md-12 m-0">
                         <button type="submit" class="btn-lg btn-outline-primary font-weight-bold mx-auto">Valider</button>
