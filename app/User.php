@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'firstname', 'lastname', 'email', 'role', 'language'
+        'firstname', 'lastname', 'email', 'role', 'language',
     ];
 
     /**
@@ -39,24 +39,29 @@ class User extends Authenticatable
     }
 
 
+//	/**
+//	 * @param $pass
+//	 *
+//	 * @return string
+//	 */
+//	public function getPasswordAttribute($pass)
+//	{
+//		return ucfirst($pass);
+//	}
+
 	/**
-	 * @param $pw
 	 *
-	 * @return string
 	 */
-	public function getPasswordAttribute($pass)
-	{
-		return ucfirst($pass);
-	}
-
-	/**
-	 * @param $pass
-	 */
-    public function setPasswordAttribute($pass)
+    public function setPasswordAttribute()
     {
-//    	$this->attributes['password'] = bcrypt(str_random(8));
-	    $this->attributes['password'] = Hash::make($pass);
-
+    	$this->attributes['password'] = bcrypt(str_random(8));
+//	    $this->attributes['password'] = Hash::make($pass);
     }
+
+
+
+
+
+
 
 }

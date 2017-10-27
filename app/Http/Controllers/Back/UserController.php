@@ -52,29 +52,50 @@ class UserController extends Controller
 	public function store(UserCreateRequest $request)
 	{
 
-		$user = new User;
-
-		$user->firstname = Input::get('firstname');
-		$user->lastname = Input::get('lastname');
-		$user->email = Input::get('email');
-		$user->role = Input::get('role');
-		$user->language = Input::get('language');
-		$user->group_id = Input::get('group_id');
-
-		$user->password = Input::get('password');
-
-		$user->store();
-
 //		$user = User::create($request->all());
+//		return redirect()->route('back.user.index');
+
+//		$user = new User;
+//		$user->all($request->all());
+//		$user->save();
 //
+//		$user[] = new User;
+//		$user->$request->all();
+//		$user->create();
+
+
+//		$user = new User();
+//		$user->all() = $request->all();
+//		$user->save();
+
+		User::create($request->all());
+
+//		return $new;
+
+//		$try->save();
+
+//		$user = $request->all();
+
+
+//		$user->firstname = Input::get('firstname');
+//		$user->lastname = Input::get('lastname');
+//		$user->email = Input::get('email');
+//		$user->role = Input::get('role');
+//		$user->language = Input::get('language');
+//		$user->group_id = Input::get('group_id');
 //
+//		$user->password = Input::get('password');
+//
+//		$user->store();
+
+
 //		$password = $user->password;
 
-		return back()->with('success', 'Product has been added');
+//		return back()->with('success', 'Product has been added');
 
 //		$user->fill(['password' => $pw])->save();
 
-//		return redirect()->route('back.user.index')
+		return redirect()->route('back.user.index');
 //			->with('success', 'User created successfully');
 	}
 
