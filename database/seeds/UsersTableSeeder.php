@@ -7,17 +7,18 @@ use Illuminate\Database\Seeder;
 
 class UsersTableSeeder extends Seeder
 {
-	/**
-	 * Run the database seeds.
-	 *
-	 * @return void
-	 */
-	public function run()
-	{
-		//	    $faker = Faker\Factory::create('fr_FR');
-		factory(User::class, 30)->create();
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        factory(User::class, 30)->create();
+
 //		                        ->each(function ($user) {
 //			                        $user->projects()->save(factory( Project::class)->make());
 //		                        });
-	}
+
+    }
 }

@@ -19,7 +19,8 @@ Route::get('/', 'HomeController@index')->name('home');
 });
 
 /* Users routes */
-
-Route::get('/profile', 'Front\UserController@profile');
-Route::resource('project.form', 'Front\FormController', ['except' => [
-    'destroy', 'create', 'store']]);
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/profile', 'Front\UserController@profile');
+    Route::resource('project.form', 'Front\FormController', ['except' => [
+        'destroy', 'create', 'store']]);
+});

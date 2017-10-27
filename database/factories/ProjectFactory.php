@@ -6,7 +6,7 @@ use Faker\Generator as Faker;
 
 $factory->define(Project::class, function (Faker $faker) {
 	return [
-		'name' => $faker->randomElement($project = [
+        'name' => $faker->randomElement($project = [
 			'Projet trop naze',
 			'Projet qui claque',
 			'Rénovation des catacombes',
@@ -14,10 +14,13 @@ $factory->define(Project::class, function (Faker $faker) {
 			'Assainissement de la Seine',
 			'Reboiser le 93',
 			'Karchériser Neuilly',
+
 		]),
 		'unit_id' => function () {
 			return factory(Unit::class)->create()->id;
-		}
+		},
 
 	];
+
 });
+

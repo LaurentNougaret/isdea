@@ -15,5 +15,6 @@ class FormsTableSeeder extends Seeder
 	{
 //		$faker = Faker\Factory::create('fr_FR');
 		factory(Form::class, 50)->create();
+
 	}
 }

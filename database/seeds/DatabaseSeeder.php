@@ -1,6 +1,9 @@
 <?php
 
 
+use App\Form;
+use App\Group;
+use App\Project;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -17,9 +20,9 @@ class DatabaseSeeder extends Seeder
 			GroupsTableSeeder::class,
 			UnitsTableSeeder::class,
 			ProjectsTableSeeder::class,
-			UsersTableSeeder::class,
-			FormsTableSeeder::class,
+            FormsTableSeeder::class,
 			ResultsTableSeeder::class,
+            UsersTableSeeder::class,
 		]);
-	}
+    }
 }
