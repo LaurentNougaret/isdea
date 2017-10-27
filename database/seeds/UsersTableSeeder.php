@@ -15,9 +15,10 @@ class UsersTableSeeder extends Seeder
 	public function run()
 	{
 		//	    $faker = Faker\Factory::create('fr_FR');
-		factory(User::class, 30)->create();
-//		                        ->each(function ($user) {
-//			                        $user->projects()->save(factory( Project::class)->make());
-//		                        });
+		factory(User::class, 30)->create()
+		                        ->each(function ($user) {
+			                        $user->projects()->attach(mt_rand(1,7));
+			                        $user->save();
+		                        });
 	}
 }

@@ -18,7 +18,7 @@ use Faker\Generator as Faker;
 $factory->define(User::class, function (Faker $faker) {
 	static $password;
 
-	return [
+	$array =  [
 		'firstname' => $faker->firstName,
 		'lastname' => $faker->lastName,
 		'email' => $faker->unique()->safeEmail,
@@ -34,8 +34,11 @@ $factory->define(User::class, function (Faker $faker) {
 			'english',
 			'spanish',
 		]),
-		'group_id' => function () {
-			return factory(Group::class)->create()->id;
-		}
+		'group_id' => 1
+
 	];
+
+//	dump($array);
+//	return $array;
+
 });

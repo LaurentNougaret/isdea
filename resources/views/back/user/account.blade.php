@@ -7,6 +7,16 @@
 
             <div class="card-body">
 
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
                 <form method="POST" action="{{ route('users.store') }}">
                     {{ csrf_field() }}
 
@@ -92,10 +102,10 @@
                         </div>
                         <div class="input-group mx-auto col-md-9">
                             <div class="input-group-addon"><i class="fa fa-users fa-fw" aria-hidden="true"></i></div>
-                            <select id="language" class="form-control" name="language" value="{{ old('group_id') }}" required>
+                            <select id="group_id" class="form-control" name="group_id" value="{{ old('group_id') }}" required>
                                 <option selected>Sélectionner le groupe</option>
                                 @foreach ($groups as $group)
-                                    <option>{{ $group->name }}</option>
+                                    <option value="{{ $group->id }}">{{ $group->name }}</option>
                                 @endforeach
                             </select>
                         </div>

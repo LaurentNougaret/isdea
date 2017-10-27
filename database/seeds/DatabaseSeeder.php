@@ -17,9 +17,10 @@ class DatabaseSeeder extends Seeder
 			GroupsTableSeeder::class,
 			UnitsTableSeeder::class,
 			ProjectsTableSeeder::class,
-			UsersTableSeeder::class,
 			FormsTableSeeder::class,
 			ResultsTableSeeder::class,
+			UsersTableSeeder::class,
+
 		]);
 	}
 }

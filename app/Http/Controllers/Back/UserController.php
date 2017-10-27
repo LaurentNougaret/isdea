@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\UserCreateRequest;
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Input;
 
 class UserController extends Controller
@@ -32,7 +31,7 @@ class UserController extends Controller
 	 */
 	public function create()
 	{
-		$groups = Group::select('name')->distinct()->get();
+		$groups = Group::select('name','id')->distinct()->get();
 		return view('back.user.account', [
 			'groups' => $groups,
 		]);
@@ -52,51 +51,13 @@ class UserController extends Controller
 	public function store(UserCreateRequest $request)
 	{
 
-//		$user = User::create($request->all());
-//		return redirect()->route('back.user.index');
+		$user = new User();
+		$user->fill($request->except('_token'));
+		$user->password =  bcrypt(str_random(8));
+		$user->save();
 
-//		$user = new User;
-//		$user->all($request->all());
-//		$user->save();
-//
-//		$user[] = new User;
-//		$user->$request->all();
-//		$user->create();
-
-
-//		$user = new User();
-//		$user->all() = $request->all();
-//		$user->save();
-
-		User::create($request->all());
-
-//		return $new;
-
-//		$try->save();
-
-//		$user = $request->all();
-
-
-//		$user->firstname = Input::get('firstname');
-//		$user->lastname = Input::get('lastname');
-//		$user->email = Input::get('email');
-//		$user->role = Input::get('role');
-//		$user->language = Input::get('language');
-//		$user->group_id = Input::get('group_id');
-//
-//		$user->password = Input::get('password');
-//
-//		$user->store();
-
-
-//		$password = $user->password;
-
-//		return back()->with('success', 'Product has been added');
-
-//		$user->fill(['password' => $pw])->save();
-
-		return redirect()->route('back.user.index');
-//			->with('success', 'User created successfully');
+		return redirect()->route('users.index')
+			->with('success', 'User created successfully');
 	}
 
 	/**
