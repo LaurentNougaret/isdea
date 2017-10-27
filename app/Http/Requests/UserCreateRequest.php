@@ -29,6 +29,7 @@ class UserCreateRequest extends FormRequest
             'email' => 'bail|required|email|unique:users',
             'role' => 'bail|required',
             'language' => 'bail|required',
+            'group_id' => 'bail|required',
         ];
     }
 }

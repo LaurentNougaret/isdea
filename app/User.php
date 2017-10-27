@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable
 {
@@ -15,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'firstname', 'lastname', 'email', 'password', 'role', 'language'
+        'firstname', 'lastname', 'email', 'role', 'language'
     ];
 
     /**
@@ -36,4 +37,26 @@ class User extends Authenticatable
     {
     	$this->belongsToMany(Project::class);
     }
+
+
+	/**
+	 * @param $pw
+	 *
+	 * @return string
+	 */
+	public function getPasswordAttribute($pass)
+	{
+		return ucfirst($pass);
+	}
+
+	/**
+	 * @param $pass
+	 */
+    public function setPasswordAttribute($pass)
+    {
+//    	$this->attributes['password'] = bcrypt(str_random(8));
+	    $this->attributes['password'] = Hash::make($pass);
+
+    }
+
 }
