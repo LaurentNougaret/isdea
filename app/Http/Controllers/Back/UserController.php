@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Back;
 
+use App\Group;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserCreateRequest;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Input;
 
 class UserController extends Controller
 {
@@ -30,8 +32,13 @@ class UserController extends Controller
 	 */
 	public function create()
 	{
-		return view('back.user.account');
+		$groups = Group::select('name')->distinct()->get();
+		return view('back.user.account', [
+			'groups' => $groups,
+		]);
 	}
+
+
 
 	/**
 	 * Store a newly created resource in storage.
@@ -45,15 +52,23 @@ class UserController extends Controller
 	public function store(UserCreateRequest $request)
 	{
 
-		$pw = bcrypt(str_random(8));
+		$user = new User;
 
-		$userdata = array_divide($request->all());
+		$user->firstname = Input::get('firstname');
+		$user->lastname = Input::get('lastname');
+		$user->email = Input::get('email');
+		$user->role = Input::get('role');
+		$user->language = Input::get('language');
+		$user->group_id = Input::get('group_id');
 
-		User::create([
-			['password' => $pw,],
-			['$userdata'],
-		]);
+		$user->password = Input::get('password');
 
+		$user->store();
+
+//		$user = User::create($request->all());
+//
+//
+//		$password = $user->password;
 
 		return back()->with('success', 'Product has been added');
 
