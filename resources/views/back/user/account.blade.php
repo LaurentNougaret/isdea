@@ -6,7 +6,6 @@
             <h1 class="mx-auto pt-3 card.header">Compte utilisateur</h1>
 
             <div class="card-body">
-
                 <form method="POST" action="{{ route('users.store') }}">
                     {{ csrf_field() }}
 
@@ -86,11 +85,26 @@
                         </div>
                     </div>
 
-
-                    <div class="form-group row col-md-12 m-0">
-                        <button type="submit" class="btn-lg btn-outline-primary font-weight-bold mx-auto">Valider</button>
+                    <div class="form-group{{ $errors->has('group_id') ? ' has-error' : '' }}">
+                        <div class="mx-auto col-md-9">
+                            <label for="group" class="col-form-label">Groupe</label>
+                        </div>
+                        <div class="input-group mx-auto col-md-9">
+                            <div class="input-group-addon"><i class="fa fa-users fa-fw" aria-hidden="true"></i></div>
+                            <select id="language" class="form-control" name="language" value="{{ old('group_id') }}" required>
+                                <option selected>Sélectionner le groupe</option>
+                                @foreach ($groups as $group)
+                                    <option>{{ $group->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
                     </div>
 
+
+                    <div class="form-group row col-md-12 m-0">
+                        <button type="submit" class="btn-lg btn-outline-primary font-weight-bold mx-auto" href="{{ route('users.store') }}">Valider</button>
+                    </div>
+                var_dump()
                 </form>
             </div>
         </div>
