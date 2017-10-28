@@ -20,7 +20,6 @@ class DatabaseSeeder extends Seeder
 			FormsTableSeeder::class,
 			ResultsTableSeeder::class,
 			UsersTableSeeder::class,
-
 		]);
 	}
 }

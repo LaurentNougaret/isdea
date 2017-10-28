@@ -50,7 +50,6 @@ class UserController extends Controller
 	 */
 	public function store(UserCreateRequest $request)
 	{
-
 		$user = new User();
 		$user->fill($request->except('_token'));
 		$user->password =  bcrypt(str_random(8));
