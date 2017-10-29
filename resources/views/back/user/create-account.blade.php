@@ -17,7 +17,8 @@
                     </div>
                 @endif
 
-                <form method="POST" action="{{ route('users.store') }}">
+{{--                <form method="POST" action="{{ route('users.store') }}">--}}
+                <form method="POST" action="{{ action('Back\UserController') }}">
                     {{ csrf_field() }}
 
                     <div class="form-group{{ $errors->has('firstname') ? ' has-error' : '' }}">
