@@ -6,6 +6,15 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Hash;
 
+/**
+ * @property mixed firstname
+ * @property mixed lastname
+ * @property mixed email
+ * @property mixed role
+ * @property mixed language
+ * @property mixed group_id
+ * @property mixed password
+ */
 class User extends Authenticatable
 {
     use Notifiable;

@@ -51,17 +51,7 @@ class UserController extends Controller
 	 */
 	public function store(UserCreateRequest $request)
 	{
-
-		$user = new User;
-
-		$user->firstname = Input::get('firstname');
-		$user->lastname = Input::get('lastname');
-		$user->email = Input::get('email');
-		$user->role = Input::get('role');
-		$user->language = Input::get('language');
-		$user->group_id = Input::get('group_id');
-
-		$user->password = Input::get('password');
+        $user = $request->all();
 
 		$user->store();
 
