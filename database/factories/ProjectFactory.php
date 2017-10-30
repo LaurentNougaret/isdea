@@ -18,6 +18,5 @@ $factory->define(Project::class, function (Faker $faker) {
 		'unit_id' => function () {
 			return factory(Unit::class)->create()->id;
 		}
-
 	];
 });
