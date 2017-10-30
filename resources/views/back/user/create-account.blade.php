@@ -4,9 +4,7 @@
     <div class="row">
         <div class="card mx-auto my-5 col-lg-6 col-md-9 border border-primary rounded">
             <h1 class="mx-auto pt-3 card.header">Compte utilisateur</h1>
-
             <div class="card-body">
-
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
@@ -16,11 +14,8 @@
                         </ul>
                     </div>
                 @endif
-
-{{--                <form method="POST" action="{{ route('users.store') }}">--}}
-                <form method="POST" action="{{ action('Back\UserController') }}">
+                <form method="POST" action="{{ action('Back\UserController@store') }}">
                     {{ csrf_field() }}
-
                     <div class="form-group{{ $errors->has('firstname') ? ' has-error' : '' }}">
                         <div class="mx-auto col-md-9">
                             <label for="firstname" class="col-form-label">Prénom</label>
@@ -35,7 +30,6 @@
                             @endif
                         </div>
                     </div>
-
                     <div class="form-group{{ $errors->has('lastname') ? ' has-error' : '' }}">
                         <div class="mx-auto col-md-9">
                             <label for="lastname" class="col-form-label">Nom</label>
@@ -50,7 +44,6 @@
                             @endif
                         </div>
                     </div>
-
                     <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                         <div class="mx-auto col-md-9">
                             <label for="email" class="col-form-label">Email</label>
@@ -66,7 +59,6 @@
                             @endif
                         </div>
                     </div>
-
                     <div class="form-group{{ $errors->has('role') ? ' has-error' : '' }}">
                         <div class="mx-auto col-md-9">
                             <label for="role" class="col-form-label">Rôle</label>
@@ -81,7 +73,6 @@
                             </select>
                         </div>
                     </div>
-
                     <div class="form-group{{ $errors->has('language') ? ' has-error' : '' }}">
                         <div class="mx-auto col-md-9">
                             <label for="language" class="col-form-label">Langue</label>
@@ -96,7 +87,6 @@
                             </select>
                         </div>
                     </div>
-
                     <div class="form-group{{ $errors->has('group_id') ? ' has-error' : '' }}">
                         <div class="mx-auto col-md-9">
                             <label for="group" class="col-form-label">Groupe</label>
@@ -111,11 +101,9 @@
                             </select>
                         </div>
                     </div>
-
                     <div class="form-group row col-md-12 m-0">
                         <button type="submit" class="btn-lg btn-outline-primary font-weight-bold mx-auto">Valider</button>
                     </div>
-
                 </form>
             </div>
         </div>

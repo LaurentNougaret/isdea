@@ -14,7 +14,6 @@ class ProjectsTableSeeder extends Seeder
 	 */
 	public function run()
 	{
-//		$faker = Faker\Factory::create('fr_FR');
 		factory(Project::class, 7)->create()
 		                          ->each(function ($project) {
 			                          $project->forms()->save(factory(Form::class)->make());

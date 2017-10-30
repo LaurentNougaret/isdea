@@ -33,7 +33,6 @@ $factory->define(User::class, function (Faker $faker) {
 			'english',
 			'spanish',
 		]),
-//		'group_id' => mt_rand(1, 7),
 		'group_id' => function () {
 			return factory(Group::class)->create()->id;
 		}
