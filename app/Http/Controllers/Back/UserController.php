@@ -7,8 +7,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\UserCreateRequest;
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Input;
 
 class UserController extends Controller
 {
@@ -32,8 +30,8 @@ class UserController extends Controller
 	 */
 	public function create()
 	{
-		$groups = Group::select('name')->distinct()->get();
-		return view('back.user.account', [
+		$groups = Group::select('name','id')->distinct()->get();
+		return view('back.user.create-account', [
 			'groups' => $groups,
 		]);
 	}
@@ -51,21 +49,13 @@ class UserController extends Controller
 	 */
 	public function store(UserCreateRequest $request)
 	{
-        $user = $request->all();
+		$user = new User();
+		$user->fill($request->except('_token'));
+		$user->password =  bcrypt(str_random(8));
+		$user->save();
 
-		$user->store();
-
-//		$user = User::create($request->all());
-//
-//
-//		$password = $user->password;
-
-		return back()->with('success', 'Product has been added');
-
-//		$user->fill(['password' => $pw])->save();
-
-//		return redirect()->route('back.user.index')
-//			->with('success', 'User created successfully');
+		return redirect()->route('users.index')
+		                 ->with('success', 'User created successfully');
 	}
 
 	/**
@@ -76,8 +66,8 @@ class UserController extends Controller
 	 */
 	public function show($id)
 	{
-//	    $account = User::find($id);
-//    	return view('back.user.account')->with('account', $account);
+		$account = User::find($id);
+		return view('back.user.edit-account')->with('account', $account);
 	}
 
 	/**
@@ -88,8 +78,8 @@ class UserController extends Controller
 	 */
 	public function edit($id)
 	{
-//	    $account = User::find($id);
-//	    return view('back.user.account')->with('account', $account);
+	    $account = User::find($id);
+	    return view('back.user.edit-account')->with('account', $account);
 	}
 
 	/**

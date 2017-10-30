@@ -14,11 +14,10 @@ use Faker\Generator as Faker;
 | model instances for testing / seeding your application's database.
 |
 */
-
 $factory->define(User::class, function (Faker $faker) {
 	static $password;
 
-	return [
+	return  [
 		'firstname' => $faker->firstName,
 		'lastname' => $faker->lastName,
 		'email' => $faker->unique()->safeEmail,
