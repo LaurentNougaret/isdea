@@ -48,8 +48,11 @@
             <td>{{ $user->lastname }}</td>
             <td>{{ $user->firstname }}</td>
             <td>{{ $user->role }}</td>
-            <td>group</td>
-            <td>projet</td>
+                {{--@endforeach--}}
+            {{--@foreach($groups as $group)--}}
+                {{--<td>{{ $group->name }}</td>--}}
+
+                <td>{{ $user->projects }}</td>
             <td><label>
                     <input class="field ml-2" name="agree" type="checkbox" value="1">
                 </label>

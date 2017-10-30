@@ -24,12 +24,12 @@ class UserCreateRequest extends FormRequest
     public function rules()
     {
     	return [
-            'firstname' => 'bail|required|alpha',
-            'lastname' => 'bail|required|alpha',
-            'email' => 'bail|required|email|unique:users',
-            'role' => 'bail|required',
-            'language' => 'bail|required',
-            'group_id' => 'bail|required',
+            'firstname' => 'required|alpha',
+            'lastname' => 'required|alpha',
+            'email' => 'required|email|unique:users',
+            'role' => 'required',
+            'language' => 'required',
+            'group_id' => 'required',
         ];
     }
 }

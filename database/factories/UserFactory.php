@@ -3,7 +3,6 @@
 use App\Group;
 use App\User;
 use Faker\Generator as Faker;
-use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,19 +15,15 @@ use Illuminate\Support\Facades\DB;
 |
 */
 
-$factory->define(User::class, function (Faker $faker){
+$factory->define(User::class, function (Faker $faker) {
 	static $password;
 
-	return [
-        'group_id' => function () {
-            return factory(Group::class)->create()->id;
-
-        },
+	return  [
 		'firstname' => $faker->firstName,
 		'lastname' => $faker->lastName,
 		'email' => $faker->unique()->safeEmail,
 		'password' => $password ?: $password = bcrypt('secret'),
-        'role' => $faker->randomElement($role = [
+		'role' => $faker->randomElement($role = [
 			'Input operator',
 			'Input operator advanced',
 			'Supervisor',
@@ -39,6 +34,15 @@ $factory->define(User::class, function (Faker $faker){
 			'english',
 			'spanish',
 		]),
+		'group_id' => $faker->randomElement($group = [
+		    '1',
+		    '2',
+		    '3',
+		    '4',
+		    '5',
+        ])
 
 	];
+
+
 });
