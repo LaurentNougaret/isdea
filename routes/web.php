@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
     Route::get('/', 'Back\AdminController@index');
     Route::resource('users', 'Back\UserController');
     Route::resource('project', 'Back\ProjectController');
+    Route::resource('stats', 'Back\StatsController');
+
 //    });
     });
 
