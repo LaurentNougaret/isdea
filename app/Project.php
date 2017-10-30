@@ -23,6 +23,6 @@ class Project extends Model
 
     public function forms()
     {
-    	$this->belongsToMany(Form::class);
+    	return $this->belongsToMany(Form::class);
     }
 }

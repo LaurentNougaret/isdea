@@ -34,8 +34,10 @@
         </div>
 
     </div>
+
     <form class="form-inline">
         <button class="btn btn-outline-secondary btn-md my-2 my-sm-2" type="submit">Se déconnecter</button>
     </form>
+
 </nav>
 

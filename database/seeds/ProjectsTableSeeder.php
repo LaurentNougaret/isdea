@@ -1,6 +1,8 @@
 <?php
 
+use App\Form;
 use App\Project;
+use App\User;
 use Illuminate\Database\Seeder;
 
 class ProjectsTableSeeder extends Seeder
@@ -12,7 +14,10 @@ class ProjectsTableSeeder extends Seeder
 	 */
 	public function run()
 	{
-//		$faker = Faker\Factory::create('fr_FR');
-		factory(Project::class, 7)->create();
+		factory(Project::class, 7)->create()
+		                          ->each(function ($project) {
+			                          $project->forms()->save(factory(Form::class)->make());
+			                          $project->users()->save(factory(User::class)->make());
+		                          });
 	}
 }

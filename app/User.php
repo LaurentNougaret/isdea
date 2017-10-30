@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'firstname', 'lastname', 'email', 'password', 'role', 'language'
+        'firstname', 'lastname', 'email', 'role', 'language','password', 'group_id'
     ];
 
     /**
@@ -24,7 +24,6 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password',
     ];
 
     public function group()
@@ -34,6 +33,26 @@ class User extends Authenticatable
 
     public function projects()
     {
-    	$this->belongsToMany(Project::class);
+    	return $this->belongsToMany(Project::class);
     }
+
+
+//	/**
+//	 * @param $pass
+//	 *
+//	 * @return string
+//	 */
+//	public function getPasswordAttribute($pass)
+//	{
+//		return ucfirst($pass);
+//	}
+
+//	/**
+//	 *
+//	 */
+//    public function setPasswordAttribute()
+//    {
+//    	$this->attributes['password'] = bcrypt(str_random(8));
+//	    $this->attributes['password'] = Hash::make($pass);
+//    }
 }
