@@ -1,7 +1,6 @@
 @extends('layouts.template')
-@extends('layouts.navBar')
+@extends('layouts.navbar')
 @section('content')
-
     <table class="table table-hover">
         <thead>
         <tr>
