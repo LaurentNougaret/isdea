@@ -4,41 +4,41 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-          <li @if (Request::is('admin/project')) class="nav-item active">
+      <div class="navbar-nav mr-auto">
+          @if (Request::is('admin/project'))
                 <a href=""></a>
               @else
-                <a class="nav-link" href="project">{{trans('navbar.projects')}}</a>
+                <a class="nav-link nav-item" href="{{route('project.index')}}">{{trans('navbar.projects')}}</a>
               @endif
-          </li>
-          <li @if (Request::is('admin/users')) class="nav-item active">
+          @if (Request::is('admin/users'))
                 <a href=""></a>
               @else
-                <a class="nav-link" href="users">{{trans('navbar.users')}}</a>
+                <a class="nav-link nav-item" href="{{route('users.index')}}">{{trans('navbar.users')}}</a>
               @endif
-          </li>
-          <li @if (Request::is('admin/statistics')) class="nav-item active">
+          @if (Request::is('admin/stats'))>
                   <a href=""></a>
               @else
-                  <a class="nav-link" href="statistics">{{trans('navbar.stats')}}</a>
+                  <a class="nav-link nav-item" href="{{route('stats.index')}}">{{trans('navbar.stats')}}</a>
               @endif
-          </li>
-          <li class="nav-item dropdown ml-auto">
+          <div class="nav-item dropdown ml-auto">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   {{ Config::get('languages')[App::getLocale()] }}
               </a>
-              <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                   @foreach (Config::get('languages') as $lang => $language)
                       @if ($lang != App::getLocale())
-                          <li class="text-center">
+                          <div class="text-center">
                               <a href="{{ route('lang.switch', $lang) }}">{{$language}}</a>
-                          </li>
+                          </div>
                       @endif
                   @endforeach
-              </ul>
-          </li>
-      </ul>
+              </div>
+          </div>
+      </div>
   </div>
+    <span class="navbar-text">
+      Bonjour, Tartuffe.
+    </span>
     <form class="form-inline">
         <button class="btn btn-outline-secondary btn-md" type="submit">{{trans('navbar.logout')}}</button>
     </form>
