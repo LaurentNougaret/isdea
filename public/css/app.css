@@ -1,4 +1,16 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);h1 {
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);.navbar-nav,
+.navbar-text {
+  font-size: 16px;
+}
+
+.navbar-nav a:link,
+.navbar-nav a:visited,
+.navbar-nav a:hover {
+  color: #636b6f;
+  text-decoration: none;
+}
+
+h1 {
   font-family: "Anton", sans-serif;
   font-size: 44px;
   color: #636b6f;

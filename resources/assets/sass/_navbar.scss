@@ -1,5 +1,10 @@
 @import "variables";
 
-.navbar-nav {
-  font-size: 20px;
+.navbar-nav, .navbar-text {
+  font-size: $font-size-a;
+}
+
+.navbar-nav a:link, .navbar-nav a:visited, .navbar-nav a:hover {
+  color: $text-color-base;
+  text-decoration: none;
 }

@@ -37,7 +37,7 @@
       </div>
   </div>
     <span class="navbar-text">
-      Bonjour, Tartuffe.
+      Bonjour, <b>Tartuffe</b>.
     </span>
     <form class="form-inline">
         <button class="btn btn-outline-secondary btn-md" type="submit">{{trans('navbar.logout')}}</button>
