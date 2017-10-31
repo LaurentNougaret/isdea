@@ -12,12 +12,11 @@ class ProjectsTableSeeder extends Seeder
 	 *
 	 * @return void
 	 */
-	public function run()
-	{
-		factory(Project::class, 7)->create()
-		                          ->each(function ($project) {
-			                          $project->forms()->attach(mt_rand(1, 50));
-			                          $project->save();
-		                          });
+	public function run() {
+		factory( Project::class, 7 )->create()
+                                    ->each(function ($project) {
+				$project->forms()->save( factory( Form::class )->make() );
+				$project->users()->save( factory( User::class )->make() );
+			});
 	}
 }
