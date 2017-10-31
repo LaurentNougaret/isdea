@@ -58,47 +58,54 @@
                             @endif
                         </div>
                     </div>
-                    <div class="form-group{{ $errors->has('role') ? ' has-error' : '' }}">
+                    {{--<div class="form-group{{ $errors->has('role') ? ' has-error' : '' }}">--}}
+                    {{--<div class="mx-auto col-md-9">--}}
+                    {{--<label for="role" class="col-form-label">Rôle</label>--}}
+                    {{--</div>--}}
+                    {{--<div class="input-group mx-auto col-md-9">--}}
+                    {{--<div class="input-group-addon"><i class="fa fa-vcard-o fa-fw" aria-hidden="true"></i></div>--}}
+                    {{--<select id="role" class="form-control" name="role" value="{{ $account->role }}" required>--}}
+                    {{--<option selected>{{ $account->role }}</option>--}}
+                    {{--<option value="Input operator">Opérateur de saisie</option>--}}
+                    {{--<option value="Input operator advanced">Opérateur de saisie supérieur</option>--}}
+                    {{--<option value="Supervisor">Superviseur</option>--}}
+                    {{--</select>--}}
+                    {{--</div>--}}
+                    {{--</div>--}}
+                    <div class="form-group{{ $errors->has('language') ? ' has-error' : '' }}">
                         <div class="mx-auto col-md-9">
-                            <label for="role" class="col-form-label">Rôle</label>
+                            <label for="language" class="col-form-label">Langue</label>
                         </div>
                         <div class="input-group mx-auto col-md-9">
-                            <div class="input-group-addon"><i class="fa fa-vcard-o fa-fw" aria-hidden="true"></i></div>
-                            <select id="role" class="form-control" name="role" value="{{ $account->role }}" required>
-                                <option selected>Sélectionner le rôle</option>
-                                <option value="Input operator">Opérateur de saisie</option>
-                                <option value="Input operator advanced">Opérateur de saisie supérieur</option>
-                                <option value="Supervisor">Superviseur</option>
+                            <div class="input-group-addon"><i class="fa fa-language fa-fw" aria-hidden="true"></i></div>
+                            <select id="language" class="form-control" name="language" required>
+
+                                @foreach ($account as $key => $language)
+
+                                    @if($account->language == $key)
+                                        <option value="{{ $key }}" selected>{{ $language }}</option>
+                                    @else
+                                        <option value="{{ $key }}">{{ $language }} </option>
+                                    @endif
+                                @endforeach
+
+
                             </select>
                         </div>
                     </div>
-                    {{--<div class="form-group{{ $errors->has('language') ? ' has-error' : '' }}">--}}
-                        {{--<div class="mx-auto col-md-9">--}}
-                            {{--<label for="language" class="col-form-label">Langue</label>--}}
-                        {{--</div>--}}
-                        {{--<div class="input-group mx-auto col-md-9">--}}
-                            {{--<div class="input-group-addon"><i class="fa fa-language fa-fw" aria-hidden="true"></i></div>--}}
-                            {{--<select id="language" class="form-control" name="language" value="{{ old('language') }}" required>--}}
-                                {{--<option selected>Sélectionner la langue de saisie</option>--}}
-                                {{--<option value="English">Anglais</option>--}}
-                                {{--<option value="French">Français</option>--}}
-                                {{--<option value="Spanish">Espagnol</option>--}}
-                            {{--</select>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
                     {{--<div class="form-group{{ $errors->has('group_id') ? ' has-error' : '' }}">--}}
-                        {{--<div class="mx-auto col-md-9">--}}
-                            {{--<label for="group" class="col-form-label">Groupe</label>--}}
-                        {{--</div>--}}
-                        {{--<div class="input-group mx-auto col-md-9">--}}
-                            {{--<div class="input-group-addon"><i class="fa fa-users fa-fw" aria-hidden="true"></i></div>--}}
-                            {{--<select id="group_id" class="form-control" name="group_id" value="{{ old('group_id') }}" required>--}}
-                                {{--<option selected>Sélectionner le groupe</option>--}}
-                                {{--@foreach ($groups as $group)--}}
-                                    {{--<option value="{{ $group->id }}">{{ $group->name }}</option>--}}
-                                {{--@endforeach--}}
-                            {{--</select>--}}
-                        {{--</div>--}}
+                    {{--<div class="mx-auto col-md-9">--}}
+                    {{--<label for="group" class="col-form-label">Groupe</label>--}}
+                    {{--</div>--}}
+                    {{--<div class="input-group mx-auto col-md-9">--}}
+                    {{--<div class="input-group-addon"><i class="fa fa-users fa-fw" aria-hidden="true"></i></div>--}}
+                    {{--<select id="group_id" class="form-control" name="group_id" value="{{ old('group_id') }}" required>--}}
+                    {{--<option selected>Sélectionner le groupe</option>--}}
+                    {{--@foreach ($groups as $group)--}}
+                    {{--<option value="{{ $group->id }}">{{ $group->name }}</option>--}}
+                    {{--@endforeach--}}
+                    {{--</select>--}}
+                    {{--</div>--}}
                     {{--</div>--}}
                     <div class="form-group row col-md-12 m-0">
                         <button type="submit" class="btn-lg btn-outline-primary font-weight-bold mx-auto">Valider</button>

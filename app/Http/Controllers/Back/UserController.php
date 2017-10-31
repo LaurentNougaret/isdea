@@ -30,7 +30,8 @@ class UserController extends Controller
 	 */
 	public function create()
 	{
-		$groups = Group::select('name','id')->distinct()->get();
+		$groups = Group::select('name', 'id')->distinct()->get();
+//$groups->dd();
 		return view('back.user.create-account', [
 			'groups' => $groups,
 		]);
@@ -66,8 +67,8 @@ class UserController extends Controller
 	 */
 	public function show($id)
 	{
-		$account = User::find($id);
-		return view('back.user.edit-account')->with('account', $account);
+//		$account = User::find($id);
+//		return view('back.user.edit-account')->with('account', $account);
 	}
 
 	/**
@@ -78,8 +79,8 @@ class UserController extends Controller
 	 */
 	public function edit($id)
 	{
-	    $account = User::find($id);
-	    return view('back.user.edit-account')->with('account', $account);
+		$account = User::find($id);
+		return view('back.user.edit-account')->with('account', $account);
 	}
 
 	/**

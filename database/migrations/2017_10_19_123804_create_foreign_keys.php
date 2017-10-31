@@ -51,9 +51,9 @@ class CreateForeignKeys extends Migration
 
 		Schema::table('form_project', function(Blueprint $table)
 		{
-			$table->foreign( 'project_id' )->references( 'id' )->on( 'projects' )
-			      ->onUpdate( 'cascade' )
-			      ->onDelete( 'cascade' );
+			$table->foreign('project_id')->references('id')->on('projects')
+			      ->onUpdate('cascade')
+			      ->onDelete('cascade');
 		});
 	}
 
