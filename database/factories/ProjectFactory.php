@@ -14,13 +14,9 @@ $factory->define(Project::class, function (Faker $faker) {
 			'Assainissement de la Seine',
 			'Reboiser le 93',
 			'Karchériser Neuilly',
-
 		]),
 		'unit_id' => function () {
 			return factory(Unit::class)->create()->id;
-		},
-
+		}
 	];
-
 });
-

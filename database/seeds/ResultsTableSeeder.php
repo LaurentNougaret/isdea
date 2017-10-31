@@ -12,7 +12,6 @@ class ResultsTableSeeder extends Seeder
 	 */
 	public function run()
 	{
-		//		$faker = Faker\Factory::create('fr_FR');
 		factory(Result::class, 40)->create();
 	}
 }

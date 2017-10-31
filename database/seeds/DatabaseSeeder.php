@@ -16,8 +16,8 @@ class DatabaseSeeder extends Seeder
 		$this->call([
 			GroupsTableSeeder::class,
 			UnitsTableSeeder::class,
-			ProjectsTableSeeder::class,
 			FormsTableSeeder::class,
+			ProjectsTableSeeder::class,
 			ResultsTableSeeder::class,
 			UsersTableSeeder::class,
 		]);
