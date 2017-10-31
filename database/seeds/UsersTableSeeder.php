@@ -16,7 +16,7 @@ class UsersTableSeeder extends Seeder
 	{
 		factory(User::class, 30)->create()
 		                        ->each(function ($user) {
-			                        $user->projects()->attach(mt_rand(1, 7));
+                                    $user->projects()->save(factory( Project::class)->make());
 			                        $user->save();
 		                        });
 	}

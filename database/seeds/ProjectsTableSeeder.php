@@ -16,8 +16,9 @@ class ProjectsTableSeeder extends Seeder
 	{
 		factory(Project::class, 7)->create()
 		                          ->each(function ($project) {
-			                          $project->forms()->attach(mt_rand(1, 50));
+                                      $project->forms()->save(factory( Form::class)->make());
 			                          $project->save();
 		                          });
 	}
 }
+
