@@ -14,7 +14,6 @@ use Faker\Generator as Faker;
 | model instances for testing / seeding your application's database.
 |
 */
-
 $factory->define(User::class, function (Faker $faker) {
 	static $password;
 
@@ -34,15 +33,8 @@ $factory->define(User::class, function (Faker $faker) {
 			'english',
 			'spanish',
 		]),
-		'group_id' => $faker->randomElement($group = [
-		    '1',
-		    '2',
-		    '3',
-		    '4',
-		    '5',
-        ])
-
+		'group_id' => function () {
+			return factory(Group::class)->create()->id;
+		}
 	];
-
-
 });

@@ -22,9 +22,14 @@ class UserController extends Controller
      */
     public function index()
     {
-    $users = User::with('projects', 'groups')->get();
+//        $users = User::get();
+    $users = User::join('groups', 'users.group_id', '=', 'groups.id')
+        ->join('project_user', 'users.id', '=', 'project_user.user_id')
+        ->select('project_user.project_id')
+        ->join('projects', 'project_user.project_id', '=', 'projects.id')
+        ->select('users.*', 'groups.name', 'projects.name as project')->get();
 
-
+        echo dump($users);
 
         return view('back.user.index', ['users' => $users]);
     }
@@ -37,7 +42,7 @@ class UserController extends Controller
 	public function create()
 	{
 		$groups = Group::select('name','id')->distinct()->get();
-		return view('back.user.account', [
+		return view('back.user.create-account', [
 			'groups' => $groups,
 		]);
 	}
@@ -55,14 +60,13 @@ class UserController extends Controller
 	 */
 	public function store(UserCreateRequest $request)
 	{
-
 		$user = new User();
 		$user->fill($request->except('_token'));
 		$user->password =  bcrypt(str_random(8));
 		$user->save();
 
 		return redirect()->route('users.index')
-			->with('success', 'User created successfully');
+		                 ->with('success', 'User created successfully');
 	}
 
 	/**
@@ -73,8 +77,7 @@ class UserController extends Controller
 	 */
 	public function show($id)
 	{
-//	    $account = User::find($id);
-//    	return view('back.user.account')->with('account', $account);
+//		$account = User::find($id);
 	}
 
 	/**
@@ -85,8 +88,8 @@ class UserController extends Controller
 	 */
 	public function edit($id)
 	{
-//	    $account = User::find($id);
-//	    return view('back.user.account')->with('account', $account);
+	    $account = User::find($id);
+	    return view('back.user.edit-account')->with('account', $account);
 	}
 
 	/**
@@ -109,6 +112,10 @@ class UserController extends Controller
 	 */
 	public function destroy($id)
 	{
-
-	}
+        $user = User::find($id);
+        $user->delete();
+        return redirect('users.index')->with('success','Product has been  deleted');
+//	    User::destroy($id);
+//    return redirect()->route('users.index');
+    }
 }

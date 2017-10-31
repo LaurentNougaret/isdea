@@ -4,7 +4,6 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable
 {
@@ -25,8 +24,6 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        //7
-	    //'password',
     ];
 
     public function group()
@@ -50,19 +47,12 @@ class User extends Authenticatable
 //		return ucfirst($pass);
 //	}
 
-	/**
-	 *
+//	/**
+//	 *
 //	 */
 //    public function setPasswordAttribute()
 //    {
-////    	$this->attributes['password'] = bcrypt(str_random(8));
-////	    $this->attributes['password'] = Hash::make($pass);
+//    	$this->attributes['password'] = bcrypt(str_random(8));
+//	    $this->attributes['password'] = Hash::make($pass);
 //    }
-
-
-
-
-
-
-
 }
