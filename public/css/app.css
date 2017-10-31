@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);h1 {
   font-family: "Anton", sans-serif;
-  font-size: 25px;
-  color: #636b6f;
+  font-size: 18px;
+  color: black;
 }
 
 body {
@@ -9,16 +9,5 @@ body {
   font-size: 14px;
   line-height: 1.6;
   color: #636b6f;
-}
-
-.pagination li a {
-  color: #636b6f;
-  float: left;
-  padding: 8px 16px;
-  text-decoration: none;
-}
-
-.user-title {
-  padding-bottom: 0.8em;
 }
 

@@ -1,2 +1,2 @@
-@extends('layouts.navBar')
 @extends('layouts.template')
+@extends('layouts.navbar')

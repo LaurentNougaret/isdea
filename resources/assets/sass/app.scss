@@ -5,10 +5,10 @@
 // Variables
 @import "variables";
 
-//// Bootstrap
-//@import "~bootstrap-sass/assets/stylesheets/bootstrap";
-
 // Sass
-@import "navBar";
 @import "user";
 
+@import "navbar";
+
+//CSS Main
+@import "main";

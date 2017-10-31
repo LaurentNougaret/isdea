@@ -1,5 +1,5 @@
 @extends('layouts.template')
-@extends('layouts.navBar')
+@extends('layouts.navbar')
 @section('content')
     <div class="text-center user-title mt-5 mb-5">
         <h1>Gestion des utilisateurs</h1>

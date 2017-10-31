@@ -19,7 +19,7 @@ $brand-danger: #bf5329;
 // Typography
 
 $font-family-title: "Anton", sans-serif;
-$font-size-title: 25px;
+$font-size-title: 44px;
 $text-color-title: #636b6f;
 
 //$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
@@ -27,22 +27,6 @@ $font-family: "Raleway", sans-serif;
 $font-size: 14px;
 $line-height-base: 1.6;
 $text-color-base: #636b6f;
-
-
-h1{
-  font-family: $font-family-title;
-  font-size: $font-size-title;
-  color :$text-color-title;
-}
-
-body {
-  font-family: $font-family;
-  font-size: $font-size;
-  line-height: $line-height-base;
-  color: $text-color-base;
-}
-
-
 
 // Navbar
 $navbar-default-bg: #fff;
@@ -54,6 +38,9 @@ $btn-default-color: $text-color-base;
 $input-border: lighten($text-color-base, 40%);
 $input-border-focus: lighten($brand-primary, 25%);
 $input-color-placeholder: lighten($text-color-base, 30%);
-//
+
 // Panels
 $panel-default-heading-bg: #fff;
+
+//HTML <a> tag
+$font-size-a: 18px;
