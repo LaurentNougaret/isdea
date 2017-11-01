@@ -1,6 +1,7 @@
 <?php
 
 use App\Group;
+use App\Language;
 use App\User;
 use Faker\Generator as Faker;
 
@@ -28,11 +29,9 @@ $factory->define(User::class, function (Faker $faker) {
 			'Supervisor',
 			'Administrator',
 		]),
-		'language' => $faker->randomElement($language = [
-			'french',
-			'english',
-			'spanish',
-		]),
+        'language_id' => function () {
+	        return factory(Language::class)->create()->id;
+        },
 		'group_id' => function () {
 			return factory(Group::class)->create()->id;
 		}

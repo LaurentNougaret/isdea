@@ -28,7 +28,7 @@ class UserCreateRequest extends FormRequest
             'lastname' => 'required|alpha',
             'email' => 'required|email|unique:users',
             'role' => 'required',
-            'language' => 'required',
+            'language_id' => 'required',
             'group_id' => 'required',
         ];
     }

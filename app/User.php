@@ -10,8 +10,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property mixed lastname
  * @property mixed email
  * @property mixed role
- * @property mixed language
  * @property mixed group_id
+ * @property mixed language_id
  * @property mixed password
  */
 class User extends Authenticatable
@@ -24,7 +24,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'firstname', 'lastname', 'email', 'role', 'language','password', 'group_id'
+        'firstname', 'lastname', 'email', 'role', 'password', 'group_id', 'language_id'
     ];
 
     /**
@@ -45,23 +45,8 @@ class User extends Authenticatable
     	return $this->belongsToMany(Project::class);
     }
 
-
-//	/**
-//	 * @param $pass
-//	 *
-//	 * @return string
-//	 */
-//	public function getPasswordAttribute($pass)
-//	{
-//		return ucfirst($pass);
-//	}
-
-//	/**
-//	 *
-//	 */
-//    public function setPasswordAttribute()
-//    {
-//    	$this->attributes['password'] = bcrypt(str_random(8));
-//	    $this->attributes['password'] = Hash::make($pass);
-//    }
+    public function language()
+    {
+        return $this->belongsTo(Language::class);
+    }
 }
