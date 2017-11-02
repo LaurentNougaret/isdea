@@ -12,15 +12,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker\Factory::create('fr_FR');
+        $faker = Faker\Factory::create();
         $this->call([
             GroupsTableSeeder::class,
             UnitsTableSeeder::class,
+            RolesTableSeeder::class,
+            LanguagesTableSeeder::class,
+            UsersTableSeeder::class,
             FormsTableSeeder::class,
             ProjectsTableSeeder::class,
             ResultsTableSeeder::class,
-            UsersTableSeeder::class,
-            LanguagesTableSeeder::class,
         ]);
     }
 }

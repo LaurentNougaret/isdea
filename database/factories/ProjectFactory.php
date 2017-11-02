@@ -5,7 +5,7 @@ use App\Unit;
 use Faker\Generator as Faker;
 
 $factory->define(Project::class, function (Faker $faker) {
-	return [
+    return [
 		'name' => $faker->randomElement($project = [
 			'Projet trop naze',
 			'Projet qui claque',

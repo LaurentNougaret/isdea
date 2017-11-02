@@ -2,6 +2,7 @@
 
 use App\Group;
 use App\Language;
+use App\Role;
 use App\User;
 use Faker\Generator as Faker;
 
@@ -23,17 +24,14 @@ $factory->define(User::class, function (Faker $faker) {
 		'lastname' => $faker->lastName,
 		'email' => $faker->unique()->safeEmail,
 		'password' => $password ?: $password = bcrypt('secret'),
-		'role' => $faker->randomElement($role = [
-			'Input operator',
-			'Input operator advanced',
-			'Supervisor',
-			'Administrator',
-		]),
         'language_id' => function () {
 	        return factory(Language::class)->create()->id;
         },
 		'group_id' => function () {
 			return factory(Group::class)->create()->id;
+		},
+		'role_id' => function () {
+			return factory(Role::class)->create()->id;
 		}
 	];
 });

@@ -23,6 +23,11 @@ class CreateForeignKeys extends Migration
 			$table->foreign('language_id')->references('id')->on('languages');
 		});
 
+		Schema::table('users', function(Blueprint $table)
+		{
+			$table->foreign('role_id')->references('id')->on('roles');
+		});
+
 		Schema::table('projects', function(Blueprint $table)
 		{
 			$table->foreign('unit_id')->references('id')->on('units');
