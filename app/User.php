@@ -44,24 +44,4 @@ class User extends Authenticatable
     {
     	return $this->belongsToMany(Project::class);
     }
-
-
-//	/**
-//	 * @param $pass
-//	 *
-//	 * @return string
-//	 */
-//	public function getPasswordAttribute($pass)
-//	{
-//		return ucfirst($pass);
-//	}
-
-//	/**
-//	 *
-//	 */
-//    public function setPasswordAttribute()
-//    {
-//    	$this->attributes['password'] = bcrypt(str_random(8));
-//	    $this->attributes['password'] = Hash::make($pass);
-//    }
 }

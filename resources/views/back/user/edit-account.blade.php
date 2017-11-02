@@ -1,4 +1,5 @@
 @extends('layouts.template')
+@extends('layouts.navbar')
 
 @section('content')
     <div class="row">
@@ -56,6 +57,8 @@
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                             @endif
+
+
                         </div>
                     </div>
                     {{--<div class="form-group{{ $errors->has('role') ? ' has-error' : '' }}">--}}
@@ -80,19 +83,21 @@
                             <div class="input-group-addon"><i class="fa fa-language fa-fw" aria-hidden="true"></i></div>
                             <select id="language" class="form-control" name="language" required>
 
-                                @foreach ($account as $key => $language)
 
-                                    @if($account->language == $key)
-                                        <option value="{{ $key }}" selected>{{ $language }}</option>
-                                    @else
-                                        <option value="{{ $key }}">{{ $language }} </option>
-                                    @endif
-                                @endforeach
+                                <option value={{ $account->language }} selected> {{ $account->language }} </option>
+                                @if($account->language == "spanish")
+                                    <option value="english" selected>Anglais</option>
+                                    <option value="french" selected>Français</option>
+                                @endif
 
 
                             </select>
                         </div>
                     </div>
+
+
+                    {{ dump($account) }}
+
                     {{--<div class="form-group{{ $errors->has('group_id') ? ' has-error' : '' }}">--}}
                     {{--<div class="mx-auto col-md-9">--}}
                     {{--<label for="group" class="col-form-label">Groupe</label>--}}
