@@ -5,23 +5,34 @@ namespace App\Http\Controllers\Back;
 use App\Group;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserCreateRequest;
+use App\Language;
+use App\Role;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class UserController extends Controller
 {
 	/* Users Management */
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return \Illuminate\Http\Response
-	 */
-	public function index()
-	{
-		$users = User::all();
-		return view('back.user.index')->with('users', $users);
-	}
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
+    public function index()
+    {
+    $users = User::join('groups', 'users.group_id', '=', 'groups.id')
+	    ->join('roles', 'users.role_id', '=', 'roles.id')
+        ->join('project_user', 'users.id', '=', 'project_user.user_id')
+        ->select('project_user.project_id')
+        ->join('projects', 'project_user.project_id', '=', 'projects.id')
+        ->select('users.*', 'roles.name as role', 'groups.name as group', 'projects.name as project')->get();
+
+        echo dump($users);
+
+        return view('back.user.index', ['users' => $users]);
+    }
 
 	/**
 	 * Show the form for creating a new resource.
@@ -31,13 +42,14 @@ class UserController extends Controller
 	public function create()
 	{
 		$groups = Group::select('name', 'id')->distinct()->get();
-//$groups->dd();
-		return view('back.user.create-account', [
+		$roles = Role::select('name', 'id')->distinct()->get();
+		$languages = Language::select('name', 'id')->distinct()->get();
+		return view('back.user.create', [
 			'groups' => $groups,
+			'roles' => $roles,
+			'languages' => $languages,
 		]);
 	}
-
-
 
 	/**
 	 * Store a newly created resource in storage.
@@ -79,8 +91,8 @@ class UserController extends Controller
 	 */
 	public function edit($id)
 	{
-		$account = User::find($id);
-		return view('back.user.edit-account')->with('account', $account);
+		$user = User::find($id);
+		return view('back.user.edit')->with('user', $user);
 	}
 
 	/**
@@ -103,6 +115,10 @@ class UserController extends Controller
 	 */
 	public function destroy($id)
 	{
-
-	}
+        $user = User::find($id);
+        $user->delete();
+        return redirect('users.index')->with('success','Product has been  deleted');
+//	    User::destroy($id);
+//    return redirect()->route('users.index');
+    }
 }
