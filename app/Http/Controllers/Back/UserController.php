@@ -5,15 +5,31 @@ namespace App\Http\Controllers\Back;
 use App\Group;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserCreateRequest;
+use App\Repositories\SearchRepository;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
+use App\Repositories\UserReposity;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
 
 class UserController extends Controller
 {
 	/* Users Management */
+
+    /**
+     * UserController constructor.
+     * @param UserReposity $repository
+     */
+	public function __construct(UserReposity $userRepository, SearchRepository $searchRepository)
+    {
+        $this->userRepository = $userRepository;
+        $this->nbrPages = config('app.nbrPages.back.users');
+
+        $this->searchRepository = $searchRepository;
+    }
 
     /**
      * Display a listing of the resource.
@@ -22,16 +38,19 @@ class UserController extends Controller
      */
     public function index()
     {
-//        $users = User::get();
-    $users = User::join('groups', 'users.group_id', '=', 'groups.id')
-        ->join('project_user', 'users.id', '=', 'project_user.user_id')
-        ->select('project_user.project_id')
-        ->join('projects', 'project_user.project_id', '=', 'projects.id')
-        ->select('users.*', 'groups.name', 'projects.name as project')->get();
-
-        echo dump($users);
+        $users = $this->userRepository->getOrder($this->nbrPages);
 
         return view('back.user.index', ['users' => $users]);
+    }
+
+
+    public function search()
+    {
+        $keyword = Input::get('keyword', '');
+        $users = User::SearchByKeyword($keyword)->get();
+
+        return view('back.user.index', ['users' => $users]);
+
     }
 
 	/**
@@ -76,7 +95,7 @@ class UserController extends Controller
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function show($id)
+	public function show()
 	{
 //		$account = User::find($id);
 //		return view('back.user.edit-account')->with('account', $account);
@@ -112,12 +131,13 @@ class UserController extends Controller
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function destroy($id)
+	public function destroy(Request $request)
 	{
-        $user = User::find($id);
-        $user->delete();
-        return redirect('users.index')->with('success','Product has been  deleted');
-//	    User::destroy($id);
-//    return redirect()->route('users.index');
+        User::destroy($request->users);
+        return back();
+//        $user = User::find($id);
+//        $user->delete();
+//        return redirect('admin/users')->with('success','Product has been  deleted');
+
     }
 }

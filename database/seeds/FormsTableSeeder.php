@@ -13,6 +13,9 @@ class FormsTableSeeder extends Seeder
 	 */
 	public function run()
 	{
-		factory(Form::class, 50)->create();
+		factory(Form::class, 50)->create()
+		                        ->each(function ($form) {
+			                        $form->projects()->save(factory(Project::class)->make());
+		                        });
 	}
 }

@@ -6,6 +6,7 @@
  */
 
 require('./bootstrap');
+require('./checkboxSelectAll');
 
 window.Vue = require('vue');
 

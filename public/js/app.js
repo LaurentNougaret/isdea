@@ -978,6 +978,7 @@ module.exports = __webpack_require__(42);
  */
 
 __webpack_require__(11);
+__webpack_require__(47);
 
 window.Vue = __webpack_require__(35);
 
@@ -42742,7 +42743,26 @@ if (false) {
 /* 42 */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed: ModuleBuildError: Module build failed: \n$font-family-title: \"Anton\", sans-serif;\n                                       ^\n      Invalid CSS after '...n\", sans-serif;': expected 1 selector or at-rule, was \"<<<<<<< HEAD\"\n      in /home/topikana/LaravelProject/isdea/resources/assets/sass/_variables.scss (line 21, column 41)\n    at runLoaders (/home/topikana/LaravelProject/isdea/node_modules/webpack/lib/NormalModule.js:195:19)\n    at /home/topikana/LaravelProject/isdea/node_modules/loader-runner/lib/LoaderRunner.js:364:11\n    at /home/topikana/LaravelProject/isdea/node_modules/loader-runner/lib/LoaderRunner.js:230:18\n    at context.callback (/home/topikana/LaravelProject/isdea/node_modules/loader-runner/lib/LoaderRunner.js:111:13)\n    at Object.asyncSassJobQueue.push [as callback] (/home/topikana/LaravelProject/isdea/node_modules/sass-loader/lib/loader.js:55:13)\n    at Object.<anonymous> (/home/topikana/LaravelProject/isdea/node_modules/async/dist/async.js:2244:31)\n    at Object.callback (/home/topikana/LaravelProject/isdea/node_modules/async/dist/async.js:906:16)\n    at options.error (/home/topikana/LaravelProject/isdea/node_modules/node-sass/lib/index.js:294:32)");
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 43 */,
+/* 44 */,
+/* 45 */,
+/* 46 */,
+/* 47 */
+/***/ (function(module, exports) {
+
+$(function () {
+
+    $('.group-checkable').click(function () {
+        if ($(this).prop('checked')) {
+            $('.checkbox').prop('checked', true);
+        } else {
+            $('.checkbox').prop('checked', false);
+        }
+    });
+});
 
 /***/ })
 /******/ ]);

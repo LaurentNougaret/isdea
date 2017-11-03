@@ -1,6 +1,9 @@
 @extends('layouts.template')
 @extends('layouts.navbar')
 @section('content')
+    <form action="{{ route('users.destroy') }}" method="post">
+        {{ csrf_field() }}
+        <input type="hidden" name="_method" value="delete">
     <div class="text-center user-title mt-5 mb-5">
         <h1>Gestion des utilisateurs</h1>
     </div>
@@ -30,7 +33,9 @@
     </div>
 
     <div class="row justify-content-end mt-2">
-        <i class="fa fa-user-plus fa-2x col-1 mr-4" aria-hidden="true"></i>
+        <a href="{{ route('users.create') }}" class="add_user">
+        <i class="fa fa-user-plus fa-2x col-1 mr-4" aria-hidden="true" href="{{ route('users.create') }}"></i>
+        </a>
     </div>
     <table class="table table-hover mt-3">
         <thead>
@@ -40,41 +45,53 @@
             <th scope="col">Rôle</th>
             <th scope="col">Groupe</th>
             <th scope="col">Projet</th>
+            <th style="width: 8px;">
+                <input type="checkbox" class="group-checkable"  data-set="#sample_1 .checkboxes" />
+            </th>
             {{--<th><i class="fa fa-trash fa-2x" aria-hidden="true" href="{{  action('Back\UserController@destroy' , $user->id) }}"></i></th>--}}
         </tr>
         </thead>
-        <tbody>
+        <form>
 
         @foreach($users as $user)
-            <form action="{{ route('users.destroy', $user->id) }}" method="post">
-                {{ csrf_field() }}
-                {{ method_field('DELETE') }}
-            <tr>
+
+            <tr class="odd gradeX">
                 <td>{{ $user->lastname }}</td>
                 <td>{{ $user->firstname }}</td>
                 <td>{{ $user->role }}</td>
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->project }}</td>
-                <td><a class="link-action" href="{{  action('Back\UserController@destroy' , $user->id) }}">
-                        <i class="fa fa-trash fa-2x" aria-hidden="true"></i>
-                    </a>
+                <td>
+                    <input type="checkbox" class="checkbox" name="users[]" value="{{ $user->id }}" />
                 </td>
-                <td><label>
+                {{--<td><form action="{{ action('Back\UserController@destroy', $user->id) }}" method="post">--}}
+                    {{--{{ csrf_field() }}--}}
+                        {{--{{ method_field('DELETE') }}--}}
+                    {{--<a class="" href="">--}}
+                        {{--<i class="fa fa-trash fa-2x" aria-hidden="true"></i>--}}
+                    {{--</a>--}}
+                        {{--<input name="_method" type="hidden" value="DELETE">--}}
+                        {{--<button class="btn btn-danger" type="submit">Delete</button>--}}
+                    {{--</form>--}}
+                {{--</td>--}}
+
+                {{--<td><label>--}}
                         {{--<input class="field ml-2" name="checked[]" type="checkbox" value="{{ $user->id }}"/>--}}
-                    </label>
-                </td>
+                    {{--</label>--}}
+                {{--</td>--}}
             </tr>
-            </form>
         @endforeach
+            <button class="btn btn-danger">Delete Checked</button>
+        </form>
         </tbody>
     </table>
     <nav aria-label="Page navigation example mt-3">
         <ul class="pagination justify-content-center">
-            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            <li class="page-item"><a class="page-link" href="{{ $users->links('layouts.pagination') }}">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="{{ $users->links('layouts.pagination') }}">1</a></li>
+            <li class="page-item"><a class="page-link" href="{{ $users->links('layouts.pagination') }}">2</a></li>
+            <li class="page-item"><a class="page-link" href="{{ $users->links('layouts.pagination') }}">3</a></li>
+            <li class="page-item"><a class="page-link" href="{{ $users->links('layouts.pagination') }}">Next</a></li>
         </ul>
     </nav>
 @endsection
