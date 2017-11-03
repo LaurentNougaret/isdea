@@ -2,6 +2,7 @@
 @extends('layouts.navbar')
 @section('content')
     <form action="{{ route('users.destroy') }}" method="post">
+        <form action="{{ route('users.search') }}" method="get">
         {{ csrf_field() }}
         <input type="hidden" name="_method" value="delete">
     <div class="text-center user-title mt-5 mb-5">
@@ -33,9 +34,7 @@
     </div>
 
     <div class="row justify-content-end mt-2">
-        <a href="{{ route('users.create') }}" class="add_user">
-        <i class="fa fa-user-plus fa-2x col-1 mr-4" aria-hidden="true" href="{{ route('users.create') }}"></i>
-        </a>
+        <a href="{{ action('Back\UserController@create') }}"><i class="fa fa-user-plus fa-2x col-1 mr-4" aria-hidden="true"></i></a>
     </div>
     <table class="table table-hover mt-3">
         <thead>
@@ -59,26 +58,11 @@
                 <td>{{ $user->lastname }}</td>
                 <td>{{ $user->firstname }}</td>
                 <td>{{ $user->role }}</td>
-                <td>{{ $user->name }}</td>
+                <td>{{ $user->group }}</td>
                 <td>{{ $user->project }}</td>
                 <td>
                     <input type="checkbox" class="checkbox" name="users[]" value="{{ $user->id }}" />
                 </td>
-                {{--<td><form action="{{ action('Back\UserController@destroy', $user->id) }}" method="post">--}}
-                    {{--{{ csrf_field() }}--}}
-                        {{--{{ method_field('DELETE') }}--}}
-                    {{--<a class="" href="">--}}
-                        {{--<i class="fa fa-trash fa-2x" aria-hidden="true"></i>--}}
-                    {{--</a>--}}
-                        {{--<input name="_method" type="hidden" value="DELETE">--}}
-                        {{--<button class="btn btn-danger" type="submit">Delete</button>--}}
-                    {{--</form>--}}
-                {{--</td>--}}
-
-                {{--<td><label>--}}
-                        {{--<input class="field ml-2" name="checked[]" type="checkbox" value="{{ $user->id }}"/>--}}
-                    {{--</label>--}}
-                {{--</td>--}}
             </tr>
         @endforeach
             <button class="btn btn-danger">Delete Checked</button>
@@ -94,4 +78,6 @@
             <li class="page-item"><a class="page-link" href="{{ $users->links('layouts.pagination') }}">Next</a></li>
         </ul>
     </nav>
+        </form>
+    </form>
 @endsection

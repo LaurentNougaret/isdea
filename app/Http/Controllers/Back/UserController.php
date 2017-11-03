@@ -6,14 +6,16 @@ use App\Group;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserCreateRequest;
 use App\Repositories\SearchRepository;
+use App\Language;
+use App\Role;
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use App\Repositories\UserReposity;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Input;
 
 class UserController extends Controller
 {
@@ -38,6 +40,14 @@ class UserController extends Controller
      */
     public function index()
     {
+//    $users = User::join('groups', 'users.group_id', '=', 'groups.id')
+//	    ->join('roles', 'users.role_id', '=', 'roles.id')
+//        ->join('project_user', 'users.id', '=', 'project_user.user_id')
+//        ->select('project_user.project_id')
+//        ->join('projects', 'project_user.project_id', '=', 'projects.id')
+//        ->select('users.*', 'roles.name as role', 'groups.name as group', 'projects.name as project')->get();
+
+
         $users = $this->userRepository->getOrder($this->nbrPages);
 
         return view('back.user.index', ['users' => $users]);
@@ -46,8 +56,9 @@ class UserController extends Controller
 
     public function search()
     {
+
         $keyword = Input::get('keyword', '');
-        $users = User::SearchByKeyword($keyword)->get();
+        $users = User::find($keyword)->get();
 
         return view('back.user.index', ['users' => $users]);
 
@@ -61,13 +72,14 @@ class UserController extends Controller
 	public function create()
 	{
 		$groups = Group::select('name', 'id')->distinct()->get();
-//$groups->dd();
-		return view('back.user.create-account', [
+		$roles = Role::select('name', 'id')->distinct()->get();
+		$languages = Language::select('name', 'id')->distinct()->get();
+		return view('back.user.create', [
 			'groups' => $groups,
+			'roles' => $roles,
+			'languages' => $languages,
 		]);
 	}
-
-
 
 	/**
 	 * Store a newly created resource in storage.
@@ -95,7 +107,7 @@ class UserController extends Controller
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function show()
+	public function show($id)
 	{
 //		$account = User::find($id);
 //		return view('back.user.edit-account')->with('account', $account);
@@ -109,8 +121,8 @@ class UserController extends Controller
 	 */
 	public function edit($id)
 	{
-		$account = User::find($id);
-		return view('back.user.edit-account')->with('account', $account);
+		$user = User::find($id);
+		return view('back.user.edit')->with('user', $user);
 	}
 
 	/**
