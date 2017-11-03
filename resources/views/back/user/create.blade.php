@@ -1,4 +1,5 @@
 @extends('layouts.template')
+@extends('layouts.navbar')
 @section('content')
     <div class="row">
         <div class="card mx-auto my-5 col-lg-6 col-md-9 border border-primary rounded">

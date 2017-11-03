@@ -9,9 +9,7 @@ use App\Language;
 use App\Role;
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -24,12 +22,12 @@ class UserController extends Controller
      */
     public function index()
     {
-//        $users = User::get();
     $users = User::join('groups', 'users.group_id', '=', 'groups.id')
+	    ->join('roles', 'users.role_id', '=', 'roles.id')
         ->join('project_user', 'users.id', '=', 'project_user.user_id')
         ->select('project_user.project_id')
         ->join('projects', 'project_user.project_id', '=', 'projects.id')
-        ->select('users.*', 'groups.name', 'projects.name as project')->get();
+        ->select('users.*', 'roles.name as role', 'groups.name as group', 'projects.name as project')->get();
 
         echo dump($users);
 
@@ -46,7 +44,7 @@ class UserController extends Controller
 		$groups = Group::select('name', 'id')->distinct()->get();
 		$roles = Role::select('name', 'id')->distinct()->get();
 		$languages = Language::select('name', 'id')->distinct()->get();
-		return view('back.user.create-account', [
+		return view('back.user.create', [
 			'groups' => $groups,
 			'roles' => $roles,
 			'languages' => $languages,
@@ -93,8 +91,8 @@ class UserController extends Controller
 	 */
 	public function edit($id)
 	{
-		$account = User::find($id);
-		return view('back.user.edit-account')->with('account', $account);
+		$user = User::find($id);
+		return view('back.user.edit')->with('user', $user);
 	}
 
 	/**

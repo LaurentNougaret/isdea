@@ -59,28 +59,26 @@
                             @endif
                         </div>
                     </div>
-                    {{--<div class="form-group{{ $errors->has('role') ? ' has-error' : '' }}">--}}
-                    {{--<div class="mx-auto col-md-9">--}}
-                    {{--<label for="role" class="col-form-label">Rôle</label>--}}
-                    {{--</div>--}}
-                    {{--<div class="input-group mx-auto col-md-9">--}}
-                    {{--<div class="input-group-addon"><i class="fa fa-vcard-o fa-fw" aria-hidden="true"></i></div>--}}
-                    {{--<select id="role" class="form-control" name="role" value="{{ $account->role }}" required>--}}
-                    {{--<option
-                    >{{ $account->role }}</option>--}}
-                    {{--<option value="Input operator">Opérateur de saisie</option>--}}
-                    {{--<option value="Input operator advanced">Opérateur de saisie supérieur</option>--}}
-                    {{--<option value="Supervisor">Superviseur</option>--}}
-                    {{--</select>--}}
-                    {{--</div>--}}
-                    {{--</div>--}}
-                    <div class="form-group{{ $errors->has('language') ? ' has-error' : '' }}">
+                    <div class="form-group{{ $errors->has('role_id') ? ' has-error' : '' }}">
                         <div class="mx-auto col-md-9">
-                            <label for="language" class="col-form-label">Langue</label>
+                            <label for="role_id" class="col-form-label">Rôle</label>
+                        </div>
+                        <div class="input-group mx-auto col-md-9">
+                            <div class="input-group-addon"><i class="fa fa-vcard-o fa-fw" aria-hidden="true"></i></div>
+                            <select id="role_id" class="form-control" name="role_id" value="{{ $account->role }}" required>
+
+                                <option value={{ $user->role }}>{{ $user->role }}</option>
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group{{ $errors->has('language_id') ? ' has-error' : '' }}">
+                        <div class="mx-auto col-md-9">
+                            <label for="language_id" class="col-form-label">Langue</label>
                         </div>
                         <div class="input-group mx-auto col-md-9">
                             <div class="input-group-addon"><i class="fa fa-language fa-fw" aria-hidden="true"></i></div>
-                            <select id="language" class="form-control" name="language" required>
+                            <select id="language_id" class="form-control" name="language_id" required>
                                 <option value={{ $account->language }} selected> {{ $account->language }} </option>
                                 @if($account->language == "spanish")
                                     <option value="english" selected>Anglais</option>

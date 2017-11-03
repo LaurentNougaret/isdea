@@ -30,7 +30,7 @@
     </div>
 
     <div class="row justify-content-end mt-2">
-        <i class="fa fa-user-plus fa-2x col-1 mr-4" aria-hidden="true"></i>
+        <a href="{{ action('Back\UserController@create') }}"><i class="fa fa-user-plus fa-2x col-1 mr-4" aria-hidden="true"></i></a>
     </div>
     <table class="table table-hover mt-3">
         <thead>
@@ -46,14 +46,14 @@
         <tbody>
 
         @foreach($users as $user)
-            <form action="{{ route('users.destroy', $user->id) }}" method="post">
+            <form action="{{ action('Back\UserController@destroy', $user->id) }}" method="post">
                 {{ csrf_field() }}
                 {{ method_field('DELETE') }}
             <tr>
                 <td>{{ $user->lastname }}</td>
                 <td>{{ $user->firstname }}</td>
                 <td>{{ $user->role }}</td>
-                <td>{{ $user->name }}</td>
+                <td>{{ $user->group }}</td>
                 <td>{{ $user->project }}</td>
                 <td><a class="link-action" href="{{  action('Back\UserController@destroy' , $user->id) }}">
                         <i class="fa fa-trash fa-2x" aria-hidden="true"></i>
