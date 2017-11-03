@@ -9,21 +9,32 @@ use App\Language;
 use App\Role;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
 	/* Users Management */
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return \Illuminate\Http\Response
-	 */
-	public function index()
-	{
-		$users = User::all();
-		return view('back.user.index')->with('users', $users);
-	}
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
+    public function index()
+    {
+//        $users = User::get();
+    $users = User::join('groups', 'users.group_id', '=', 'groups.id')
+        ->join('project_user', 'users.id', '=', 'project_user.user_id')
+        ->select('project_user.project_id')
+        ->join('projects', 'project_user.project_id', '=', 'projects.id')
+        ->select('users.*', 'groups.name', 'projects.name as project')->get();
+
+        echo dump($users);
+
+        return view('back.user.index', ['users' => $users]);
+    }
 
 	/**
 	 * Show the form for creating a new resource.
@@ -106,6 +117,10 @@ class UserController extends Controller
 	 */
 	public function destroy($id)
 	{
-
-	}
+        $user = User::find($id);
+        $user->delete();
+        return redirect('users.index')->with('success','Product has been  deleted');
+//	    User::destroy($id);
+//    return redirect()->route('users.index');
+    }
 }
