@@ -10,4 +10,7 @@ return
 	'language' => 'Language',
 	'group' => 'Group',
 	'validate' => 'Validate',
+	'select_role' => 'Select role',
+	'select_language' => 'Select language',
+	'select_group' => 'Select group',
 ];
