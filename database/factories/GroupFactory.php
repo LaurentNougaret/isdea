@@ -5,7 +5,7 @@ use Faker\Generator as Faker;
 
 $factory->define(Group::class, function (Faker $faker) {
 	return [
-        'name' => $faker->randomElement($group=[
+        'name' => $faker->randomElement($group = [
         	'Les Boss',
 	        'Les Loosers',
 	        'Les Beatnick',

@@ -1,5 +1,4 @@
 @extends('layouts.template')
-
 @section('content')
     <div class="row">
         <div class="card mx-auto my-5 col-lg-6 col-md-9 border border-primary rounded">
@@ -51,7 +50,6 @@
                         <div class="input-group mx-auto col-md-9">
                             <div class="input-group-addon"><i class="fa fa-at fa-fw" aria-hidden="true"></i></div>
                             <input id="email" type="text" placeholder="johnsnow@got.com" class="form-control" name="email" value="{{ old('email') }}" required>
-
                             @if ($errors->has('email'))
                                 <span class="form-text">
                                         <strong>{{ $errors->first('email') }}</strong>
@@ -59,52 +57,47 @@
                             @endif
                         </div>
                     </div>
-                    <div class="form-group{{ $errors->has('role') ? ' has-error' : '' }}">
+                    <div class="form-group{{ $errors->has('role_id') ? ' has-error' : '' }}">
                         <div class="mx-auto col-md-9">
-                            <label for="role" class="col-form-label">Rôle</label>
+                            <label for="role_id" class="col-form-label">Rôle</label>
                         </div>
                         <div class="input-group mx-auto col-md-9">
                             <div class="input-group-addon"><i class="fa fa-vcard-o fa-fw" aria-hidden="true"></i></div>
-                            <select id="role" class="form-control" name="role" value="{{ old('role') }}" required>
+                            <select id="role_id" class="form-control" name="role_id" required>
                                 <option selected>Sélectionner le rôle</option>
-                                <option value="Input operator">Opérateur de saisie</option>
-                                <option value="Input operator advanced">Opérateur de saisie supérieur</option>
-                                <option value="Supervisor">Superviseur</option>
+                                @foreach($roles as $role)
+                                    {{ dump($role) }}
+                                    <option value="{{ $role->id }}">{{ $role->name }}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
-                    <div class="form-group{{ $errors->has('language') ? ' has-error' : '' }}">
+                    <div class="form-group{{ $errors->has('language_id') ? ' has-error' : '' }}">
                         <div class="mx-auto col-md-9">
-                            <label for="language" class="col-form-label">Langue</label>
+                            <label for="language_id" class="col-form-label">Langue</label>
                         </div>
                         <div class="input-group mx-auto col-md-9">
                             <div class="input-group-addon"><i class="fa fa-language fa-fw" aria-hidden="true"></i></div>
-                            <select id="language" class="form-control" name="language" value="{{ old('language') }}" required>
+                            <select id="language_id" class="form-control" name="language_id" required>
                                 <option selected>Sélectionner la langue de saisie</option>
-                                <option value="English">Anglais</option>
-                                <option value="French">Français</option>
-                                <option value="Spanish">Espagnol</option>
+                                @foreach($languages as $language)
+                                    <option value="{{ $language->id }}">{{ $language->name }}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
-
-
-
                     <div class="form-group{{ $errors->has('group_id') ? ' has-error' : '' }}">
                         <div class="mx-auto col-md-9">
-                            <label for="group" class="col-form-label">Groupe</label>
+                            <label for="group_id" class="col-form-label">Groupe</label>
                         </div>
                         <div class="input-group mx-auto col-md-9">
                             <div class="input-group-addon"><i class="fa fa-users fa-fw" aria-hidden="true"></i></div>
                             <select id="group_id" class="form-control" name="group_id" required>
                                 <option selected>Sélectionner le groupe</option>
                                 @foreach ($groups as $group)
-
                                     <option value="{{ $group->id }}">{{ $group->name }}</option>
-
                                 @endforeach
-                                </select>
-                             {{ dump($group) }}
+                            </select>
                         </div>
                     </div>
                     <div class="form-group row col-md-12 m-0">

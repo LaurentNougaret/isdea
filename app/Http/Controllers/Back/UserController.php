@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Back;
 use App\Group;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserCreateRequest;
+use App\Language;
+use App\Role;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -31,13 +33,14 @@ class UserController extends Controller
 	public function create()
 	{
 		$groups = Group::select('name', 'id')->distinct()->get();
-//$groups->dd();
+		$roles = Role::select('name', 'id')->distinct()->get();
+		$languages = Language::select('name', 'id')->distinct()->get();
 		return view('back.user.create-account', [
 			'groups' => $groups,
+			'roles' => $roles,
+			'languages' => $languages,
 		]);
 	}
-
-
 
 	/**
 	 * Store a newly created resource in storage.

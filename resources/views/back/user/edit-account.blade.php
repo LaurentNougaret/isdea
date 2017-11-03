@@ -57,8 +57,6 @@
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                             @endif
-
-
                         </div>
                     </div>
                     {{--<div class="form-group{{ $errors->has('role') ? ' has-error' : '' }}">--}}
@@ -68,7 +66,8 @@
                     {{--<div class="input-group mx-auto col-md-9">--}}
                     {{--<div class="input-group-addon"><i class="fa fa-vcard-o fa-fw" aria-hidden="true"></i></div>--}}
                     {{--<select id="role" class="form-control" name="role" value="{{ $account->role }}" required>--}}
-                    {{--<option selected>{{ $account->role }}</option>--}}
+                    {{--<option
+                    >{{ $account->role }}</option>--}}
                     {{--<option value="Input operator">Opérateur de saisie</option>--}}
                     {{--<option value="Input operator advanced">Opérateur de saisie supérieur</option>--}}
                     {{--<option value="Supervisor">Superviseur</option>--}}
@@ -82,19 +81,14 @@
                         <div class="input-group mx-auto col-md-9">
                             <div class="input-group-addon"><i class="fa fa-language fa-fw" aria-hidden="true"></i></div>
                             <select id="language" class="form-control" name="language" required>
-
-
                                 <option value={{ $account->language }} selected> {{ $account->language }} </option>
                                 @if($account->language == "spanish")
                                     <option value="english" selected>Anglais</option>
                                     <option value="french" selected>Français</option>
                                 @endif
-
-
                             </select>
                         </div>
                     </div>
-
 
                     {{ dump($account) }}
 

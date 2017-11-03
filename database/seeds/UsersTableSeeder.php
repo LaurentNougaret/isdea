@@ -2,6 +2,7 @@
 
 use App\Group;
 use App\Project;
+use App\Role;
 use App\User;
 use Illuminate\Database\Seeder;
 
@@ -13,8 +14,8 @@ class UsersTableSeeder extends Seeder {
 	 */
 	public function run() {
 		factory( User::class, 30 )->create()
-		                          ->each( function ( $user ) {
-			                          $user->projects()->save( factory( Project::class )->make() );
+		                          ->each( function ($user) {
+			                          $user->projects()->save(factory( Project::class)->make());
 		                          } );
 	}
 }
