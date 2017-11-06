@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Back;
 use App\Group;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserCreateRequest;
+use App\Http\Requests\UserUpdateRequest;
 use App\Language;
 use App\Role;
 use App\User;
@@ -15,24 +16,24 @@ class UserController extends Controller
 {
 	/* Users Management */
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return Response
-     */
-    public function index()
-    {
-    $users = User::join('groups', 'users.group_id', '=', 'groups.id')
-	    ->join('roles', 'users.role_id', '=', 'roles.id')
-        ->join('project_user', 'users.id', '=', 'project_user.user_id')
-        ->select('project_user.project_id')
-        ->join('projects', 'project_user.project_id', '=', 'projects.id')
-        ->select('users.*', 'roles.name as role', 'groups.name as group', 'projects.name as project')->get();
+	/**
+	 * Display a listing of the resource.
+	 *
+	 * @return Response
+	 */
+	public function index()
+	{
+		$users = User::join('groups', 'users.group_id', '=', 'groups.id')
+		             ->join('roles', 'users.role_id', '=', 'roles.id')
+		             ->join('project_user', 'users.id', '=', 'project_user.user_id')
+		             ->select('project_user.project_id')
+		             ->join('projects', 'project_user.project_id', '=', 'projects.id')
+		             ->select('users.*', 'roles.name as role', 'groups.name as group', 'projects.name as project')->get();
 
-        echo dump($users);
+		echo dump($users);
 
-        return view('back.user.index', ['users' => $users]);
-    }
+		return view('back.user.index', ['users' => $users]);
+	}
 
 	/**
 	 * Show the form for creating a new resource.
@@ -91,20 +92,43 @@ class UserController extends Controller
 	 */
 	public function edit($id)
 	{
-		$user = User::find($id);
-		return view('back.user.edit')->with('user', $user);
+		$user = User::find($id)
+			->join('groups', 'users.group_id', '=', 'groups.id')
+			->join('roles', 'users.role_id', '=', 'roles.id')
+			->join('languages', 'users.language_id', '=', 'languages.id')
+			->select('users.*', 'roles.name as saved_role', 'groups.name as saved_group', 'languages.name as saved_language')
+			->where('users.id', '=', $id)
+			->first(); // You have to retrieve one record with first() not a collection with get()
+
+		$groups = Group::select('name', 'id')->distinct()->get();
+		$roles = Role::select('name', 'id')->distinct()->get();
+		$languages = Language::select('name', 'id')->distinct()->get();
+		return view('back.user.edit')->with([
+			'user' => $user,
+			'groups' => $groups,
+			'roles' => $roles,
+			'languages' => $languages,
+		]);
 	}
 
 	/**
 	 * Update the specified resource in storage.
 	 *
-	 * @param  \Illuminate\Http\Request  $request
-	 * @param  int  $id
-	 * @return \Illuminate\Http\Response
+	 * @param UserUpdateRequest|Request $request
+	 * @param  int $id
+	 *
+	 * @return Response
 	 */
-	public function update(Request $request, $id)
+	public function update(UserUpdateRequest $request, $id)
 	{
+		$user = User::find($id);
 
+		$user->fill($request->only('role_id', 'language_id', 'group_id'));
+		$user->password = bcrypt($request->getPassword());
+		$user->update();
+
+		return redirect()->route('users.index')
+		                 ->with('success', 'User updated successfully');
 	}
 
 	/**
@@ -115,10 +139,10 @@ class UserController extends Controller
 	 */
 	public function destroy($id)
 	{
-        $user = User::find($id);
-        $user->delete();
-        return redirect('users.index')->with('success','Product has been  deleted');
+		$user = User::find($id);
+		$user->delete();
+		return redirect('users.index')->with('success','Product has been  deleted');
 //	    User::destroy($id);
 //    return redirect()->route('users.index');
-    }
+	}
 }
