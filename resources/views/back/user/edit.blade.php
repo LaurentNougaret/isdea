@@ -14,9 +14,10 @@
                         </ul>
                     </div>
                 @endif
-                    {{ dd($user) }}
 
-                    <form method="POST" action="{{ action('Back\UserController@update') }}">
+                {{--{{ dd($user) }}--}}
+
+                <form method="POST" action="{{ action('Back\UserController@update', $user->id) }}">
                     {{ csrf_field() }}
                     <div class="form-group{{ $errors->has('firstname') ? ' has-error' : '' }}">
                         <div class="mx-auto col-md-9">
@@ -67,9 +68,8 @@
                         <div class="input-group mx-auto col-md-9">
                             <div class="input-group-addon"><i class="fa fa-vcard-o fa-fw" aria-hidden="true"></i></div>
                             <select id="role_id" class="form-control" name="role_id" required>
-                                <option selected>{{ trans('user.select_role') }}</option>
+                                <option value="{{ $user->role }}" selected>{{ $user->saved_role }}</option>
                                 @foreach($roles as $role)
-                                    {{ dump($role) }}
                                     <option value="{{ $role->id }}">{{ $role->name }}</option>
                                 @endforeach
                             </select>
@@ -82,13 +82,11 @@
                         <div class="input-group mx-auto col-md-9">
                             <div class="input-group-addon"><i class="fa fa-language fa-fw" aria-hidden="true"></i></div>
                             <select id="language_id" class="form-control" name="language_id" required>
-                                <option value="{{ $user->language_id }}" selected>{{ $user->language_id }}</option>
-                                {{--@foreach($languages as $language)--}}
-                                    {{--<option value="{{ $language->id }}">{{ $language->name }}</option>--}}
-                                {{--@endforeach--}}
-
+                                <option value="{{ $user->language_id }}" selected>{{ $user->saved_language }}</option>
+                                @foreach($languages as $language)
+                                    <option value="{{ $language->id }}">{{ $language->name }}</option>
+                                @endforeach
                             </select>
-
                         </div>
                     </div>
                     <div class="form-group{{ $errors->has('group_id') ? ' has-error' : '' }}">
@@ -98,10 +96,10 @@
                         <div class="input-group mx-auto col-md-9">
                             <div class="input-group-addon"><i class="fa fa-users fa-fw" aria-hidden="true"></i></div>
                             <select id="group_id" class="form-control" name="group_id" required>
-                                <option selected>{{ trans('user.select_group') }}</option>
-                                {{--@foreach ($groups as $group)--}}
-                                    {{--<option value="{{ $group->id }}">{{ $group->name }}</option>--}}
-                                {{--@endforeach--}}
+                                <option value="{{ $user->group_id }}" selected>{{ $user->saved_group }}</option>
+                                @foreach ($groups as $group)
+                                    <option value="{{ $group->id }}">{{ $group->name }}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -109,7 +107,7 @@
                         <button type="submit" class="btn-lg btn-outline-primary font-weight-bold mx-auto">{{ trans('user.validate') }}</button>
                     </div>
                 </form>
-                    {{var_dump ($user)}}
+                {{var_dump ($user)}}
             </div>
         </div>
     </div>

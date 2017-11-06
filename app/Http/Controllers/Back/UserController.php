@@ -96,18 +96,18 @@ class UserController extends Controller
 			->join('groups', 'users.group_id', '=', 'groups.id')
 			->join('roles', 'users.role_id', '=', 'roles.id')
 			->join('languages', 'users.language_id', '=', 'languages.id')
-			->select('users.*', 'roles.name as role', 'groups.name as group', 'languages.name as language')
+			->select('users.*', 'roles.name as saved_role', 'groups.name as saved_group', 'languages.name as saved_language')
 			->where('users.id', '=', $id)
-			->get();
+			->first(); // You have to retrieve one record with first() not a collection with get()
 
-//		$groups = Group::select('name', 'id')->distinct()->get();
-//		$roles = Role::select('name', 'id')->distinct()->get();
-//		$languages = Language::select('name', 'id')->distinct()->get();
+		$groups = Group::select('name', 'id')->distinct()->get();
+		$roles = Role::select('name', 'id')->distinct()->get();
+		$languages = Language::select('name', 'id')->distinct()->get();
 		return view('back.user.edit')->with([
 			'user' => $user,
-//			'groups' => $groups,
-//			'roles' => $roles,
-//			'languages' => $languages,
+			'groups' => $groups,
+			'roles' => $roles,
+			'languages' => $languages,
 		]);
 	}
 
@@ -125,7 +125,7 @@ class UserController extends Controller
 
 		$user->fill($request->only('role_id', 'language_id', 'group_id'));
 		$user->password = bcrypt($request->getPassword());
-		$user->save();
+		$user->update();
 
 		return redirect()->route('users.index')
 		                 ->with('success', 'User updated successfully');
