@@ -4,6 +4,7 @@ h1{
   font-family: $font-family-title;
   font-size: $font-size-title;
   color: $text-color-title;
+  font-weight: $text-weight-title;
 }
 
 body {
@@ -11,4 +12,27 @@ body {
   font-size: $font-size;
   line-height: $line-height-base;
   color: $text-color-base;
+}
+
+a {
+  color: $text-color-base;
+  font-size: $font-size-a;
+  text-decoration: none;
+}
+a:active, a:focus, a:visited {
+  color: $brand-danger;
+}
+
+::selection {
+  background-color: rgba(191,83,41,0.8);
+  color: white;
+}
+
+.form-control:focus {
+  border-color: $brand-danger;
+}
+
+body::selection {
+  background-color: $input-border;
+  color: white;
 }

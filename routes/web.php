@@ -4,9 +4,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
     Auth::routes();
-//    Route::group(['middleware' => 'auth'], function () {
+    Route::group(['middleware' => 'auth'], function () {
     Route::get('/', 'HomeController@index');
-//    });
+    });
     /* Admin Dashboard */
 //    Route::group(['middleware' => 'IsAdmin'], function (){
     Route::prefix('admin')->group(function () {

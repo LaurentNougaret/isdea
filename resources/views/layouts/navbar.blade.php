@@ -39,7 +39,7 @@
     <span class="navbar-text">
       Bonjour, <b>Tartuffe</b>.
     </span>
-    <form class="form-inline">
-        <button class="btn btn-outline-secondary btn-md" type="submit">{{trans('navbar.logout')}}</button>
+    <form class="form-inline" href="{{route('logout')}}">
+        <button class="btn btn-outline-secondary btn-sm" type="submit">{{trans('navbar.logout')}}</button>
     </form>
 </nav>
