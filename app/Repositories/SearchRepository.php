@@ -11,7 +11,7 @@ namespace App\Repositories;
 
 class SearchRepository
 {
-    public function scopeSearchByKeyword($query, $keyword)
+    public function SearchByKeyword($query, $keyword)
     {
         if ($keyword!=''){
             $query->where(function ($query) use ($keyword){

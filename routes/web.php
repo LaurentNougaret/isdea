@@ -16,7 +16,7 @@ Route::prefix('admin')->group(function () {
     Route::resource('project', 'Back\ProjectController');
     Route::resource('stats', 'Back\StatsController');
     Route::delete('users', ['as'=>'users.destroy', 'uses'=>'Back\UserController@destroy']);
-    Route::get('users',[ 'as'=>'users.search', 'uses'=>'Back\UserController@search']);
+//    Route::get('users',[ 'as'=>'users.search', 'uses'=>'Back\UserController@search']);
 
 //    });
 });

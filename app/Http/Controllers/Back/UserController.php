@@ -23,7 +23,9 @@ class UserController extends Controller
 
     /**
      * UserController constructor.
-     * @param UserReposity $repository
+     * @param UserReposity $userRepository
+     * @param SearchRepository $searchRepository
+     * @internal param UserReposity $repository
      */
 	public function __construct(UserReposity $userRepository, SearchRepository $searchRepository)
     {
@@ -31,6 +33,7 @@ class UserController extends Controller
         $this->nbrPages = config('app.nbrPages.back.users');
 
         $this->searchRepository = $searchRepository;
+
     }
 
     /**
@@ -38,7 +41,7 @@ class UserController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
 //    $users = User::join('groups', 'users.group_id', '=', 'groups.id')
 //	    ->join('roles', 'users.role_id', '=', 'roles.id')
@@ -47,20 +50,61 @@ class UserController extends Controller
 //        ->join('projects', 'project_user.project_id', '=', 'projects.id')
 //        ->select('users.*', 'roles.name as role', 'groups.name as group', 'projects.name as project')->get();
 
+        $search = \Request::get('search');
+        $search = str_replace(' ', '', $search);
 
-        $users = $this->userRepository->getOrder($this->nbrPages);
+        $users = User::join('groups', 'users.group_id', '=', 'groups.id')
+            ->join('roles', 'users.role_id', '=', 'roles.id')
+            ->join('project_user', 'users.id', '=', 'project_user.user_id')
+            ->select('project_user.project_id')
+            ->join('projects', 'project_user.project_id', '=', 'projects.id')
+            ->OrderBy('lastname', 'ASC')
+            ->select('users.*', 'roles.name as role', 'groups.name as group', 'projects.name as project')
+            ->where(function($users) use ($search){
+                $users->where('lastname', 'like', '%' . $search . '%')
+                    ->orWhere('email', 'like', '%' . $search . '%')
+                    ->orWhere('roles.name', 'like', '%' . $search . '%')
+                    ->orWhere('groups.name', 'like', '%' . $search . '%');
+            })
+
+
+//            ->where('lastname', 'like', '%' . $search . '%')
+//            ->where('email', 'like', '%' . $search . '%')
+//            ->where('roles.name', 'like', '%' . $search . '%')
+//            ->where('groups.name', 'like', '%' . $search . '%')
+            ->paginate('10');
+
+        echo dump($search);
+//                ->paginate(10)
+//
+//        ->when($request, function($query) use ($request){
+//                return $query->where('lastname', $request);
+//            });
+
+//        $users->where('lastname', 'like', '%' . $search . '%')
+//
+//            ->where(function($users) use ($request){
+//                    if($request == ''){
+//                        $users->where('lastname', 'like', '%' . $search . '%');
+//                    }
+//                });
+
+//            ->paginate('10');
+
+//        $this->userRepository->getOrder($this->nbrPages);
 
         return view('back.user.index', ['users' => $users]);
-    }
 
+//        return view('back.user.index', compact('users'));
+    }
 
     public function search()
     {
 
-        $keyword = Input::get('keyword', '');
-        $users = User::find($keyword)->get();
-
-        return view('back.user.index', ['users' => $users]);
+//        $keyword = Input::get('keyword', '');
+//        $users = User::SearchByKeyword($keyword)->get();
+//
+//        return view('back.user.index', ['users' => $users]);
 
     }
 
