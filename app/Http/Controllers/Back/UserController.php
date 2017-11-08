@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Lang;
 class UserController extends Controller
 {
 
+
+
 	use SendsPasswordResetEmails;
 
 	/* Users Management */
@@ -130,7 +132,7 @@ class UserController extends Controller
 //		dump($request->only('email'));
 //		$user->sendPasswordResetNotification($request->only('email'));
 		return redirect()->route('users.index')
-		                 ->with('message', Lang::get('message.bigger'));
+		                 ->with('message', Lang::get('message.user_update'));
 	}
 
 	/**
