@@ -9,11 +9,16 @@ use App\Http\Requests\UserUpdateRequest;
 use App\Language;
 use App\Role;
 use App\User;
+use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Lang;
 
 class UserController extends Controller
 {
+
+	use SendsPasswordResetEmails;
+
 	/* Users Management */
 
 	/**
@@ -29,9 +34,6 @@ class UserController extends Controller
 		             ->select('project_user.project_id')
 		             ->join('projects', 'project_user.project_id', '=', 'projects.id')
 		             ->select('users.*', 'roles.name as role', 'groups.name as group', 'projects.name as project')->get();
-
-		echo dump($users);
-
 		return view('back.user.index', ['users' => $users]);
 	}
 
@@ -67,9 +69,8 @@ class UserController extends Controller
 		$user->fill($request->except('_token'));
 		$user->password =  bcrypt(str_random(8));
 		$user->save();
-
 		return redirect()->route('users.index')
-		                 ->with('success', 'User created successfully');
+		                 ->with('message', Lang::get('message.user_create'));
 	}
 
 	/**
@@ -93,13 +94,12 @@ class UserController extends Controller
 	public function edit($id)
 	{
 		$user = User::find($id)
-			->join('groups', 'users.group_id', '=', 'groups.id')
-			->join('roles', 'users.role_id', '=', 'roles.id')
-			->join('languages', 'users.language_id', '=', 'languages.id')
-			->select('users.*', 'roles.name as saved_role', 'groups.name as saved_group', 'languages.name as saved_language')
-			->where('users.id', '=', $id)
-			->first(); // You have to retrieve one record with first() not a collection with get()
-
+		            ->join('groups', 'users.group_id', '=', 'groups.id')
+		            ->join('roles', 'users.role_id', '=', 'roles.id')
+		            ->join('languages', 'users.language_id', '=', 'languages.id')
+		            ->select('users.*', 'roles.name as saved_role', 'groups.name as saved_group', 'languages.name as saved_language')
+		            ->where('users.id', '=', $id)
+		            ->first(); // to retrieve ONE record with first() not a collection with get()
 		$groups = Group::select('name', 'id')->distinct()->get();
 		$roles = Role::select('name', 'id')->distinct()->get();
 		$languages = Language::select('name', 'id')->distinct()->get();
@@ -122,13 +122,15 @@ class UserController extends Controller
 	public function update(UserUpdateRequest $request, $id)
 	{
 		$user = User::find($id);
-
 		$user->fill($request->only('role_id', 'language_id', 'group_id'));
-		$user->password = bcrypt($request->getPassword());
-		$user->update();
-
+		if($user->password !== $request->password) {
+			$user->password = bcrypt($request->password);
+		};
+		$user->save();
+//		dump($request->only('email'));
+//		$user->sendPasswordResetNotification($request->only('email'));
 		return redirect()->route('users.index')
-		                 ->with('success', 'User updated successfully');
+		                 ->with('message', Lang::get('message.bigger'));
 	}
 
 	/**
@@ -141,8 +143,7 @@ class UserController extends Controller
 	{
 		$user = User::find($id);
 		$user->delete();
-		return redirect('users.index')->with('success','Product has been  deleted');
-//	    User::destroy($id);
-//    return redirect()->route('users.index');
+		return redirect()->route('users.index')
+		                 ->with('message', Lang::get('message.user_delete'));
 	}
 }

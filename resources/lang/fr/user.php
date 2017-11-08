@@ -13,4 +13,6 @@ return
 	'select_role' => 'Sélectionner le rôle',
 	'select_language' => 'Sélectionner la langue',
 	'select_group' => 'Sélectionner le groupe',
+	'password' => 'Mot de passe',
+	'password_confirmation' => 'Confirmation de mot de passe',
 ];

@@ -1,4 +1,6 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,700);.pagination li a {
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,700);
+
+.pagination li a {
   color: #636b6f;
   float: left;
   padding: 8px 16px;

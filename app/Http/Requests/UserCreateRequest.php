@@ -30,6 +30,7 @@ class UserCreateRequest extends FormRequest
             'role_id' => 'required',
 			'language_id' => 'required',
             'group_id' => 'required',
+//			'password' => 'required',
 		];
 	}
 }
