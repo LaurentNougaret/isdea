@@ -4,4 +4,5 @@ return [
     'users' => 'Users',
     'stats' => 'Statistics',
     'logout' => 'Logout',
+    'hello' => 'Hello'
 ];
