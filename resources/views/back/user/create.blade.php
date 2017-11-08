@@ -2,11 +2,11 @@
 @extends('layouts.navbar')
 @section('content')
     <div class="row">
-        <div class="card mx-auto my-5 col-lg-6 col-md-9 border border-primary rounded">
+        <div class="card mx-auto my-5 col-lg-6 col-md-9 border border-secondary rounded">
             <h1 class="mx-auto pt-3 card.header">@lang('user.user account')</h1>
             <div class="card-body">
                 @if ($errors->any())
-                    <div class="alert alert-danger">
+                    <div class="alert alert-danger col-md-8 my-3 mx-auto">
                         <ul>
                             @foreach ($errors->all() as $error)
                                 <li>{{ $error }}</li>
@@ -32,7 +32,6 @@
                         <div class="input-group mx-auto col-md-9">
                             <div class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></div>
                             <input id="lastname" type="text" placeholder="Snow" class="form-control" name="lastname" value="{{ old('lastname') }}" required>
-
                         </div>
                     </div>
                     <div class="form-group">
@@ -88,7 +87,7 @@
                         </div>
                     </div>
                     <div class="form-group row col-md-12 m-0">
-                        <button type="submit" class="btn-lg btn-outline-primary font-weight-bold mx-auto">@lang('user.validate')</button>
+                        <button type="submit" class="btn-lg btn-outline-secondary mx-auto">@lang('user.validate')</button>
                     </div>
                 </form>
             </div>

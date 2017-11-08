@@ -3,10 +3,6 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-    Auth::routes();
-//    Route::group(['middleware' => 'auth'], function () {
-    Route::get('/', 'HomeController@index');
-//    });
     /* Admin Dashboard */
 //    Route::group(['middleware' => 'IsAdmin'], function (){
     Route::prefix('admin')->group(function () {
@@ -20,7 +16,10 @@ use Illuminate\Support\Facades\Route;
 
     /* Users routes */
 //    Route::group(['middleware' => 'auth'], function (){
+    Route::get('/', 'HomeController@index')->name('home');
     Route::get('/profile', 'Front\UserController@profile');
     Route::resource('project.form', 'Front\FormController', ['except' => [
         'destroy', 'create', 'store']]);
-    Route::get('lang/{lang}', ['as'=>'lang.switch', 'uses'=>'LanguageController@switchLang']);
+//}
+Route::get('lang/{lang}', ['as'=>'lang.switch', 'uses'=>'LanguageController@switchLang']);
+Auth::routes();

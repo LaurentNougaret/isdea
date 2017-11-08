@@ -3,5 +3,7 @@ return [
     'projects' => 'Proyectos',
     'users' => 'Usuarios',
     'stats' => 'Estadísticas',
-    'logout' => 'Desconectarse'
+    'logout' => 'Desconectarse',
+    'hello' => 'Hola'
+
 ];
