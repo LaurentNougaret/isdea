@@ -1,36 +1,33 @@
 @if ($paginator->hasPages())
-    <nav class="pagination">
+    <ul class="pagination">
         {{-- Previous Page Link --}}
         @if ($paginator->onFirstPage())
-            <span class="page-numbers prev inactive">@lang('pagination.previous')</span>
+            <li class="page-item"><a href="#">&laquo;</a></li>
         @else
-            <a href="{{ $paginator->previousPageUrl() }}" class="page-numbers prev" rel="prev">@lang('pagination.previous')</a>
+            <li class="page-item"><a class="page-link" href="{{ $paginator->previousPageUrl() }}" rel="prev">&laquo;</a></li>
         @endif
-
         {{-- Pagination Elements --}}
         @foreach ($elements as $element)
             {{-- "Three Dots" Separator --}}
             @if (is_string($element))
-                <span class="page-numbers current">{{ $element }}</span>
+                <li class="page-item"><a class="page-link" href="#">{{ $element }}</a></li>
             @endif
-
             {{-- Array Of Links --}}
             @if (is_array($element))
                 @foreach ($element as $page => $url)
                     @if ($page == $paginator->currentPage())
-                        <span class="page-numbers current">{{ $page }}</span>
+                        <li class="page-item"><a class="page-link" href="#">{{ $page }}</a></li>
                     @else
-                        <a href="{{ $url }}" class="page-numbers">{{ $page }}</a>
+                        <li class="page-item"><a class="page-link" href="{{ $url }}">{{ $page }}</a></li>
                     @endif
                 @endforeach
             @endif
         @endforeach
-
         {{-- Next Page Link --}}
         @if ($paginator->hasMorePages())
-            <a href="{{ $paginator->nextPageUrl() }}"  class="page-numbers next" rel="next">@lang('pagination.next')</a>
+            <li class="page-item"><a class="page-link" href="{{ $paginator->nextPageUrl() }}" rel="next">&raquo;</a></li>
         @else
-            <span class="page-numbers next inactive">@lang('pagination.next')</span>
+            <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
         @endif
-    </nav>
+    </ul>
 @endif
