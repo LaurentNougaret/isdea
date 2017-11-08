@@ -50,63 +50,77 @@ class UserController extends Controller
 //        ->join('projects', 'project_user.project_id', '=', 'projects.id')
 //        ->select('users.*', 'roles.name as role', 'groups.name as group', 'projects.name as project')->get();
 
+//        $search = str_replace(' ', '', $search);
+//        $filters[] = ['lastname', 'email', 'roles.name', 'groups.name'];
         $search = \Request::get('search');
-        $search = str_replace(' ', '', $search);
+        $filter = $request->get('filters');
 
-        $users = User::join('groups', 'users.group_id', '=', 'groups.id')
-            ->join('roles', 'users.role_id', '=', 'roles.id')
-            ->join('project_user', 'users.id', '=', 'project_user.user_id')
-            ->select('project_user.project_id')
-            ->join('projects', 'project_user.project_id', '=', 'projects.id')
-            ->OrderBy('lastname', 'ASC')
-            ->select('users.*', 'roles.name as role', 'groups.name as group', 'projects.name as project')
-            ->where(function($users) use ($search){
-                $users->where('lastname', 'like', '%' . $search . '%')
-                    ->orWhere('email', 'like', '%' . $search . '%')
-                    ->orWhere('roles.name', 'like', '%' . $search . '%')
-                    ->orWhere('groups.name', 'like', '%' . $search . '%');
-            })
+//        $users = User::join('groups', 'users.group_id', '=', 'groups.id')
+//            ->join('roles', 'users.role_id', '=', 'roles.id')
+//            ->join('project_user', 'users.id', '=', 'project_user.user_id')
+//            ->select('project_user.project_id')
+//            ->join('projects', 'project_user.project_id', '=', 'projects.id')
+//            ->OrderBy('lastname', 'ASC')
+//            ->select('users.*', 'roles.name as role', 'groups.name as group', 'projects.name as project')
+//           ->paginate('10');
+
+        if($search == null) {
+            $users = User::join('groups', 'users.group_id', '=', 'groups.id')
+                ->join('roles', 'users.role_id', '=', 'roles.id')
+                ->join('project_user', 'users.id', '=', 'project_user.user_id')
+                ->select('project_user.project_id')
+                ->join('projects', 'project_user.project_id', '=', 'projects.id')
+                ->OrderBy('lastname', 'ASC')
+                ->select('users.*', 'roles.name as role', 'groups.name as group', 'projects.name as project')
+                ->paginate('10');
+            return view('back.user.index', ['users' => $users]);
+        }elseif(($search != null) && ($filter == null)){
+            $users = User::join('groups', 'users.group_id', '=', 'groups.id')
+                ->join('roles', 'users.role_id', '=', 'roles.id')
+                ->join('project_user', 'users.id', '=', 'project_user.user_id')
+                ->select('project_user.project_id')
+                ->join('projects', 'project_user.project_id', '=', 'projects.id')
+                ->OrderBy('lastname', 'ASC')
+                ->select('users.*', 'roles.name as role', 'groups.name as group', 'projects.name as project')
+                ->where(function($users) use ($search){
+                    $users->where('lastname', 'like', '%' . $search . '%')
+                        ->orWhere('email', 'like', '%' . $search . '%')
+                        ->orWhere('roles.name', 'like', '%' . $search . '%')
+                        ->orWhere('groups.name', 'like', '%' . $search . '%')
+                        ->paginate('10');
+                });
+            return view('back.user.index', ['users' => $users]);
+            }elseif(($search != null) && ($filter != null)){
+        $users = User::where(function ($users) use ($search) {
+            $users->where('$filters[0]', 'like', '%' . $search . '%')
+                ->orWhere('$filters[1]', 'like', '%' . $search . '%')
+                ->orWhere('$filters[2]', 'like', '%' . $search . '%')
+                ->orWhere('$filters[3]', 'like', '%' . $search . '%')
+                ->paginate('10');
+        });
+            return view('back.user.index', ['users' => $users]);
+
+
+        }
+
+
+        }
+//                if(!is_null($search)) {
+//                    foreach($search as $field => $value){
+//                        if($value == ''){
+//                           $users->where('lastname', 'like', '%' . $search . '%')
+//                        }
+//                    }
+//                }
 
 
 //            ->where('lastname', 'like', '%' . $search . '%')
-//            ->where('email', 'like', '%' . $search . '%')
-//            ->where('roles.name', 'like', '%' . $search . '%')
-//            ->where('groups.name', 'like', '%' . $search . '%')
-            ->paginate('10');
 
-        echo dump($search);
-//                ->paginate(10)
-//
-//        ->when($request, function($query) use ($request){
-//                return $query->where('lastname', $request);
-//            });
 
-//        $users->where('lastname', 'like', '%' . $search . '%')
-//
-//            ->where(function($users) use ($request){
-//                    if($request == ''){
-//                        $users->where('lastname', 'like', '%' . $search . '%');
-//                    }
-//                });
 
-//            ->paginate('10');
+//        echo dump($filters);
 
-//        $this->userRepository->getOrder($this->nbrPages);
 
-        return view('back.user.index', ['users' => $users]);
-
-//        return view('back.user.index', compact('users'));
-    }
-
-    public function search()
-    {
-
-//        $keyword = Input::get('keyword', '');
-//        $users = User::SearchByKeyword($keyword)->get();
-//
-//        return view('back.user.index', ['users' => $users]);
-
-    }
 
 	/**
 	 * Show the form for creating a new resource.
@@ -197,3 +211,4 @@ class UserController extends Controller
 
     }
 }
+

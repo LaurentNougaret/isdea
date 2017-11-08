@@ -30,18 +30,18 @@
         {{--<i class="fa fa-search fa-1x"></i>--}}
         {{--</button>--}}
         {{--</span>--}}
-        </div>
+    </div>
         <label class="col-md-1 ml-3">
-        <input class="field mx-1" name="filter[]" type="checkbox" value="lastname">Nom
+        <input class="field mx-1" name="filters[]" type="checkbox" value="{{$filters = 'lastname' }}">Nom
         </label>
         <label class="col-md-1">
-        <input class="field mx-1" name="filter[]" type="checkbox" value="email">Email
+        <input class="field mx-1" name="filters[]" type="checkbox" value="{{$filters = 'email' }}">Email
         </label>
         <label class="col-md-1">
-        <input class="field mx-1" name="filter[]" type="checkbox" value="role">Rôle
+        <input class="field mx-1" name="filters[]" type="checkbox" value="{{$filters = 'roles.name' }}">Rôle
         </label>
         <label>
-        <input class="field mx-1" name="filter[]" type="checkbox" value="group">Groupe
+        <input class="field mx-1" name="filters[]" type="checkbox" value="{{$filters = 'groups.name' }}">Groupe
         </label>
         </div>
     </div>
@@ -85,15 +85,15 @@
     </form>
     </tbody>
     </table>
-    <nav aria-label="Page navigation example mt-3">
-        <ul class="pagination justify-content-center">
-            <li class="page-item"><a class="page-link" href="{{ $users->links('layouts.pagination') }}">Previous</a></li>
-            <li class="page-item"><a class="page-link" href="{{ $users->links('layouts.pagination') }}">1</a></li>
-            <li class="page-item"><a class="page-link" href="{{ $users->links('layouts.pagination') }}">2</a></li>
-            <li class="page-item"><a class="page-link" href="{{ $users->links('layouts.pagination') }}">3</a></li>
-            <li class="page-item"><a class="page-link" href="{{ $users->links('layouts.pagination') }}">Next</a></li>
-        </ul>
-    </nav>
+    {{--<nav aria-label="Page navigation example mt-3">--}}
+        {{--<ul class="pagination justify-content-center">--}}
+            {{--<li class="page-item"><a class="page-link" href="{{ $users->links('layouts.pagination') }}">Previous</a></li>--}}
+            {{--<li class="page-item"><a class="page-link" href="{{ $users->links('layouts.pagination') }}">1</a></li>--}}
+            {{--<li class="page-item"><a class="page-link" href="{{ $users->links('layouts.pagination') }}">2</a></li>--}}
+            {{--<li class="page-item"><a class="page-link" href="{{ $users->links('layouts.pagination') }}">3</a></li>--}}
+            {{--<li class="page-item"><a class="page-link" href="{{ $users->links('layouts.pagination') }}">Next</a></li>--}}
+        {{--</ul>--}}
+    {{--</nav>--}}
     {{--</form>--}}
     {{--</form>--}}
     {{--</form>--}}
