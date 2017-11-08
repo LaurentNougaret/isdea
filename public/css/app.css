@@ -1,7 +1,30 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);h1 {
-  font-family: "Anton", sans-serif;
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);.pagination li a {
+  color: #636b6f;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.user-title {
+  padding-bottom: 0.8em;
+}
+
+.navbar-nav,
+.navbar-text {
   font-size: 18px;
-  color: black;
+}
+
+.navbar-nav a:link,
+.navbar-nav a:visited,
+.navbar-nav a:hover {
+  color: #636b6f;
+  text-decoration: none;
+}
+
+h1 {
+  font-family: "Anton", sans-serif;
+  font-size: 44px;
+  color: #636b6f;
 }
 
 body {

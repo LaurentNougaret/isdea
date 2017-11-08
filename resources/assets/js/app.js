@@ -6,6 +6,8 @@
  */
 
 require('./bootstrap');
+require('./input-select-all');
+require('./flash-message-delay');
 
 window.Vue = require('vue');
 
@@ -20,3 +22,5 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
 const app = new Vue({
     el: '#app'
 });
+
+
