@@ -24,11 +24,11 @@ class UserUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-//	        'language_id' => 'required',
-//	        'role_id' => 'required',
-//	        'group_id' => 'required',
-//	        'password' => 'required|min:8|confirmed',
-//	        'password_confirmation' => 'required|min:8'
+	        'language_id' => 'required',
+	        'role_id' => 'required',
+	        'group_id' => 'required',
+	        'password' => 'required|min:8|confirmed',
+	        'password_confirmation' => 'required|min:8',
         ];
     }
 }

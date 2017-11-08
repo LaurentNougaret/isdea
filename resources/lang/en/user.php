@@ -13,4 +13,6 @@ return
 	'select_role' => 'Select role',
 	'select_language' => 'Select language',
 	'select_group' => 'Select group',
+	'password' => 'Password',
+	'password_confirmation' => 'Password confirmation',
 ];
