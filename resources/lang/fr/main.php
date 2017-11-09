@@ -1,14 +1,14 @@
 <?php
 
 return [
-    'home' => 'Accueil',
-    'site' => 'Mon joli site',
-	'title' => 'Mon joli blog',
-	'creation' => 'Créer un article',
+	'site' => 'Mon joli site',
+	'home' => 'Accueil',
+	'title' => 'Mon titre qui déchire',
 	'login' => 'Se connecter',
-	'logout' => 'Déconnexion',
-	'delete' => 'Supprimer cet article',
-	'confirm' => 'Vraiment supprimer cet article ?',
-	'on' => 'le',
-	'search' => 'Résultats pour la recherche du mot-clé : '
+	'logout' => 'Se déconnecter',
+	'projects_button' => 'Projets',
+	'users_button' => 'Utilisateurs',
+	'statistics' => 'Statistiques',
+	'number' => 'Nombre',
+	'progress_projects' => "Avancement de projets",
 ];
