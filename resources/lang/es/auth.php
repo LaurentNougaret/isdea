@@ -13,7 +13,11 @@ return [
     |
     */
 
-    'failed'   => 'Estas credenciales no coinciden con nuestros registros.',
+    'failed'   => 'Estas credenciales no coinciden.',
     'throttle' => 'Demasiados intentos de acceso. Por favor intente nuevamente en :seconds segundos.',
+    'login' => 'Conectarse',
+    'email' => 'Cuenta de correo',
+    'password' => 'Contraseña',
+    'forgot' => 'Contraseña olvidada?'
 
 ];

@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->integer('group_id')->unsigned();
             $table->integer('language_id')->unsigned();
             $table->integer('role_id')->unsigned();
+            $table->rememberToken();
             $table->timestamps();
         });
     }

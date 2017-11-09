@@ -6,11 +6,14 @@ use App\Group;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserCreateRequest;
 use App\Repositories\SearchRepository;
+use App\Http\Requests\UserUpdateRequest;
 use App\Language;
 use App\Role;
 use App\User;
+use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\DB;
 use App\Repositories\UserReposity;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -19,6 +22,9 @@ use Illuminate\Support\Facades\Input;
 
 class UserController extends Controller
 {
+
+	use SendsPasswordResetEmails;
+
 	/* Users Management */
 
     /**
@@ -142,9 +148,8 @@ class UserController extends Controller
 		$user->fill($request->except('_token'));
 		$user->password =  bcrypt(str_random(8));
 		$user->save();
-
 		return redirect()->route('users.index')
-		                 ->with('success', 'User created successfully');
+		                 ->with('message', Lang::get('message.user_create'));
 	}
 
 	/**
@@ -167,20 +172,44 @@ class UserController extends Controller
 	 */
 	public function edit($id)
 	{
-		$user = User::find($id);
-		return view('back.user.edit')->with('user', $user);
+		$user = User::find($id)
+		            ->join('groups', 'users.group_id', '=', 'groups.id')
+		            ->join('roles', 'users.role_id', '=', 'roles.id')
+		            ->join('languages', 'users.language_id', '=', 'languages.id')
+		            ->select('users.*', 'roles.name as saved_role', 'groups.name as saved_group', 'languages.name as saved_language')
+		            ->where('users.id', '=', $id)
+		            ->first(); // to retrieve ONE record with first() not a collection with get()
+		$groups = Group::select('name', 'id')->distinct()->get();
+		$roles = Role::select('name', 'id')->distinct()->get();
+		$languages = Language::select('name', 'id')->distinct()->get();
+		return view('back.user.edit')->with([
+			'user' => $user,
+			'groups' => $groups,
+			'roles' => $roles,
+			'languages' => $languages,
+		]);
 	}
 
 	/**
 	 * Update the specified resource in storage.
 	 *
-	 * @param  \Illuminate\Http\Request  $request
-	 * @param  int  $id
-	 * @return \Illuminate\Http\Response
+	 * @param UserUpdateRequest|Request $request
+	 * @param  int $id
+	 *
+	 * @return Response
 	 */
-	public function update(Request $request, $id)
+	public function update(UserUpdateRequest $request, $id)
 	{
-
+		$user = User::find($id);
+		$user->fill($request->only('role_id', 'language_id', 'group_id'));
+		if($user->password !== $request->password) {
+			$user->password = bcrypt($request->password);
+		};
+		$user->save();
+//		dump($request->only('email'));
+//		$user->sendPasswordResetNotification($request->only('email'));
+		return redirect()->route('users.index')
+		                 ->with('message', Lang::get('message.bigger'));
 	}
 
 	/**

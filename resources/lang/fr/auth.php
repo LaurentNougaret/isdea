@@ -13,7 +13,9 @@ return [
     |
     */
 
-    'failed'   => 'Ces identifiants ne correspondent pas à nos enregistrements',
+    'failed'   => 'Le mot de passe ou l\'email ne correspondent pas',
     'throttle' => 'Tentatives de connexion trop nombreuses. Veuillez essayer de nouveau dans :seconds secondes.',
-
-];
+    'login' => 'Connexion',
+    'email' => 'Email',
+    'password' => 'Mot de passe',
+    'forgot' => 'Mot de passe oublié?'];
