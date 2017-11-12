@@ -1,46 +1,37 @@
 @extends('layouts.template')
 @extends('layouts.navbar')
 @section('content')
-
-    <div class="row bg-success">
-        <h1 class="text-center">@lang('main.home')</h1>
+    <div class="row justify-content-center mt-5">
+        <h2>@lang('main.home')</h2>
     </div>
-
-
-
-
-
-
-    {{--<div class="card btn-success rounded mx-auto col-lg-6 col-md-9">--}}
-        <a href="https://trello.com/b/dkjDhmfP/isdea" target="_blank" role="button">
-
-            {{--<div class="col-lg-4"><i class="fa fa-users" aria-hidden="true"></i></div>--}}
-            {{--<div class="card.header col-lg-4"><h1 class="card.title text-center">@lang('main.users_button')</h1></div>--}}
-            {{--<div class="card-body col-lg-4"><p>@lang('main.number')</p>--}}
-
-
-
-            {{--<div class="panel panel-info">--}}
-                {{--<div class="panel-heading">--}}
-                    {{--<div class="row">--}}
-                        {{--<div class="col-xs-6">--}}
-                            {{--<i class="fa fa-users fa-5x"></i>--}}
-                        {{--</div>--}}
-                        {{--<div class="col-xs-6 text-right">--}}
-                            {{--<p class="announcement-heading">4</p>--}}
-                            {{--<p class="announcement-text">Customers</p>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-
-        </a>
-    {{--</div>--}}
-
-
+    <div class="row">
+        <div class="card rounded mx-auto col-lg-6 col-md-9 p-0 mt-5">
+            <a class="btn btn-success" href="{{ action('Back\UserController@index') }}" target="_blank" role="button">
+                <div class="row">
+                    <div class="my-auto col-lg-4"><i class="icon fa fa-users fa-3x fa-fw" aria-hidden="true"></i></div>
+                    <div class="mx-auto col-lg-8 py-5"><h2 class="card-title text-deco">@lang('main.users_button')</h2></div>
+                </div>
+            </a>
+        </div>
     </div>
-
-
-
-
+    <div class="row">
+        <div class="card rounded mx-auto col-lg-6 col-md-9 p-0 mt-5">
+            <a class="btn btn-warning" href="https://trello.com/b/dkjDhmfP/isdea" target="_blank" role="button">
+                <div class="row">
+                    <div class="my-auto col-lg-4"><i class="icon fa fa-rocket fa-3x fa-fw" aria-hidden="true"></i></div>
+                    <div class="mx-auto col-lg-8 py-5"><h2 class="card-title text-deco">@lang('main.projects_button')</h2></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="card rounded mx-auto col-lg-6 col-md-9 p-0 mt-5">
+            <a class="btn btn-info" href="https://trello.com/b/dkjDhmfP/isdea" target="_blank" role="button">
+                <div class="row">
+                    <div class="my-auto col-lg-4"><i class="icon fa fa-tachometer fa-3x fa-fw" aria-hidden="true"></i></div>
+                    <div class="mx-auto col-lg-8 py-5"><h2 class="card-title text-deco">@lang('main.statistics_button')</h2></div>
+                </div>
+            </a>
+        </div>
+    </div>
 @endsection

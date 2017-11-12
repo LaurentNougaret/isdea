@@ -38,7 +38,7 @@ body {
 a {
   color: #636b6f;
   font-size: 16px;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 a:active,
@@ -69,5 +69,23 @@ body::-moz-selection {
 body::selection {
   background-color: #f2cfc2;
   color: white;
+}
+
+a h2 {
+  color: white;
+}
+
+a .icon {
+  color: white;
+}
+
+.card {
+  border-width: 0.2rem;
+  border-color: darkgrey;
+  border-radius: 7px !important;
+}
+
+.message-height {
+  height: 5rem;
 }
 

@@ -8,7 +8,7 @@ return [
     'logout' => 'Desconectarse',
     'projects_button' => 'Proyectos',
     'users_button' => 'Usuarios',
-    'statistics' => 'Estadística',
+    'statistics_button' => 'Estadística',
     'number' => 'Número',
     'progress_projects' => "Progreso de los proyectos",
 ];

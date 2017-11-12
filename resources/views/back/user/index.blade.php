@@ -2,7 +2,7 @@
 @extends('layouts.navbar')
 
 @section('content')
-    <div class="text-center user-title mt-5 mb-5">
+    <div class="text-center user-title mb-5">
         <h1>Gestion des utilisateurs</h1>
     </div>
     <div class="container mt-3">
