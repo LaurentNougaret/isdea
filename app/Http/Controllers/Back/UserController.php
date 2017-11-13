@@ -51,8 +51,6 @@ class UserController extends Controller
         return view('back.user.index', ['users' => $users]);
         }
 
-
-
 	/**
 	 * Show the form for creating a new resource.
 	 *
@@ -160,4 +158,3 @@ class UserController extends Controller
         return back()->with('message', Lang::get('message.user_delete'));
     }
 }
-
