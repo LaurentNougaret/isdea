@@ -56,7 +56,7 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'https://api.mailgun.net/v3/sandbox02374753d0844a35afba84d878d6fc15.mailgun.org'),
+        'address' => env('MAIL_FROM_ADDRESS', ''),
         'name' => env('MAIL_FROM_NAME', 'johangaub'),
     ],
 
@@ -84,9 +84,9 @@ return [
     |
     */
 
-    'username' => env('postmaster@sandbox02374753d0844a35afba84d878d6fc15.mailgun.org'),
+    'username' => env('MAIL_USERNAME', 'postmaster@sandbox02374753d0844a35afba84d878d6fc15.mailgun.org'),
 
-    'password' => env('03122908j&j'),
+    'password' => env('MAIL_PASSWORD','03122908j&j'),
 
     /*
     |--------------------------------------------------------------------------

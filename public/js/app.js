@@ -963,7 +963,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(10);
-module.exports = __webpack_require__(44);
+module.exports = __webpack_require__(45);
 
 
 /***/ }),
@@ -980,8 +980,9 @@ module.exports = __webpack_require__(44);
 __webpack_require__(11);
 __webpack_require__(35);
 __webpack_require__(36);
+__webpack_require__(37);
 
-window.Vue = __webpack_require__(37);
+window.Vue = __webpack_require__(38);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -989,7 +990,7 @@ window.Vue = __webpack_require__(37);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', __webpack_require__(40));
+Vue.component('example-component', __webpack_require__(41));
 
 var app = new Vue({
   el: '#app'
@@ -31706,6 +31707,21 @@ $('#message').delay(3000).fadeOut(1000);
 
 /***/ }),
 /* 37 */
+/***/ (function(module, exports) {
+
+$(function () {
+
+    $('.group-checkable').click(function () {
+        if ($(this).prop('checked')) {
+            $('.checkbox').prop('checked', true);
+        } else {
+            $('.checkbox').prop('checked', false);
+        }
+    });
+});
+
+/***/ }),
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42271,10 +42287,10 @@ Vue$3.compile = compileToFunctions;
 
 module.exports = Vue$3;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(38).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(39).setImmediate))
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var apply = Function.prototype.apply;
@@ -42327,13 +42343,13 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(39);
+__webpack_require__(40);
 exports.setImmediate = setImmediate;
 exports.clearImmediate = clearImmediate;
 
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -42526,15 +42542,15 @@ exports.clearImmediate = clearImmediate;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(4)))
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(41)
+var normalizeComponent = __webpack_require__(42)
 /* script */
-var __vue_script__ = __webpack_require__(42)
+var __vue_script__ = __webpack_require__(43)
 /* template */
-var __vue_template__ = __webpack_require__(43)
+var __vue_template__ = __webpack_require__(44)
 /* template functional */
   var __vue_template_functional__ = false
 /* styles */
@@ -42574,7 +42590,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports) {
 
 /* globals __VUE_SSR_CONTEXT__ */
@@ -42683,7 +42699,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -42712,7 +42728,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -42755,7 +42771,7 @@ if (false) {
 }
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports) {
 
 throw new Error("Module build failed: ModuleBuildError: Module build failed: \n  }\n  ^\n      Invalid CSS after \"  }\": expected \"}\", was \".btn: ;\"\n      in /home/diesel/isdea/resources/assets/sass/_login.scss (line 13, column 4)\n    at runLoaders (/home/diesel/isdea/node_modules/webpack/lib/NormalModule.js:195:19)\n    at /home/diesel/isdea/node_modules/loader-runner/lib/LoaderRunner.js:364:11\n    at /home/diesel/isdea/node_modules/loader-runner/lib/LoaderRunner.js:230:18\n    at context.callback (/home/diesel/isdea/node_modules/loader-runner/lib/LoaderRunner.js:111:13)\n    at Object.asyncSassJobQueue.push [as callback] (/home/diesel/isdea/node_modules/sass-loader/lib/loader.js:55:13)\n    at Object.<anonymous> (/home/diesel/isdea/node_modules/async/dist/async.js:2244:31)\n    at Object.callback (/home/diesel/isdea/node_modules/async/dist/async.js:906:16)\n    at options.error (/home/diesel/isdea/node_modules/node-sass/lib/index.js:294:32)");
