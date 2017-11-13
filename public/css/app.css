@@ -179,6 +179,24 @@ button {
   background-size: cover;
 }
 
+a h2 {
+  color: white;
+}
+
+a .icon {
+  color: white;
+}
+
+.card {
+  border-width: 0.2rem;
+  border-color: darkgrey;
+  border-radius: 7px !important;
+}
+
+.message-height {
+  height: 5rem;
+}
+
 .card {
   background-color: rgba(255, 255, 255, 0.5);
   color: #333739;
