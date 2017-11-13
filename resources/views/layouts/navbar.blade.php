@@ -1,5 +1,5 @@
     <nav class="navbar navbar-expand-lg py-0 navbar-fixed-top">
-        <a class="navbar-brand" href="/">Isdea</a>
+        <a class="navbar-brand" href="/"><img id="logo" class="d-block mx-auto" src="/storage/images/isdea.png" alt="isdea_logo"></a>
         <button class="navbar-toggler shadow-button" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -16,11 +16,6 @@
                     <a class="nav-link nav-item" href="{{action('Back\UserController@index')}}">@lang('navbar.users')</a>
                 @endif
                 @if (Request::is('admin/stats'))>
-                <a href=""></a>
-                @else
-                    <a class="nav-link nav-item" href="{{action('Back\StatsController@index')}}">@lang('navbar.stats')</a>
-                @endif
-                @if (Request::is('admin/profile'))>
                 <a href=""></a>
                 @else
                     <a class="nav-link nav-item" href="{{action('Back\StatsController@index')}}">@lang('navbar.stats')</a>

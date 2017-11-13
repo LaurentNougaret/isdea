@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Route;
         Route::delete('users', ['as'=>'users.destroy', 'uses'=>'Back\UserController@destroy']);
     Route::resource('project', 'Back\ProjectController');
     Route::resource('stats', 'Back\StatsController');
-    Route::resource('profile', 'Back\AdminController')
 });
 
 /* Users routes */

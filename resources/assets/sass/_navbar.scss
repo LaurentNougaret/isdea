@@ -5,6 +5,12 @@
 .navbar {
   background-color: rgba(255,255,255,0.5);
 }
+
+.navbar-brand {
+  max-width: 5%;
+  height: auto;
+}
+
 .navbar-nav, .navbar-text {
   font-size: $font-size-a;
 }
