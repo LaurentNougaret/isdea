@@ -14,11 +14,11 @@ use Illuminate\Support\Facades\Route;
 });
 
 /* Users routes */
-//    Route::group(['middleware' => 'auth'], function (){
+    Route::group(['middleware' => 'auth'], function (){
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('/profile', 'Front\UserController@profile');
     Route::resource('project.form', 'Front\FormController', ['except' => [
         'destroy', 'create', 'store']]);
-//}
+});
 Route::get('lang/{lang}', ['as'=>'lang.switch', 'uses'=>'LanguageController@switchLang']);
 Auth::routes();
