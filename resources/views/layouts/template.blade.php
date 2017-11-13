@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Anton|Raleway" rel="stylesheet">
 </head>
 <body>
-<div class="container">
+<div class="container-fluid px-0">
     @include('layouts.flash-message')
     @yield('content')
 </div>

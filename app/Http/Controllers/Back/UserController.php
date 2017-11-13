@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Back;
 use App\Group;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserCreateRequest;
-use App\Repositories\SearchRepository;
 use App\Http\Requests\UserUpdateRequest;
 use App\Language;
 use App\Role;
@@ -14,45 +13,29 @@ use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Lang;
-use Illuminate\Support\Facades\DB;
-use App\Repositories\UserReposity;
-use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Pagination\Paginator;
-use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
-
-	use SendsPasswordResetEmails;
+    use SendsPasswordResetEmails;
 
 	/* Users Management */
-
-    /**
-     * UserController constructor.
-     * @param UserReposity $userRepository
-     * @param SearchRepository $searchRepository
-     * @internal param UserReposity $repository
-     */
-	public function __construct(UserReposity $userRepository, SearchRepository $searchRepository)
-    {
-        $this->userRepository = $userRepository;
-        $this->nbrPages = config('app.nbrPages.back.users');
-
-        $this->searchRepository = $searchRepository;
-
-    }
 
     /**
      * Display a listing of the resource.
      *
      * @return Response
      */
-    public function index(Request $request)
+    public function index()
     {
-//        $search = str_replace(' ', '', $search);
-//        $filters[] = ['lastname', 'email', 'roles.name', 'groups.name'];
+
+        Mail::send('back.emails.reminder', ['user' => 'Julien'], function ($m) {
+            $m->from('julien@free.fr', 'Your Application');
+            $m->to('toto@free.fr', 'Julien Boyer')->subject('Your Reminder!');
+        });
+
         $search = \Request::get('search');
-//        $filter = $request->get('filters');
+
         $users = User::join('groups', 'users.group_id', '=', 'groups.id')
             ->join('roles', 'users.role_id', '=', 'roles.id')
             ->join('project_user', 'users.id', '=', 'project_user.user_id')
@@ -69,52 +52,6 @@ class UserController extends Controller
         }
 
 
-
-//        if($search == null) {
-//            $users = User::join('groups', 'users.group_id', '=', 'groups.id')
-//                ->join('roles', 'users.role_id', '=', 'roles.id')
-//                ->join('project_user', 'users.id', '=', 'project_user.user_id')
-//                ->select('project_user.project_id')
-//                ->join('projects', 'project_user.project_id', '=', 'projects.id')
-//                ->OrderBy('lastname', 'ASC')
-//                ->select('users.*', 'roles.name as role', 'groups.name as group', 'projects.name as project')
-//                ->paginate('10');
-//            return view('back.user.index', ['users' => $users]);
-//        }elseif(($search != null) && ($filter == null)){
-//            $users = User::join('groups', 'users.group_id', '=', 'groups.id')
-//                ->join('roles', 'users.role_id', '=', 'roles.id')
-//                ->join('project_user', 'users.id', '=', 'project_user.user_id')
-//                ->select('project_user.project_id')
-//                ->join('projects', 'project_user.project_id', '=', 'projects.id')
-//                ->OrderBy('lastname', 'ASC')
-//                ->select('users.*', 'roles.name as role', 'groups.name as group', 'projects.name as project')
-//                ->where(function($users) use ($search){
-//                    $users->where('lastname', 'like', '%' . $search . '%')
-//                        ->orWhere('email', 'like', '%' . $search . '%')
-//                        ->orWhere('roles.name', 'like', '%' . $search . '%')
-//                        ->orWhere('groups.name', 'like', '%' . $search . '%')
-//                        ->paginate('10');
-//                });
-//            return view('back.user.index', ['users' => $users]);
-//            }elseif(($search != null) && ($filter != null)){
-//        $users = User::where(function ($users) use ($search) {
-//            $users->where('$filters[0]', 'like', '%' . $search . '%')
-//                ->orWhere('$filters[1]', 'like', '%' . $search . '%')
-//                ->orWhere('$filters[2]', 'like', '%' . $search . '%')
-//                ->orWhere('$filters[3]', 'like', '%' . $search . '%')
-//                ->paginate('10');
-//        });
-//            return view('back.user.index', ['users' => $users]);
-//        }
-
-
-//                if(!is_null($search)) {
-//                    foreach($search as $field => $value){
-//                        if($value == ''){
-//                           $users->where('lastname', 'like', '%' . $search . '%')
-//                        }
-//                    }
-//                }
 
 	/**
 	 * Show the form for creating a new resource.
@@ -160,8 +97,7 @@ class UserController extends Controller
 	 */
 	public function show($id)
 	{
-//		$account = User::find($id);
-//		return view('back.user.edit-account')->with('account', $account);
+
 	}
 
 	/**
@@ -221,7 +157,7 @@ class UserController extends Controller
 	public function destroy(Request $request)
 	{
         User::destroy($request->users);
-        return back();
+        return back()->with('message', Lang::get('message.user_delete'));
 //        $user = User::find($id);
 //        $user->delete();
 //        return redirect('admin/users')->with('success','Product has been  deleted');
