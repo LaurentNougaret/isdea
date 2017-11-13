@@ -92,17 +92,17 @@ class UserController extends Controller
 	 * @return \Illuminate\Http\Response
 	 */
 	public function edit($id)
-	{
-		$user = User::find($id)
-		            ->join('groups', 'users.group_id', '=', 'groups.id')
-		            ->join('roles', 'users.role_id', '=', 'roles.id')
-		            ->join('languages', 'users.language_id', '=', 'languages.id')
-		            ->select('users.*', 'roles.name as saved_role', 'groups.name as saved_group', 'languages.name as saved_language')
-		            ->where('users.id', '=', $id)
-		            ->first(); // to retrieve ONE record with first() not a collection with get()
-		$groups = Group::select('name', 'id')->distinct()->get();
-		$roles = Role::select('name', 'id')->distinct()->get();
-		$languages = Language::select('name', 'id')->distinct()->get();
+    {
+        $user = User::find($id)
+            ->join('groups', 'users.group_id', '=', 'groups.id')
+            ->join('roles', 'users.role_id', '=', 'roles.id')
+            ->join('languages', 'users.language_id', '=', 'languages.id')
+            ->select('users.*', 'roles.name as saved_role', 'groups.name as saved_group', 'languages.name as saved_language')
+            ->where('users.id', '=', $id)
+            ->first(); // to retrieve ONE record with first() not a collection with get()
+        $groups = Group::select('name', 'id')->distinct()->get();
+        $roles = Role::select('name', 'id')->distinct()->get();
+        $languages = Language::select('name', 'id')->distinct()->get();
 		return view('back.user.edit')->with([
 			'user' => $user,
 			'groups' => $groups,
@@ -130,7 +130,7 @@ class UserController extends Controller
 //		dump($request->only('email'));
 //		$user->sendPasswordResetNotification($request->only('email'));
 		return redirect()->route('users.index')
-		                 ->with('message', Lang::get('message.bigger'));
+		                 ->with('message', Lang::get('message.user_update'));
 	}
 
 	/**

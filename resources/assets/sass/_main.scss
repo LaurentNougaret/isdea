@@ -1,3 +1,4 @@
+// Common style for all views
 @import "variables";
 
 h1{
@@ -17,15 +18,21 @@ body {
 a {
   color: $text-color-base;
   font-size: $font-size-a;
-  text-decoration: none;
+  text-decoration: none !important;
 }
+
 a:active, a:focus, a:visited {
   color: $brand-danger;
+  text-decoration: none;
 }
 
 ::selection {
   background-color: rgba(191,83,41,0.8);
   color: white;
+}
+
+.card-header {
+  background-color: white;
 }
 
 .form-control:focus {
@@ -35,4 +42,15 @@ a:active, a:focus, a:visited {
 body::selection {
   background-color: $input-border;
   color: white;
+}
+
+button {
+  cursor: pointer;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+//Background image for login, class attached to body with condition on the route "Login"
+.background {
+  background: url("/storage/images/paris.jpg") no-repeat center fixed;
+  background-size: cover;
 }

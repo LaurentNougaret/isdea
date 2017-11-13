@@ -1,4 +1,4 @@
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg py-0 navbar-fixed-top">
         <a class="navbar-brand" href="/">Isdea</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -24,10 +24,10 @@
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {{ Config::get('languages')[App::getLocale()] }}
                     </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <div class="dropdown-menu ml-1" aria-labelledby="navbarDropdown">
                         @foreach (Config::get('languages') as $lang => $language)
                             @if ($lang != App::getLocale())
-                                <div class="text-center">
+                                <div class="mx-1">
                                     <a href="{{ route('lang.switch', $lang) }}">{{$language}}</a>
                                 </div>
                             @endif

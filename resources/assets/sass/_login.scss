@@ -1,0 +1,24 @@
+@import "variables";
+
+.card {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: darken($text-color-base, 20%);
+  a {
+    color: darken($brand-danger, 10%);
+    font-weight: bold;
+    text-align: center;
+  }
+  #email, #password{
+    background-color: rgba(255, 255, 255, 0.7);
+  }
+  .btn: ;
+}
+
+#logo {
+  max-width: 100%;
+  height: auto;
+}
+
+@media screen {
+  
+}

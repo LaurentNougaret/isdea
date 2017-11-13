@@ -10,12 +10,21 @@
     <link rel="stylesheet" href="/css/app.css"/>
     <link href="https://fonts.googleapis.com/css?family=Anton|Raleway" rel="stylesheet">
 </head>
-<body>
+@if (Request::is('login'))
+<body class="background mb-0">
 <div class="container">
     @include('layouts.flash-message')
     @yield('content')
 </div>
 </body>
+@else
+<body>
+<div class="container-fluid">
+    @include('layouts.flash-message')
+    @yield('content')
+</div>
+</body>
+@endif
 <script
         src="https://code.jquery.com/jquery-3.2.1.js"
         integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
@@ -27,3 +36,4 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 <script src="/js/app.js"></script>
 </html>
+

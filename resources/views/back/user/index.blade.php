@@ -3,7 +3,7 @@
 
 @section('content')
     <div class="text-center user-title mt-5 mb-5">
-        <h1>Gestion des utilisateurs</h1>
+        <h2>Gestion des utilisateurs</h2>
     </div>
     <div class="container mt-3">
         <div class="row">
@@ -50,21 +50,21 @@
             <form action="{{ action('Back\UserController@destroy', $user->id) }}" method="post">
                 {{ csrf_field() }}
                 {{ method_field('DELETE') }}
-            <tr>
-                <td>{{ $user->lastname }}</td>
-                <td>{{ $user->firstname }}</td>
-                <td>{{ $user->role }}</td>
-                <td>{{ $user->group }}</td>
-                <td>{{ $user->project }}</td>
-                <td><a class="link-action" href="{{  action('Back\UserController@destroy' , $user->id) }}">
-                        <i class="fa fa-trash fa-2x" aria-hidden="true"></i>
-                    </a>
-                </td>
-                <td><label>
-                        {{--<input class="field ml-2" name="checked[]" type="checkbox" value="{{ $user->id }}"/>--}}
-                    </label>
-                </td>
-            </tr>
+                <tr>
+                    <td>{{ $user->lastname }}</td>
+                    <td>{{ $user->firstname }}</td>
+                    <td>{{ $user->role }}</td>
+                    <td>{{ $user->group }}</td>
+                    <td>{{ $user->project }}</td>
+                    <td><a class="link-action" href="{{  action('Back\UserController@destroy' , $user->id) }}">
+                            <i class="fa fa-trash fa-2x" aria-hidden="true"></i>
+                        </a>
+                    </td>
+                    <td><label>
+                            {{--<input class="field ml-2" name="checked[]" type="checkbox" value="{{ $user->id }}"/>--}}
+                        </label>
+                    </td>
+                </tr>
             </form>
         @endforeach
         </tbody>
