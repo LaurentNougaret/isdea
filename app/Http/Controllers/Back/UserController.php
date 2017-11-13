@@ -51,8 +51,6 @@ class UserController extends Controller
         return view('back.user.index', ['users' => $users]);
         }
 
-
-
 	/**
 	 * Show the form for creating a new resource.
 	 *
@@ -145,7 +143,7 @@ class UserController extends Controller
 //		dump($request->only('email'));
 //		$user->sendPasswordResetNotification($request->only('email'));
 		return redirect()->route('users.index')
-		                 ->with('message', Lang::get('message.bigger'));
+		                 ->with('message', Lang::get('message.user_update'));
 	}
 
 	/**
@@ -160,4 +158,3 @@ class UserController extends Controller
         return back()->with('message', Lang::get('message.user_delete'));
     }
 }
-

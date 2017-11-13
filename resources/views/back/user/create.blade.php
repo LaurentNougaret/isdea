@@ -2,8 +2,8 @@
 @extends('layouts.navbar')
 @section('content')
     <div class="row">
-        <div class="card mx-auto my-5 col-lg-6 col-md-9 border border-secondary rounded">
-            <h1 class="mx-auto pt-3 card.header">@lang('user.user account')</h1>
+        <div class="card mx-auto mb-5 col-lg-6 col-md-9 border border-secondary rounded">
+            <h1 class="mx-auto pt-3">@lang('user.user account')</h1>
             <div class="card-body">
                 @if ($errors->any())
                     <div class="alert alert-danger col-md-8 my-3 mx-auto">

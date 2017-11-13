@@ -2,8 +2,8 @@
 @extends('layouts.navbar')
 @section('content')
     <div class="row">
-        <div class="card mx-auto my-5 col-lg-6 col-md-9 border border-primary rounded">
-            <h1 class="mx-auto pt-3 card.header">@lang('user.user account')</h1>
+        <div class="card mx-auto mb-5 col-lg-6 col-md-9 border border-primary rounded">
+            <h1 class="mx-auto pt-3">@lang('user.user account')</h1>
             <div class="card-body">
                 @if ($errors->any())
                     <div class="alert alert-danger">
@@ -17,7 +17,6 @@
                 <form method="POST" action="{{ action('Back\UserController@update', $user->id) }}">
                     <input type="hidden" name="_method" value="PATCH">
                     {{ csrf_field() }}
-
                     <div class="form-group">
                         <div class="mx-auto col-md-9">
                             <label for="firstname" class="col-form-label">@lang('user.firstname')</label>
