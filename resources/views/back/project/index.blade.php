@@ -2,6 +2,6 @@
 @extends('layouts.navbar')
 @section('content')
 
-{{ dump($projects) }}
+
 
 @endsection

@@ -83,8 +83,7 @@ class UserController extends Controller
 	 */
 	public function show($id)
 	{
-//		$account = User::find($id);
-//		return view('back.user.edit-account')->with('account', $account);
+
 	}
 
 	/**
