@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="card mx-auto my-5 col-lg-6 col-md-9 border border-danger rounded">
-            <h2 class="mx-auto pt-3 card.header">@lang('user.user account')</h2>
+            <h2 class="mx-auto pt-3">@lang('user.user account')</h2>
             <div class="card-body">
                 @if ($errors->any())
                     <div class="alert alert-danger">
@@ -109,7 +109,7 @@
                         </div>
                     </div>
                     <div class="form-group row col-md-12 m-0">
-                        <button type="submit" class="btn btn-outline-secondary mx-auto">@lang('user.validate')</button>
+                        <button type="submit" class="btn btn-outline-secondary mx-auto shadow-button">@lang('user.validate')</button>
                     </div>
                 </form>
             </div>

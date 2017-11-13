@@ -35,8 +35,8 @@
 
                         <div class="row">
                         <div class="form-group mx-auto">
-                            <div class="col-md-9">
-                                <button type="submit" class="btn btn-secondary mx-auto">
+                            <div class="col-md-9 mx-auto">
+                                <button type="submit" class="btn btn-secondary mx-auto shadow-button my-3">
                                     @lang('auth.login')
                                 </button>
                             </div>
@@ -45,6 +45,7 @@
                                     @lang('auth.forgot')
                                 </a>
                             </div>
+                        </div>
                         </div>
                     </form>
                 </div>

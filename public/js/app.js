@@ -42774,7 +42774,7 @@ if (false) {
 /* 45 */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed: ModuleBuildError: Module build failed: \n  }\n  ^\n      Invalid CSS after \"  }\": expected \"}\", was \".btn: ;\"\n      in /home/diesel/isdea/resources/assets/sass/_login.scss (line 13, column 4)\n    at runLoaders (/home/diesel/isdea/node_modules/webpack/lib/NormalModule.js:195:19)\n    at /home/diesel/isdea/node_modules/loader-runner/lib/LoaderRunner.js:364:11\n    at /home/diesel/isdea/node_modules/loader-runner/lib/LoaderRunner.js:230:18\n    at context.callback (/home/diesel/isdea/node_modules/loader-runner/lib/LoaderRunner.js:111:13)\n    at Object.asyncSassJobQueue.push [as callback] (/home/diesel/isdea/node_modules/sass-loader/lib/loader.js:55:13)\n    at Object.<anonymous> (/home/diesel/isdea/node_modules/async/dist/async.js:2244:31)\n    at Object.callback (/home/diesel/isdea/node_modules/async/dist/async.js:906:16)\n    at options.error (/home/diesel/isdea/node_modules/node-sass/lib/index.js:294:32)");
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

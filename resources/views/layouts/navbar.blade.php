@@ -1,6 +1,6 @@
     <nav class="navbar navbar-expand-lg py-0 navbar-fixed-top">
         <a class="navbar-brand" href="/">Isdea</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler shadow-button" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -16,6 +16,11 @@
                     <a class="nav-link nav-item" href="{{action('Back\UserController@index')}}">@lang('navbar.users')</a>
                 @endif
                 @if (Request::is('admin/stats'))>
+                <a href=""></a>
+                @else
+                    <a class="nav-link nav-item" href="{{action('Back\StatsController@index')}}">@lang('navbar.stats')</a>
+                @endif
+                @if (Request::is('admin/profile'))>
                 <a href=""></a>
                 @else
                     <a class="nav-link nav-item" href="{{action('Back\StatsController@index')}}">@lang('navbar.stats')</a>
@@ -37,10 +42,10 @@
             </div>
         </div>
         @if (Auth::check())
-        <span class="navbar-text">@lang('navbar.hello'), <b>{{Auth::user()->firstname}}</b>.</span>
+        <span class="navbar-text mr-5">@lang('navbar.hello'), <b>{{Auth::user()->firstname}}</b>.</span>
         <form class="form-inline" method="POST" action="{{action('Auth\LoginController@logout')}}">
             {{csrf_field()}}
-            <button class="btn btn-outline-secondary btn-sm" type="submit">{{trans('navbar.logout')}}</button>
+            <button class="btn btn-outline-secondary btn-sm shadow-button" type="submit">{{trans('navbar.logout')}}</button>
         </form>
         @endif
     </nav>
