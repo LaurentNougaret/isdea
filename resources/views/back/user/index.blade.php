@@ -4,7 +4,7 @@
     <div class="text-center user-title mt-5 mb-5">
         <h2>@lang('user.user_management')</h2>
     </div>
-    <div class="row md-12 ml-0 mx-0 px-0 justify-content-between">
+    <div class="row md-12  mx-0 px-0 justify-content-between">
         <div class="col-lg-4 col-md-6 ">
             <form action="{{ url('admin/users') }}" method="get" class="navbar-form navbar-left" role="search" >
                 <div class="input-group custom-search-form">
@@ -36,7 +36,7 @@
                     <th style="width: 9px;">
                         <input type="checkbox" class="group-checkable"  data-set="#sample_1 .checkboxes" />
                     </th>
-                    <th><a><button class="submit" type="submit"><i class="fa fa-trash fa-2x mt-auto" aria-hidden="true">
+                    <th><a><button class="trash" type="submit"><i class="fa fa-trash fa-2x mt-auto" aria-hidden="true">
                                     <input type="hidden" name="_method" value="delete"></i></button></a></th>
                 </tr>
                 </thead>

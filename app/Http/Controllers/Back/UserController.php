@@ -158,10 +158,6 @@ class UserController extends Controller
 	{
         User::destroy($request->users);
         return back()->with('message', Lang::get('message.user_delete'));
-//        $user = User::find($id);
-//        $user->delete();
-//        return redirect('admin/users')->with('success','Product has been  deleted');
-
     }
 }
 
