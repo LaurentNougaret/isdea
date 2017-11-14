@@ -6,8 +6,8 @@
     </div>
     <div class="row md-12  mx-0 px-0 justify-content-between">
         <div class="col-lg-4 col-md-6 ">
-            <form action="{{ url('admin/users') }}" method="get" class="navbar-form navbar-left" role="search" >
-                <div class="input-group custom-search-form">
+            <form action="{{ url('admin/users') }}" method="get" role="search" >
+                <div class="input-group">
                     <input type="text" class="form-control" name="search" placeholder="Search...">
                     <span class="input-group-btn">
         <button class="btn btn-default-sm " type="submit">

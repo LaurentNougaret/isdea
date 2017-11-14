@@ -31710,7 +31710,6 @@ $('#message').delay(3000).fadeOut(1000);
 /***/ (function(module, exports) {
 
 $(function () {
-
     $('.group-checkable').click(function () {
         if ($(this).prop('checked')) {
             $('.checkbox').prop('checked', true);
