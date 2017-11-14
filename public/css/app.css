@@ -84,6 +84,15 @@
   }
 }
 
+.navbar {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.navbar-brand {
+  max-width: 5%;
+  height: auto;
+}
+
 .navbar-nav,
 .navbar-text {
   font-size: 16px;
@@ -94,6 +103,11 @@
 .navbar-nav a:hover {
   color: #636b6f;
   text-decoration: none;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 h1 {
@@ -120,6 +134,7 @@ a:active,
 a:focus,
 a:visited {
   color: #bf5329;
+  text-decoration: none;
 }
 
 ::-moz-selection {
@@ -146,6 +161,20 @@ body::selection {
   color: white;
 }
 
+button {
+  cursor: pointer;
+}
+
+.shadow-button {
+  -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.background {
+  background: url("/storage/images/paris.jpg") no-repeat center fixed;
+  background-size: cover;
+}
+
 a h2 {
   color: white;
 }
@@ -162,5 +191,26 @@ a .icon {
 
 .message-height {
   height: 3rem;
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #333739;
+}
+
+.card a {
+  color: #954120;
+  font-weight: bold;
+  text-align: center;
+}
+
+.card #email,
+.card #password {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+#logo {
+  max-width: 100%;
+  height: auto;
 }
 

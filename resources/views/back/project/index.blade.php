@@ -12,31 +12,29 @@
 
         {{--justify-content-between mx-0 px-0--}}
         {{--<div class="col-lg-4 col-md-6 ">--}}
-            <form action="{{action('Back\ProjectController@index')}}" method="GET" role="search">
-                {{--class="navbar-form navbar-left"--}}
-                <div class="input-group">
-                    {{--custom-search-form--}}
-                    <input type="text" class="form-control" name="search" placeholder="Search...">
-                    <span class="input-group-btn">
+        <form action="{{action('Back\ProjectController@index')}}" method="GET" role="search">
+            <div class="input-group">
+                <input type="text" class="form-control" name="search" placeholder="Search...">
+                <span class="input-group-btn">
         <button class="btn btn-default-sm" type="submit"><i class="fa fa-search"></i></button>
                     </span>
-                </div>
-            </form>
-        </div>
-
-        <div class="col-auto">
-            <label class="sr-only" for="inlineFormInputGroup">Username</label>
-            <div class="input-group mb-2 mb-sm-0">
-                <div class="input-group-search"><i class="fa fa-search"></i></div>
-                <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Username">
             </div>
+        </form>
+    </div>
+
+    <div class="col-auto">
+        <label for="inlineFormInputGroup">Search</label>
+        <div class="input-group mb-2 mb-sm-0">
+            <div class="input-group-search"><i class="fa fa-search"></i></div>
+            <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Username">
         </div>
+    </div>
 
 
 
-        <div class="col-md-1 pl-4">
-            <a href="{{ action('Back\UserController@create') }}"><i class="fa fa-user-plus fa-2x create" aria-hidden="true"></i></a>
-        </div>
+    <div class="col-md-1 pl-4">
+        <a href="{{ action('Back\UserController@create') }}"><i class="fa fa-user-plus fa-2x create" aria-hidden="true"></i></a>
+    </div>
 
     </div>
 

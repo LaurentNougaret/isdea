@@ -2,63 +2,42 @@
 @extends('layouts.navbar')
 @section('content')
 <div class="container">
-    <div class="row">
+    <div class="row my-5">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>
-
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('password.request') }}">
+            <div class="card border border-danger rounded col-md-8 col-md-offset-2 mx-auto">
+                <h2 class="mx-auto my-4">@lang('passwords.reset_password')</h2>
+                <div class="card-body d-flex justify-content-center">
+                    @if ($errors->any())
+                        <div class="alert alert-danger col-md-8 my-3">
+                            @foreach ($errors->all() as $error)
+                                {{ $error }}
+                            @endforeach
+                        </div>
+                    @endif
+                    <form method="POST" action="{{ action('Auth\ForgotPasswordController@showLinkRequestForm') }}">
                         {{ csrf_field() }}
-
                         <input type="hidden" name="token" value="{{ $token }}">
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
+                        <div class="form-group">
+                            <label for="email" class="col-md-4 col-form-label">@lang('user.email')</label>
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ $email or old('email') }}" required autofocus>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
                             </div>
                         </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
+                        <div class="form-group">
+                            <label for="password" class="col-md-4 col-form-label">@lang('user.password')</label>
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
                             </div>
                         </div>
-
-                        <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
+                        <div class="form-group">
+                            <label for="password-confirm" class="col-md-4 col-form-label">@lang('user.password_confirmation')</label>
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-
-                                @if ($errors->has('password_confirmation'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
-                                    </span>
-                                @endif
                             </div>
                         </div>
-
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Reset Password
-                                </button>
+                                <button type="submit" class="btn btn-outline-secondary shadow-button">@lang('passwords.reset_password')</button>
                             </div>
                         </div>
                     </form>

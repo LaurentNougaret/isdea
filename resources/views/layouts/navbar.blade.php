@@ -1,6 +1,6 @@
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/">Isdea</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-expand-lg py-0 navbar-fixed-top">
+        <a class="navbar-brand" href="/"><img id="logo" class="d-block mx-auto" src="/storage/images/isdea.png" alt="isdea_logo"></a>
+        <button class="navbar-toggler shadow-button" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -24,10 +24,10 @@
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {{ Config::get('languages')[App::getLocale()] }}
                     </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <div class="dropdown-menu ml-1" aria-labelledby="navbarDropdown">
                         @foreach (Config::get('languages') as $lang => $language)
                             @if ($lang != App::getLocale())
-                                <div class="text-center">
+                                <div class="mx-1">
                                     <a href="{{ route('lang.switch', $lang) }}">{{$language}}</a>
                                 </div>
                             @endif
@@ -37,10 +37,10 @@
             </div>
         </div>
         @if (Auth::check())
-        <span class="navbar-text">@lang('navbar.hello'), <b>{{Auth::user()->firstname}}</b>.</span>
+        <span class="navbar-text mr-5">@lang('navbar.hello'), <b>{{Auth::user()->firstname}}</b>.</span>
         <form class="form-inline" method="POST" action="{{action('Auth\LoginController@logout')}}">
             {{csrf_field()}}
-            <button class="btn btn-outline-secondary btn-sm" type="submit">{{trans('navbar.logout')}}</button>
+            <button class="btn btn-outline-secondary btn-sm shadow-button" type="submit">{{trans('navbar.logout')}}</button>
         </form>
         @endif
     </nav>
