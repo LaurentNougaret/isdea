@@ -18,5 +18,7 @@ return [
     'sent'     => '¡Te hemos enviado por correo el enlace para restablecer tu contraseña!',
     'token'    => 'El token de recuperación de contraseña es inválido.',
     'user'     => 'No podemos encontrar ningún usuario con ese correo electrónico.',
+    'reset_password'    => 'Reiniciar la contraseña',
+    'send_password'     => 'Enviar el vínculo de reinicio de la contraseña',
 
 ];
