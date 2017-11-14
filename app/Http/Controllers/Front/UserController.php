@@ -55,6 +55,6 @@ class UserController extends Controller
         };
         $user->save();
         return redirect()->route('profile')
-            ->with('message', Lang::get('message.bigger'));
+            ->with('message', Lang::get('message.update'));
     }
 }
