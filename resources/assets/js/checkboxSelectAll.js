@@ -1,5 +1,4 @@
 $(function() {
-
     $('.group-checkable').click(function() {
         if ($(this).prop('checked')) {
             $('.checkbox').prop('checked', true);
@@ -7,6 +6,5 @@ $(function() {
             $('.checkbox').prop('checked', false);
         }
     });
-
 });
 
