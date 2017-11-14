@@ -16,6 +16,9 @@ return
 	'select_group' => 'Select group',
 	'password' => 'Password',
 	'password_confirmation' => 'Password confirmation',
-    'user_management' => 'Users Management'
+    'user_management' => 'Users Management',
+	'unit' => 'Unit',
+	"created_at" => 'Created at',
+    "updated_at" => 'Update at',
 
 ];

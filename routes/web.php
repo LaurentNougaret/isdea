@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
     Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function (){
     Route::get('/', 'Back\AdminController@index');
     Route::resource('users', 'Back\UserController');
-    Route::resource('project', 'Back\ProjectController');
+    Route::resource('projects', 'Back\ProjectController');
     Route::resource('stats', 'Back\StatsController');
     Route::delete('users', ['as'=>'users.destroy', 'uses'=>'Back\UserController@destroy']);
 
