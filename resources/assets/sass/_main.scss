@@ -1,3 +1,4 @@
+// Common style for all views
 @import "variables";
 
 h1{
@@ -19,8 +20,10 @@ a {
   font-size: $font-size-a;
   text-decoration: none !important;
 }
+
 a:active, a:focus, a:visited {
   color: $brand-danger;
+  text-decoration: none;
 }
 
 ::selection {
@@ -37,3 +40,16 @@ body::selection {
   color: white;
 }
 
+button {
+  cursor: pointer;
+}
+
+.shadow-button {
+  box-shadow: $shadow-button;
+}
+
+//Background image for login, class attached to body with condition on the route "Login"
+.background {
+  background: url("/storage/images/paris.jpg") no-repeat center fixed;
+  background-size: cover;
+}

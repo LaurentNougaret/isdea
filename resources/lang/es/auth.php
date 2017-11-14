@@ -13,10 +13,10 @@ return [
     |
     */
 
-    'failed'   => 'Estas credenciales no coinciden.',
+    'failed'   => 'Estos email o contraseña no coinciden.',
     'throttle' => 'Demasiados intentos de acceso. Por favor intente nuevamente en :seconds segundos.',
     'login' => 'Conectarse',
-    'email' => 'Cuenta de correo',
+    'email' => 'Email',
     'password' => 'Contraseña',
     'forgot' => 'Contraseña olvidada?'
 

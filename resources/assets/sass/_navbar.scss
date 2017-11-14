@@ -1,4 +1,15 @@
+// Navbar style
+
 @import "variables";
+
+.navbar {
+  background-color: rgba(255,255,255,0.5);
+}
+
+.navbar-brand {
+  max-width: 5%;
+  height: auto;
+}
 
 .navbar-nav, .navbar-text {
   font-size: $font-size-a;
@@ -7,4 +18,9 @@
 .navbar-nav a:link, .navbar-nav a:visited, .navbar-nav a:hover {
   color: $text-color-base;
   text-decoration: none;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+  background-color: rgba(255,255,255,0.5);
 }
