@@ -1,4 +1,5 @@
 @extends('layouts.template')
+@extends('layouts.breadcrumb')
 @extends('layouts.navbar')
 @section('content')
     <div class="row">
@@ -23,7 +24,7 @@
                         <div class="input-group mx-auto col-md-9">
                             <div class="input-group-addon"><i class="fa fa-user-o fa-fw" aria-hidden="true"></i></div>
                             <input id="firstname" type="text" placeholder="John" class="form-control" name="firstname" value="{{ old('firstname') }}" required autofocus>
-                                                   </div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <div class="mx-auto col-md-9">
