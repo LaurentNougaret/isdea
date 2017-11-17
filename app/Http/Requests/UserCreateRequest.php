@@ -24,8 +24,8 @@ class UserCreateRequest extends FormRequest
 	public function rules()
 	{
 		return [
-            'firstname' => 'required|alpha',
-            'lastname' => 'required|alpha',
+            'firstname' => 'required|regex:/^[\pL\s\-]+$/u',
+            'lastname' => 'required|regex:/^[\pL\s\-]+$/u',
             'email' => 'required|email|unique:users',
             'role_id' => 'required',
 			'language_id' => 'required',

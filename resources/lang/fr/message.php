@@ -1,6 +1,8 @@
 <?php
 return [
-	'user_create' => "L'utilisateur a été créer avec succès.",
-	'user_update' => "L'utilisateur a été actualisé avec succès.",
-	'user_delete' => "L'(es) utilisateur(s) sélectionné(s) a(ont) été supprimé(s) avec succès.",
+	'user_create' => "Utilisateur créé avec succès.",
+	'user_update' => "Utilisateur actualisé avec succès.",
+	'user_delete' => "Utilisateur(s) supprimé(s) avec succès.",
+	'project_delete' => 'Projets supprimé(s) avec succès.',
+	'please_select' => 'Veuillez selectionner les items à supprimer',
 ];
