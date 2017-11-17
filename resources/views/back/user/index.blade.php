@@ -2,7 +2,8 @@
 @extends('layouts.breadcrumb')
 @extends('layouts.navbar')
 @section('content')
-    <div class="text-center user-title mb-5">
+    {{ LaravelLocalization::getCurrentLocaleName() }}
+<div class="text-center user-title mb-5">
         <h2>@lang('user.user_management')</h2>
     </div>
     <div class="row md-12  mx-0 px-0 justify-content-between">
@@ -22,7 +23,7 @@
             <a href="{{ action('Back\UserController@create') }}"><i class="fa fa-user-plus fa-2x create" aria-hidden="true"></i></a>
         </div>
     </div>
-    <form action="{{ route('users.destroy') }}" method="post">
+    <form action="{{ action('Back\UserController@destroy') }}" method="post">
         {{ csrf_field() }}
         <div class="justify-content-center md-12 column-table  px-0 mr-0">
             <table class="table table-hover mt-3">
@@ -44,7 +45,7 @@
                 <tbody>
                 @foreach($users as $user)
                     <tr class="odd gradeX">
-                        <td><a class="link-color" href="{{ route('users.edit', $user->id) }}">{{ $user->lastname }}</a></td>
+                        <td><a class="link-color" href="{{ action('Back\UserController@edit', $user->id) }}">{{ $user->lastname }}</a></td>
                         <td>{{ $user->firstname }}</td>
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->role }}</td>

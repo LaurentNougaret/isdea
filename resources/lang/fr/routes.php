@@ -8,5 +8,7 @@ return [
     'form' => 'formulaires',
     'id' => 'id',
     'edit' => 'editer',
-    'create' => 'creer'
+    'create' => 'creer',
+    'login' => 'connexion',
+    'home' => 'accueil',
 ];

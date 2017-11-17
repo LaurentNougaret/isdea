@@ -1,6 +1,7 @@
 @extends('layouts.template')
 @extends('layouts.navbar')
 @section('content')
+    {{ LaravelLocalization::getCurrentLocaleName() }}
     <div class="row justify-content-center mt-5">
         <h2>@lang('home.home')</h2>
     </div>

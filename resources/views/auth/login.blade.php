@@ -1,5 +1,12 @@
 @extends('layouts.template')
 @extends('layouts.navbar')
+@section('background')
+    @parent
+<div id="loginBackground">
+
+</div>
+    <img  src="/storage/images/paris.jpg" alt="paris">
+@endsection
 @section('content')
 <div class="login">
     <div class="row-fluid">
