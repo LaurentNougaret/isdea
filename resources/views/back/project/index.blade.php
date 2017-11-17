@@ -1,122 +1,96 @@
 @extends('layouts.template')
 @extends('layouts.navbar')
 @section('content')
-
-    {{ dump($projects) }}
-
-    <div class="text-center mb-5">
+    <div class="text-center my-4">
         <h2>@lang('user.project')</h2>
     </div>
-
-    <div class="form-row align-items-center bg-success">
-
-        {{--justify-content-between mx-0 px-0--}}
-        {{--<div class="col-lg-4 col-md-6 ">--}}
-        <form action="{{action('Back\ProjectController@index')}}" method="GET" role="search">
-
-            <div class="input-group">
-                <input type="text" class="form-control" name="search" placeholder="Search...">
-                <div class="input-group-btn"><button class="btn btn-default-sm" type="submit"><i class="fa fa-search"></i></button>
-                </div>
-            </div>
-
-            <div class="col-auto">
+    <div class="row">
+        <div class="col-9 col-sm-8 col-md-6 col-lg-5">
+            <form action="{{action('Back\ProjectController@index')}}" method="GET" role="search">
                 <div class="input-group">
-                    <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Search...">
-                    <div class="input-group-addon"><i class="fa fa-search"></i></div>
-                </div>
-            </div>
-        </form>
-
-
-
-        <div class="row">
-            <div class="col-md-4 col-md-offset-3">
-                <form action="" class="search-form">
-                    <div class="form-group has-feedback">
-                        <label for="search" class="sr-only">Search</label>
-                        <input type="text" class="form-control" name="search" id="search" placeholder="search">
-                        <span class="glyphicon glyphicon-search form-control-feedback"></span>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-
-        <div class="input-group stylish-input-group">
-            <input type="text" class="form-control"  placeholder="Search" >
-            <span class="input-group-addon">
-                        <button type="submit">
-                            <span class="glyphicon glyphicon-search"></span>
+                    <input type="text" class="form-control" name ="search" id="inlineFormInputGroup" placeholder="Search..."/>
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" type="submit">
+                            <i class="fa fa-search fa-fw" aria-hidden="true"></i>
                         </button>
-                    </span>
+                    </div>
+                </div>
+            </form>
         </div>
-
-
-
-
-
+        <div class="col d-flex">
+            <a class="ml-auto" href="{{ action('Back\ProjectController@create') }}">
+                <i class="fa fa-plus fa-2x fa-fw pr-2" aria-hidden="true"></i>
+            </a>
+        </div>
     </div>
-
-
-
-
-
-
-    <div class="col-md-1 pl-4">
-        <a href="{{ action('Back\UserController@create') }}"><i class="fa fa-user-plus fa-2x create" aria-hidden="true"></i></a>
-    </div>
-
-    </div>
-
-
-
-
-
-    <form action="{{ route('users.destroy') }}" method="post">
+    <form id="delete-form" action="{{ action('Back\ProjectController@destroy') }}" method="POST">
         {{ csrf_field() }}
-        <div class="justify-content-center md-12 column-table px-0 mr-0">
-            <table class="table table-hover mt-3">
+        {{ method_field('DELETE') }}
+        <div class="projects-table">
+            <table class="table table-hover table-striped">
                 <thead>
                 <tr>
-                    <th scope="col">@lang('user.lastname')</th>
-                    <th scope="col">@lang('user.firstname')</th>
-                    <th scope="col">@lang('user.email')</th>
-                    <th scope="col">@lang('user.role')</th>
-                    <th scope="col">@lang('user.group')</th>
-                    <th scope="col">@lang('user.project')</th>
-                    <th style="width: 9px;">
-                        <input type="checkbox" class="group-checkable"  data-set="#sample_1 .checkboxes" />
+                    <th class="align-middle" scope="col">@lang('project.project')</th>
+                    <th class="align-middle" scope="col">@lang('project.unit')</th>
+                    <th class="align-middle" scope="col">@lang('project.area')</th>
+                    <th class="align-middle" scope="col">@lang('project.progress')</th>
+                    <th class="pb-0 align-middle">
+                        <div class="form-group">
+                            <div class="form-check text-center">
+                                <label class="form-check-label">
+                                    <input class="form-check-input js-group-checkable" type="checkbox">
+                                </label>
+                            </div>
+                        </div>
                     </th>
-                    <th><a><button class="trash" type="submit"><i class="fa fa-trash fa-2x mt-auto" aria-hidden="true">
-                                    <input type="hidden" name="_method" value="delete"></i></button></a></th>
+                    <th class="mr-0 pr-0 text-right">
+                        <button class="trash" type="submit">
+                            <i class="fa fa-trash fa-2x fa-fw" aria-hidden="true"></i>
+                            {{ method_field('DELETE') }}
+                        </button>
+                    </th>
                 </tr>
                 </thead>
                 <tbody>
-                {{--@foreach($users as $user)--}}
-                {{--<tr class="odd gradeX">--}}
-                {{--<td><a class="link-color" href="{{ route('users.edit', $user->id) }}">{{ $user->lastname }}</a></td>--}}
-                {{--<td>{{ $user->firstname }}</td>--}}
-                {{--<td>{{ $user->email }}</td>--}}
-                {{--<td>{{ $user->role }}</td>--}}
-                {{--<td>{{ $user->group }}</td>--}}
-                {{--<td>{{ $user->project }}</td>--}}
-                {{--<td>--}}
-                {{--<input type="checkbox" class="checkbox" name="users[]" value="{{ $user->id }}" />--}}
-                {{--</td>--}}
-                {{--</tr>--}}
-                {{--@endforeach--}}
+                @foreach($projects as $project)
+                    <tr>
+                        <td><a class="link-color" href="{{ action('Back\ProjectController@index', $project->id) }}">{{ $project->name }}</a></td>
+                        <td>{{ $project->unit }}</td>
+                        <td>{{ $project->area }}</td>
+                        <td>
+                            @if(($project->progress*100) <= '25%')
+                                <div class="progress">
+                                    <div class="progress-bar bg-danger" role="progressbar" style="width: {{ $project->progress*100 }}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{ $project->progress*100 }}%</div>
+                                </div>
+                            @elseif(($project->progress*100) <= '50%')
+                                <div class="progress">
+                                    <div class="progress-bar bg-orange" role="progressbar" style="width: {{ $project->progress*100 }}%" aria-valuenow="50" aria-valuemin="26" aria-valuemax="100">{{ $project->progress*100 }}%</div>
+                                </div>
+                            @elseif(($project->progress*100) <= '75%')
+                                <div class="progress">
+                                    <div class="progress-bar bg-warning" role="progressbar" style="width: {{ $project->progress*100 }}%" aria-valuenow="75" aria-valuemin="51" aria-valuemax="100">{{ $project->progress*100 }}%</div>
+                                </div>
+                            @else(($project->progress*100) > '75%')
+                                <div class="progress">
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: {{ $project->progress*100 }}%" aria-valuenow="100" aria-valuemin="76" aria-valuemax="100">{{ $project->progress*100 }}%</div>
+                                </div>
+                            @endif
+                        </td>
+                        <td class="pb-0 align-middle">
+                            <div class="form-group">
+                                <div class="form-check text-center">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input js-checkbox-selected" type="checkbox" name="projects[]" value="{{ $project->id }}">
+                                        {{ method_field('DELETE') }}
+                                    </label>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                @endforeach
                 </tbody>
             </table>
         </div>
     </form>
-    {{--<div class="row justify-content-center px-0 mx-0">--}}
-    {{--{{ $users->links('layouts.pagination') }}--}}
-    {{--</div>--}}
-
-
-
-
-
-
+    {{ $projects->links('layouts.pagination') }}
 @endsection

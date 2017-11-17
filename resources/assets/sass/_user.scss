@@ -1,27 +1,25 @@
 @import "variables";
 
 .pagination li a {
-  color: #636b6f;
+  color: $text-color-base;
   float: left;
-  padding: 8px 16px;
+  padding: 0.8rem 1.6rem;
   text-decoration: none;
 }
 
 .trash {
-  background-color: Transparent;
-  background-repeat:no-repeat;
-  border: none;
+  background: transparent no-repeat;
+  border-style: none;
   cursor:pointer;
-  overflow: hidden;
-  color:#bf5329;
+  color:$brand-danger;
 }
 
 .link-color{
-  color:#636b6f !important;
+  color:$brand-danger;
 }
 
 .link-color:hover{
- color:#bf5329 !important;
+ color:$brand-danger;
 }
 
 .pagination > li > a:focus,
@@ -29,7 +27,7 @@
 .pagination > li > span:focus,
 .pagination > li > span:hover {
   z-index: 3;
-  color: #bf5329;
+  color: $brand-danger;
   background-color: #ddd;
   border-color: #ddd;
 }

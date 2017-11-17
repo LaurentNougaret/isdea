@@ -14,7 +14,7 @@
                     </div>
                 </a>
             @else
-                <a class="btn btn-success" href="{{ action('Front\UserController@profile') }}" target="_blank" role="button">
+                <a class="btn btn-success" href="{{ action('Front\UserController@profile') }}" role="button">
                     <div class="row">
                         <div class="my-auto col-lg-4"><i class="icon fa fa-user fa-3x fa-fw" aria-hidden="true"></i></div>
                         <div class="mx-auto col-lg-8 py-5"><h2 class="card-title text-deco">@lang('home.profile_button')</h2></div>

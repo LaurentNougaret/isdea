@@ -16,7 +16,7 @@ return
 	'select_group' => 'Seleccionar el grupo',
 	'password' => 'Contraseña',
 	'password_confirmation' => 'Confirmación de contraseña',
-    'user_management' => 'Administración de usuarios',
+	'user_management' => 'Administración de usuarios',
 	'unit' => 'Departamento',
 	"created_at" => 'Creado en',
 	"updated_at" => 'Actualizado en',

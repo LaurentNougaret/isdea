@@ -6,7 +6,7 @@
             <h2 class="mx-auto pt-3">@lang('user.user account')</h2>
             <div class="card-body">
                 @if ($errors->any())
-                    <div class="alert alert-danger col-md-8 my-3 mx-auto">
+                    <div class="alert alert-danger">
                         <ul>
                             @foreach ($errors->all() as $error)
                                 <li>{{ $error }}</li>
@@ -14,7 +14,8 @@
                         </ul>
                     </div>
                 @endif
-                <form method="POST" action="{{ action('Back\UserController@store') }}">
+                <form method="POST" action="{{ action('Front\UserController@update', $user->id) }}">
+                    <input type="hidden" name="_method" value="PATCH">
                     {{ csrf_field() }}
                     <div class="form-group">
                         <div class="mx-auto col-md-9">
@@ -22,7 +23,7 @@
                         </div>
                         <div class="input-group mx-auto col-md-9">
                             <div class="input-group-addon"><i class="fa fa-user-o fa-fw" aria-hidden="true"></i></div>
-                            <input id="firstname" type="text" placeholder="John" class="form-control" name="firstname" value="{{ old('firstname') }}" required autofocus>
+                            <input id="firstname" type="text" class="form-control" name="firstname" value="{{ $user->firstname }}" required readonly>
                         </div>
                     </div>
                     <div class="form-group">
@@ -31,7 +32,7 @@
                         </div>
                         <div class="input-group mx-auto col-md-9">
                             <div class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></div>
-                            <input id="lastname" type="text" placeholder="Snow" class="form-control" name="lastname" value="{{ old('lastname') }}" required>
+                            <input id="lastname" type="text" class="form-control" name="lastname" value="{{ $user->lastname }}" required readonly>
                         </div>
                     </div>
                     <div class="form-group">
@@ -40,8 +41,25 @@
                         </div>
                         <div class="input-group mx-auto col-md-9">
                             <div class="input-group-addon"><i class="fa fa-at fa-fw" aria-hidden="true"></i></div>
-                            <input id="email" type="text" placeholder="johnsnow@got.com" class="form-control" name="email" value="{{ old('email') }}" required>
-
+                            <input id="email" type="text" class="form-control" name="email" value="{{ $user->email }}" required readonly>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="mx-auto col-md-9">
+                            <label for="password" class="col-form-label">@lang('user.password')</label>
+                        </div>
+                        <div class="input-group mx-auto col-md-9">
+                            <div class="input-group-addon"><i class="fa fa-key fa-fw" aria-hidden="true"></i></div>
+                            <input id="password" type="password" class="form-control" name="password" value="{{ $user->password }}" required autofocus>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="mx-auto col-md-9">
+                            <label for="password_confirmation" class="col-form-label">@lang('user.password_confirmation')</label>
+                        </div>
+                        <div class="input-group mx-auto col-md-9">
+                            <div class="input-group-addon"><i class="fa fa-repeat fa-fw" aria-hidden="true"></i></div>
+                            <input id="password_confirmation" type="password" class="form-control" name="password_confirmation" value="{{ $user->password }}" required>
                         </div>
                     </div>
                     <div class="form-group">
@@ -50,12 +68,7 @@
                         </div>
                         <div class="input-group mx-auto col-md-9">
                             <div class="input-group-addon"><i class="fa fa-vcard-o fa-fw" aria-hidden="true"></i></div>
-                            <select id="role_id" class="form-control" name="role_id" required>
-                                <option selected>@lang('user.select_role')</option>
-                                @foreach($roles as $role)
-                                    <option value="{{ $role->id }}">{{ $role->name }}</option>
-                                @endforeach
-                            </select>
+                            <input id="role"  type="text" class="form-control" name="role" value="{{ $user->role }}" required readonly>
                         </div>
                     </div>
                     <div class="form-group">
@@ -65,7 +78,7 @@
                         <div class="input-group mx-auto col-md-9">
                             <div class="input-group-addon"><i class="fa fa-language fa-fw" aria-hidden="true"></i></div>
                             <select id="language_id" class="form-control" name="language_id" required>
-                                <option selected>@lang('user.select_language')</option>
+                                <option value="{{ $user->language_id }}" selected>{{ $user->saved_language }}</option>
                                 @foreach($languages as $language)
                                     <option value="{{ $language->id }}">{{ $language->name }}</option>
                                 @endforeach
@@ -78,12 +91,7 @@
                         </div>
                         <div class="input-group mx-auto col-md-9">
                             <div class="input-group-addon"><i class="fa fa-users fa-fw" aria-hidden="true"></i></div>
-                            <select id="group_id" class="form-control" name="group_id" required>
-                                <option selected>@lang('user.select_group')</option>
-                                @foreach ($groups as $group)
-                                    <option value="{{ $group->id }}">{{ $group->name }}</option>
-                                @endforeach
-                            </select>
+                            <input id="group"  type="text" class="form-control" name="group" value="{{ $user->group }}" required readonly>
                         </div>
                     </div>
                     <div class="form-group row col-md-12 m-0">
