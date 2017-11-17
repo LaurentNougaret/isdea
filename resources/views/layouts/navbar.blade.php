@@ -5,7 +5,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <div class="navbar-nav mr-auto">
-                @if (Request::is('admin/project'))
+                @if (Request::is('admin/projects'))
                     <a href=""></a>
                 @else
                     <a class="nav-link nav-item" href="{{action('Back\ProjectController@index')}}">@lang('navbar.projects')</a>

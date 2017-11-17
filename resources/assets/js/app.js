@@ -10,6 +10,7 @@ require('./input-select-all');
 require('./flash-message-delay');
 require('./checkboxSelectAll');
 
+
 window.Vue = require('vue');
 
 /**

@@ -1,94 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,700);.pagination li a {
-  color: #636b6f;
-  float: left;
-  padding: 8px 16px;
-  text-decoration: none;
-}
-
-.user-title {
-  padding-bottom: 0.8em;
-}
-
-.trash {
-  background-color: Transparent;
-  background-repeat: no-repeat;
-  border: none;
-  cursor: pointer;
-  overflow: hidden;
-  color: #bf5329;
-}
-
-.link-color {
-  color: #636b6f !important;
-}
-
-.link-color:hover {
-  color: #bf5329 !important;
-}
-
-.pagination > li > a:focus,
-.pagination > li > a:hover,
-.pagination > li > span:focus,
-.pagination > li > span:hover {
-  z-index: 3;
-  color: #bf5329;
-  background-color: #ddd;
-  border-color: #ddd;
-}
-
-@media screen and (min-width: 200px) and (max-width: 640px) {
-  .column-table table tr th:nth-child(2) {
-    display: none;
-  }
-
-  .column-table table tr td:nth-child(2) {
-    display: none;
-  }
-
-  .column-table table tr th:nth-child(3) {
-    display: none;
-  }
-
-  .column-table table tr td:nth-child(3) {
-    display: none;
-  }
-
-  .column-table table tr th:nth-child(6) {
-    display: none;
-  }
-
-  .column-table table tr td:nth-child(6) {
-    display: none;
-  }
-
-  .table.table-hover {
-    width: 100%;
-  }
-}
-
-@media only screen and (min-device-width: 800px) and (max-width: 1080px) {
-  .column-table table tr th:nth-child(2) {
-    display: none;
-  }
-
-  .column-table table tr td:nth-child(2) {
-    display: none;
-  }
-
-  .column-table table tr th:nth-child(6) {
-    display: none;
-  }
-
-  .column-table table tr td:nth-child(6) {
-    display: none;
-  }
-
-  .table.table-hover {
-    width: 100%;
-  }
-}
-
-.navbar {
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,700);.navbar {
   background-color: rgba(255, 255, 255, 0.5);
 }
 
@@ -188,13 +98,8 @@ a .icon {
 }
 
 .card {
-  border-width: 0.2rem;
-  border-color: darkgrey;
+  border: 0.2rem darkgrey;
   border-radius: 7px !important;
-}
-
-.message-height {
-  height: 3rem;
 }
 
 .card {
@@ -216,5 +121,143 @@ a .icon {
 #logo {
   max-width: 100%;
   height: auto;
+}
+
+.message-height {
+  height: 3rem;
+}
+
+.pagination li a {
+  color: #636b6f;
+  float: left;
+  padding: 0.8rem 1.6rem;
+  text-decoration: none;
+}
+
+.trash {
+  background: transparent no-repeat;
+  border-style: none;
+  cursor: pointer;
+  color: #bf5329;
+}
+
+.link-color {
+  color: #bf5329;
+}
+
+.link-color:hover {
+  color: #bf5329;
+}
+
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover {
+  z-index: 3;
+  color: #bf5329;
+  background-color: #ddd;
+  border-color: #ddd;
+}
+
+@media screen and (min-width: 200px) and (max-width: 640px) {
+  .column-table table tr th:nth-child(2) {
+    display: none;
+  }
+
+  .column-table table tr td:nth-child(2) {
+    display: none;
+  }
+
+  .column-table table tr th:nth-child(3) {
+    display: none;
+  }
+
+  .column-table table tr td:nth-child(3) {
+    display: none;
+  }
+
+  .column-table table tr th:nth-child(6) {
+    display: none;
+  }
+
+  .column-table table tr td:nth-child(6) {
+    display: none;
+  }
+
+  .table.table-hover {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-device-width: 800px) and (max-width: 1080px) {
+  .column-table table tr th:nth-child(2) {
+    display: none;
+  }
+
+  .column-table table tr td:nth-child(2) {
+    display: none;
+  }
+
+  .column-table table tr th:nth-child(6) {
+    display: none;
+  }
+
+  .column-table table tr td:nth-child(6) {
+    display: none;
+  }
+
+  .table.table-hover {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 480px) {
+  .projects-table table tr th:nth-child(2) {
+    display: none;
+  }
+
+  .projects-table table tr td:nth-child(2) {
+    display: none;
+  }
+
+  .projects-table table tr th:nth-child(3) {
+    display: none;
+  }
+
+  .projects-table table tr td:nth-child(3) {
+    display: none;
+  }
+
+  .projects-table table tr th:nth-child(4) {
+    display: none;
+  }
+
+  .projects-table table tr td:nth-child(4) {
+    display: none;
+  }
+}
+
+@media only screen and (min-device-width: 481px) and (max-width: 600px) {
+  .projects-table table tr th:nth-child(3) {
+    display: none;
+  }
+
+  .projects-table table tr td:nth-child(3) {
+    display: none;
+  }
+}
+
+@media only screen and (min-device-width: 601px) and (max-width: 768px) {
+  .projects-table table tr th:nth-child(2) {
+    display: none;
+  }
+
+  .projects-table table tr td:nth-child(2) {
+    display: none;
+  }
+}
+
+.bg-orange {
+  background-color: #ff6a33;
 }
 
