@@ -1,6 +1,10 @@
 @extends('layouts.template')
 @extends('layouts.breadcrumb')
 @extends('layouts.navbar')
+
+@section('bread')
+    Users
+@endsection
 @section('content')
     <div class="text-center user-title my-4">
     {{ LaravelLocalization::getCurrentLocaleName() }}

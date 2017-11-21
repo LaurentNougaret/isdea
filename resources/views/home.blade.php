@@ -1,5 +1,12 @@
 @extends('layouts.template')
 @extends('layouts.navbar')
+
+@section('bread')
+    Accueil
+@endsection
+@section('bg')
+    bhtwo
+@endsection
 @section('content')
     {{ LaravelLocalization::getCurrentLocaleName() }}
     <div class="row justify-content-center mt-5">

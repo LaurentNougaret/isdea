@@ -13,15 +13,22 @@
     <link href="https://fonts.googleapis.com/css?family=Anton|Raleway" rel="stylesheet">
 </head>
 @if (Request::is(LaravelLocalization::getCurrentLocale() . '/login'))
-<body class="background mb-0">
+<body class="@section('bg') background @show">
 <div class="container">
     @include('layouts.flash-message')
     @yield('content')
 </div>
 </body>
 @else
-<body class="mb-0">
+<body class="mb-0 @section('bg') background @show">
 <div class="container">
+
+
+    <ul>
+        <li>Home</li>
+        @section('bread') @show
+    </ul>
+
     @include('layouts.flash-message')
     @yield('content')
 </div>

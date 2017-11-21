@@ -32,14 +32,14 @@
                         {{ LaravelLocalization::getCurrentLocaleName() }}
                     </a>
                     <div class="dropdown-menu ml-1" aria-labelledby="navbarDropdown">
-                        {{--@foreach (Config::get('languages') as $lang => $language)--}}
-                            {{--@if ($lang != App::getLocale())--}}
-                                {{--<div class="mx-1">--}}
-                                    {{--<a href="{{ route('lang.switch', $lang) }}">{{$language}}</a>--}}
-                                {{--</div>--}}
-                            {{--@endif--}}
-                        {{--@endforeach--}}
-                        @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                        @foreach (Config::get('languages') as $lang => $language)--}}
+                            @if ($lang != App::getLocale())
+                                <div class="mx-1">
+                                    <a href="{{ route('lang.switch', $lang) }}">{{$lang}}</a>
+                                </div>
+                            @endif
+                        @endforeach
+                      {{-- @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
                                 <div class="mx-1">
                                     @if ($localeCode != LaravelLocalization::getCurrentLocale())
                                         <a href="{{ action('LanguageController@switchLang', $localeCode) }}">
@@ -47,7 +47,7 @@
                                         </a>
                                     @endif
                                 </div>
-                        @endforeach
+                        @endforeach--}}
                     </div>
                 </div>
             </div>

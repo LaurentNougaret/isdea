@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Redirect;
@@ -18,6 +19,7 @@ class LanguageController extends Controller
 //        }
         if (array_key_exists($localeCode, LaravelLocalization::getSupportedLocales())) {
             Session::put('applocale', $localeCode);
+            App::setLocale('fr');
         }
 //        if (array_key_exists($localeCode, Config::get('languages'))) {
 //            Session::put('applocale', $localeCode);
