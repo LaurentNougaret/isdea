@@ -29,10 +29,10 @@ class UserController extends Controller
 	public function index()
 	{
 
-		Mail::send('back.emails.reminder', ['user' => 'Julien'], function ($m) {
-			$m->from('julien@free.fr', 'Your Application');
-			$m->to('toto@free.fr', 'Julien Boyer')->subject('Your Reminder!');
-		});
+//		Mail::send('back.emails.reminder', ['user' => 'Julien'], function ($m) {
+//			$m->from('julien@free.fr', 'Your Application');
+//			$m->to('toto@free.fr', 'Julien Boyer')->subject('Your Reminder!');
+//		});
 
 		$search = \Request::get('search');
 
