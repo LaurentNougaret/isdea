@@ -1,4 +1,5 @@
 @extends('layouts.template')
+@extends('layouts.breadcrumb')
 @extends('layouts.navbar')
 @section('content')
     <div class="row">

@@ -95,6 +95,37 @@ return [
 
     /*
 	|--------------------------------------------------------------------------
+	| List of alternative languages
+	|--------------------------------------------------------------------------
+	|
+    | (not including the one as 'locale')
+	*/
+
+    'alt_langs' => ['en', 'es'],
+
+    /*
+	|--------------------------------------------------------------------------
+	| Prefix of all languages
+	|--------------------------------------------------------------------------
+	|
+	|
+	*/
+
+    'all_langs' => ['fr', 'en', 'es'],
+
+    /*
+	|--------------------------------------------------------------------------
+	| Prefix of selected locale
+	|--------------------------------------------------------------------------
+	|
+	| Leave empty (set in runtime)
+	|
+	*/
+
+    'locale_prefix' => '',
+
+    /*
+	|--------------------------------------------------------------------------
 	| Faker Locale
 	|--------------------------------------------------------------------------
 	|
@@ -175,6 +206,7 @@ return [
 		Illuminate\Validation\ValidationServiceProvider::class,
 		Illuminate\View\ViewServiceProvider::class,
 		Barryvdh\Debugbar\ServiceProvider::class,
+        Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class,
 
 		/*
 		 * Package Service Providers...
@@ -237,18 +269,7 @@ return [
 		'URL' => Illuminate\Support\Facades\URL::class,
 		'Validator' => Illuminate\Support\Facades\Validator::class,
 		'View' => Illuminate\Support\Facades\View::class,
-	],
+        'LaravelLocalization' => Mcamara\LaravelLocalization\Facades\LaravelLocalization::class,
 
-    /*
-   |--------------------------------------------------------------------------
-   | Pagination Configuration
-   |--------------------------------------------------------------------------
-   */
-
-//    'nbrPages' => [
-//        'back' => [
-//            'users' => 10,
-//        ],
-//
-//    ],
+    ],
 ];

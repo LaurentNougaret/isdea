@@ -981,7 +981,7 @@ __webpack_require__(11);
 __webpack_require__(35);
 __webpack_require__(36);
 __webpack_require__(37);
-
+__webpack_require__(50);
 window.Vue = __webpack_require__(38);
 
 /**
@@ -42774,6 +42774,34 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 46 */,
+/* 47 */,
+/* 48 */,
+/* 49 */,
+/* 50 */
+/***/ (function(module, exports) {
+
+
+var pathUrl = window.location.pathname,
+    arr = pathUrl.split('/'),
+    breadcrumbSec = $(".breadcrumb ul");
+breadcrumbSec.prepend("<li><a href='/'>home</a></li>");
+arr.forEach(function (item, index) {
+    if (item.length > 2) {
+        var printItem = item.replace(/[^\w]/gi, ' ');
+        if (arr.length - 1 !== index) {
+            if (arr[index - 1] != '') {
+                breadcrumbSec.append("<li><a href=/" + arr[index - 1] + '/' + item + ">" + printItem + "</a></li>");
+            } else {
+                breadcrumbSec.append("<li><a href=/" + item + ">" + printItem + "</a></li>");
+            }
+        } else {
+            breadcrumbSec.append("<li>" + printItem + "</li>");
+        }
+    }
+});
 
 /***/ })
 /******/ ]);
