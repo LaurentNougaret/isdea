@@ -26,7 +26,7 @@
                 @else
                     <a class="nav-link nav-item mt-2" href="{{action('Front\UserController@profile')}}">@lang('navbar.profile')</a>
                 @endif
-    @endif
+                @endif
                 <div class="nav-link nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {{ Config::get('languages')[App::getLocale()] }}
