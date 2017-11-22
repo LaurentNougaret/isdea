@@ -26,28 +26,19 @@
                 @else
                     <a class="nav-link nav-item mt-2" href="{{action('Front\UserController@profile')}}">@lang('navbar.profile')</a>
                 @endif
-    @endif
+                @endif
                 <div class="nav-link nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {{ LaravelLocalization::getCurrentLocaleName() }}
+                        {{ Config::get('languages')[App::getLocale()] }}
                     </a>
                     <div class="dropdown-menu ml-1" aria-labelledby="navbarDropdown">
-                        @foreach (Config::get('languages') as $lang => $language)--}}
+                        @foreach (Config::get('languages') as $lang => $language)
                             @if ($lang != App::getLocale())
                                 <div class="mx-1">
-                                    <a href="{{ route('lang.switch', $lang) }}">{{$lang}}</a>
+                                    <a href="{{ route('lang.switch', $lang) }}">{{$language}}</a>
                                 </div>
                             @endif
                         @endforeach
-                      {{-- @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                                <div class="mx-1">
-                                    @if ($localeCode != LaravelLocalization::getCurrentLocale())
-                                        <a href="{{ action('LanguageController@switchLang', $localeCode) }}">
-                                            {{ $properties['native'] }}
-                                        </a>
-                                    @endif
-                                </div>
-                        @endforeach--}}
                     </div>
                 </div>
             </div>
@@ -61,7 +52,6 @@
                 @endif
             @endif
         </div>
-
 </nav>
 
 

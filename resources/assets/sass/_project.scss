@@ -1,5 +1,10 @@
 @import "variables";
 
+
+.add-project-button, .add-project-button:hover {
+  color: $brand-danger;
+}
+
 .projects-table table{
 
   @media screen and (min-width: 0px) and (max-width: 480px) {

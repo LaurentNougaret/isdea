@@ -18,7 +18,7 @@
             </form>
         </div>
         <div class="col d-flex">
-            <a class="ml-auto" href="{{ action('Back\ProjectController@create') }}">
+            <a class="add-project-button ml-auto" href="{{ action('Back\ProjectController@create') }}">
                 <i class="fa fa-plus fa-2x fa-fw pr-2" aria-hidden="true"></i>
             </a>
         </div>
@@ -34,7 +34,7 @@
                     <th class="align-middle" scope="col">@lang('project.unit')</th>
                     <th class="align-middle" scope="col">@lang('project.area')</th>
                     <th class="align-middle" scope="col">@lang('project.progress')</th>
-                    <th class="pb-0 align-middle">
+                    <th class="pb-0 pl-1 align-middle">
                         <div class="form-group">
                             <div class="form-check text-center">
                                 <label class="form-check-label">
@@ -76,7 +76,7 @@
                                 </div>
                             @endif
                         </td>
-                        <td class="pb-0 align-middle">
+                        <td class="py-0 align-middle">
                             <div class="form-group">
                                 <div class="form-check text-center">
                                     <label class="form-check-label">
