@@ -1,14 +1,8 @@
 @extends('layouts.template')
 @extends('layouts.breadcrumb')
 @extends('layouts.navbar')
-
-@section('bread')
-    Users
-@endsection
 @section('content')
     <div class="text-center user-title my-4">
-    {{ LaravelLocalization::getCurrentLocaleName() }}
-<div class="text-center user-title mb-5">
         <h2>@lang('user.user_management')</h2>
     </div>
     <div class="row md-12  mx-0 px-0 justify-content-between">

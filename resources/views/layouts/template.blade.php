@@ -12,25 +12,20 @@
     <link rel="stylesheet" href="/css/app.css"/>
     <link href="https://fonts.googleapis.com/css?family=Anton|Raleway" rel="stylesheet">
 </head>
-@if (Request::is(LaravelLocalization::getCurrentLocale() . '/login'))
-<body class="@section('bg') background @show">
-<div class="container">
+@if (Request::is('login'))
+<body class="background mb-0">
+    <div class="container">
+    @include('layouts.flash-message')
+    @yield('content')
+    </div>
+</body>
+@else
+<body>
+<div class="container-fluid">
+<div class="mx-5">
     @include('layouts.flash-message')
     @yield('content')
 </div>
-</body>
-@else
-<body class="mb-0 @section('bg') background @show">
-<div class="container">
-
-
-    <ul>
-        <li>Home</li>
-        @section('bread') @show
-    </ul>
-
-    @include('layouts.flash-message')
-    @yield('content')
 </div>
 </body>
 @endif

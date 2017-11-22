@@ -29,39 +29,29 @@
     @endif
                 <div class="nav-link nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {{ LaravelLocalization::getCurrentLocaleName() }}
+                        {{ Config::get('languages')[App::getLocale()] }}
                     </a>
                     <div class="dropdown-menu ml-1" aria-labelledby="navbarDropdown">
-                        @foreach (Config::get('languages') as $lang => $language)--}}
+                        @foreach (Config::get('languages') as $lang => $language)
                             @if ($lang != App::getLocale())
                                 <div class="mx-1">
-                                    <a href="{{ route('lang.switch', $lang) }}">{{$lang}}</a>
+                                    <a href="{{ route('lang.switch', $lang) }}">{{$language}}</a>
                                 </div>
                             @endif
                         @endforeach
-                      {{-- @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                                <div class="mx-1">
-                                    @if ($localeCode != LaravelLocalization::getCurrentLocale())
-                                        <a href="{{ action('LanguageController@switchLang', $localeCode) }}">
-                                            {{ $properties['native'] }}
-                                        </a>
-                                    @endif
-                                </div>
-                        @endforeach--}}
                     </div>
                 </div>
             </div>
             @if(Auth::user())
                 @if (Auth::check())
                     <span class="navbar-text mr-5">@lang('navbar.hello'), <b>{{Auth::user()->firstname}}</b>.</span>
-                    <form class="form-inline" method="POST" action="{{action('Auth\LoginController@logout')}}">
+                    <form class="form-inline" method="POST" action="{{action('Auth\LogoutController@performLogout')}}">
                         {{csrf_field()}}
-                        <button class="btn btn-outline-secondary btn-sm shadow-button mt-2" type="submit">{{trans('navbar.logout')}}</button>
+                        <button class="btn btn-outline-secondary btn-sm shadow-button mt-2" type="submit">@lang('navbar.logout')</button>
                     </form>
                 @endif
             @endif
         </div>
-
 </nav>
 
 
