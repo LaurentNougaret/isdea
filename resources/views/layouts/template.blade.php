@@ -13,19 +13,21 @@
     <link href="https://fonts.googleapis.com/css?family=Anton|Raleway" rel="stylesheet">
 </head>
 @if (Request::is('login'))
-<body class="background mb-0">
-<div class="container">
-    @include('layouts.flash-message')
-    @yield('content')
-</div>
-</body>
+    <body class="background mb-0">
+    <div class="container">
+        @include('layouts.flash-message')
+        @yield('content')
+    </div>
+    </body>
 @else
-<body>
-<div class="container-fluid">
-    @include('layouts.flash-message')
-    @yield('content')
-</div>
-</body>
+    <body>
+    <div class="container-fluid">
+        <div class="mx-5">
+            @include('layouts.flash-message')
+            @yield('content')
+        </div>
+    </div>
+    </body>
 @endif
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
 <script src="https://getbootstrap.com/assets/js/vendor/popper.min.js"></script>

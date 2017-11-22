@@ -51,7 +51,7 @@
                 </thead>
                 <tbody>
                 @foreach($users as $user)
-                    <tr class="odd gradeX">
+                    <tr>
                         <td><a class="link-color" href="{{ action('Back\UserController@edit', $user->id) }}">{{ $user->lastname }}</a></td>
                         <td>{{ $user->firstname }}</td>
                         <td>{{ $user->email }}</td>

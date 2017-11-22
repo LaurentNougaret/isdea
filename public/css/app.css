@@ -211,6 +211,11 @@ a .icon {
   }
 }
 
+.add-project-button,
+.add-project-button:hover {
+  color: #bf5329;
+}
+
 @media screen and (min-width: 0px) and (max-width: 480px) {
   .projects-table table tr th:nth-child(2) {
     display: none;
