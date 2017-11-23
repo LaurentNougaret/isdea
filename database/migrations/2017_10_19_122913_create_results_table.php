@@ -17,7 +17,6 @@ class CreateResultsTable extends Migration
             $table->increments('id');
             $table->decimal('progress');
             $table->longText('project_content');
-            $table->integer('project_id')->unsigned();
 	        $table->timestamps();
         });
     }

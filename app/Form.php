@@ -10,4 +10,9 @@ class Form extends Model
     {
     	return $this->belongsToMany(Project::class);
     }
+
+    public function form()
+    {
+        return $this->belongsTo(Group::class);
+    }
 }

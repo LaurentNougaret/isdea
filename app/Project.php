@@ -13,7 +13,7 @@ class Project extends Model
 
     public function results()
     {
-    	return $this->hasMany(Result::class);
+    	return $this->hasOne(Result::class);
     }
 
     public function users()
