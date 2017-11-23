@@ -6,7 +6,7 @@
     </div>
     <div class="row">
         <div class="col-9 col-sm-8 col-md-6 col-lg-5">
-            <form action="{{action('Back\ProjectController@index')}}" method="GET" role="search">
+            <form action="{{action('Front\ProjectController@index')}}" method="GET" role="search">
                 <div class="input-group">
                     <input type="text" class="form-control" name ="search" id="inlineFormInputGroup" placeholder="Search..."/>
                     <div class="input-group-btn">
@@ -17,16 +17,8 @@
                 </div>
             </form>
         </div>
-        {{--<div class="col d-flex">--}}
-            {{--<a class="add-project-button ml-auto" href="{{ action('Back\ProjectController@create') }}">--}}
-                {{--<i class="fa fa-plus fa-2x fa-fw pr-2" aria-hidden="true"></i>--}}
-            {{--</a>--}}
-        {{--</div>--}}
-    </div>
-    <form id="delete-form" action="{{ action('Back\ProjectController@destroy') }}" method="POST">
-        {{ csrf_field() }}
-        {{ method_field('DELETE') }}
-        <div class="projects-table">
+      </div>
+            <div class="projects-table">
             <table class="table table-hover table-striped">
                 <thead>
                 <tr>
@@ -34,27 +26,12 @@
                     <th class="align-middle" scope="col">@lang('project.unit')</th>
                     <th class="align-middle" scope="col">@lang('project.area')</th>
                     <th class="align-middle" scope="col">@lang('project.progress')</th>
-                    <th class="pb-0 pl-1 align-middle">
-                        <div class="form-group">
-                            <div class="form-check text-center">
-                                <label class="form-check-label">
-                                    <input class="form-check-input js-group-checkable" type="checkbox">
-                                </label>
-                            </div>
-                        </div>
-                    </th>
-                    <th class="mr-0 pr-0 text-right">
-                        <button class="trash" type="submit">
-                            <i class="fa fa-trash fa-2x fa-fw" aria-hidden="true"></i>
-                            {{ method_field('DELETE') }}
-                        </button>
-                    </th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($projects as $project)
                     <tr>
-                        <td><a class="link-color" href="{{ action('Back\ProjectController@index', $project->id) }}">{{ $project->name }}</a></td>
+                        <td><a class="link-color" href="{{ action('Front\ProjectController@edit', $project->id) }}">{{ $project->name }}</a></td>
                         <td>{{ $project->unit }}</td>
                         <td>{{ $project->area }}</td>
                         <td>
