@@ -17,11 +17,11 @@
                 </div>
             </form>
         </div>
-        <div class="col-md-1 pl-4">
+        <div class="col-md-1">
             <a href="{{ action('Back\UserController@create') }}"><i class="fa fa-user-plus fa-2x create" aria-hidden="true"></i></a>
         </div>
     </div>
-    <form action="{{ route('users.destroy') }}" method="post">
+    <form action="{{ action('Back\UserController@destroy') }}" method="post">
         {{ csrf_field() }}
         <div class="justify-content-center md-12 column-table  px-0 mr-0">
             <table class="table table-hover mt-3">

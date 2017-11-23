@@ -963,7 +963,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(10);
-module.exports = __webpack_require__(45);
+module.exports = __webpack_require__(46);
 
 
 /***/ }),
@@ -981,8 +981,9 @@ __webpack_require__(11);
 __webpack_require__(35);
 __webpack_require__(36);
 __webpack_require__(37);
+__webpack_require__(38);
 
-window.Vue = __webpack_require__(38);
+window.Vue = __webpack_require__(39);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -990,7 +991,7 @@ window.Vue = __webpack_require__(38);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', __webpack_require__(41));
+Vue.component('example-component', __webpack_require__(42));
 
 var app = new Vue({
   el: '#app'
@@ -31721,6 +31722,265 @@ $(function () {
 
 /***/ }),
 /* 38 */
+/***/ (function(module, exports) {
+
+// function change() {
+//     if (value = 0) {
+//         var compteur = 0;
+//         $('.btn-outline-success').click(() => {
+//             compteur++;
+//         $(':radio:eq(' + compteur + ')').trigger('click');
+//     });
+//
+//         $('button#btnreturn').click(() => {
+//             compteur--;
+//         $(':radio:eq(' + compteur + ')').trigger('click');
+//     });
+//     } else if (value = 1) {
+//         var compteur = 1;
+//         $('.btn-outline-success').click(() => {
+//             compteur++;
+//         $(':radio:eq(' + compteur + ')').trigger('click');
+//     });
+//         $('button#btnreturn').click(() => {
+//             compteur--;
+//         $(':radio:eq(' + compteur + ')').trigger('click');
+//     });
+//     } else if (value = 2) {
+//         var compteur = 2;
+//         $('.btn-outline-success').click(() => {
+//             compteur++;
+//         $(':radio:eq(' + compteur + ')').trigger('click');
+//     });
+//         $('button#btnreturn').click(() => {
+//             compteur--;
+//         $(':radio:eq(' + compteur + ')').trigger('click');
+//     });
+//     } else if (value = 3) {
+//         var compteur = 3;
+//         $('.btn-outline-success').click(() => {
+//             compteur++;
+//         $(':radio:eq(' + compteur + ')').trigger('click');
+//     });
+//         $('button#btnreturn').click(() => {
+//             compteur--;
+//         $(':radio:eq(' + compteur + ')').trigger('click');
+//     });
+//     } else if (value = 4) {
+//         var compteur = 4;
+//         $('.btn-outline-success').click(() => {
+//             compteur++;
+//         $(':radio:eq(' + compteur + ')').trigger('click');
+//     });
+//         $('button#btnreturn').click(() => {
+//             compteur--;
+//         $(':radio:eq(' + compteur + ')').trigger('click');
+//     });
+//     } else if (value = 5) {
+//         var compteur = 5;
+//         $('.btn-outline-success').click(() => {
+//             compteur++;
+//         $(':radio:eq(' + compteur + ')').trigger('click');
+//     });
+//         $('button#btnreturn').click(() => {
+//             compteur--;
+//         $(':radio:eq(' + compteur + ')').trigger('click');
+//     });
+//     } else if (value = 6) {
+//         var compteur = 6;
+//         $('.btn-outline-success').click(() => {
+//             compteur++;
+//         $(':radio:eq(' + compteur + ')').trigger('click');
+//     });
+//         $('button#btnreturn').click(() => {
+//             compteur--;
+//         $(':radio:eq(' + compteur + ')').trigger('click');
+//     });
+//     }else{
+//         var compteur = 0;
+//         $('.btn-outline-success').click(() => {
+//             compteur++;
+//         $(':radio:eq(' + compteur + ')').trigger('click');
+//     });
+//
+//         $('button#btnreturn').click(() => {
+//             compteur--;
+//         $(':radio:eq(' + compteur + ')').trigger('click');
+//     });
+//
+//     }
+//
+// }
+//
+// var compteur = 0;
+//
+// $('.btn-outline-success').click(() => {
+//     compteur++;
+// $(':radio:eq(' + compteur + ')').trigger('click');
+// });
+//
+// $('button#btnreturn').click(() => {
+//     compteur--;
+//     $(':radio:eq(' + compteur + ')').trigger('click');
+// });
+
+
+//     var compteur = document.getElementsByClassName('forms_input').value;
+// var compteur = 0;
+// var compteur = $('input[type=radio]:checked').length;
+
+// var compteur = {}
+//
+// function countChange(groupIndex) { // called from onchange
+//    compteur[groupIndex] = true;
+// }
+
+// function numberOfChanges() { // called when you need the number of changes
+// var result = 0;
+// for (index in compteur) result++;
+// return result;
+// }
+//  = 0;
+// var compteur;
+// var compteur = $(".forms_input").is(":checked").val();
+//  $("input[name='forms_input']:checked").each(function (i) {
+//     compteur[i] = $(this).val();
+// });
+// var compteur;
+// $( "input[type=radio]:checked").val(function(value) {
+//     var compteur =  value;
+// });
+
+// var compteur = $("input[name='tabs']:checked").val(value);
+
+// var compteur = document.getElementById("tab2").value;
+// var compteur = document.getElementsByClassName('forms_input').id;
+// var compteur = $('input[type=radio]:checked').value;
+
+// var compteur = document.getElementsByClassName("tabs").checked;
+
+// $('input.forms_input').click(function() {
+//     if ($(this).is(':checked')) {
+// var descount = document.getElementByName(['tabs']);
+// for (var i = 0; i < descount.length; i++) {
+//     if (descount[i].checked) {
+//         var compteur = descount[i].value;
+//     var compteur = document.getElementsByName('tabs').value;
+//             $('.btn-outline-success').click(() => {
+//                 compteur++;
+//             $(':radio:eq(' + compteur + ')').trigger('click');
+//         });
+//             $('button#btnreturn').click(() => {
+//                 compteur--;
+//             $(':radio:eq(' + compteur + ')').trigger('click');
+//         });
+//     //     }
+//     // }
+// } else {
+//     $('.btn-outline-success').click(() => {
+//         compteur++;
+//     $(':radio:eq(' + compteur + ')').trigger('click');
+// });
+//
+//     $('button#btnreturn').click(() => {
+//         compteur--;
+//     $(':radio:eq(' + compteur + ')').trigger('click');
+// });
+// }
+// });
+
+// $("input[class=forms_input]"){
+
+if ($("input[class=forms_input]").is(':checked')) {
+    var descount = document.getElementByName(['tabs']);
+    for (var i = 0; i < descount.length; i++) {
+        if (descount[i] = checked) {
+            var compteur = descount[i].value;
+            $('.btn-outline-success').click(function () {
+                compteur++;
+                $(':radio:eq(' + compteur + ')').trigger('click');
+            });
+
+            $('button#btnreturn').click(function () {
+                compteur--;
+                $(':radio:eq(' + compteur + ')').trigger('click');
+            });
+        } else {}
+    }
+} else {
+    var compteur = 0;
+
+    $('.btn-outline-success').click(function () {
+        compteur++;
+        $(':radio:eq(' + compteur + ')').trigger('click');
+    });
+
+    $('button#btnreturn').click(function () {
+        compteur--;
+        $(':radio:eq(' + compteur + ')').trigger('click');
+    });
+}
+
+// function onClick() {
+//     var compteur =document.getElementById("to").value;
+//
+//
+//         $('.btn-outline-success').click(() => {
+//         compteur++;
+//     $(':radio:eq(' + compteur + ')').trigger('click');
+// });
+//
+//     $('button#btnreturn').click(() => {
+//         compteur--;
+//     $(':radio:eq(' + compteur + ')').trigger('click');
+// });
+// }
+
+
+// $("input[class = forms_input]").click(() => {
+//   var compteur =  $("input[class = forms_input]").trigger('click');
+// });
+//
+// $('.btn-outline-success').click(() => {
+//             compteur++;
+//         $(':radio:eq(' + compteur + ')').trigger('click');
+//     });
+//
+//         $('button#btnreturn').click(() => {
+//             compteur--;
+//         $(':radio:eq(' + compteur + ')').trigger('click');
+//     });
+// var compteur = $('input[class=forms_input]:checked').value;
+
+// } else {
+//     var compteur = 0;
+//     $('.btn-outline-success').click(() => {
+//         compteur++;
+//     $(':radio:eq(' + compteur + ')').trigger('click');
+// });
+//
+//     $('button#btnreturn').click(() => {
+//         compteur--;
+//     $(':radio:eq(' + compteur + ')').trigger('click');
+// });
+// }
+
+
+// var descount = document.getElementsByClassName(['forms_input']);
+// var descount = document.getElementsByClassName(['forms_input']);
+
+//
+//     $('.btn-outline-success').click(() => {
+//         compteur++;
+//     $(':radio:eq(' + compteur + ')').trigger('click');
+// });
+//
+//     $('button#btnreturn').click(() => {
+//         compteur--;
+//     $(':radio:eq(' + compteur + ')').trigger('click');
+
+/***/ }),
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42286,10 +42546,10 @@ Vue$3.compile = compileToFunctions;
 
 module.exports = Vue$3;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(39).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(40).setImmediate))
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var apply = Function.prototype.apply;
@@ -42342,13 +42602,13 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(40);
+__webpack_require__(41);
 exports.setImmediate = setImmediate;
 exports.clearImmediate = clearImmediate;
 
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -42541,15 +42801,15 @@ exports.clearImmediate = clearImmediate;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(4)))
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(42)
+var normalizeComponent = __webpack_require__(43)
 /* script */
-var __vue_script__ = __webpack_require__(43)
+var __vue_script__ = __webpack_require__(44)
 /* template */
-var __vue_template__ = __webpack_require__(44)
+var __vue_template__ = __webpack_require__(45)
 /* template functional */
   var __vue_template_functional__ = false
 /* styles */
@@ -42589,7 +42849,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports) {
 
 /* globals __VUE_SSR_CONTEXT__ */
@@ -42698,7 +42958,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -42727,7 +42987,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -42770,7 +43030,7 @@ if (false) {
 }
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

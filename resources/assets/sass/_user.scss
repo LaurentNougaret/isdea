@@ -1,7 +1,7 @@
 @import "variables";
 
 .pagination li a {
-  color: #636b6f;
+  color: $text-color-base;
   float: left;
   padding: 8px 16px;
   text-decoration: none;
@@ -11,21 +11,25 @@
   padding-bottom: 0.8em;
 }
 
+.create {
+  margin-left : 30px;
+}
+
 .trash {
   background-color: Transparent;
   background-repeat:no-repeat;
   border: none;
   cursor:pointer;
   overflow: hidden;
-  color:#bf5329;
+  color:$brand-danger;
 }
 
 .link-color{
-  color:#636b6f !important;
+  color:$text-color-base !important;
 }
 
 .link-color:hover{
- color:#bf5329 !important;
+ color:$brand-danger !important;
 }
 
 .pagination > li > a:focus,
@@ -33,19 +37,12 @@
 .pagination > li > span:focus,
 .pagination > li > span:hover {
   z-index: 3;
-  color: #bf5329;
+  color: $brand-danger;
   background-color: #ddd;
   border-color: #ddd;
 }
 
 @media screen and (min-width: 200px) and (max-width: 640px) {
-  .column-table table tr th:nth-child(2) {
-    display: none;
-  }
-
-  .column-table table tr td:nth-child(2) {
-    display: none;
-  }
 
   .column-table table tr th:nth-child(3) {
     display: none;
@@ -55,19 +52,12 @@
     display: none;
   }
 
-  .column-table table tr th:nth-child(6) {
-    display: none;
-  }
-
-  .column-table table tr td:nth-child(6) {
-    display: none;
-  }
   .table.table-hover {
     width: 100%;
   }
 }
 
-@media only screen and (min-device-width: 800px) and (max-width: 1080px)  {
+@media only screen and (min-device-width: 800px) and (max-width: 1024px)  {
   .column-table table tr th:nth-child(2){
    display:none;
   }
@@ -86,5 +76,10 @@
   .table.table-hover{
     width: 100%;
   }
+
+  .create {
+    margin-left : 0;
+  }
+
 }
 

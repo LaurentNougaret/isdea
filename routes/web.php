@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
     Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function (){
     Route::get('/', 'Back\AdminController@index');
     Route::resource('users', 'Back\UserController');
-        Route::delete('users', ['as'=>'users.destroy', 'uses'=>'Back\UserController@destroy']);
+    Route::delete('users', ['as'=>'users.destroy', 'uses'=>'Back\UserController@destroy']);
     Route::resource('project', 'Back\ProjectController');
     Route::resource('stats', 'Back\StatsController');
 });
@@ -19,6 +19,12 @@ use Illuminate\Support\Facades\Route;
     Route::patch('/profile/{id}', 'Front\UserController@update');
     Route::resource('project.form', 'Front\FormController', ['except' => [
         'destroy', 'create', 'store']]);
+
+//    Route::get('project/{project}/form', function () {
+//        return view('front.project.form.section6');
+//    });
+//    Route::post('fileUpload', ['as'=>'fileUpload','uses'=>'Front\FormController@fileUpload']);
+
 });
 Route::get('lang/{lang}', ['as'=>'lang.switch', 'uses'=>'LanguageController@switchLang']);
 Auth::routes();
