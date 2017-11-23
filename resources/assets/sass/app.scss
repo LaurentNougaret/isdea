@@ -4,23 +4,31 @@
 // Variables
 @import "variables";
 
-// Sass
-@import "user";
-
 // Navbar
 @import "navbar";
 
-//CSS Main
+// Main
 @import "main";
 
-//CSS Home
+// Home
 @import "home";
 
-//CSS Message
-@import "message";
-
-//Login
+// Login
 @import "login";
 
+// Message
+@import "message";
+
+// User
+@import "user";
+
+// Project
+@import "project";
+
+// Progress bar
+@import "progress-bar";
+
+//Breadcrumb
+@import "breadcrumb";
 //Form
 @import "form";

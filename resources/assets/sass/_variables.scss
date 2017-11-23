@@ -1,5 +1,5 @@
 // Body
-$body-bg: red;
+$body-bg: white;
 
 // Borders
 $laravel-border-color: darken($body-bg, 10%);
@@ -26,9 +26,8 @@ $font-family: "Raleway", sans-serif;
 $font-size: 14px;
 $line-height-base: 1.6;
 $text-color-base: #636b6f;
+$text-color-darker: black;
 
-// Buttons
-$btn-default-color: $text-color-base;
 
 // Inputs
 $input-border: lighten($brand-danger, 40%);

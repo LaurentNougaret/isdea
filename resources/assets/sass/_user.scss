@@ -3,7 +3,7 @@
 .pagination li a {
   color: $text-color-base;
   float: left;
-  padding: 8px 16px;
+  padding: 0.8rem 1.6rem;
   text-decoration: none;
 }
 
@@ -16,20 +16,19 @@
 }
 
 .trash {
-  background-color: Transparent;
-  background-repeat:no-repeat;
-  border: none;
+  background: transparent no-repeat;
+  border-style: none;
   cursor:pointer;
   overflow: hidden;
   color:$brand-danger;
 }
 
 .link-color{
-  color:$text-color-base !important;
+  color:$brand-danger;
 }
 
 .link-color:hover{
- color:$brand-danger !important;
+ color:$brand-danger;
 }
 
 .pagination > li > a:focus,

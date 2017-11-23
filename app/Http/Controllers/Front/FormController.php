@@ -14,7 +14,7 @@ class FormController extends Controller
     {
         $user = Auth::user();
         var_dump($user);
-    return view('front.project.form', $user);
+    return view('project.form', $user);
     }
 
 

@@ -1,0 +1,55 @@
+@import "variables";
+
+
+.add-project-button, .add-project-button:hover {
+  color: $brand-danger;
+}
+
+.projects-table table{
+
+  @media screen and (min-width: 0px) and (max-width: 480px) {
+    tr th:nth-child(2) {
+      display: none;
+    }
+
+    tr td:nth-child(2) {
+      display: none;
+    }
+
+    tr th:nth-child(3) {
+      display: none;
+    }
+
+    tr td:nth-child(3) {
+      display: none;
+    }
+
+    tr th:nth-child(4) {
+      display: none;
+    }
+
+    tr td:nth-child(4) {
+      display: none;
+    }
+  }
+
+  @media only screen and (min-device-width: 481px) and (max-width: 600px) {
+    tr th:nth-child(3) {
+      display: none;
+    }
+
+    tr td:nth-child(3) {
+      display: none;
+    }
+  }
+
+  @media only screen and (min-device-width: 601px) and (max-width: 768px) {
+    tr th:nth-child(2) {
+      display: none;
+    }
+
+    tr td:nth-child(2) {
+      display: none;
+    }
+  }
+}

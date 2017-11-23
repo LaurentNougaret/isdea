@@ -1,4 +1,5 @@
 @extends('layouts.template')
+@extends('layouts.breadcrumb')
 @extends('layouts.navbar')
 @section('content')
     <div class="row">
@@ -15,7 +16,8 @@
                     </div>
                 @endif
                 <form method="POST" action="{{ action('Back\UserController@update', $user->id) }}">
-                    <input type="hidden" name="_method" value="PATCH">
+                    {{--<input type="hidden" name="_method" value="PATCH">--}}
+                    {{ method_field('PATCH') }}
                     {{ csrf_field() }}
 
                     <div class="form-group">
@@ -45,7 +47,6 @@
                             <input id="email" type="text" class="form-control" name="email" value="{{ $user->email }}" required readonly>
                         </div>
                     </div>
-
                     <div class="form-group">
                         <div class="mx-auto col-md-9">
                             <label for="password" class="col-form-label">@lang('user.password')</label>
@@ -55,7 +56,6 @@
                             <input id="password" type="password" class="form-control" name="password" value="{{ $user->password }}" required autofocus>
                         </div>
                     </div>
-
                     <div class="form-group">
                         <div class="mx-auto col-md-9">
                             <label for="password_confirmation" class="col-form-label">@lang('user.password_confirmation')</label>
@@ -65,7 +65,6 @@
                             <input id="password_confirmation" type="password" class="form-control" name="password_confirmation" value="{{ $user->password }}" required>
                         </div>
                     </div>
-
                     <div class="form-group">
                         <div class="mx-auto col-md-9">
                             <label for="role_id" class="col-form-label">@lang('user.role')</label>
