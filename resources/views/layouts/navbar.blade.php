@@ -47,7 +47,7 @@
                     <span class="navbar-text mr-5">@lang('navbar.hello'), <b>{{Auth::user()->firstname}}</b>.</span>
                     <form class="form-inline" method="POST" action="{{action('Auth\LoginController@logout')}}">
                         {{csrf_field()}}
-                        <button class="btn btn-outline-secondary btn-sm shadow-button mt-2" type="submit">{{trans('navbar.logout')}}</button>
+                        <button class="btn btn-outline-secondary btn-sm shadow-button mt-2" type="submit">@lang('navbar.logout')</button>
                     </form>
                 @endif
             @endif

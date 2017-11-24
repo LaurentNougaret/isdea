@@ -1,15 +1,8 @@
 @extends('layouts.template')
 @extends('layouts.navbar')
-@section('background')
-    @parent
-<div id="loginBackground">
-
-</div>
-    <img  src="/storage/images/paris.jpg" alt="paris">
-@endsection
 @section('content')
 <div class="login">
-    <div class="row-fluid">
+    <div class="row-fluid background">
         <img id="logo" class="d-block mx-auto" src="/storage/images/isdea.png" alt="isdea_logo">
         <div class="card mx-auto col-lg-6 col-md-9 border border-danger rounded" >
             <h2 class="mx-auto pt-3">@lang('auth.login')</h2>

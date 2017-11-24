@@ -17,7 +17,7 @@ class ProjectController extends Controller
 		$search = Request()->get('search');
 
 		$projects = Project::join('units', 'projects.unit_id', '=', 'units.id')
-		                   ->join('results', 'projects.id', '=', 'results.project_id')
+		                   ->join('results', 'projects.id', '=', 'results.id')
 //                            ->join('form_project', 'projects.id' , '=', 'form_project.project_id' )
 //                            ->select('form_project.form_id')
 //                            ->join('forms', 'form_project.form_id', '=', 'forms.id')

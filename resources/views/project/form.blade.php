@@ -6,7 +6,7 @@
         <h2>Isdea : Projet le dingue malade</h2>
         <div class="tab_container justify-content-center">
 
-            <input id="tab1" type="radio" name="tabs" class="" value="0" checked>
+            <input id="tab1" type="radio" name="tabs" class="forms_input" value="0" checked>
             <label for="tab1" class="forms_label"><span>@lang('form.identity')</span></label>
 
             <input id="tab2" type="radio" name="tabs" value="1" class="forms_input">
