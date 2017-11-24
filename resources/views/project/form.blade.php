@@ -5,7 +5,7 @@
     <div id="global_form">
         <h2>Isdea : Projet le dingue malade</h2>
         <div class="tab_container justify-content-center">
-
+            {{--<div>{{ $form->id }}</div>--}}
             <input id="tab1" type="radio" name="tabs" class="forms_input" value="0" checked>
             <label for="tab1" class="forms_label"><span>@lang('form.identity')</span></label>
 

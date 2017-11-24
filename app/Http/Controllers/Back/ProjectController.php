@@ -17,11 +17,8 @@ class ProjectController extends Controller
 		$search = Request()->get('search');
 
 		$projects = Project::join('units', 'projects.unit_id', '=', 'units.id')
-		                    ->join('results', 'projects.id', '=', 'results.id')
-                            ->join('form_project', 'projects.id' , '=', 'form_project.project_id' )
-                            ->select('form_project.form_id')
-                            ->join('forms', 'form_project.form_id', '=', 'forms.id')
-		                   ->select('projects.*', 'projects.name as project', 'units.name as unit', 'units.area as area', 'results.progress as progress', 'forms.id as form')
+		                   ->join('results', 'projects.id', '=', 'results.project_id')
+		                   ->select('projects.*', 'projects.id as number','projects.name as project', 'units.name as unit', 'units.area as area', 'results.progress as progress')
 		                   ->Orderby('unit', 'ASC')
 		                   ->where('projects.name', 'like', '%' . $search . '%')
 		                   ->orWhere('units.name', 'like', '%' . $search . '%')

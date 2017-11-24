@@ -20,11 +20,12 @@ class FormController extends Controller
     }
 
     public function edit($id){
-        $form = Project::find($id)
-        ->join('form_project','projects.id','=', 'form_project.project_id')
-        ->join('forms','form_project.form_id','=','forms.id')
-        ->where('projects.id','=', $id);
-        return view('project.form', $form);
+//        $form = Project::find($id)
+//        ->join('form_project','projects.id','=', 'form_project.project_id')
+//        ->join('forms','form_project.form_id','=','forms.id')
+//        ->where('projects.id','=', $id)
+//        ->select('forms.*');
+        return view('project.form');
     }
 
 

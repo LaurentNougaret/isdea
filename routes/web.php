@@ -20,7 +20,7 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function (){
     Route::patch('/profile/{id}', 'Front\UserController@update');
     Route::resource('project.form', 'Front\FormController', ['except' => [
         'destroy', 'create', 'store']]);
-
+        Route::resource('projects', 'Front\ProjectController', ['only' => ['index', 'edit', 'update']]);
 //    Route::get('project/{project}/form', function () {
 //        return view('front.project.form.section6');
 //    });
