@@ -1,8 +1,9 @@
 @extends('layouts.template')
+@extends('layouts.breadcrumb')
 @extends('layouts.navbar')
 @section('content')
     <div class="text-center my-4">
-        <h2>@lang('user.project')</h2>
+        <h2>@lang('project.projects')</h2>
     </div>
     <div class="row">
         <div class="col-9 col-sm-8 col-md-6 col-lg-5">

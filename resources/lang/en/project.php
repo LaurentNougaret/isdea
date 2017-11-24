@@ -11,4 +11,6 @@ return
 		'projects' => 'Projects',
 		'area' => 'Area',
 		'progress' => 'Progress',
+		'number' => 'Number',
+		'user' => 'User',
 	];
