@@ -1,6 +1,7 @@
 <?php
 
 use App\Form;
+use App\Group;
 use App\Project;
 use Faker\Generator as Faker;
 
@@ -18,5 +19,9 @@ $factory->define(Form::class, function (Faker $faker) {
 			'Electricité',
 			'Gaz',
 		]),
+        'group_id' => function () {
+            return factory(Group::class)->create()->id;
+        },
 	];
+
 });
