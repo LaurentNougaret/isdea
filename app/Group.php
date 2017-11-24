@@ -10,4 +10,9 @@ class Group extends Model
     {
     	return $this->hasMany(User::class);
     }
+
+    public function forms()
+    {
+        return $this->hasMany(Form::class);
+    }
 }

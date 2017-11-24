@@ -28,16 +28,19 @@ class CreateForeignKeys extends Migration
 			$table->foreign('role_id')->references('id')->on('roles');
 		});
 
+		Schema::table('forms', function(Blueprint $table)
+        {
+            $table->foreign('group_id')->references('id')->on('groups');
+        });
+
 		Schema::table('projects', function(Blueprint $table)
 		{
 			$table->foreign('unit_id')->references('id')->on('units');
 		});
 
-		Schema::table('results', function(Blueprint $table)
+        Schema::table('results', function(Blueprint $table)
 		{
-			$table->foreign('project_id')->references('id')->on('projects')
-			      ->onUpdate('cascade')
-			      ->onDelete('cascade');
+			$table->foreign('project_id')->references('id')->on('projects');
 		});
 
 		Schema::table('project_user', function(Blueprint $table)
