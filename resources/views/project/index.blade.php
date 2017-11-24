@@ -54,7 +54,7 @@
                 <tbody>
                 @foreach($projects as $project)
                     <tr>
-                        <td><a class="link-color" href="{{ action('Back\ProjectController@edit', $project->id) }}">{{ $project->name }}</a></td>
+                        <td><a class="link-color" href="{{ action('Front\FormController@edit',$project->id) }}">{{ $project->name }}</a></td>
                         <td>{{ $project->unit }}</td>
                         <td>{{ $project->area }}</td>
                         <td>

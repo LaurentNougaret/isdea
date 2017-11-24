@@ -39,7 +39,6 @@ class UserController extends Controller
 		$users = User::join('groups', 'users.group_id', '=', 'groups.id')
 		             ->join('roles', 'users.role_id', '=', 'roles.id')
 		             ->join('project_user', 'users.id', '=', 'project_user.user_id')
-		             ->select('project_user.project_id')
 		             ->join('projects', 'project_user.project_id', '=', 'projects.id')
 		             ->OrderBy('lastname', 'ASC')
 		             ->select('users.*', 'roles.name as role', 'groups.name as group', 'projects.name as project')

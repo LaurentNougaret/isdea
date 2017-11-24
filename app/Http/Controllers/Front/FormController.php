@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Front;
 
+use App\Form;
 use App\Http\Controllers\Controller;
+use App\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -13,8 +15,16 @@ class FormController extends Controller
     public function index()
     {
         $user = Auth::user();
-        var_dump($user);
+
     return view('project.form', $user);
+    }
+
+    public function edit($id){
+        $form = Project::find($id)
+        ->join('form_project','projects.id','=', 'form_project.project_id')
+        ->join('forms','form_project.form_id','=','forms.id')
+        ->where('projects.id','=', $id);
+        return view('project.form', $form);
     }
 
 
