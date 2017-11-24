@@ -1,8 +1,9 @@
 @extends('layouts.template')
+@extends('layouts.breadcrumb')
 @extends('layouts.navbar')
 @section('content')
     <div class="text-center my-4">
-        <h2>@lang('user.project')</h2>
+        <h2>@lang('project.projects')</h2>
     </div>
     <div class="row">
         <div class="col-9 col-sm-8 col-md-6 col-lg-5">
@@ -17,11 +18,11 @@
                 </div>
             </form>
         </div>
-        <div class="col d-flex">
-            <a class="add-project-button ml-auto" href="{{ action('Back\ProjectController@create') }}">
-                <i class="fa fa-plus fa-2x fa-fw pr-2" aria-hidden="true"></i>
-            </a>
-        </div>
+        {{--<div class="col d-flex">--}}
+            {{--<a class="add-project-button ml-auto" href="{{ action('Back\ProjectController@create') }}">--}}
+                {{--<i class="fa fa-plus fa-2x fa-fw pr-2" aria-hidden="true"></i>--}}
+            {{--</a>--}}
+        {{--</div>--}}
     </div>
     <form id="delete-form" action="{{ action('Back\ProjectController@destroy') }}" method="POST">
         {{ csrf_field() }}
@@ -30,6 +31,7 @@
             <table class="table table-hover table-striped">
                 <thead>
                 <tr>
+                    <th class="align-middle" scope="col">@lang('project.number')</th>
                     <th class="align-middle" scope="col">@lang('project.project')</th>
                     <th class="align-middle" scope="col">@lang('project.unit')</th>
                     <th class="align-middle" scope="col">@lang('project.area')</th>
@@ -54,6 +56,7 @@
                 <tbody>
                 @foreach($projects as $project)
                     <tr>
+                        <td>{{ $project->number }}</td>
                         <td><a class="link-color" href="{{ action('Back\ProjectController@index', $project->id) }}">{{ $project->name }}</a></td>
                         <td>{{ $project->unit }}</td>
                         <td>{{ $project->area }}</td>
