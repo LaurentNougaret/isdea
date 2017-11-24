@@ -15,7 +15,7 @@
         </div>
     </div>
     <hr>
-    <h3>@lang('form.line-up')</h3>
+    <h3>@lang('sections')</h3>
     <div class="row justify-content-center">
         <div class="form-group col-md-12">
             <label for="" class="col-form-label">@lang('form.mandatary')</label>
@@ -25,7 +25,7 @@
     </div>
     <div class="row justify-content-center">
         <div class="form-group col-md-12">
-            <label for="" class="col-form-label">@lang('form.designer')</label>
+            <label for="" class="col-form-label">@lang('sections')</label>
             <input id="" type="text" placeholder="" class="form-control middle_textarea" name="" value="">
             <p>@lang('form.300.sign')</p>
         </div>

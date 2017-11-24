@@ -74,7 +74,7 @@
         </div>
         <div class="row justify-content-center">
             <div class="form-group col-md-12">
-                <label for="" class="col-form-label">@lang('form.global.advice')</label>
+                <label for="" class="col-form-label">@lang('sections')</label>
                 <textarea id=""  placeholder="" class="form-control small_textarea" name=""></textarea>
                 <p>@lang('form.200.sign')</p>
             </div>

@@ -26,13 +26,13 @@
 
             <input id="tab7" type="radio" name="tabs" value="6" class="forms_input">
             <label for="tab7" class="forms_label"><span>@lang('form.synthesis')</span></label>
-            @include('project.form.section1')
-            @include('project.form.section2')
-            @include('project.form.section3')
-            @include('project.form.section4')
-            @include('project.form.section5')
-            @include('project.form.section6')
-            @include('project.form.section7')
+            @include('form.sections.section1')
+            @include('form.sections.section2')
+            @include('form.sections.section3')
+            @include('form.sections.section4')
+            @include('form.sections.section5')
+            @include('form.sections.section6')
+            @include('form.sections.section7')
         </div>
     </div>
 

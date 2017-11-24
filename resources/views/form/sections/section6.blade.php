@@ -17,7 +17,7 @@
         {{--</div>--}}
     {{--@endif--}}
 
-    {{--<form action="{{route('fileUpload')}}" enctype="multipart/form-data"></form>--}}
+    {{--<sections action="{{route('fileUpload')}}" enctype="multipart/sections-data"></sections>--}}
       {{--<div class="row cancel">--}}
 
           {{--<div class="col-md-4">--}}
@@ -33,7 +33,7 @@
           {{--</div>--}}
 
       {{--</div>--}}
-      {{--</form>--}}
+      {{--</sections>--}}
     <form method="POST">
 
     <input name="picture"  type="file">
@@ -52,7 +52,7 @@
                     {{--<div class="panel-heading"><strong>Upload files</strong> <small> </small></div>--}}
                     {{--<div class="panel-body">--}}
                         {{--<div class="input-group image-preview">--}}
-                            {{--<input placeholder="" type="text" class="form-control image-preview-filename" disabled="disabled">--}}
+                            {{--<input placeholder="" type="text" class="sections-control image-preview-filename" disabled="disabled">--}}
                             {{--<!-- don't give a name === doesn't send on POST/GET -->--}}
                             {{--<span class="input-group-btn">--}}
 						{{--<!-- image-preview-clear button -->--}}
