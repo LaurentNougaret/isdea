@@ -18,7 +18,7 @@ class ProjectController extends Controller
 
 		$projects = Project::join('units', 'projects.unit_id', '=', 'units.id')
 		                   ->join('results', 'projects.id', '=', 'results.project_id')
-		                   ->select('projects.*', 'projects.name as project', 'units.name as unit', 'units.area as area', 'results.progress as progress')
+		                   ->select('projects.*', 'projects.id as number','projects.name as project', 'units.name as unit', 'units.area as area', 'results.progress as progress')
 		                   ->Orderby('unit', 'ASC')
 		                   ->where('projects.name', 'like', '%' . $search . '%')
 		                   ->orWhere('units.name', 'like', '%' . $search . '%')

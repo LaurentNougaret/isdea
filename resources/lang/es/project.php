@@ -11,6 +11,6 @@ return
 	'projects' => 'Proyectos',
 	'area' => 'Zona',
 	'progress' => 'Progreso',
-	'number' => 'Número',
+	'number' => 'N°',
 	'user' => 'Usuario',
 ];

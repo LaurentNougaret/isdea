@@ -39,13 +39,12 @@ class UserController extends Controller
 		$users = User::join('groups', 'users.group_id', '=', 'groups.id')
 		             ->join('roles', 'users.role_id', '=', 'roles.id')
 		             ->join('project_user', 'users.id', '=', 'project_user.user_id') // With User, connect project_user saying my users.id = project_user.user_id
-		             ->select('project_user.project_id')
 		             ->join('projects', 'project_user.project_id', '=', 'projects.id')
 		             ->OrderBy('lastname', 'ASC')
 		             ->select('users.*', 'roles.name as role', 'groups.name as group', 'projects.name as project')
 		             ->where('lastname', 'like', '%' . $search . '%')
 		             ->orWhere('email', 'like', '%' . $search . '%')
-		             ->orWhere('roleser.name', 'like', '%' . $search . '%')
+		             ->orWhere('roles.name', 'like', '%' . $search . '%')
 		             ->orWhere('groups.name', 'like', '%' . $search . '%')
 		             ->paginate('10');
 		return view('back.user.index', ['users' => $users]);

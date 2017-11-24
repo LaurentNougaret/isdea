@@ -31,6 +31,7 @@
             <table class="table table-hover table-striped">
                 <thead>
                 <tr>
+                    <th class="align-middle" scope="col">@lang('project.number')</th>
                     <th class="align-middle" scope="col">@lang('project.project')</th>
                     <th class="align-middle" scope="col">@lang('project.unit')</th>
                     <th class="align-middle" scope="col">@lang('project.area')</th>
@@ -55,6 +56,7 @@
                 <tbody>
                 @foreach($projects as $project)
                     <tr>
+                        <td>{{ $project->number }}</td>
                         <td><a class="link-color" href="{{ action('Back\ProjectController@index', $project->id) }}">{{ $project->name }}</a></td>
                         <td>{{ $project->unit }}</td>
                         <td>{{ $project->area }}</td>
