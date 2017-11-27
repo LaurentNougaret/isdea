@@ -27,6 +27,7 @@
         </div>
         <div class="row">
             <div class="card rounded mx-auto col-lg-6 col-md-9 p-0 mt-5">
+
                 <a class="btn btn-info" href="#" target="_blank" role="button">
                     <div class="row">
                         <div class="my-auto col-lg-4"><i class="icon fa fa-tachometer fa-3x fa-fw" aria-hidden="true"></i></div>
