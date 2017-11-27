@@ -28,7 +28,7 @@
         <div class="row">
             <div class="card rounded mx-auto col-lg-6 col-md-9 p-0 mt-5">
 
-                <a class="btn btn-info" href="#" target="_blank" role="button">
+                <a class="btn btn-info" href="#" role="button">
                     <div class="row">
                         <div class="my-auto col-lg-4"><i class="icon fa fa-tachometer fa-3x fa-fw" aria-hidden="true"></i></div>
                         <div class="mx-auto col-lg-8 py-5"><h2 class="card-title text-deco">@lang('home.statistics_button')</h2></div>
