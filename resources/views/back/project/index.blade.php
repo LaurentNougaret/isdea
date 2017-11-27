@@ -18,11 +18,6 @@
                 </div>
             </form>
         </div>
-        {{--<div class="col d-flex">--}}
-            {{--<a class="add-project-button ml-auto" href="{{ action('Back\ProjectController@create') }}">--}}
-                {{--<i class="fa fa-plus fa-2x fa-fw pr-2" aria-hidden="true"></i>--}}
-            {{--</a>--}}
-        {{--</div>--}}
     </div>
     <form id="delete-form" action="{{ action('Back\ProjectController@destroy') }}" method="POST">
         {{ csrf_field() }}
