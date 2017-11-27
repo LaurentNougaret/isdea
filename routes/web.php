@@ -14,13 +14,18 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function (){
 });
 
 /* Users routes */
-Route::group(['middleware' => 'auth'], function (){
-	Route::get('/', 'HomeController@index')->name('home');
-	Route::get('profile', 'Front\UserController@profile')->name('profile');
-	Route::patch('profile/{id}', 'Front\UserController@update');
-	Route::resource('project.form', 'Front\FormController', ['except' => [
-		'destroy', 'create', 'store']]);
-	Route::resource('projects', 'Front\ProjectController', ['only' => ['index', 'edit', 'update']]);
+    Route::group(['middleware' => 'auth'], function (){
+    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/profile', 'Front\UserController@profile')->name('profile');
+    Route::patch('/profile/{id}', 'Front\UserController@update');
+    Route::resource('project.form', 'Front\FormController', ['except' => [
+        'destroy', 'create', 'store']]);
+        Route::resource('projects', 'Front\ProjectController', ['only' => ['index', 'edit', 'update']]);
+//    Route::get('project/{project}/form', function () {
+//        return view('front.project.form.section6');
+//    });
+//    Route::post('fileUpload', ['as'=>'fileUpload','uses'=>'Front\FormController@fileUpload']);
+
 });
 Route::get('lang/{lang}', ['as'=>'lang.switch', 'uses'=>'LanguageController@switchLang']);
 Auth::routes();

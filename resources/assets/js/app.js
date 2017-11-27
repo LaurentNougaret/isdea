@@ -9,6 +9,8 @@ require('./bootstrap');
 require('./input-select-all');
 require('./flash-message-delay');
 require('./checkboxSelectAll');
+require('./form');
+
 require('./dynamic_breadcrumb');
 window.Vue = require('vue');
 

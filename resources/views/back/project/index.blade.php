@@ -57,7 +57,7 @@
                 @foreach($projects as $project)
                     <tr>
                         <td>{{ $project->number }}</td>
-                        <td><a class="link-color" href="{{ action('Back\ProjectController@index', $project->id) }}">{{ $project->name }}</a></td>
+                        <td><a class="link-color" href="{{ action('Front\FormController@edit', $project->id, $project->form) }}">{{ $project->name }}</a></td>
                         <td>{{ $project->unit }}</td>
                         <td>{{ $project->area }}</td>
                         <td>
