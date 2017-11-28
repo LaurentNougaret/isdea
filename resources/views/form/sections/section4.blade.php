@@ -1,6 +1,4 @@
 <section id="content4" class="tab-content">
-    <form method="POST" action="">
-        {{ csrf_field() }}
         <h3>@lang('form.analysis.offer')</h3>
         <div class="row justify-content-center">
             <div class="form-group col-md-12">
@@ -114,5 +112,4 @@
                 <button id="btnnext" type="button" class="btn btn-outline-success shadow-button" href="#content2">@lang('form.next')</button>
             </div>
         </div>
-    </form>
 </section>

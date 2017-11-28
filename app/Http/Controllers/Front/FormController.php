@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Front;
 
 use App\Form;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\FormUpdateRequest;
 use App\Project;
+use App\Result;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -16,26 +18,61 @@ class FormController extends Controller
     {
         $user = Auth::user();
 
-    return view('project.form', $user);
+//    return view('project.form', $user);
     }
 
-    public function edit(){
-//        $form = Project::find($project)
-//        ->join('form_project','projects.id','=', 'form_project.project_id')
-//        ->join('forms','form_project.form_id','=','forms.id')
-//        ->where('projects.id','=', $project)
-//        ->select('forms.*', 'project.*');
-        return view('form.form');
+    /**
+     * @param $project_id
+     * @param $form_id
+     * @return $this
+     */
+    public function edit($project_id, $form_id){
+        dump($project_id, $form_id);
+        $form = Project::find($project_id)
+            ->join('results', 'projects.id', '=', 'results.project_id' )
+            ->where('results.project_id', '=', $project_id)
+            ->select('projects.id as project_id', 'results.project_content as fields', 'results.id as result_id' )
+            ->first();
+
+
+        return view('form.form')->with([
+            'project_id' => $project_id,
+            'form_id' => $form_id,
+            'form' => $form,
+            ]);
     }
 
-
-    public function update(Request $request)
+    /**
+     * @param FormUpdateRequest $request
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function update(FormUpdateRequest $request, $project_id, $form_id)
     {
 
+//        $form = Form::find($id),
+//        var_dump($id);
+//        $path = $request->file('picture')->store('app/storage/upload');
 
-        $path = $request->file('picture')->store('app/storage/upload');
+        $form = Result::find('project_id', '=', $project_id);
+//            $request->only('project_content');
+        $project_id =
+//            ->join('results', 'results.project_id', '=', $id)
+//            ->where('results.project_id', '=', $id);
+//            ->join('results', 'projects.id', '=', 'results.project_id')
+//            ->where('results.project_id', '=', $id)
+//            ->first();
 
-        return $path;
+//        ->join('results', 'projects.id', '=', 'results.project_id' )
+//            ->where('results.project_id', '=', $id);
+//        $form->fill($request);
+        dd($request);
+//        $form->save();
+//        $form->first();
+//
+        return redirect()->route('project.form.edit')->with([
+
+        ]);
 
     }
 //
