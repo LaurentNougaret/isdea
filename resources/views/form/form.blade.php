@@ -2,10 +2,15 @@
 @extends('layouts.navbar')
 
 @section('content')
+{{--    <form method="POST" action="{{ action('Front\FormController@update', ['project' => $project_id, 'form' => $form_id]) }}">--}}
+    <form method="POST" action="{{ action('Front\FormController@update', ['project' => $project_id, 'form' => $form_id]) }}">
+        {{ method_field('PATCH') }}
+        {{ csrf_field() }}
     <div id="global_form">
+        {{dump($form)}}
         <h2>Isdea : Projet le dingue malade</h2>
         <div class="tab_container justify-content-center">
-            {{--<div>{{ $form->id }}</div>--}}
+
             <input id="tab1" type="radio" name="tabs" class="forms_input" value="0" checked>
             <label for="tab1" class="forms_label"><span>@lang('form.identity')</span></label>
 
@@ -35,5 +40,5 @@
             @include('form.sections.section7')
         </div>
     </div>
-
+    </form>
 @endsection

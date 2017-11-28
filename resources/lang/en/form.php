@@ -18,6 +18,7 @@ return [
     'identity' => 'Identity',
     'completeness' => 'Completeness',
     'analysis' => 'Analysis / CPS',
+    'sections' => 'Sections',
     'analysis.criterias' => 'Analysis / Criterias',
     'analysis.areas' => 'Analysis / Areas',
     'graphics.items' => 'Graphics items',
