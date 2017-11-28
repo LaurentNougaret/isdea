@@ -20,4 +20,5 @@ return
 		'unit' => 'Unit',
 		"created_at" => 'Created at',
 		"updated_at" => 'Update at',
+		'avatar' => 'Avatar',
 	];

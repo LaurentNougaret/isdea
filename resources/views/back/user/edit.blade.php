@@ -16,7 +16,6 @@
                     </div>
                 @endif
                 <form method="POST" action="{{ action('Back\UserController@update', $user->id) }}">
-                    {{--<input type="hidden" name="_method" value="PATCH">--}}
                     {{ method_field('PATCH') }}
                     {{ csrf_field() }}
 

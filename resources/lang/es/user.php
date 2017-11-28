@@ -20,4 +20,5 @@ return
 	'unit' => 'Departamento',
 	"created_at" => 'Creado en',
 	"updated_at" => 'Actualizado en',
+	'avatar' => 'Avatar',
 ];
