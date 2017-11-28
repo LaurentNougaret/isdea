@@ -87,8 +87,11 @@
                             </select>
                         </div>
                     </div>
-                    <div class="form-group row col-md-12 m-0">
+                    <div class="form-group row col-md-6 ml-0">
                         <button type="submit" class="btn btn-outline-secondary mx-auto shadow-button">@lang('user.validate')</button>
+                    </div>
+                    <div class="col-md-6 mr-0">
+                        <input class="btn btn-outline-secondary mx-auto shadow-button" type="button" value="Retour" onclick="history.go(-1)">
                     </div>
                 </form>
             </div>

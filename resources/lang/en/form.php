@@ -10,7 +10,7 @@ return [
     '1600.sign' => '1600 characters max',
 
     /* button */
-    'return' => 'Return',
+    'return' => 'Back',
     'register' => 'Register',
     'next' => 'Next',
 
