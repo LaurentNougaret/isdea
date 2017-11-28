@@ -19,6 +19,7 @@ return [
     'identity' => 'Identitad',
     'completeness' => 'Lo completo',
     'analysis' => 'Análisis / CPS',
+    'sections' => 'Secciones',
     'analysis.criterias' => 'Análisis / Criterios',
     'analysis.areas' => 'Análisis / Areas',
     'graphics.items' => 'Componentes graficas',
