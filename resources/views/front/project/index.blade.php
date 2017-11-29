@@ -5,7 +5,6 @@
     <div class="text-center my-4">
         <h2>@lang('project.projects')</h2>
     </div>
-
     {{ dump ($projects) }}
     <div class="projects-table">
         <table class="table table-hover table-striped">

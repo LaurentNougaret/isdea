@@ -28,8 +28,6 @@ class ProjectController extends Controller
 		              ->paginate(10);
 		return view('front.project.index', [
 			'projects' => $projects,
-
-
 		]);
 	}
 

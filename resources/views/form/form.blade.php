@@ -31,26 +31,13 @@
                 <input id="tab7" type="radio" name="tabs" value="6" class="forms_input">
                 <label for="tab7" class="forms_label"><span>@lang('form.synthesis')</span></label>
 
-
-                <div class="form-group col-md-4">
-                    <label for="" class="col-form-label">@lang('form.n_project')</label>
-                    <input id="project_content" type="text" placeholder="" class="form-control" name="project_content" value="{{ $project->content }}">
-                    <p>@lang('form.number.chosen')</p>
-                </div>
-
-                <div class="form-group">
-                        <button type="submit" class="btn btn-outline-danger shadow-button mr-2">@lang('form.register')</button>
-                </div>
-
-
-
-                {{--@include('form.sections.section1')--}}
-                {{--@include('form.sections.section2')--}}
-                {{--@include('form.sections.section3')--}}
-                {{--@include('form.sections.section4')--}}
-                {{--@include('form.sections.section5')--}}
-                {{--@include('form.sections.section6')--}}
-                {{--@include('form.sections.section7')--}}
+                @include('form.sections.section1')
+                @include('form.sections.section2')
+                @include('form.sections.section3')
+                @include('form.sections.section4')
+                @include('form.sections.section5')
+                @include('form.sections.section6')
+                @include('form.sections.section7')
             </div>
         </div>
     </form>
