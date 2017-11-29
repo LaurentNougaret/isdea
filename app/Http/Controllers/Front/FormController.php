@@ -31,7 +31,7 @@ class FormController extends Controller
         $form = Project::find($project_id)
             ->join('results', 'projects.id', '=', 'results.project_id' )
             ->where('results.project_id', '=', $project_id)
-            ->select('projects.id as project_id', 'results.project_content as fields', 'results.id as result_id' )
+            ->select('projects.id as project_id', 'results.project_content as project_content', 'results.id as result_id' )
             ->first();
 
 
@@ -50,29 +50,15 @@ class FormController extends Controller
     public function update(FormUpdateRequest $request, $project_id, $form_id)
     {
 
-//        $form = Form::find($id),
-//        var_dump($id);
-//        $path = $request->file('picture')->store('app/storage/upload');
+          $result = Result::where('project_id', '=', $project_id);
+          $result->update($request->only('project_content'));
 
-        $form = Result::find('project_id', '=', $project_id);
-//            $request->only('project_content');
-        $project_id =
-//            ->join('results', 'results.project_id', '=', $id)
-//            ->where('results.project_id', '=', $id);
-//            ->join('results', 'projects.id', '=', 'results.project_id')
-//            ->where('results.project_id', '=', $id)
-//            ->first();
+//        dd($request);
 
-//        ->join('results', 'projects.id', '=', 'results.project_id' )
-//            ->where('results.project_id', '=', $id);
-//        $form->fill($request);
-        dd($request);
-//        $form->save();
-//        $form->first();
-//
-        return redirect()->route('project.form.edit')->with([
 
-        ]);
+        return redirect()->route('project.form.edit', ['project' => $project_id,
+            'form' => $form_id]);
+
 
     }
 //

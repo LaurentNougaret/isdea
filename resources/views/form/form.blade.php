@@ -2,7 +2,7 @@
 @extends('layouts.navbar')
 
 @section('content')
-{{--    <form method="POST" action="{{ action('Front\FormController@update', ['project' => $project_id, 'form' => $form_id]) }}">--}}
+    {{--<form method="POST" action="{{ action('Front\FormController@update', ['project' => $project_id, 'form' => $form_id]) }}">--}}
     <form method="POST" action="{{ action('Front\FormController@update', ['project' => $project_id, 'form' => $form_id]) }}">
         {{ method_field('PATCH') }}
         {{ csrf_field() }}

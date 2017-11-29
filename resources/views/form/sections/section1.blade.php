@@ -3,7 +3,7 @@
     <div class="row justify-content-between">
         <div class="form-group col-md-4">
             <label for="" class="col-form-label">@lang('form.n_project')</label>
-            <input id="" type="text" placeholder="" class="form-control" name="fields" value="{{ $form->fields }}">
+            <input id="" type="text" placeholder="" class="form-control" name="fields" value="{{ $form->project_content }} ">
             <p>@lang('form.number.chosen')</p>
             {{--<input type="hidden" value="{{ $form->result_id }}">--}}
             <p></p>
