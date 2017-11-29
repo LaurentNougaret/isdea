@@ -15,7 +15,7 @@ class Result extends Model
      * @var array
      */
     protected $fillable = [
-        'progress', 'project_content'
+        'project_content'
     ];
 
     /**

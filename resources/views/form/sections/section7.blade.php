@@ -22,9 +22,9 @@
             </div>
         </div>
         <div class="row justify-content-between">
-            <button id="btnreturn" type="button" class="btn btn-outline-secondary shadow-button ml-3">@lang('form.return')</button>
+            <button id="btnreturn" type="button" class="btn btn-outline-secondary shadow-button ml-3">@lang('form.back')</button>
             <div>
-                <button type="button" class="btn btn-outline-danger shadow-button mr-2">@lang('form.register')</button>
+                <button type="submit" class="btn btn-outline-danger shadow-button mr-2">@lang('form.register')</button>
             </div>
         </div>
 </section>
