@@ -5,8 +5,6 @@
             <label for="" class="col-form-label">@lang('form.n_project')</label>
             <input id="" type="text" placeholder="" class="form-control" name="fields" value="{{ $form->fields }}">
             <p>@lang('form.number.chosen')</p>
-            {{--<input type="hidden" value="{{ $form->result_id }}">--}}
-            <p></p>
         </div>
         <div class="form-group col-md-4">
             <label for="" class="col-form-label">@lang('form.project.title')</label>
