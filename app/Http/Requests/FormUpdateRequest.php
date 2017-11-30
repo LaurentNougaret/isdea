@@ -27,7 +27,7 @@ class FormUpdateRequest extends FormRequest
         return[
 //            'project_id' => 'required',
 //            'form_id' => 'required',
-            'project_content' => 'required',
+//            'project_content' => 'required',
         ];
     }
 }

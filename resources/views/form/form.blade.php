@@ -7,7 +7,7 @@
         {{ csrf_field() }}
         <div id="global_form">
             {{ dump($project) }}
-            <h2>Isdea : Projet le dingue malade</h2>
+            <h2>Isdea : Projet {{ $project->name }}</h2>
             <div class="tab_container justify-content-center">
 
                 <input id="tab1" type="radio" name="tabs" class="forms_input" value="0" checked>

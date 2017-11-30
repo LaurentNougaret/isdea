@@ -4,12 +4,12 @@
         <div class="form-group col-md-4">
             <label for="" class="col-form-label">@lang('form.n_project')</label>
             <input id="result_id" type="hidden" placeholder="" class="form-control" name="result_id" value="{{ $project->result_id }}">
-            <input id="project_content" type="text" placeholder="" class="form-control" name="project_content" value="{{ $project->content }}">
+            <input id="project_content" type="text" placeholder="" class="form-control serialize" name="project_content" value="{{ $project->content }}">
             <p>@lang('form.number.chosen')</p>
         </div>
         <div class="form-group col-md-4">
             <label for="" class="col-form-label">@lang('form.project.title')</label>
-            <input id="" type="text" placeholder="" class="form-control" name="" value="">
+            <input id="" type="text" placeholder="" class="form-control" name="" value="{{ $project->content }}">
             <p>@lang('form.100.sign')</p>
         </div>
     </div>

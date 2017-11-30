@@ -31,7 +31,7 @@ class FormController extends Controller
 		                  ->join('form_project', 'projects.id', '=', 'form_project.project_id')
 		                  ->where('projects.id', '=', $id)
 //		                  ->where('results.project_id', '=', $id) // works with this line before, as well
-                          ->select('projects.id as project_id', 'results.project_content as content', 'results.id as result_id', 'form_project.form_id as form_id')
+                          ->select('projects.id as project_id', 'projects.name as name', 'results.project_content as content', 'results.id as result_id', 'form_project.form_id as form_id')
 		                  ->first();
 
 		return view('form.form')->with([
@@ -46,12 +46,14 @@ class FormController extends Controller
 	 * @param $form_id
 	 *
 	 * @return \Illuminate\Http\RedirectResponse
-	 *
+	 * @todo : mettre en routing le result_id
 	 */
 	public function update(FormUpdateRequest $request, $project_id, $form_id )
 	{
 		$result = Result::find($request->result_id);
+//		$result->toJson();
 		$result->update($request->only('project_content'));
+
 
 		return redirect()->route('project.form.edit', [
 			'project' => $project_id,
