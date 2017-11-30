@@ -2,11 +2,10 @@
 @extends('layouts.navbar')
 
 @section('content')
-    <form method="POST" action="{{ action('Front\FormController@update', [$project->project_id, $project->form_id]) }}">
+    <form method="POST" action="{{ route('result.update', $result->result_id) }}">
         {{ method_field('PATCH') }}
         {{ csrf_field() }}
         <div id="global_form">
-            {{ dump($project) }}
             <h2>Isdea : Projet le dingue malade</h2>
             <div class="tab_container justify-content-center">
 
@@ -38,6 +37,15 @@
                 @include('form.sections.section5')
                 @include('form.sections.section6')
                 @include('form.sections.section7')
+
+                <div class="form-group row justify-content-between">
+                    <button id="btnreturn" type="button" class="btn btn-outline-secondary shadow-button ml-3">@lang('form.back')</button>
+                    <div>
+                        <button type="submit" class="btn btn-outline-danger shadow-button mr-2">@lang('form.register')</button>
+                        <button id="btnnext" type="button" class="btn btn-outline-success shadow-button mr-3" href="#tab1">@lang('form.next')</button>
+                    </div>
+                </div>
+
             </div>
         </div>
     </form>

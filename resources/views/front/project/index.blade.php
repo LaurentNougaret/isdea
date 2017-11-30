@@ -5,7 +5,7 @@
     <div class="text-center my-4">
         <h2>@lang('project.projects')</h2>
     </div>
-    {{ dump ($projects) }}
+{{--    {{ dump ($projects->results_id) }}--}}
     <div class="projects-table">
         <table class="table table-hover table-striped">
             <thead>
@@ -21,7 +21,7 @@
             @foreach($projects as $project)
                 <tr>
                     <td>{{ $project->number }}</td>
-                    <td><a class="link-color" href="{{ route('project.form.edit', ['project' => $project->id, 'form' => $project->form_id]) }}">{{ $project->name }}</a></td>
+                    <td><a class="link-color" href="{{ route('result.edit', $project->result_id) }}">{{ $project->name }}</a></td>
                     <td>{{ $project->unit }}</td>
                     <td>{{ $project->area }}</td>
                     <td>

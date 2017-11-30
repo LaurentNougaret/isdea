@@ -12,50 +12,60 @@ class FormController extends Controller
 {
 
 
-	public function index()
-	{
-		$user = Auth::user();
+    public function index()
+    {
+        $user = Auth::user();
 
 //    return view('project.form', $user);
-	}
+    }
 
 
-	/**
-	 * @param $id
-	 *
-	 * @return $this
-	 */
-	public function edit($id){
-		$project = Project::find($id)
-		                  ->join('results', 'results.project_id', '=','projects.id')
-		                  ->join('form_project', 'projects.id', '=', 'form_project.project_id')
-		                  ->where('projects.id', '=', $id)
-//		                  ->where('results.project_id', '=', $id) // works with this line before, as well
-                          ->select('projects.id as project_id', 'results.project_content as content', 'results.id as result_id', 'form_project.form_id as form_id')
-		                  ->first();
+    /**
+     * @param $id
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function edit($id){
+//		$result = Project::find($id)
+//		                  ->join('results', 'results.project_id', '=','projects.id')
+//		                  ->join('form_project', 'projects.id', '=', 'form_project.project_id')
+//                          ->select('projects.id as project_id', 'results.project_content as content', 'results.id as result_id', 'form_project.form_id as form_id')
+//		                  ->first();
+        $result = Result::find($id)
+            ->join('projects', 'results.project_id', '=', 'projects.id')
+            ->join('form_project', 'projects.id', '=', 'form_project.project_id')
+            ->select('projects.id as project_id', 'results.project_content as content', 'results.id as result_id', 'form_project.form_id as form_id')
+            ->first();
 
-		return view('form.form')->with([
-			'project' => $project,
-		]);
-	}
+        $unserialize = unserialize($result->content);
 
 
-	/**
-	 * @param FormUpdateRequest $request
-	 * @param $project_id
-	 * @param $form_id
-	 *
-	 * @return \Illuminate\Http\RedirectResponse
-	 *
-	 */
-	public function update(FormUpdateRequest $request, $project_id, $form_id )
-	{
-		$result = Result::find($request->result_id);
-		$result->update($request->only('project_content'));
+        return view('form.form')->with([
+            'result' => $result,
+            'unserialize'  => $unserialize
+        ]);
+    }
 
-		return redirect()->route('project.form.edit', [
-			'project' => $project_id,
-			'form' => $form_id,
-		]);
-	}
+
+
+    /**
+     * @param FormUpdateRequest $request
+     * @param $result_id
+     * @return \Illuminate\Http\RedirectResponse
+     *
+     */
+    public function update(FormUpdateRequest $request, $result_id)
+    {
+        htrhdhtrdhtrd;
+        $result = Result::find($result_id);
+//        $result->serialize($request);
+//        $result->update($request);
+//            exit(dump($result));
+htrerhttdyjdt;
+
+        return redirect()->route('home', [
+            'result' => $result,
+
+        ]);
+    }
 }
