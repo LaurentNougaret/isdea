@@ -10,7 +10,7 @@ return [
     '1600.sign' => '1600 characters max',
 
     /* button */
-    'return' => 'Return',
+    'back' => 'Back',
     'register' => 'Register',
     'next' => 'Next',
 
@@ -25,10 +25,10 @@ return [
     'synthesis' => 'Synthesis',
     'n_project' => 'N° Project',
     'project.title' => 'Project title',
-    'number.chosen' =>'number chosen during the application',
+    'number.chosen' =>'Number chosen during the application',
     'project.identity' => 'Project identity',
     'line-up' => 'Line-up',
-    'mandatary' => 'Mandatary',
+    'mandatory' => 'Mandatory',
     'designer' => 'Designer(s)',
     'invertor.sponsor' => 'Investor(s) / Sponsor(s)',
     'manager' => 'Manager(s)',

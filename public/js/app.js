@@ -31824,7 +31824,77 @@ $(function () {
 //     compteur--;
 //     $(':radio:eq(' + compteur + ')').trigger('click');
 // });
+// $(function() {
+//
+//     var $tabs = $('#global_form').global_form();
+//
+//     $(".tab-content").each(function(i){
+//
+//         var totalSize = $(".tab-content").size() - 1;
+//
+//         if (i != totalSize) {
+//             next = i + 2;
+//             $(this).append("<a href='#' class='next-tab mover' rel='" + next + "'>Suivant &#187;</a>");
+//         }
+//
+//         if (i != 0) {
+//             prev = i;
+//             $(this).append("<a href='#' class='prev-tab mover' rel='" + prev + "'>&#171; Precedent</a>");
+//         }
+//
+//     });
+//
+//     $('.next-tab, .prev-tab').click(function() {
+//         $tabs.tabs('select', $(this).attr("rel"));
+//         return false;
+//     });
+//
+//
+// });
 
+var compteur = 0;
+
+$('.btn-outline-success').click(function () {
+    compteur++;
+    $(':radio:eq(' + compteur + ')').trigger('click');
+});
+
+$('button#btnreturn').click(function () {
+    compteur--;
+    $(':radio:eq(' + compteur + ')').trigger('click');
+});
+
+// if ($("input[class=forms_input]").is(':checked')){
+//     var descount = document.getElementByName(['tabs']);
+//     for (var i = 0; i < descount.length; i++) {
+//         if (descount[i] = checked) {
+//             var compteur = descount[i].value;
+//             $('.btn-outline-success').click(() => {
+//                 compteur++;
+//             $(':radio:eq(' + compteur + ')').trigger('click');
+//         });
+//
+//             $('button#btnreturn').click(() => {
+//                 compteur--;
+//             $(':radio:eq(' + compteur + ')').trigger('click');
+//         });
+//         } else {
+//
+//         }
+//     }
+// } else  {
+//     var compteur = 0;
+//
+//     $('.btn-outline-success').click(() => {
+//         compteur++;
+//     $(':radio:eq(' + compteur + ')').trigger('click');
+// });
+//
+//     $('button#btnreturn').click(() => {
+//         compteur--;
+//     $(':radio:eq(' + compteur + ')').trigger('click');
+// });
+// }
 
 //     var compteur = document.getElementsByClassName('forms_input').value;
 // var compteur = 0;
@@ -31892,35 +31962,37 @@ $(function () {
 
 // $("input[class=forms_input]"){
 
-if ($("input[class=forms_input]").is(':checked')) {
-    var descount = document.getElementByName(['tabs']);
-    for (var i = 0; i < descount.length; i++) {
-        if (descount[i] = checked) {
-            var compteur = descount[i].value;
-            $('.btn-outline-success').click(function () {
-                compteur++;
-                $(':radio:eq(' + compteur + ')').trigger('click');
-            });
-
-            $('button#btnreturn').click(function () {
-                compteur--;
-                $(':radio:eq(' + compteur + ')').trigger('click');
-            });
-        } else {}
-    }
-} else {
-    var compteur = 0;
-
-    $('.btn-outline-success').click(function () {
-        compteur++;
-        $(':radio:eq(' + compteur + ')').trigger('click');
-    });
-
-    $('button#btnreturn').click(function () {
-        compteur--;
-        $(':radio:eq(' + compteur + ')').trigger('click');
-    });
-}
+// if ($("input[class=forms_input]").is(':checked')){
+//     var descount = document.getElementByName(['tabs']);
+//     for (var i = 0; i < descount.length; i++) {
+//         if (descount[i] = checked) {
+//             var compteur = descount[i].value;
+//             $('.btn-outline-success').click(() => {
+//                 compteur++;
+//             $(':radio:eq(' + compteur + ')').trigger('click');
+//         });
+//
+//             $('button#btnreturn').click(() => {
+//                 compteur--;
+//             $(':radio:eq(' + compteur + ')').trigger('click');
+//         });
+//         } else {
+//
+//         }
+//     }
+//     } else  {
+//         var compteur = 0;
+//
+//         $('.btn-outline-success').click(() => {
+//             compteur++;
+//         $(':radio:eq(' + compteur + ')').trigger('click');
+//     });
+//
+//         $('button#btnreturn').click(() => {
+//             compteur--;
+//         $(':radio:eq(' + compteur + ')').trigger('click');
+//     });
+//     }
 
 // function onClick() {
 //     var compteur =document.getElementById("to").value;

@@ -2,15 +2,11 @@
 
 namespace App\Http\Controllers\Front;
 
-use App\Form;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FormUpdateRequest;
 use App\Project;
 use App\Result;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Storage;
 
 class FormController extends Controller
 {
@@ -21,78 +17,66 @@ class FormController extends Controller
 //    return view('project.form', $user);
     }
 
+
     /**
-     * @param $project_id
-     * @param $form_id
-     * @return $this
+     * @param $id
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function edit($project_id, $form_id){
-        dump($project_id, $form_id);
-        $form = Project::find($project_id)
-            ->join('results', 'projects.id', '=', 'results.project_id' )
-            ->where('results.project_id', '=', $project_id)
-            ->select('projects.id as project_id', 'results.project_content as project_content', 'results.id as result_id' )
+    public function edit($id){
+        $project = Project::find($id)
+            ->join('results', 'results.project_id', '=','projects.id')
+            ->join('form_project', 'projects.id', '=', 'form_project.project_id')
+            ->where('projects.id', '=', $id)
+//		                  ->where('results.project_id', '=', $id) // works with this line before, as well
+            ->select('projects.id as project_id', 'results.project_content as content', 'results.id as result_id', 'form_project.form_id as form_id')
             ->first();
 
+        $unserialize = unserialize($project->content);
 
+//		$a= [
+//            'champ1' => 'François le français',
+//            'champ2' => 'François le Truc',
+//            'champ3' => 'François le Machin',
+//        ];
+//        $b=serialize($a);
+//        $c=unserialize($b);
+
+//        dump($b);
+//        dump($c);
         return view('form.form')->with([
-            'project_id' => $project_id,
-            'form_id' => $form_id,
-            'form' => $form,
-            ]);
+            'project' => $project,
+            'unserialize'  => $unserialize
+        ]);
     }
+
 
     /**
      * @param FormUpdateRequest $request
-     * @param $id
+     * @param $project_id
+     * @param $form_id
+     *
      * @return \Illuminate\Http\RedirectResponse
+     *
      */
-    public function update(FormUpdateRequest $request, $project_id, $form_id)
+    public function update(FormUpdateRequest $request, $project_id, $form_id )
     {
-
-          $result = Result::where('project_id', '=', $project_id);
-          $result->update($request->only('project_content'));
-
-//        dd($request);
+        $result = Result::find($request->result_id);
+        $serialize = serialize($request->only('project_content'));
+        $result->update($serialize);
 
 
-        return redirect()->route('project.form.edit', ['project' => $project_id,
-            'form' => $form_id]);
+//    dd($request);
+        $serialize = serialize($request->unserialize);
+//        $result = Result::find($request->result_id);
+//        $result->update($request->only('project_content'));
+//$serialize->serialize($request);
+//        $result->update($serialize->only('project_content'));
+//        $result->update(serialize($request->only('project_content')));
 
-
+        return redirect()->route('project.form.edit', [
+            'project' => $project_id,
+            'form' => $form_id,
+        ]);
     }
-//
-//    public function __construct()
-//
-//    {
-//
-//        $this->middleware('auth');
-//
-//    }
-//
-//public function fileUpload(Request $request){
-//    $this->validate($request, [
-//
-//        'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-//
-//    ]);
-//
-//
-//    $image = $request->file('image');
-//
-//    $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
-//
-//    $destinationPath = public_path('/images');
-//
-//    $image->move($destinationPath, $input['imagename']);
-//
-//
-//    $this->postImage->add($input);
-//
-//
-//    return back()->with('success','Image Upload successful');
-//
-//
-//}
-
 }
