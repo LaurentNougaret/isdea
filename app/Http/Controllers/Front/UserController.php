@@ -5,12 +5,11 @@ namespace App\Http\Controllers\Front;
 use App\Group;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProfileUpdateRequest;
-use App\Http\Requests\ProUpdateRequest;
-use App\Http\Requests\UserUpdateRequest;
 use App\Language;
 use App\Role;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Lang;
 
@@ -49,7 +48,7 @@ class UserController extends Controller
         $user = User::find($id);
 //            ->join('groups', 'users.group_id', '=', 'groups.id')
 //            ->join('roles', 'users.role_id', '=', 'roles.id');
-        $user->fill($request->only( 'language_id'))->get();
+        $user->fill($request->only( 'language_id'));
         if($user->password !== $request->password) {
             $user->password = bcrypt($request->password);
         };

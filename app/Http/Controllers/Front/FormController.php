@@ -10,73 +10,58 @@ use Illuminate\Support\Facades\Auth;
 
 class FormController extends Controller
 {
-    public function index()
-    {
-        $user = Auth::user();
-
-//    return view('project.form', $user);
-    }
-
-
     /**
      * @param $id
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function edit($id){
-        $project = Project::find($id)
-            ->join('results', 'results.project_id', '=','projects.id')
+
+        $result = Result::find($id)
+            ->join('projects', 'results.project_id', '=', 'projects.id')
             ->join('form_project', 'projects.id', '=', 'form_project.project_id')
-            ->where('projects.id', '=', $id)
-//		                  ->where('results.project_id', '=', $id) // works with this line before, as well
             ->select('projects.id as project_id', 'results.project_content as content', 'results.id as result_id', 'form_project.form_id as form_id')
             ->first();
+        $result->content = unserialize($result->content);
 
-        $unserialize = unserialize($project->content);
-
-//		$a= [
-//            'champ1' => 'François le français',
-//            'champ2' => 'François le Truc',
-//            'champ3' => 'François le Machin',
-//        ];
-//        $b=serialize($a);
-//        $c=unserialize($b);
-
-//        dump($b);
-//        dump($c);
         return view('form.form')->with([
-            'project' => $project,
-            'unserialize'  => $unserialize
+            'result' => $result,
         ]);
     }
 
-
     /**
      * @param FormUpdateRequest $request
-     * @param $project_id
-     * @param $form_id
-     *
+     * @param $result_id
      * @return \Illuminate\Http\RedirectResponse
      *
      */
-    public function update(FormUpdateRequest $request, $project_id, $form_id )
+    public function update(FormUpdateRequest $request, $result_id)
     {
-        $result = Result::find($request->result_id);
-        $serialize = serialize($request->only('project_content'));
+        $result = Result::find($result_id);
+        $serialize['project_content'] = serialize($request->project_content);
+
+
+//        $file = $result->project_content[30];
+//
+//        if($file != null)
+//        {
+//            // Generate a unique filename before saving it
+//            $fileName = md5(uniqid()). '.' .$request->file('project_content')->guessExtension();
+//
+//            // Move the file to the uploaded files directory
+//            $request->file('project_content')->move(base_path() . '/storage/app/upload', $fileName);
+//
+//            // Update the 'files' property to store the file name
+//            // instead of its contents
+//            $ticket->setUpload($fileName); ???????
+//        }
+
         $result->update($serialize);
 
 
-//    dd($request);
-        $serialize = serialize($request->unserialize);
-//        $result = Result::find($request->result_id);
-//        $result->update($request->only('project_content'));
-//$serialize->serialize($request);
-//        $result->update($serialize->only('project_content'));
-//        $result->update(serialize($request->only('project_content')));
 
-        return redirect()->route('project.form.edit', [
-            'project' => $project_id,
-            'form' => $form_id,
+        return redirect()->route('result.edit', [
+            'result' => $result,
         ]);
     }
 }
