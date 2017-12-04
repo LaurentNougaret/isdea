@@ -26,7 +26,7 @@ class ProjectController extends Controller
 		                   ->orWhere('results.progress', 'like', '%' . $search . '%')
 		                   ->paginate(10);
 		dump($projects);
-		return view('project.index', ['projects' => $projects]);
+		return view('front.project.index', ['projects' => $projects]);
 	}
 
 

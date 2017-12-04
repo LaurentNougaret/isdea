@@ -1,11 +1,11 @@
 <section id="content6" class="tab-content">
 
-    <form method="POST">
-
-    <input name="picture"  type="file">
-        <button type="submit" class="btn btn-outline-danger shadow-button mr-2">@lang('form.register')</button>
-
-    </form>
+    <form>
+        {{--<div class="form-group">--}}
+            {{--<label for="exampleFormControlFile1">Example file input</label>--}}
+            {{--<input type="file" class="form-control-file" id="exampleFormControlFile1" name="project_content[]" value="{{ $result->content[30] }}">--}}
+        {{--</div>--}}
+    {{--</form>--}}
 
 </section>
 

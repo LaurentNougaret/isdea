@@ -3,28 +3,22 @@
             <div class="form-group col-md-12">
                 <label for="" class="col-form-label">@lang('form.sections')</label>
                 <p>@lang('form.section.summary')</p>
-                <textarea id=""  placeholder="" class="form-control very_high_textarea" name=""></textarea>
+                <textarea id=""  placeholder="" class="form-control very_high_textarea" name="project_content[]">{{ $result->content[27] }}</textarea>
                 <p>@lang('form.1000.sign')</p>
             </div>
         </div>
         <div class="row justify-content-center">
             <div class="form-group col-md-12">
                 <label for="" class="col-form-label">@lang('form.advice.summary')</label>
-                <textarea id=""  placeholder="" class="form-control small_textarea" name=""></textarea>
+                <textarea id=""  placeholder="" class="form-control small_textarea" name="project_content[]">{{ $result->content[28] }}</textarea>
                 <p>@lang('form.300.sign')</p>
             </div>
         </div>
         <div class="row justify-content-center">
             <div class="form-group col-md-12">
                 <label for="" class="col-form-label">@lang('form.commentaries')</label>
-                <textarea id=""  placeholder="" class="form-control middle_textarea" name=""></textarea>
+                <textarea id=""  placeholder="" class="form-control middle_textarea" name="project_content[]">{{ $result->content[29] }}</textarea>
                 <p>@lang('form.1000.sign')</p>
-            </div>
-        </div>
-        <div class="row justify-content-between">
-            <button id="btnreturn" type="button" class="btn btn-outline-secondary shadow-button ml-3">@lang('form.back')</button>
-            <div>
-                <button type="submit" class="btn btn-outline-danger shadow-button mr-2">@lang('form.register')</button>
             </div>
         </div>
 </section>
