@@ -4,7 +4,7 @@
     <div id="section2" class="row justify-content-left">
         <div class="form-group col-md-8">
             <label for="" class="col-form-label">@lang('form.missing_element.commentary')</label>
-            <textarea id=""  placeholder="" class="form-control middle_textarea" name=""></textarea>
+            <textarea id=""  placeholder="" class="form-control middle_textarea" name="project_content[]">{{ $result->content[7] }}</textarea>
             <p>@lang('form.200.sign')</p>
         </div>
     </div>
