@@ -21,7 +21,6 @@ return [
     'sections' => 'Sections',
     'analysis.criterias' => 'Analysis / Criterias',
     'analysis.areas' => 'Analysis / Areas',
-    'graphics.items' => 'Graphics items',
     'synthesis' => 'Synthesis',
     'n_project' => 'N° Project',
     'project.title' => 'Project title',
@@ -64,6 +63,9 @@ return [
 
     /* section 5 */
     'analysis.domains' => 'Prior Analysis Domains',
+
+	/* section 6 */
+    'graphic.items' => 'Graphic items',
 
     /* section 7 */
     'summary.description' => 'Summary description of the offer',
