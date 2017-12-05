@@ -31750,9 +31750,7 @@ arr.forEach(function (item, index) {
 /* 39 */
 /***/ (function(module, exports) {
 
-$("submit").click(function () {
-    $('serialize').serialize();
-});
+throw new Error("Module build failed: Error: ENOENT: no such file or directory, open '/home/johan/sites/isdea/resources/assets/js/serialize.js'\n    at Error (native)");
 
 /***/ }),
 /* 40 */

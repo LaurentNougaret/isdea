@@ -7,8 +7,6 @@
         {{ method_field('PATCH') }}
         {{ csrf_field() }}
         <div id="global_form">
-            {{ dump($result) }}
-
             @if (count($errors) > 0)
                 <ul>
                     @foreach ($errors->all() as $error)
@@ -16,7 +14,6 @@
                     @endforeach
                 </ul>
             @endif
-
             <h2>Isdea : Projet {{ $result->project_name }}</h2>
             <div class="tab_container justify-content-center">
 
