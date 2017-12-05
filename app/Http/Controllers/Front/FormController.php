@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FormUpdateRequest;
-use App\Project;
 use App\Result;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\File;
+use Illuminate\Support\Facades\Storage;
 
 class FormController extends Controller
 {
@@ -22,8 +22,11 @@ class FormController extends Controller
             ->join('form_project', 'projects.id', '=', 'form_project.project_id')
             ->select('projects.id as project_id', 'results.project_content as content', 'results.id as result_id', 'form_project.form_id as form_id')
             ->first();
-        $result->content = unserialize($result->content);
 
+        $result->content = unserialize($result->content);
+//        dd($result->content);
+//        $result->content = unserialize($result->content[0]);
+//        dd($result);
         return view('form.form')->with([
             'result' => $result,
         ]);
@@ -37,31 +40,34 @@ class FormController extends Controller
      */
     public function update(FormUpdateRequest $request, $result_id)
     {
+//        dd($request);
+
         $result = Result::find($result_id);
-        $serialize['project_content'] = serialize($request->project_content);
 
+        if($request->file('project1') != null) {
+            $path1 = $request->file('project1')->store('public/upload');
+        } else {
+            $path1 = $request->project_content[7];
+        }
 
-//        $file = $result->project_content[30];
-//
-//        if($file != null)
-//        {
-//            // Generate a unique filename before saving it
-//            $fileName = md5(uniqid()). '.' .$request->file('project_content')->guessExtension();
-//
-//            // Move the file to the uploaded files directory
-//            $request->file('project_content')->move(base_path() . '/storage/app/upload', $fileName);
-//
-//            // Update the 'files' property to store the file name
-//            // instead of its contents
-//            $ticket->setUpload($fileName); ???????
-//        }
+        if($request->file('project2') != null) {
+            $path2 = $request->file('project2')->store('public/upload');
+        } else {
+            $path2 = $request->project_content[8];
+        }
 
+        $array1 = [$request->project_content];
+        $array2[0] = $path1;
+        $array3[0] = $path2;
+
+        $array = array_merge($array1,$array2,$array3);
+
+        $serialize['project_content'] = serialize($array);
         $result->update($serialize);
 
-
-
         return redirect()->route('result.edit', [
-            'result' => $result,
+           'result' => $result_id,
         ]);
     }
+
 }

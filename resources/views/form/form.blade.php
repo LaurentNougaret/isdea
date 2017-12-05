@@ -2,7 +2,7 @@
 @extends('layouts.navbar')
 
 @section('content')
-    <form method="POST" action="{{ route('result.update', $result->result_id) }}">
+    <form method="POST" action="{{ route('result.update', $result->result_id) }}" enctype="multipart/form-data">
         {{ method_field('PATCH') }}
         {{ csrf_field() }}
         <div id="global_form">
@@ -31,12 +31,12 @@
                 <label for="tab7" class="forms_label"><span>@lang('form.synthesis')</span></label>
 
                 @include('form.sections.section1')
-                @include('form.sections.section2')
-                @include('form.sections.section3')
-                @include('form.sections.section4')
-                @include('form.sections.section5')
+                {{--@include('form.sections.section2')--}}
+                {{--@include('form.sections.section3')--}}
+                {{--@include('form.sections.section4')--}}
+                {{--@include('form.sections.section5')--}}
                 @include('form.sections.section6')
-                @include('form.sections.section7')
+                {{--@include('form.sections.section7')--}}
 
                 <div class="form-group row justify-content-between">
                     <button id="btnreturn" type="button" class="btn btn-outline-secondary shadow-button ml-3">@lang('form.back')</button>
