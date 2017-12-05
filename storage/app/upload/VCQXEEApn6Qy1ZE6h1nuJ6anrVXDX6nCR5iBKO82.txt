@@ -1,7 +1,0 @@
-﻿"civility";"name";"firstName";"companyOrganization";"function";"telephone";"telmobile";"mail";
-"M";"FOURT";"Didier";;;;;"didier.fourt@algoe.fr";
-"Mme";"MOREL";"Eve";"Algoé";;;;"eve.morel@algoe.fr";
-"Mr";"RAMIS";"Philippe";"Algoé Consultants";;;"0609258894";"philippe.ramis@algoe.fr";
-"Mr";"test";"test";;;;;"mb@descode.fr";
-"Mr";"TOTO";"YANN";"Algoé Consultants";;"0609258894";"0609258894";"pra@algoe.fr";
-"Mme";"VINOT";"Dominique";"Algoé Consultants";;;;"dominique.vinot@algoe.fr";

@@ -36,23 +36,28 @@ class FormController extends Controller
 	public function update(FormUpdateRequest $request, $result_id)
 	{
 		$result = Result::find($result_id);
-//
-		$request->project_content;
-//		dd($request);
-
-//		$file = $request->project_content[27];
-//		dd($file);
-
-		$path = $request->file('project_content.27')->store('upload');
-//		dd($path);
 
 
-		$serialize['project_content'] = serialize($request->project_content);
+
+		if($request->file('project_content.27') != null) {
+			$path = $request->file('project_content.27')->store('upload');
+		} else {
+			$path = $request->project_content[27];
+		}
+
+		$all_request = $request->project_content;
+		$upload_file = ['27' => $path];
+//		dd($upload_file);
+		$merge_request = array_replace($all_request, $upload_file);
+//		dd($merge_request);
+
+		$serialize['project_content'] = serialize($merge_request);
+//		dd($serialize);
 		$result->update($serialize);
-//
-//		return redirect()->route('result.edit', [
-//			'result' => $result,
-//		]);
+
+		return redirect()->route('result.edit', [
+			'result' => $result,
+		]);
 
 
 
