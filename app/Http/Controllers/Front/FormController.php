@@ -45,13 +45,13 @@ class FormController extends Controller
         $result = Result::find($result_id);
 
         if($request->file('project1') != null) {
-            $path1 = $request->file('project1')->store('public/upload');
+            $path1 = $request->file('project1')->store('upload');
         } else {
             $path1 = $request->project_content[7];
         }
 
         if($request->file('project2') != null) {
-            $path2 = $request->file('project2')->store('public/upload');
+            $path2 = $request->file('project2')->store('upload');
         } else {
             $path2 = $request->project_content[8];
         }

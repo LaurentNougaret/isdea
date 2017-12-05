@@ -16,11 +16,7 @@
         </div>
     </div>
 
-        <img src="{{ asset('/storage/' . $result->content[1]) }}" alt="dcdd" name="project_content[]"/>
-
-    {{ dump(asset('public/storage/' . $result->content[1])) }})
-
-
+        <img src="{{ url('/storage/' . $result->content[1]) }}" alt="dcdd" name="project_content[]"/>
 
     <div class="row justify-content-center">
         <div class="form-group col-md-12">
