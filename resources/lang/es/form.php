@@ -31,7 +31,7 @@ return [
     'line-up' => 'Composición del equipo',
     'mandatory' => 'Abogado',
     'designer' => 'Diseñador(s)',
-    'invertor.sponsor' => 'Inversor(s) / patrocinador(s)',
+    'investor.sponsor' => 'Inversor(s) / patrocinador(s)',
     'manager' => 'Explotandor(es)',
     'other' => 'Otro(s)',
 

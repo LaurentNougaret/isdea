@@ -1,11 +1,34 @@
 <section id="content6" class="tab-content">
 
-    <form>
-        <div class="form-group">
-            <label for="exampleFormControlFile1">Example file input</label>
-            <input type="file" class="form-control-file" id="exampleFormControlFile1" name="project_content[]" value="{{ $result->content[27] }}">
+    <div class="form-group col-md-12">
+    <input type="file" name="project1" accept="image/*" id="project">
+    </div>
+    <div class="form-group col-md-12">
+    <input type="file" name="project2" accept="image/*" id="project">
+    </div>
+
+
+    <div class="row justify-content-center">
+        <div class="form-group col-md-12">
+            <label for="" class="col-form-label">@lang('form.invertor.sponsor')</label>
+            <input id="" type="text" placeholder="" class="form-control middle_textarea" name="project_content[]" value="{{ $result->content[1] }}">
+            <p>@lang('form.300.sign')</p>
         </div>
-    </form>
+    </div>
+
+        <img src="{{ asset('/storage/' . $result->content[1]) }}" alt="dcdd" name="project_content[]"/>
+
+    {{ dump(asset('public/storage/' . $result->content[1])) }})
+
+
+
+    <div class="row justify-content-center">
+        <div class="form-group col-md-12">
+            <label for="" class="col-form-label">@lang('form.invertor.sponsor')</label>
+            <input id="" type="text" placeholder="" class="form-control middle_textarea" name="project_content[]" value="{{ $result->content[2] }}">
+            <p>@lang('form.300.sign')</p>
+        </div>
+    </div>
 
 </section>
 

@@ -1,5 +1,13 @@
 <section id="content7" class="tab-content">
-        <div class="row justify-content-center">
+    {{--<div class="row justify-content-center">--}}
+            {{--<div class="form-group col-md-12">--}}
+                {{--<label for="" class="col-form-label">@lang('form.sections')</label>--}}
+                {{--<p>@lang('form.section.summary')</p>--}}
+                {{--<textarea id=""  placeholder="" class="form-control very_high_textarea" name="project_content[]">{{ $result->content[27] }}</textarea>--}}
+                {{--<p>@lang('form.1000.sign')</p>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    <div class="row justify-content-center">
             <div class="form-group col-md-12">
                 <label for="" class="col-form-label">@lang('form.sections')</label>
                 <p>@lang('form.section.summary')</p>

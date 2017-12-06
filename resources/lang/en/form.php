@@ -30,7 +30,7 @@ return [
     'line-up' => 'Line-up',
     'mandatory' => 'Mandatory',
     'designer' => 'Designer(s)',
-    'invertor.sponsor' => 'Investor(s) / Sponsor(s)',
+    'investor.sponsor' => 'Investor(s) / Sponsor(s)',
     'manager' => 'Manager(s)',
     'other' => 'Other(s)',
 

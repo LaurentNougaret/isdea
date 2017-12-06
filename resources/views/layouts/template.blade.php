@@ -28,6 +28,7 @@
         </div>
     </div>
     </body>
+@include('layouts.translations')
 @endif
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
 <script src="https://getbootstrap.com/assets/js/vendor/popper.min.js"></script>

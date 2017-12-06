@@ -459,3 +459,12 @@ a .icon {
   margin-left: 0.2rem;
 }
 
+#compteur {
+  text-align: left;
+  width: 855px;
+}
+
+.mauvais {
+  color: #cc0000;
+}
+
