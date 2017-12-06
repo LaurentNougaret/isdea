@@ -23,7 +23,6 @@ return [
     'sections' => 'Sections',
     'analysis.criterias' => 'Analyse / Critères',
     'analysis.areas' => 'Analyse / Domaines',
-    'graphics.items' => 'Pièces graphiques',
     'synthesis' => 'Synthèse',
     'n_project' => 'N° Projet',
     'project.title' => 'Intitulé du projet',
@@ -66,6 +65,9 @@ return [
 
     /* section 5 */
     'analysis.domains' => 'Analyse préalable Domaines',
+
+	/* section 6 */
+    'graphic.items' => 'Pièces graphiques',
 
     /* section 7 */
     'summary.description' => "Description synthétique de l'offre",

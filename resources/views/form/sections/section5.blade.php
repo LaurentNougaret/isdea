@@ -3,7 +3,7 @@
         <div class="row justify-content-center">
             <div class="form-group col-md-12">
                 <label for="" class="col-form-label label_blue">@lang('form.analysis.domains')</label>
-                <textarea id=""  placeholder="" class="form-control very_high_textarea" name="project_content[]">{{ $result->content[26] }}</textarea>
+                <textarea id=""  placeholder="" class="form-control very_high_textarea" name="project_content[26]">{{ $result->content[26] }}</textarea>
                 <p>@lang('form.1000.sign')</p>
             </div>
         </div>
