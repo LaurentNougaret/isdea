@@ -1,10 +1,10 @@
 <section id="content6" class="tab-content">
 
     <div class="form-group col-md-12">
-    <input type="file" name="project1" accept="image/*" id="project">
+    <input type="file" name="project1" width="200px" height="auto" accept="image/*" id="project">
     </div>
     <div class="form-group col-md-12">
-    <input type="file" name="project2" accept="image/*" id="project">
+    <input type="file" name="project2"  accept="image/*" id="project">
     </div>
 
 

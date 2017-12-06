@@ -5,8 +5,9 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FormUpdateRequest;
 use App\Result;
-use Illuminate\Http\File;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Input;
+use Intervention\Image\Facades\Image;
+
 
 class FormController extends Controller
 {
@@ -45,7 +46,18 @@ class FormController extends Controller
         $result = Result::find($result_id);
 
         if($request->file('project1') != null) {
+            $image = Input::file('project1');
             $path1 = $request->file('project1')->store('upload');
+            Image::make($image->getRealPath())->resize(200, 200)->save($path1);
+//            $image = Image::make(Input::file('project1'))->resize(300, 200)->update('upload');
+
+//            $image = Image::make('/storage/app/public/' . $path1)->resize(300, 200);
+//            dd($image);
+//            $path1 = $image->store('upload');
+
+//            Image::make(Input::file('storage/app/public/'.$path1))->resize(300, 200)->save($path1);
+//            storage/app/public/upload/bvjE8Q4fZbnGKomxu9s1QZmzSvbLImA3toHtVfW5.jpeg
+
         } else {
             $path1 = $request->project_content[7];
         }
