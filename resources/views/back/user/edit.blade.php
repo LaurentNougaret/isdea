@@ -16,7 +16,6 @@
                     </div>
                 @endif
                 <form method="POST" action="{{ action('Back\UserController@update', $user->id) }}">
-                    {{--<input type="hidden" name="_method" value="PATCH">--}}
                     {{ method_field('PATCH') }}
                     {{ csrf_field() }}
 
@@ -107,8 +106,10 @@
                             </select>
                         </div>
                     </div>
-                    <div class="form-group row col-md-12 m-0">
-                        <button type="submit" class="btn btn-outline-secondary mx-auto shadow-button">@lang('user.validate')</button>
+                    <div class="row col-md-12 m-0">
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-outline-secondary mx-auto shadow-button">@lang('user.validate')</button>
+                        </div>
                     </div>
                 </form>
             </div>

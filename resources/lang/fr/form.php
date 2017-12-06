@@ -3,32 +3,32 @@
 
 return [
     /* nb characters */
-    '100.sign' => '100 charactères max',
-    '200.sign' => '200 charactères max',
-    '300.sign' => '300 charactères max',
-    '500.sign' => '500 carácters max',
-    '1000.sign' => '1000 charactères max',
-    '1600.sign' => '1600 charactères max',
+    '100.sign' => '100 caractères max',
+    '200.sign' => '200 caractères max',
+    '300.sign' => '300 caractères max',
+    '500.sign' => '500 caractères max',
+    '1000.sign' => '1000 caractères max',
+    '1600.sign' => '1600 caractères max',
 
     /* buttons */
-    'return' => 'Retour',
-    'register' => 'Enregister',
+    'back' => 'Retour',
+    'register' => 'Enregistrer',
     'next' => 'Suivant',
 
     /* section 1 */
     'identity' => 'Identité',
     'completeness' => 'Complétude',
     'analysis' => 'Analyse / CPS',
+    'sections' => 'Sections',
     'analysis.criterias' => 'Analyse / Critères',
     'analysis.areas' => 'Analyse / Domaines',
-    'graphics.items' => 'Pièces graphiques',
     'synthesis' => 'Synthèse',
     'n_project' => 'N° Projet',
     'project.title' => 'Intitulé du projet',
-    'number.chosen' =>'numéro choisi lors de la candidature',
+    'number.chosen' =>'Numéro choisi lors de la candidature',
     'project.identity' => 'Identité du projet',
     'line-up' => "Composition de l'équipe",
-    'mandatary' => 'Mandataire',
+    'mandatory' => 'Mandataire',
     'designer' => 'Concepteur(s)',
     'invertor.sponsor' => 'Investisseur(s) / Promoteur(s)',
     'manager' => 'Exploitant(s)',
@@ -58,12 +58,15 @@ return [
     'legal.assembly' => 'MONTAGE JURIDIQUE',
     'advice.assembly' => 'Avis sur le montage juridique',
     'financial.arrangement' => 'MONTAGE FINANCIER',
-    'advice.financial' => 'Avis sur le mo,tage financier',
+    'advice.financial' => 'Avis sur le montage financier',
     'sale.price' => 'PRIX DE CESSION',
     'advice.price' => 'Avis sur le prix de cession',
 
     /* section 5 */
     'analysis.domains' => 'Analyse préalable Domaines',
+
+	/* section 6 */
+    'graphic.items' => 'Pièces graphiques',
 
     /* section 7 */
     'summary.description' => "Description synthétique de l'offre",

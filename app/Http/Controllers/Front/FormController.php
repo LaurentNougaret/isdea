@@ -2,74 +2,63 @@
 
 namespace App\Http\Controllers\Front;
 
-use App\Form;
 use App\Http\Controllers\Controller;
-use App\Project;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\FormUpdateRequest;
+use App\Result;
 
 class FormController extends Controller
 {
-    public function index()
-    {
-        $user = Auth::user();
+	/**
+	 * @param $id
+	 *
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 */
+	public function edit($id){
 
-    return view('project.form', $user);
-    }
+		$result = Result::find($id)
+		                ->join('projects', 'results.project_id', '=', 'projects.id')
+		                ->join('form_project', 'projects.id', '=', 'form_project.project_id')
+		                ->select('projects.id as project_id', 'results.project_content as content', 'results.id as result_id', 'form_project.form_id as form_id', 'projects.name as project_name')
+		                ->first();
+		$result->content = unserialize($result->content);
 
-    public function edit($project){
-        $form = Project::find($project)
-        ->join('form_project','projects.id','=', 'form_project.project_id')
-        ->join('forms','form_project.form_id','=','forms.id')
-        ->where('projects.id','=', $project)
-        ->select('forms.*', 'project.*');
-        return view('form.form', $form);
-    }
+		return view('form.form')->with([
+			'result' => $result,
+		]);
+	}
 
+	/**
+	 * @param FormUpdateRequest $request
+	 * @param $result_id
+	 *
+	 * @return \Illuminate\Http\RedirectResponse
+	 */
+	public function update(FormUpdateRequest $request, $result_id)
+	{
+		$result = Result::find($result_id);
 
-    public function update(Request $request)
-    {
+		if($request->file('project_content.27') != null) {
+			$path01 = $request->file('project_content.27')->store('upload');
+		} else {
+			$path01 = $request->project_content[27];
+		}
 
+		if($request->file('project_content.31') != null) {
+			$path02 = $request->file('project_content.31')->store('upload');
+		} else {
+			$path02 = $request->project_content[31];
+		}
 
-        $path = $request->file('picture')->store('app/storage/upload');
+		$all_request = $request->project_content;
+		$upload_file01 = ['27' => $path01];
+		$upload_file02 = ['31' => $path02];
+		$merge_request = array_replace($all_request, $upload_file01, $upload_file02);
+		$serialize['project_content'] = serialize($merge_request);
+		$result->update($serialize);
 
-        return $path;
+		return redirect()->route('result.edit', [
+			'result' => $result,
+		]);
 
-    }
-//
-//    public function __construct()
-//
-//    {
-//
-//        $this->middleware('auth');
-//
-//    }
-//
-//public function fileUpload(Request $request){
-//    $this->validate($request, [
-//
-//        'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-//
-//    ]);
-//
-//
-//    $image = $request->file('image');
-//
-//    $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
-//
-//    $destinationPath = public_path('/images');
-//
-//    $image->move($destinationPath, $input['imagename']);
-//
-//
-//    $this->postImage->add($input);
-//
-//
-//    return back()->with('success','Image Upload successful');
-//
-//
-//}
-
+	}
 }

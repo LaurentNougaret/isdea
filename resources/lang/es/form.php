@@ -11,7 +11,7 @@ return [
     '1600.sign' => '1600 carácters max',
 
     /* buttons */
-    'return' => 'Regreso',
+    'back' => 'Regreso',
     'register' => 'Registro',
     'next' => 'Según',
 
@@ -19,16 +19,16 @@ return [
     'identity' => 'Identitad',
     'completeness' => 'Lo completo',
     'analysis' => 'Análisis / CPS',
+    'sections' => 'Secciones',
     'analysis.criterias' => 'Análisis / Criterios',
     'analysis.areas' => 'Análisis / Areas',
-    'graphics.items' => 'Componentes graficas',
-    'synthesis' => 'Síntesis',
+        'synthesis' => 'Síntesis',
     'n_project' => 'N° Proyecto',
     'project.title' => 'Título del proyecto',
-    'number.chosen' =>'número elegido durante la aplicación',
+    'number.chosen' =>'Número elegido durante la aplicación',
     'project.identity' => 'Proyecto identidad',
     'line-up' => 'Composición del equipo',
-    'mandatary' => 'Abogado',
+    'mandatory' => 'Abogado',
     'designer' => 'Diseñador(s)',
     'invertor.sponsor' => 'Inversor(s) / patrocinador(s)',
     'manager' => 'Explotandor(es)',
@@ -65,8 +65,11 @@ return [
     /* section 5 */
     'analysis.domains' => 'Dominios de análisis previos',
 
+	/* section 6 */
+    'graphic.items' => 'Componentes graficas',
+
     /* section 7 */
-    'summary.description' => 'SDescripción resumida de la oferta',
+    'summary.description' => 'Descripción resumida de la oferta',
     'section.summary' => 'Sección que se completará en penúltimo, justo antes del resumen de las opiniones',
     'advice.summary' => 'Aviso de resumen',
     'commentaries' => 'commentarios',

@@ -10,7 +10,7 @@ return [
     '1600.sign' => '1600 characters max',
 
     /* button */
-    'return' => 'Return',
+    'back' => 'Back',
     'register' => 'Register',
     'next' => 'Next',
 
@@ -18,16 +18,16 @@ return [
     'identity' => 'Identity',
     'completeness' => 'Completeness',
     'analysis' => 'Analysis / CPS',
+    'sections' => 'Sections',
     'analysis.criterias' => 'Analysis / Criterias',
     'analysis.areas' => 'Analysis / Areas',
-    'graphics.items' => 'Graphics items',
     'synthesis' => 'Synthesis',
     'n_project' => 'N° Project',
     'project.title' => 'Project title',
-    'number.chosen' =>'number chosen during the application',
+    'number.chosen' =>'Number chosen during the application',
     'project.identity' => 'Project identity',
     'line-up' => 'Line-up',
-    'mandatary' => 'Mandatary',
+    'mandatory' => 'Mandatory',
     'designer' => 'Designer(s)',
     'invertor.sponsor' => 'Investor(s) / Sponsor(s)',
     'manager' => 'Manager(s)',
@@ -63,6 +63,9 @@ return [
 
     /* section 5 */
     'analysis.domains' => 'Prior Analysis Domains',
+
+	/* section 6 */
+    'graphic.items' => 'Graphic items',
 
     /* section 7 */
     'summary.description' => 'Summary description of the offer',
