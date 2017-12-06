@@ -22,8 +22,7 @@ return [
     'sections' => 'Secciones',
     'analysis.criterias' => 'Análisis / Criterios',
     'analysis.areas' => 'Análisis / Areas',
-    'graphics.items' => 'Componentes graficas',
-    'synthesis' => 'Síntesis',
+        'synthesis' => 'Síntesis',
     'n_project' => 'N° Proyecto',
     'project.title' => 'Título del proyecto',
     'number.chosen' =>'Número elegido durante la aplicación',
@@ -65,6 +64,9 @@ return [
 
     /* section 5 */
     'analysis.domains' => 'Dominios de análisis previos',
+
+	/* section 6 */
+    'graphic.items' => 'Componentes graficas',
 
     /* section 7 */
     'summary.description' => 'Descripción resumida de la oferta',
