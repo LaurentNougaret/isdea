@@ -307,8 +307,8 @@ a .icon {
 }
 
 #global_form {
-  margin-right: 1rem;
-  margin-left: 1rem;
+  margin-right: 10px;
+  margin-left: 10px;
   /*Media query*/
 }
 
@@ -321,8 +321,8 @@ a .icon {
 }
 
 #global_form label {
-  font-weight: 600;
-  font-size: 1.4rem;
+  font-weight: 600px;
+  font-size: 14px;
 }
 
 #global_form textarea {
@@ -330,39 +330,39 @@ a .icon {
 }
 
 #global_form .label_blue {
-  font-size: 2.4rem;
+  font-size: 24px;
   font-weight: bold;
   color: #dc3545;
   text-transform: uppercase;
 }
 
 #global_form .middle_textarea {
-  height: 5.5rem;
+  height: 55px;
 }
 
 #global_form .high_textarea {
-  height: 17rem;
+  height: 170px;
 }
 
 #global_form .very_high_textarea {
-  height: 30rem;
+  height: 300px;
 }
 
 #global_form .tab_container {
   width: 100%;
-  padding-top: 7rem;
+  padding-top: 70px;
 }
 
 #global_form .forms_input,
 #global_form section {
   clear: both;
-  padding-top: 1rem;
+  padding-top: 10px;
   display: none;
 }
 
 #global_form .forms_label {
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 15px;
   display: block;
   float: left;
   padding: 1.5em;
@@ -384,17 +384,17 @@ a .icon {
 
 #global_form .tab_container [id^="tab"]:checked + .forms_label {
   background: #fff;
-  -webkit-box-shadow: inset 0 0.3rem #dc3545;
-          box-shadow: inset 0 0.3rem #dc3545;
+  -webkit-box-shadow: inset 0 3px #dc3545;
+          box-shadow: inset 0 3px #dc3545;
 }
 
 @media only screen and (max-width: 930px) {
   #global_form .forms_label span {
-    font-size: 1.4rem;
+    font-size: 14px;
   }
 
   #global_form label .fa {
-    font-size: 1.4rem;
+    font-size: 14px;
   }
 }
 
@@ -404,7 +404,7 @@ a .icon {
   }
 
   #global_form .forms_label .fa {
-    font-size: 1.6rem;
+    font-size: 16px;
   }
 
   #global_form .tab_container {
@@ -415,9 +415,9 @@ a .icon {
 /* layout.css Style */
 
 .upload-drop-zone {
-  height: 20rem;
-  border-width: 0.2rem;
-  margin-bottom: 2rem;
+  height: 200px;
+  border-width: 2px;
+  margin-bottom: 20px;
 }
 
 /* skin.css Style*/
@@ -425,7 +425,7 @@ a .icon {
 .upload-drop-zone {
   color: #ccc;
   border: dashed #ccc;
-  line-height: 20rem;
+  line-height: 200px;
   text-align: center;
 }
 
@@ -437,7 +437,7 @@ a .icon {
 .image-preview-input {
   position: relative;
   overflow: hidden;
-  margin: 0rem;
+  margin: 0px;
   color: #333;
   background-color: #fff;
   border-color: #ccc;
@@ -449,13 +449,13 @@ a .icon {
   right: 0;
   margin: 0;
   padding: 0;
-  font-size: 2rem;
+  font-size: 20px;
   cursor: pointer;
   opacity: 0;
   filter: alpha(opacity=0);
 }
 
 .image-preview-input-title {
-  margin-left: 0.2rem;
+  margin-left: 2px;
 }
 

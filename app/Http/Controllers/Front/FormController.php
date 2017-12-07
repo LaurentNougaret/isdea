@@ -22,6 +22,9 @@ class FormController extends Controller
 		                ->first();
 		$result->content = unserialize($result->content);
 
+//		dd($result->content[27]); // content: false
+
+
 		return view('form.form')->with([
 			'result' => $result,
 		]);
@@ -37,21 +40,29 @@ class FormController extends Controller
 	{
 		$result = Result::find($result_id);
 
-		if($request->file('project_content.27') != null) {
-			$path01 = $request->file('project_content.27')->store('upload');
+		// On submit, if it's empty,
+		if (empty($request->file('project_content.27')))
+		{
+			// Unserialize all datas saved from the DB ==> $result->project_content
+			$datas_saved = unserialize($result->project_content);
+			// Take ONLY the 27th array which is the path+filename = 'upload/filename.jpg'
+			$path01 = $datas_saved[27];
 		} else {
-			$path01 = $request->project_content[27];
+			$path01 = $request->file( 'project_content.27' )->store( 'upload' );
 		}
 
-		if($request->file('project_content.31') != null) {
-			$path02 = $request->file('project_content.31')->store('upload');
+		if (empty($request->file('project_content.31')))
+		{
+			$last_file_name = unserialize($result->project_content);
+			$path02 = $last_file_name[31];
 		} else {
-			$path02 = $request->project_content[31];
+			$path02 = $request->file( 'project_content.31' )->store( 'upload' );
 		}
 
 		$all_request = $request->project_content;
 		$upload_file01 = ['27' => $path01];
 		$upload_file02 = ['31' => $path02];
+
 		$merge_request = array_replace($all_request, $upload_file01, $upload_file02);
 		$serialize['project_content'] = serialize($merge_request);
 		$result->update($serialize);
@@ -59,6 +70,5 @@ class FormController extends Controller
 		return redirect()->route('result.edit', [
 			'result' => $result,
 		]);
-
 	}
 }
