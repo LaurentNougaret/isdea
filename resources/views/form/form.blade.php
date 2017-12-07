@@ -38,12 +38,12 @@
                 <label for="tab7" class="forms_label"><span>@lang('form.synthesis')</span></label>
 
                 @include('form.sections.section1')
-                @include('form.sections.section2')
-                @include('form.sections.section3')
-                @include('form.sections.section4')
-                @include('form.sections.section5')
+                {{--@include('form.sections.section2')--}}
+                {{--@include('form.sections.section3')--}}
+                {{--@include('form.sections.section4')--}}
+                {{--@include('form.sections.section5')--}}
                 @include('form.sections.section6')
-                @include('form.sections.section7')
+                {{--@include('form.sections.section7')--}}
 
                 <div class="form-group row justify-content-between">
                     <button id="btnreturn" type="button" class="btn btn-outline-secondary shadow-button ml-3">@lang('form.back')</button>
