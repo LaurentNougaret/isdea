@@ -43,10 +43,10 @@ class FormController extends Controller
 		// On submit, if it's empty,
 		if (empty($request->file('project_content.27')))
 		{
-			// Take the last filename from the DB in $result->project_content
-			$last_file_name = unserialize($result->project_content);
-			// Take ONLY the 27 array => 'upload/filename.jpg'
-			$path01 = $last_file_name[27];
+			// Unserialize all datas saved from the DB ==> $result->project_content
+			$datas_saved = unserialize($result->project_content);
+			// Take ONLY the 27th array which is the path+filename = 'upload/filename.jpg'
+			$path01 = $datas_saved[27];
 		} else {
 			$path01 = $request->file( 'project_content.27' )->store( 'upload' );
 		}
