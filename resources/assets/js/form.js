@@ -2,7 +2,7 @@
 
     $('.forms_label').on('click', function(e) {
         compteur = parseInt($(this).prev().val())
-    })
+    });
 
     $('.btn-outline-success').click(() => {
         compteur++;
