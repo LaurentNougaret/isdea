@@ -22,9 +22,6 @@ class FormController extends Controller
 		                ->first();
 		$result->content = unserialize($result->content);
 
-//		dd($result->content[27]); // content: false
-
-
 		return view('form.form')->with([
 			'result' => $result,
 		]);
