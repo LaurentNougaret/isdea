@@ -41,10 +41,6 @@ return [
     |
     */
 
-    /* public/storage/upload */
-
-    /* storage/app/public/upload */
-
     'disks' => [
 
         'local' => [

@@ -55,10 +55,10 @@ class FormController extends Controller
             $path01 = $datas_saved[27];
         } else {
             $path01 = $request->file('project_content.27')->store('upload');
-            $image = Image::make(Storage::get($path01))->resize(1400, null, function ($constraint) {
+            $image_resize = Image::make(Storage::get($path01))->resize(1400, null, function ($constraint) {
                 $constraint->aspectRatio();
             })->encode();
-            Storage::put($path01, $image);
+            Storage::put($path01, $image_resize);
         }
 
         if (!empty($request->picture[1])) {
@@ -73,7 +73,11 @@ class FormController extends Controller
 			$last_file_name = unserialize($result->project_content);
 			$path02 = $last_file_name[31];
 		} else {
-			$path02 = $request->file( 'project_content.31' )->store( 'upload' );
+            $path02 = $request->file('project_content.31')->store('upload');
+            $image_resize = Image::make(Storage::get($path02))->resize(1400, null, function ($constraint) {
+                $constraint->aspectRatio();
+            })->encode();
+            Storage::put($path02, $image_resize);
 		}
         $all_request = $request->project_content;
 		$upload_file01 = ['27' => $path01];
