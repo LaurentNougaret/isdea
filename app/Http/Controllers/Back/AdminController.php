@@ -3,16 +3,29 @@
 namespace App\Http\Controllers\Back;
 
 use App\Http\Controllers\Controller;
+use App\Repositories\PDFRepositoryInterface;
+use App\Result;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function generatePDF() {
+
+    private $project;
+
+    public function __contruct(PDFRepositoryInterface $project)
+    {
+        $this->project = $project;
+    }
+
+    public function generatePDF(Result $id)
+    {
+        $projects = $this->project->getResultInfos($id);
+
 //        require_once __DIR__ . '/vendor/autoload.php';
         $mpdf = new \Mpdf\Mpdf([
             'mode' => 'utf-8',
-            'format' => [190, 236],
-            'orientation' => 'L'
+            'format' => [210, 298],
+            'orientation' => 'P'
         ]);
 
 //        $mpdf->WriteHTML('<style>'.$stylesheet.'</style>',1);
@@ -22,7 +35,7 @@ class AdminController extends Controller
 
                             <tr>
                                 <th style="width:33%;"> <img src="http://www.inventonsmgp.fr/wp-content/themes/algoeparis/images/logo1.jpg"></th>
-                                <th style="width:20%;text-align:right;margin-right:20px;color:#343893;font-size:11px; "> '.$project->unit_id->area.' <br> '.$project->Site->site.'  </th>
+                                <th style="width:20%;text-align:right;margin-right:20px;color:#343893;font-size:11px; "> '.$projects->unit_id->area.' <br> '.$projects->Site->site.'  </th>
                                 <th style=";width:45%;"> <img src="http://www.inventonsmgp.fr/wp-content/themes/algoeparis/images/logo2.jpg"></th>
 
 

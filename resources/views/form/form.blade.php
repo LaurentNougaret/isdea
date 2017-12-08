@@ -3,7 +3,6 @@
 
 @section('content')
     <form method="POST" action="{{ route('result.update', $result->result_id) }}" enctype="multipart/form-data">
-        {{--enctype="multipart/form-data"--}}
         {{ method_field('PATCH') }}
         {{ csrf_field() }}
         <div id="global_form">
