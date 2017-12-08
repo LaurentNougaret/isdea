@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FormUpdateRequest;
 use App\Result;
-use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
 
@@ -24,9 +25,7 @@ class FormController extends Controller
 		                ->select('projects.id as project_id', 'results.project_content as content', 'results.id as result_id', 'form_project.form_id as form_id', 'projects.name as project_name')
 		                ->first();
 		$result->content = unserialize($result->content);
-
-//		dd($result->content[1]);
-		return view('form.form')->with([
+        return view('form.form')->with([
 			'result' => $result,
 		]);
 	}
@@ -38,68 +37,54 @@ class FormController extends Controller
 	 * @return \Illuminate\Http\RedirectResponse
 	 */
 	public function update(FormUpdateRequest $request, $result_id)
-	{
+    {
         $result = Result::find($result_id);
-//        dd($request);
 
-        if($request->file('file1') != null) {
-            $path1 = $request->file('file1')->store('upload');
-        }else if(empty($request->project_content[7])) {
-            $path1 = null;
-        }elseif($request->project_content[7] == null){
-            $path1 = $request->project_content[7];
-        }
-
-        if($request->file('file2') != null) {
-            $path2 = $request->file('file2')->store('upload');
-        } elseif(empty($request->project_content[8])){
-            $path2 = null;
+        // On submit, if it's empty,
+        if (!empty($request->picture[0])) {
+            $datas_saved = unserialize($result->project_content);
+            $datas_saved[27] = null;
+            $path01 = $datas_saved[27];
+            $picture1 = $request->picture[0];
+            $filename = storage_path() . $picture1;
+            File::delete($filename);
+        } elseif (empty($request->file('project_content.27'))) {
+            // Unserialize all datas saved from the DB ==> $result->project_content
+            $datas_saved = unserialize($result->project_content);
+            // Take ONLY the 27th array which is the path+filename = 'upload/filename.jpg'
+            $path01 = $datas_saved[27];
         } else {
-            $path2 = $request->project_content[8];
+            $path01 = $request->file('project_content.27')->store('upload');
+            $image = Image::make(Storage::get($path01))->resize(1400, null, function ($constraint) {
+                $constraint->aspectRatio();
+            })->encode();
+            Storage::put($path01, $image);
         }
 
-        $array1 = [$request->project_content];
-        $array2[0] = $path1;
-        $array3[0] = $path2;
+        if (!empty($request->picture[1])) {
+            $datas_saved = unserialize($result->project_content);
+            $datas_saved[31] = null;
+            $path02 = $datas_saved[31];
+            $picture2 = $request->picture[1];
+            $filename = storage_path() . $picture2;
+            File::delete($filename);
+        }elseif (empty($request->file('project_content.31')))
+		{
+			$last_file_name = unserialize($result->project_content);
+			$path02 = $last_file_name[31];
+		} else {
+			$path02 = $request->file( 'project_content.31' )->store( 'upload' );
+		}
+        $all_request = $request->project_content;
+		$upload_file01 = ['27' => $path01];
+		$upload_file02 = ['31' => $path02];
 
-        $array = array_merge($array1,$array2,$array3);
-//        dd($array);
-        $serialize['project_content'] = serialize($array);
-        $result->update($serialize);
+		$merge_request = array_replace($all_request, $upload_file01, $upload_file02);
+		$serialize['project_content'] = serialize($merge_request);
+		$result->update($serialize);
 
-        return redirect()->route('result.edit', [
-            'result' => $result_id,
-        ]);
-
-//        $result = Result::find($result_id);
-//
-//        dd(count($result->project_content));
-
-//        if($request->file('project_content.27') != null) {
-//			$path01 = $request->file('project_content.27')->store('upload');
-//		} elseif(count($result->project_content) == 30) {
-//            $path01 = null;
-////            $upload_file01 = ['27' => $path01];
-//        } else {
-//            $path01 = $request->project_content[27];
-//		}
-//
-//		if($request->file('project_content.31') != null) {
-//			$path02 = $request->file('project_content.31')->store('upload');
-//		} else {
-//			$path02 = $request->project_content[31];
-//		}
-//        dd($path02);
-//		$all_request = $request->project_content;
-//		$upload_file01 = ['27' => $path01];
-//		$upload_file02 = ['31' => $path02];
-//		$merge_request = array_replace($all_request, $upload_file01, $upload_file02);
-//		$serialize['project_content'] = serialize($merge_request);
-//		$result->update($serialize);
-//
-//		return redirect()->route('result.edit', [
-//			'result' => $result,
-//		]);
-//
+		return redirect()->route('result.edit', [
+			'result' => $result,
+		]);
 	}
 }

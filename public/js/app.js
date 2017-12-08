@@ -981,7 +981,6 @@ __webpack_require__(11);
 __webpack_require__(35);
 __webpack_require__(36);
 __webpack_require__(37);
-// require('./form');
 __webpack_require__(38);
 __webpack_require__(39);
 
@@ -31726,6 +31725,26 @@ $(function () {
 /* 38 */
 /***/ (function(module, exports) {
 
+var compteur = 0;
+
+$('.forms_label').on('click', function (e) {
+    compteur = parseInt($(this).prev().val());
+});
+
+$('.btn-outline-success').click(function () {
+    compteur++;
+    $(':radio:eq(' + compteur + ')').trigger('click');
+});
+
+$('button#btnreturn').click(function () {
+    compteur--;
+    $(':radio:eq(' + compteur + ')').trigger('click');
+});
+
+/***/ }),
+/* 39 */
+/***/ (function(module, exports) {
+
 
 var pathUrl = window.location.pathname,
     arr = pathUrl.split('/'),
@@ -31745,12 +31764,6 @@ arr.forEach(function (item, index) {
         }
     }
 });
-
-/***/ }),
-/* 39 */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed: Error: ENOENT: no such file or directory, open '/home/johan/sites/isdea/resources/assets/js/serialize.js'\n    at Error (native)");
 
 /***/ }),
 /* 40 */

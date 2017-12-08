@@ -1,15 +1,12 @@
 <section id="content1" class="tab-content">
     <h3>@lang('form.project.identity')</h3>
     <div class="row justify-content-between">
-
         <div class="form-group col-md-4">
             <label for="" class="col-form-label">@lang('form.n_project')</label>
             <input id="result_id" type="hidden" placeholder="" class="form-control" name="result_id" value="{{ $result->id }}">
             <input id="" type="text" placeholder="" class="form-control" name="project_content[0]" value="{{ $result->content[0][0] }}">
             <p>@lang('form.number.chosen')</p>
         </div>
-
-
         <div class="form-group col-md-4">
             <label for="" class="col-form-label">@lang('form.project.title')</label>
             <input id="" type="text" placeholder="" class="form-control" name="project_content[]" value="{{ $result->content[0][1] }}">
