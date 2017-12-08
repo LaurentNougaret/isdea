@@ -8,7 +8,9 @@
             <button type="button" data-toggle="modal" data-target="#myModal">
                 <img src="{{ ("/storage/" . $result->content[27]) }}" alt="image" height="200"/>
             </button>
-
+            <label class="form-check-label">
+                <input class="form-check-input js-checkbox-selected" type="checkbox" name="picture[0]" value="{{ $result->content[27] }}">
+            </label>
             <p>@lang('form.300.sign')</p>
         </div>
     </div>
@@ -39,6 +41,9 @@
             <p>@lang('form.300.sign')</p>
         </div>
     </div>
+    <label class="form-check-label">
+        <input class="form-check-input js-checkbox-selected" type="checkbox" name="picture[1]" value="{{ $result->content[31] }}">
+    </label>
 </section>
 
 
