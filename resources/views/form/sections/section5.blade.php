@@ -3,8 +3,8 @@
         <div class="row justify-content-center">
             <div class="form-group col-md-12">
                 <label for="" class="col-form-label label_blue">@lang('form.analysis.domains')</label>
-                <textarea id=""  placeholder="" class="form-control very_high_textarea max1000" name="project_content[26]">{{ $result->content[26] }}</textarea>
-                <p class="mr-auto mt-2 compteur1000">0 / 1000 max</p>
+                <textarea id="analysis-domains"  placeholder="" class="form-control very_high_textarea" name="project_content[26]" maxlength="1000">{{ $result->content[26] }}</textarea>
+                <p class="mr-auto mt-2" id="compteur26">0 / 1000 max</p>
             </div>
         </div>
 </section>
