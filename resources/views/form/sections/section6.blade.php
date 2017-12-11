@@ -3,8 +3,6 @@
         <div class="form-group col-md-12">
             <label for="file" class="col-form-label">@lang('form.graphic.items')</label>
             <input type="file" class="form-control" id="file" name="project_content[27]" value="{{ $result->content[27] }}" aria-selected="{{ $result->content[27] }}">
-            <p>{{ $result->content[27] }}</p>
-
             <button type="button" data-toggle="modal" data-target="#myModal">
                 <img src="{{ ("/storage/" . $result->content[27]) }}" alt="image" height="200"/>
             </button>

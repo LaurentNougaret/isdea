@@ -16,7 +16,6 @@ class PDFRepository
             ->first();
 //        dd($result);
         $result->content = unserialize($result->content);
-        dd($result);
         return $result;
     }
 
