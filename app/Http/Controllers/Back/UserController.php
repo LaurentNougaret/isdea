@@ -140,7 +140,7 @@ class UserController extends Controller
 		};
 		$user->save();
 //		dd($request->only('email'));
-		dd($user->sendPasswordResetNotification($request->only('email')));
+//		dd($user->sendPasswordResetNotification($request->only('email')));
 
 
 		return redirect()->route('users.index')
