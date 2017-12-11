@@ -9,6 +9,7 @@ return [
     '500.sign' => '500 caractères max',
     '1000.sign' => '1000 caractères max',
     '1600.sign' => '1600 caractères max',
+    'characters' => 'caractères',
 
     /* buttons */
     'back' => 'Retour',
@@ -30,7 +31,7 @@ return [
     'line-up' => "Composition de l'équipe",
     'mandatory' => 'Mandataire',
     'designer' => 'Concepteur(s)',
-    'invertor.sponsor' => 'Investisseur(s) / Promoteur(s)',
+    'investor.sponsor' => 'Investisseur(s) / Promoteur(s)',
     'manager' => 'Exploitant(s)',
     'other' => 'Autre(s)',
 

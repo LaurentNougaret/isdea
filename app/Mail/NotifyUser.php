@@ -7,7 +7,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class SendPassword extends Mailable
+class NotifyUser extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -28,6 +28,6 @@ class SendPassword extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->view('views.emails.reminder');
     }
 }

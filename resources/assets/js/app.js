@@ -11,7 +11,7 @@ require('./flash-message-delay');
 require('./checkboxSelectAll');
 require('./form');
 require('./dynamic_breadcrumb');
-
+require('./characters_counter');
 
 window.Vue = require('vue');
 
