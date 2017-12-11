@@ -11,7 +11,6 @@
             <label class="form-check-label">
                 <input class="form-check-input js-checkbox-selected" type="checkbox" name="picture[0]" value="{{ $result->content[27] }}">
             </label>
-            <p>@lang('form.300.sign')</p>
         </div>
     </div>
 
@@ -38,7 +37,6 @@
             <input type="file" class="form-control" id="file" name="project_content[31]" value="{{ $result->content[31] }}">
             <p>{{ $result->content[27] }}</p>
             <img src="{{ ("/storage/" . $result->content[31]) }}" alt="image" height="200">
-            <p>@lang('form.300.sign')</p>
         </div>
     </div>
     <label class="form-check-label">
