@@ -41,12 +41,14 @@ class FormController extends Controller
         $result = Result::find($result_id);
 
         // On submit, if it's empty,
-        if (!empty($request->picture[0])) {
+        if (!empty($request->select_picture[0])) {
             $datas_saved = unserialize($result->project_content);
             $datas_saved[27] = null;
             $path01 = $datas_saved[27];
-            $picture1 = $request->picture[0];
-            $filename = storage_path() . $picture1;
+
+            $picture1 = $request->select_picture[0];
+            $filename = storage_path('app/public/') . $picture1;
+
             File::delete($filename);
         } elseif (empty($request->file('project_content.27'))) {
             // Unserialize all datas saved from the DB ==> $result->project_content
@@ -61,12 +63,12 @@ class FormController extends Controller
             Storage::put($path01, $image_resize);
         }
 
-        if (!empty($request->picture[1])) {
+        if (!empty($request->select_picture[1])) {
             $datas_saved = unserialize($result->project_content);
             $datas_saved[31] = null;
             $path02 = $datas_saved[31];
-            $picture2 = $request->picture[1];
-            $filename = storage_path() . $picture2;
+            $picture2 = $request->select_picture[1];
+            $filename = storage_path('app/public/') . $picture2;
             File::delete($filename);
         }elseif (empty($request->file('project_content.31')))
 		{
