@@ -14,7 +14,7 @@
 
         <div class="form-group col-md-4">
             <label for="" class="col-form-label">@lang('form.project.title')</label>
-            <input id="title" type="text" placeholder="" class="form-control" name="project_content[1]" value="{{ $result->content[1] }}" maxlength="100">
+            <input id="title" type="text" placeholder="" class="form-control" name="project_content[1]" value="{{ $result->project_name }}" maxlength="100">
             <p class="mr-auto mt-2" id="compteur1">0 / 100 max</p>
         </div>
     </div>

@@ -31772,7 +31772,7 @@ arr.forEach(function (item, index) {
 
 $(document).ready(function (e) {
     ///////// Section 1 //////////
-    $('#title').keyup(function () {
+    $('#title').focus(function () {
         var nombreCaractere = $(this).val().length;
         var msg = ' ' + nombreCaractere + ' / 100 max';
         $('#compteur1').text(msg);
@@ -31786,7 +31786,7 @@ $(document).ready(function (e) {
 
     $('#designer').keyup(function () {
         var nombreCaractere = $(this).val().length;
-        var msg = ' ' + nombreCaractere + ' / 200 max';
+        var msg = ' ' + nombreCaractere + ' / 300 max';
         $('#compteur3').text(msg);
     });
 
@@ -31802,9 +31802,9 @@ $(document).ready(function (e) {
         $('#compteur5').text(msg);
     });
 
-    $('#other').keyup(function () {
+    $('#other').onload(function () {
         var nombreCaractere = $(this).val().length;
-        var msg = ' ' + nombreCaractere + ' / 800 max';
+        var msg = ' ' + nombreCaractere + ' / 500 max';
         $('#compteur6').text(msg);
     });
     ///////// Section 2 ////////////
