@@ -963,7 +963,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(10);
-module.exports = __webpack_require__(47);
+module.exports = __webpack_require__(48);
 
 
 /***/ }),
@@ -983,8 +983,9 @@ __webpack_require__(36);
 __webpack_require__(37);
 __webpack_require__(38);
 __webpack_require__(39);
+__webpack_require__(40);
 
-window.Vue = __webpack_require__(40);
+window.Vue = __webpack_require__(41);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -992,7 +993,7 @@ window.Vue = __webpack_require__(40);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', __webpack_require__(43));
+Vue.component('example-component', __webpack_require__(44));
 
 var app = new Vue({
   el: '#app'
@@ -31741,6 +31742,19 @@ $('button#btnreturn').click(function () {
     $(':radio:eq(' + compteur + ')').trigger('click');
 });
 
+jQuery(document).ready(function ($) {
+
+    //portfolio - show link
+
+    $('.fdw-background').hover(function () {
+
+        $(this).animate({ opacity: '1' });
+    }, function () {
+
+        $(this).animate({ opacity: '0' });
+    });
+});
+
 /***/ }),
 /* 39 */
 /***/ (function(module, exports) {
@@ -31767,6 +31781,101 @@ arr.forEach(function (item, index) {
 
 /***/ }),
 /* 40 */
+/***/ (function(module, exports) {
+
+$(document).ready(function (e) {
+
+    $('.max100').keyup(function () {
+        var nombreCaractere = $(this).val().length;
+        var msg = ' ' + nombreCaractere + ' / 100 max';
+        $('.compteur100').text(msg);
+        if (nombreCaractere > 100) {
+            $('.compteur100').addClass("mauvais");
+        } else {
+            $('.compteur100').removeClass("mauvais");
+        }
+    });
+
+    $('.max200').keyup(function () {
+        var nombreCaractere = $(this).val().length;
+        var msg = ' ' + nombreCaractere + ' / 200 max';
+        $('.compteur200').text(msg);
+        if (nombreCaractere > 200) {
+            $('.compteur200').addClass("mauvais");
+        } else {
+            $('.compteur200').removeClass("mauvais");
+        }
+    });
+
+    $('.max300').keyup(function () {
+        var nombreCaractere = $(this).val().length;
+        var msg = ' ' + nombreCaractere + ' / 300 max';
+        $('.compteur300').text(msg);
+        if (nombreCaractere > 300) {
+            $('.compteur300').addClass("mauvais");
+        } else {
+            $('.compteur300').removeClass("mauvais");
+        }
+    });
+
+    $('.max500').keyup(function () {
+        var nombreCaractere = $(this).val().length;
+        var msg = ' ' + nombreCaractere + ' / 500 max';
+        $('.compteur500').text(msg);
+        if (nombreCaractere > 500) {
+            $('.compteur500').addClass("mauvais");
+        } else {
+            $('.compteur500').removeClass("mauvais");
+        }
+    });
+
+    $('.max800').keyup(function () {
+        var nombreCaractere = $(this).val().length;
+        var msg = ' ' + nombreCaractere + ' / 800 max';
+        $('.compteur800').text(msg);
+        if (nombreCaractere > 800) {
+            $('.compteur800').addClass("mauvais");
+        } else {
+            $('.compteur800').removeClass("mauvais");
+        }
+    });
+
+    $('.max1000').keyup(function () {
+        var nombreCaractere = $(this).val().length;
+        var msg = ' ' + nombreCaractere + ' / 1000 max';
+        $('.compteur1000').text(msg);
+        if (nombreCaractere > 1000) {
+            $('.compteur1000').addClass("mauvais");
+        } else {
+            $('.compteur1000').removeClass("mauvais");
+        }
+    });
+
+    $('.max1400').keyup(function () {
+        var nombreCaractere = $(this).val().length;
+        var msg = ' ' + nombreCaractere + ' / 1400 max';
+        $('.compteur1400').text(msg);
+        if (nombreCaractere > 1400) {
+            $('.compteur1400').addClass("mauvais");
+        } else {
+            $('.compteur1400').removeClass("mauvais");
+        }
+    });
+
+    $('.max1600').keyup(function () {
+        var nombreCaractere = $(this).val().length;
+        var msg = ' ' + nombreCaractere + ' / 1600 max';
+        $('.compteur1600').text(msg);
+        if (nombreCaractere > 1600) {
+            $('.compteur1600').addClass("mauvais");
+        } else {
+            $('.compteur1600').removeClass("mauvais");
+        }
+    });
+});
+
+/***/ }),
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42332,10 +42441,10 @@ Vue$3.compile = compileToFunctions;
 
 module.exports = Vue$3;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(41).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(42).setImmediate))
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var apply = Function.prototype.apply;
@@ -42388,13 +42497,13 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(42);
+__webpack_require__(43);
 exports.setImmediate = setImmediate;
 exports.clearImmediate = clearImmediate;
 
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -42587,15 +42696,15 @@ exports.clearImmediate = clearImmediate;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(4)))
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(44)
+var normalizeComponent = __webpack_require__(45)
 /* script */
-var __vue_script__ = __webpack_require__(45)
+var __vue_script__ = __webpack_require__(46)
 /* template */
-var __vue_template__ = __webpack_require__(46)
+var __vue_template__ = __webpack_require__(47)
 /* template functional */
   var __vue_template_functional__ = false
 /* styles */
@@ -42635,7 +42744,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports) {
 
 /* globals __VUE_SSR_CONTEXT__ */
@@ -42744,7 +42853,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -42773,7 +42882,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -42816,7 +42925,7 @@ if (false) {
 }
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
