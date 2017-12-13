@@ -4,8 +4,8 @@
     <div id="section2" class="row justify-content-left">
         <div class="form-group col-md-8">
             <label for="" class="col-form-label">@lang('form.missing_element.commentary')</label>
-            <textarea id=""  placeholder="" class="form-control middle_textarea max200" name="project_content[7]">{{ $result->content[7] }}</textarea>
-            <p class="mr-auto mt-2 compteur200">0 / 200 max</p>
+            <textarea id="missing"  placeholder="" class="form-control middle_textarea" name="project_content[7]" maxlength="200">{{ $result->content[7] }}</textarea>
+            <p class="mr-auto mt-2" id="compteur7">0 / 200 max</p>
         </div>
     </div>
 </section>
