@@ -4,13 +4,13 @@
         <div class="form-group col-md-2">
             <label for="" class="col-form-label">@lang('form.n_project')</label>
             <input id="result_id" type="hidden" placeholder="" class="form-control" name="result_id" value="{{ $result->result_id }}">
-            <input id="" type="text" placeholder="" class="form-control textarea-min" name="project_content[0]" value="{{ $result->project_id }}" readonly>
+            <input id="" type="text" placeholder="" class="form-control textarea-min bg-white" name="project_content[0]" value="{{ $result->project_id }}" readonly>
             <p class="line-under-textarea mt-1">@lang('form.number.chosen')</p>
         </div>
         <div class="form-group col-md-6">
             <label for="" class="col-form-label">@lang('form.project.title')</label>
-            <input id="title" type="text" placeholder="" class="form-control textarea-min" name="project_content[1]" value="{{ $result->project_name }}" readonly maxlength="100">
-            <p class="line-under-textarea mt-1" id="compteur1">0 / 100 @lang('form.char_max')</p>
+            <input id="title" type="text" placeholder="" class="form-control textarea-min bg-white" name="project_content[1]" value="{{ $result->project_name }}" readonly maxlength="100">
+
         </div>
     </div>
     <hr>
