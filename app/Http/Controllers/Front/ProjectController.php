@@ -23,31 +23,12 @@ class ProjectController extends Controller
 		              ->join('form_project', 'projects.id', '=', 'form_project.project_id')
 		              ->join('forms', 'form_project.form_id', '=', 'forms.id')
 		              ->where('users.id', '=', Auth::id())
-		              ->select('projects.*', 'projects.id as number','projects.name as project', 'users.lastname as user', 'units.name as unit', 'units.area as area','results.progress as progress', 'forms.id as form_id', 'results.id as result_id')
+		              ->select('projects.*', 'projects.id as id','projects.name as project', 'users.lastname as user', 'units.name as unit', 'units.area as area','results.progress as progress', 'forms.id as form_id', 'results.id as result_id')
 		              ->Orderby('unit', 'ASC')
 		              ->paginate(10);
 		return view('front.project.index', [
 			'projects' => $projects,
 		]);
 	}
-
-
-	/**
-	 * @param $id
-	 * @return \Illuminate\Http\RedirectResponse
-	 */
-	public function edit($id)
-	{
-
-	}
-
-
-	/**
-	 * @param Request $request
-	 * @param $id
-	 */
-	public function store(Request $request, $id)
-	{
-
-	}
 }
+

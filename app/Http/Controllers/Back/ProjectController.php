@@ -18,35 +18,15 @@ class ProjectController extends Controller
 
 		$projects = Project::join('units', 'projects.unit_id', '=', 'units.id')
 		                   ->join('results', 'projects.id', '=', 'results.project_id')
-		                   ->select('projects.*', 'projects.id as number','projects.name as project', 'units.name as unit', 'units.area as area', 'results.progress as progress')
+		                   ->select('projects.id as id', 'projects.name as name', 'units.name as unit', 'units.area as area', 'results.progress as progress', 'results.id as result_id')
 		                   ->Orderby('unit', 'ASC')
 		                   ->where('projects.name', 'like', '%' . $search . '%')
 		                   ->orWhere('units.name', 'like', '%' . $search . '%')
 		                   ->orWhere('units.area', 'like', '%' . $search . '%')
 		                   ->orWhere('results.progress', 'like', '%' . $search . '%')
 		                   ->paginate(10);
-		dump($projects);
+
 		return view('front.project.index', ['projects' => $projects]);
 	}
-
-
-
-	/**
-	 * @param Request $request
-	 *
-	 * @return \Illuminate\Http\RedirectResponse
-	 * @internal param Project $project
-	 *
-	 */
-	public function destroy(Request $request)
-	{
-		if(!empty($request->projects)){
-			Project::destroy($request->projects);
-			return redirect()->route('projects.index')
-			                 ->with('message', __('message.project_delete'));
-		} else {
-			return redirect()->route('projects.index')
-			                 ->with('message', __('message.please_select'));
-		}
-	}
 }
+
