@@ -1,7 +1,6 @@
 @extends('layouts.template')
 @extends('layouts.navbar')
 @section('content')
-
     <form method="POST" action="{{ route('result.update', $result->result_id) }}" enctype="multipart/form-data">
         {{ method_field('PATCH') }}
         {{ csrf_field() }}
@@ -36,6 +35,10 @@
 
                 <input id="tab7" type="radio" name="tabs" value="6" class="forms_input">
                 <label for="tab7" class="forms_label"><span>@lang('form.synthesis')</span></label>
+
+
+                <a href="{{action('Back\AdminController@generatePDF', $result->result_id)}}" target="_blank">Générer la fiche PDF</a>
+
 
                 @include('form.sections.section1')
                 @include('form.sections.section2')
