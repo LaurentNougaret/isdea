@@ -31778,170 +31778,182 @@ $(document).ready(function (e) {
         $('#compteur1').text(msg);
     });
 
-    $('#mandatory').keyup(function () {
+    $('#mandatory').focus(function () {
         var nombreCaractere = $(this).val().length;
         var msg = ' ' + nombreCaractere + ' / 100 max';
         $('#compteur2').text(msg);
     });
 
-    $('#designer').keyup(function () {
+    $('#designer').focus(function () {
         var nombreCaractere = $(this).val().length;
         var msg = ' ' + nombreCaractere + ' / 300 max';
         $('#compteur3').text(msg);
     });
 
-    $('#sponsor').keyup(function () {
+    $('#sponsor').focus(function () {
         var nombreCaractere = $(this).val().length;
         var msg = ' ' + nombreCaractere + ' / 300 max';
         $('#compteur4').text(msg);
     });
 
-    $('#manager').keyup(function () {
+    $('#manager').focus(function () {
         var nombreCaractere = $(this).val().length;
         var msg = ' ' + nombreCaractere + ' / 500 max';
         $('#compteur5').text(msg);
     });
 
-    $('#other').onload(function () {
+    $('#other').focus(function () {
         var nombreCaractere = $(this).val().length;
         var msg = ' ' + nombreCaractere + ' / 500 max';
         $('#compteur6').text(msg);
     });
     ///////// Section 2 ////////////
-    $('#missing').keyup(function () {
+    $('#missing').focus(function () {
         var nombreCaractere = $(this).val().length;
         var msg = ' ' + nombreCaractere + ' / 200 max';
         $('#compteur7').text(msg);
     });
     //////// Section 3 //////////////
-    $('#recall').keyup(function () {
+    $('#recall').focus(function () {
         var nombreCaractere = $(this).val().length;
         var msg = ' ' + nombreCaractere + ' / 1000 max';
         $('#compteur8').text(msg);
     });
 
-    $('#vigilance').keyup(function () {
+    $('#vigilance').focus(function () {
         var nombreCaractere = $(this).val().length;
         var msg = ' ' + nombreCaractere + ' / 1000 max';
         $('#compteur9').text(msg);
     });
 
-    $('#plu').keyup(function () {
+    $('#plu').focus(function () {
         var nombreCaractere = $(this).val().length;
         var msg = ' ' + nombreCaractere + ' / 1400 max';
         $('#compteur10').text(msg);
     });
     //////// Section 4 //////////////
-    $('#analysis-offer').keyup(function () {
+    $('#analysis-offer').focus(function () {
         var nombreCaractere = $(this).val().length;
         var msg = ' ' + nombreCaractere + ' / 1600 max';
         $('#compteur11').text(msg);
     });
 
-    $('#evo-candidacy1').keyup(function () {
+    $('#evo-candidacy1').focus(function () {
         var nombreCaractere = $(this).val().length;
         var msg = ' ' + nombreCaractere + ' / 300 max';
         $('#compteur12').text(msg);
     });
 
-    $('#adv-prog').keyup(function () {
+    $('#adv-prog').focus(function () {
         var nombreCaractere = $(this).val().length;
         var msg = ' ' + nombreCaractere + ' / 200 max';
         $('#compteur13').text(msg);
     });
 
-    $('#urban').keyup(function () {
+    $('#urban').focus(function () {
         var nombreCaractere = $(this).val().length;
         var msg = ' ' + nombreCaractere + ' / 1600 max';
         $('#compteur14').text(msg);
     });
 
-    $('#advice').keyup(function () {
+    $('#advice').focus(function () {
         var nombreCaractere = $(this).val().length;
         var msg = ' ' + nombreCaractere + ' / 200 max';
         $('#compteur15').text(msg);
     });
 
-    $('#character-innovative').keyup(function () {
+    $('#character-innovative').focus(function () {
         var nombreCaractere = $(this).val().length;
         var msg = ' ' + nombreCaractere + ' / 1600 max';
         $('#compteur16').text(msg);
     });
 
-    $('#evo-candidacy2').keyup(function () {
+    $('#evo-candidacy2').focus(function () {
         var nombreCaractere = $(this).val().length;
         var msg = ' ' + nombreCaractere + ' / 300 max';
         $('#compteur17').text(msg);
     });
 
-    $('#adv-innovative').keyup(function () {
+    $('#adv-innovative').focus(function () {
         var nombreCaractere = $(this).val().length;
         var msg = ' ' + nombreCaractere + ' / 200 max';
         $('#compteur18').text(msg);
     });
 
-    $('#global-warning').keyup(function () {
+    $('#global-warning').focus(function () {
         var nombreCaractere = $(this).val().length;
         var msg = ' ' + nombreCaractere + ' / 1600 max';
         $('#compteur19').text(msg);
     });
 
-    $('#evo-candidacy3').keyup(function () {
+    $('#evo-candidacy3').focus(function () {
         var nombreCaractere = $(this).val().length;
         var msg = ' ' + nombreCaractere + ' / 300 max';
         $('#compteur20').text(msg);
     });
 
-    $('#sections').keyup(function () {
+    $('#sections').focus(function () {
         var nombreCaractere = $(this).val().length;
         var msg = ' ' + nombreCaractere + ' / 200 max';
         $('#compteur21').text(msg);
     });
 
-    $('#legal-assembly').keyup(function () {
+    $('#legal-assembly').focus(function () {
         var nombreCaractere = $(this).val().length;
         var msg = ' ' + nombreCaractere + ' / 1600 max';
         $('#compteur22').text(msg);
     });
 
-    $('#adv-assembly').keyup(function () {
+    $('#adv-assembly').focus(function () {
         var nombreCaractere = $(this).val().length;
         var msg = ' ' + nombreCaractere + ' / 200 max';
         $('#compteur23').text(msg);
     });
 
-    $('#sale-price').keyup(function () {
+    $('#financial-arrangement').focus(function () {
         var nombreCaractere = $(this).val().length;
-        var msg = ' ' + nombreCaractere + ' / 500 max';
+        var msg = ' ' + nombreCaractere + ' / 800 max';
         $('#compteur24').text(msg);
     });
 
-    $('#adv-price').keyup(function () {
+    $('#adv-financial').focus(function () {
         var nombreCaractere = $(this).val().length;
         var msg = ' ' + nombreCaractere + ' / 200 max';
         $('#compteur25').text(msg);
     });
-    //////// Section 5 //////////////
-    $('#section-summary').keyup(function () {
+
+    $('#sale-price').focus(function () {
         var nombreCaractere = $(this).val().length;
-        var msg = ' ' + nombreCaractere + ' / 1000 max';
+        var msg = ' ' + nombreCaractere + ' / 500 max';
         $('#compteur26').text(msg);
     });
-    //////// Section 7 //////////////
-    $('#section-summary').keyup(function () {
+
+    $('#adv-price').focus(function () {
+        var nombreCaractere = $(this).val().length;
+        var msg = ' ' + nombreCaractere + ' / 200 max';
+        $('#compteur27').text(msg);
+    });
+    //////// Section 5 //////////////
+    $('#section-summary').focus(function () {
         var nombreCaractere = $(this).val().length;
         var msg = ' ' + nombreCaractere + ' / 1000 max';
         $('#compteur28').text(msg);
     });
-    $('#adv-summary').keyup(function () {
-        var nombreCaractere = $(this).val().length;
-        var msg = ' ' + nombreCaractere + ' / 300 max';
-        $('#compteur29').text(msg);
-    });
-    $('#commentaries').keyup(function () {
+    //////// Section 7 //////////////
+    $('#section-summary').focus(function () {
         var nombreCaractere = $(this).val().length;
         var msg = ' ' + nombreCaractere + ' / 1000 max';
-        $('#compteur30').text(msg);
+        $('#compteur38').text(msg);
+    });
+    $('#adv-summary').focus(function () {
+        var nombreCaractere = $(this).val().length;
+        var msg = ' ' + nombreCaractere + ' / 300 max';
+        $('#compteur39').text(msg);
+    });
+    $('#commentaries').focus(function () {
+        var nombreCaractere = $(this).val().length;
+        var msg = ' ' + nombreCaractere + ' / 1000 max';
+        $('#compteur40').text(msg);
     });
 });
 

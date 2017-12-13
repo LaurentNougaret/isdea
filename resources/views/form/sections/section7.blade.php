@@ -7,6 +7,7 @@
             <p class="line-under-textarea mt-1" id="compteur31">0 / 1000 @lang('form.char_max')</p>
         </div>
     </div>
+    @if(Auth::user() && Auth::user()->role->name == "Administrator" || Auth::user()->role->name == "Supervisor")
     <div class="row justify-content-center">
         <div class="form-group col-md-12">
             <label for="" class="col-form-label">@lang('form.advice.summary')</label>
@@ -14,6 +15,7 @@
             <p class="line-under-textarea mt-1" id="compteur32">0 / 300 @lang('form.char_max')</p>
         </div>
     </div>
+    @endif
     <div class="row justify-content-center">
         <div class="form-group col-md-12">
             <label for="" class="col-form-label">@lang('form.commentaries')</label>
