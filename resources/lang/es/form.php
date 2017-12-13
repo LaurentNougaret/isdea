@@ -54,7 +54,7 @@ return [
     'advice.quality' => 'Opinión sobre la calidad urbana y arquitectónica del proyecto',
     'innovative.character' => 'CARÁCTER INNOVADOR DEL PROYECTO',
     'advice.innovative' => 'Opinión sobre la naturaleza innovadora del proyecto',
-    'global.warning' => 'DESEMPEÑO AMBIENTAL Y ADAPTACIÓN AL CAMBIO CLIMÁTICO',
+    'global.warming' => 'DESEMPEÑO AMBIENTAL Y ADAPTACIÓN AL CAMBIO CLIMÁTICO',
     'global.advice' => 'Opinión sobre el desempeño ambiental y la adaptación al cambio climático',
     'legal.assembly' => 'ASAMBLEA LEGAL',
     'advice.assembly' => 'Opinión asamblea legal',
@@ -73,7 +73,7 @@ return [
     'summary.description' => 'Descripción resumida de la oferta',
     'section.summary' => 'Sección que se completará en penúltimo, justo antes del resumen de las opiniones',
     'advice.summary' => 'Aviso de resumen',
-    'commentaries' => 'commentarios',
+    'commentaries' => 'Commentarios',
 
 
 

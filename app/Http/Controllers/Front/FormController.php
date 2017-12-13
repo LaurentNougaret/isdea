@@ -50,9 +50,9 @@ class FormController extends Controller
 			// Unserialize all datas saved from the DB ==> $result->project_content
 			$datas_saved = unserialize($result->project_content);
 			// Put NULL on the 27th position in the DB
-			$datas_saved[27] = null;
-			// Take ONLY the 27th array which is the path+filename = 'upload/filename.jpg'
-			$path01 = $datas_saved[27];
+			$datas_saved[29] = null;
+			// Take ONLY the 29th array which is the path+filename = 'upload/filename.jpg'
+			$path01 = $datas_saved[29];
 			// Define $picture1 with $request->picture[0] which is 'upload/filename.jpg'
 			$picture1 = $request->picture[0];
 			// Get the storage path of the file+name
@@ -62,13 +62,13 @@ class FormController extends Controller
 //			die();
 
 			Storage::delete($filename);
-		} elseif (empty($request->file('project_content.27'))) {
+		} elseif (empty($request->file('project_content.29'))) {
 			// Unserialize all datas saved from the DB ==> $result->project_content
 			$datas_saved = unserialize($result->project_content);
-			// Take ONLY the 27th array which is the path+filename = 'upload/filename.jpg'
-			$path01 = $datas_saved[27];
+			// Take ONLY the 29th array which is the path+filename = 'upload/filename.jpg'
+			$path01 = $datas_saved[29];
 		} else {
-			$path01 = $request->file('project_content.27')->store('upload');
+			$path01 = $request->file('project_content.29')->store('upload');
 			$image_resize = Image::make(Storage::get($path01))->resize(1400, null, function ($constraint) {
 				$constraint->aspectRatio();
 			})->encode();
@@ -77,25 +77,25 @@ class FormController extends Controller
 
 		if (!empty($request->picture[1])) {
 			$datas_saved = unserialize($result->project_content);
-			$datas_saved[31] = null;
-			$path02 = $datas_saved[31];
+			$datas_saved[30] = null;
+			$path02 = $datas_saved[30];
 			$picture2 = $request->picture[1];
 			$filename = storage_path() . $picture2;
 			File::delete($filename);
-		}elseif (empty($request->file('project_content.31')))
+		}elseif (empty($request->file('project_content.30')))
 		{
 			$last_file_name = unserialize($result->project_content);
-			$path02 = $last_file_name[31];
+			$path02 = $last_file_name[30];
 		} else {
-			$path02 = $request->file('project_content.31')->store('upload');
+			$path02 = $request->file('project_content.30')->store('upload');
 			$image_resize = Image::make(Storage::get($path02))->resize(1400, null, function ($constraint) {
 				$constraint->aspectRatio();
 			})->encode();
 			Storage::put($path02, $image_resize);
 		}
 		$all_request = $request->project_content;
-		$upload_file01 = ['27' => $path01];
-		$upload_file02 = ['31' => $path02];
+		$upload_file01 = ['29' => $path01];
+		$upload_file02 = ['30' => $path02];
 
 		$merge_request = array_replace($all_request, $upload_file01, $upload_file02);
 		$serialize['project_content'] = serialize($merge_request);

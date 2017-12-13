@@ -31786,7 +31786,7 @@ $(document).ready(function (e) {
 
     $('#designer').keyup(function () {
         var nombreCaractere = $(this).val().length;
-        var msg = ' ' + nombreCaractere + ' / 200 max';
+        var msg = ' ' + nombreCaractere + ' / 300 max';
         $('#compteur3').text(msg);
     });
 
@@ -31804,7 +31804,7 @@ $(document).ready(function (e) {
 
     $('#other').keyup(function () {
         var nombreCaractere = $(this).val().length;
-        var msg = ' ' + nombreCaractere + ' / 800 max';
+        var msg = ' ' + nombreCaractere + ' / 500 max';
         $('#compteur6').text(msg);
     });
     ///////// Section 2 ////////////
@@ -31910,38 +31910,50 @@ $(document).ready(function (e) {
         $('#compteur23').text(msg);
     });
 
+    $('#financial-arrangement').keyup(function () {
+        var nombreCaractere = $(this).val().length;
+        var msg = ' ' + nombreCaractere + ' / 800 max';
+        $('#compteur24').text(msg);
+    });
+
+    $('#adv-financial').keyup(function () {
+        var nombreCaractere = $(this).val().length;
+        var msg = ' ' + nombreCaractere + ' / 200 max';
+        $('#compteur25').text(msg);
+    });
+
     $('#sale-price').keyup(function () {
         var nombreCaractere = $(this).val().length;
         var msg = ' ' + nombreCaractere + ' / 500 max';
-        $('#compteur24').text(msg);
+        $('#compteur26').text(msg);
     });
 
     $('#adv-price').keyup(function () {
         var nombreCaractere = $(this).val().length;
         var msg = ' ' + nombreCaractere + ' / 200 max';
-        $('#compteur25').text(msg);
+        $('#compteur27').text(msg);
     });
     //////// Section 5 //////////////
     $('#section-summary').keyup(function () {
         var nombreCaractere = $(this).val().length;
         var msg = ' ' + nombreCaractere + ' / 1000 max';
-        $('#compteur26').text(msg);
+        $('#compteur28').text(msg);
     });
     //////// Section 7 //////////////
     $('#section-summary').keyup(function () {
         var nombreCaractere = $(this).val().length;
         var msg = ' ' + nombreCaractere + ' / 1000 max';
-        $('#compteur28').text(msg);
+        $('#compteur38').text(msg);
     });
     $('#adv-summary').keyup(function () {
         var nombreCaractere = $(this).val().length;
         var msg = ' ' + nombreCaractere + ' / 300 max';
-        $('#compteur29').text(msg);
+        $('#compteur39').text(msg);
     });
     $('#commentaries').keyup(function () {
         var nombreCaractere = $(this).val().length;
         var msg = ' ' + nombreCaractere + ' / 1000 max';
-        $('#compteur30').text(msg);
+        $('#compteur40').text(msg);
     });
 });
 

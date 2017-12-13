@@ -2,12 +2,12 @@
     <div class="row justify-content-center">
         <div class="form-group col-md-12">
             <label for="file" class="col-form-label">@lang('form.graphic.items')</label>
-            <input type="file" class="form-control" id="file" name="project_content[27]" value="{{ $result->content[27] }}" aria-selected="{{ $result->content[27] }}">
+            <input type="file" class="form-control" id="file" name="project_content[29]" value="{{ $result->content[29] }}" aria-selected="{{ $result->content[29] }}">
             <button type="button" data-toggle="modal" data-target="#myModal">
-                <img src="{{ ("/storage/" . $result->content[27]) }}" alt="image" height="200"/>
+                <img src="{{ ("/storage/" . $result->content[29]) }}" alt="image" height="200"/>
             </button>
             <label class="form-check-label">
-                <input class="form-check-input js-checkbox-selected" type="checkbox" name="picture[0]" value="{{ $result->content[27] }}">
+                <input class="form-check-input js-checkbox-selected" type="checkbox" name="picture[0]" value="{{ $result->content[29] }}">
             </label>
         </div>
     </div>
@@ -23,22 +23,20 @@
                     <h4 class="modal-title" id="myModalLabel">Fichier uploadé</h4>
                 </div>
                 <div class="modal-body">
-                    <img src="{{ ("/storage/" . $result->content[27]) }}" width="100%"/>
+                    <img src="{{ ("/storage/" . $result->content[29]) }}" width="100%"/>
                 </div>
             </div>
         </div>
     </div>
-
     <div class="row justify-content-center">
         <div class="form-group col-md-12">
             <label for="file" class="col-form-label">@lang('form.graphic.items')</label>
-            <input type="file" class="form-control" id="file" name="project_content[31]" value="{{ $result->content[31] }}">
-            <p>{{ $result->content[31] }}</p>
-            <img src="{{ ("/storage/" . $result->content[31]) }}" alt="image" height="200">
+            <input type="file" class="form-control" id="file" name="project_content[30]" value="{{ $result->content[30] }}">
+            <img src="{{ ("/storage/" . $result->content[30]) }}" alt="image" height="200">
         </div>
     </div>
     <label class="form-check-label">
-        <input class="form-check-input js-checkbox-selected" type="checkbox" name="picture[1]" value="{{ $result->content[31] }}">
+        <input class="form-check-input js-checkbox-selected" type="checkbox" name="picture[1]" value="{{ $result->content[30] }}">
     </label>
 </section>
 
