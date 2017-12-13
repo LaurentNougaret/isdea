@@ -9,6 +9,7 @@ return [
     '800.sign' => '800 carácters max',
     '1000.sign' => '1000 carácters max',
     '1600.sign' => '1600 carácters max',
+    'char_max' => 'carácters max',
 
     /* buttons */
     'back' => 'Regreso',
