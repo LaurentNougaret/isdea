@@ -365,6 +365,11 @@ a .icon {
   text-align: justify;
 }
 
+#global_form .textarea-800 {
+  height: 9rem;
+  text-align: justify;
+}
+
 #global_form .textarea-1000 {
   height: 10rem;
   text-align: justify;
