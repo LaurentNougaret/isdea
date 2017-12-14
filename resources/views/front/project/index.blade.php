@@ -36,7 +36,7 @@
             @foreach($projects as $project)
                 <tr>
                     <td>{{ $project->id }}</td>
-                    <td><a class="link-color" href="{{ route('result.edit', $project->result_id) }}">{{ $project->result_id }}</a></td>
+                    <td><a class="link-color" href="{{ route('result.edit', $project->result_id) }}">{{ $project->name }}</a></td>
                     <td>{{ $project->unit }}</td>
                     <td>{{ $project->area }}</td>
                     <td>

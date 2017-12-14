@@ -1,5 +1,8 @@
 <section id="content1" class="tab-content">
-    <h3>@lang('form.project.identity')</h3>
+    <h3 class="mr-auto">@lang('form.project.identity')</h3>
+    @if(Auth::user() && Auth::user()->role->name == "Administrator")
+    <a class="ml-auto" href="{{action('Back\AdminController@generatePDF', $result->result_id)}}" target="_blank">Générer la fiche PDF</a>
+    @endif
     <div class="row justify-content-between">
         <div class="form-group col-md-2">
             <label for="" class="col-form-label">@lang('form.n_project')</label>
