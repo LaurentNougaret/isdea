@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FormUpdateRequest;
 use App\Result;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
@@ -19,11 +20,13 @@ class FormController extends Controller
 	 */
 	public function edit($id){
 
-		$result = Result::find($id)
-		                ->join('projects', 'results.project_id', '=', 'projects.id')
-		                ->join('form_project', 'projects.id', '=', 'form_project.project_id')
-		                ->select('projects.id as project_id', 'projects.name as project_name', 'results.project_content as content', 'results.id as result_id', 'form_project.form_id as form_id')
-		                ->first();
+//		$result = Result::find($id);
+		$result = DB::table('results')
+		            ->join('projects', 'results.project_id', '=', 'projects.id')
+		            ->select('projects.id as project_id', 'projects.name as project_name', 'results.project_content as content', 'results.id as result_id')
+		            ->join('form_project', 'projects.id', '=', 'form_project.project_id')
+		            ->select('projects.id as project_id', 'projects.name as project_name', 'results.project_content as content', 'results.id as result_id', 'form_project.form_id as form_id')
+		            ->first();
 
 		$result->content = unserialize($result->content);
 
@@ -42,14 +45,11 @@ class FormController extends Controller
 	{
 		$result = Result::find($result_id);
 
-
-
-
-		// On submit, when I check the box (=it's not empty) with name = picture[0], I select the value associated "$result->content[27]" = 'upload/filename.jpg',
+		// On submit, when I check the box (=it's not empty) with name = picture[0], I select the value associated "$result->content[29]" = 'upload/filename.jpg',
 		if (!empty($request->picture[0])) {
 			// Unserialize all datas saved from the DB ==> $result->project_content
 			$datas_saved = unserialize($result->project_content);
-			// Put NULL on the 27th position in the DB
+			// Put NULL on the 29th position in the DB
 			$datas_saved[29] = null;
 			// Take ONLY the 29th array which is the path+filename = 'upload/filename.jpg'
 			$path01 = $datas_saved[29];
@@ -58,10 +58,12 @@ class FormController extends Controller
 			// Get the storage path of the file+name
 			$filename = storage_path() . "/" . $picture1;
 
-//			dd($datas_saved, $picture1, $filename );
+//			dd($datas_saved, $picture1, $filename);
 //			die();
 
+			File::delete($filename);
 			Storage::delete($filename);
+
 		} elseif (empty($request->file('project_content.29'))) {
 			// Unserialize all datas saved from the DB ==> $result->project_content
 			$datas_saved = unserialize($result->project_content);
