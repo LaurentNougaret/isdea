@@ -105,4 +105,20 @@
                 <p class="line-under-textarea mt-1" id="compteur25">0 / 200 @lang('form.char_max')</p>
             </div>
         </div>
+    <div class="row justify-content-center">
+        <div class="form-group col-md-12">
+            <label for="" class="col-form-label label-red">@lang('form.sale.price')</label>
+            <textarea id="sale-price"  placeholder="" class="form-control textarea-500" name="project_content[26]" maxlength="500">{{ $result->content[26] }}</textarea>
+            <p class="line-under-textarea mt-1" id="compteur26">0 / 500 @lang('form.char_max')</p>
+        </div>
+    </div>
+    @if(Auth::user() && Auth::user()->role->name == "Administrator" || Auth::user()->role->name == "Supervisor")
+        <div class="row justify-content-center">
+            <div class="form-group col-md-12">
+                <label for="" class="col-form-label">@lang('form.advice.price')</label>
+                <textarea id="adv-price"  placeholder="" class="form-control textarea-200" name="project_content[27]" maxlength="200">{{ $result->content[27] }}</textarea>
+                <p class="line-under-textarea mt-1" id="compteur27">0 / 200 @lang('form.char_max')</p>
+            </div>
+        </div>
+    @endif
 </section>

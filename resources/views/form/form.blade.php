@@ -12,7 +12,7 @@
                     @endforeach
                 </ul>
             @endif
-            <h2>Isdea : Projet {{ $result->project_name }}</h2>
+            <h2>@lang('project.project') {{ $result->project_name }}</h2>
             <div class="tab_container justify-content-center">
 
                 <input id="tab1" type="radio" name="tabs" value="0" class="forms_input" checked>
