@@ -41,7 +41,7 @@ class FormController extends Controller
 	public function update(FormUpdateRequest $request, $result_id)
 	{
 
-        dd($request);
+//        dd($request);
 		$result = Result::find($result_id);
 
         // On submit, when I check the box (=it's not empty) with name = picture[0], I select the value associated "$result->content[27]" = 'upload/filename.jpg',
@@ -56,7 +56,7 @@ class FormController extends Controller
 			$picture1 = $request->picture[0];
 			// Get the storage path of the file+name
 			$filename = storage_path() . "/" . $picture1;
-            Storage::delete($filename);
+            File::delete($filename);
 
 		} elseif (empty($request->file('project_content.29'))) {
 			// Unserialize all datas saved from the DB ==> $result->project_content

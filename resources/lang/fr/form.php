@@ -55,7 +55,7 @@ return [
     'advice.quality' => 'Avis sur la qualité urbaine et architecturale du projet',
     'innovative.character' => 'CARACTERE INNOVANT DU PROJET',
     'advice.innovative' => 'Avis sur le caractère innovant du projet',
-    'global.warning' => 'PERFORMANCE ENVIRONNEMENTALE & ADAPTATION AU CHANGEMENT CLIMATIQUE',
+    'global.warming' => 'PERFORMANCE ENVIRONNEMENTALE & ADAPTATION AU CHANGEMENT CLIMATIQUE',
     'global.advice' => "Avis sur la performance environnementale & l'adaptation au changement climatique",
     'legal.assembly' => 'MONTAGE JURIDIQUE',
     'advice.assembly' => 'Avis sur le montage juridique',

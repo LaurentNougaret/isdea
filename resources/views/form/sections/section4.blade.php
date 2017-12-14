@@ -101,7 +101,7 @@
         <div class="row justify-content-center">
             <div class="form-group col-md-12">
                 <label for="" class="col-form-label">@lang('form.advice.price')</label>
-                <textarea id="adv-price"  placeholder="" class="form-control textarea-200" name="project_content[25]" maxlength="200">{{ $result->content[25] }}</textarea>
+                <textarea id="adv-price"  placeholder="" class="form-control textarea-2. 00" name="project_content[25]" maxlength="200">{{ $result->content[25] }}</textarea>
                 <p class="line-under-textarea mt-1" id="compteur25">0 / 200 @lang('form.char_max')</p>
             </div>
         </div>

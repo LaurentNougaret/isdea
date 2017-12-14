@@ -53,7 +53,7 @@ return [
     'advice.quality' => 'Advice on the urban and architectural quality of the project',
     'innovative.character' => 'INNOVATIVE CHARACTER OF THE PROJECT',
     'advice.innovative' => 'Advice on the innovative nature of the project',
-    'global.warning' => 'ENVIRONMENTAL PERFORMANCE and ADAPTATION TO CLIMATE CHANGE',
+    'global.warming' => 'ENVIRONMENTAL PERFORMANCE and ADAPTATION TO CLIMATE CHANGE',
     'global.advice' => 'Advice on environmental performance & climate change adaptation',
     'legal.assembly' => 'LEGAL ASSEMBLY',
     'advice.assembly' => 'Advice legal assembly',
@@ -76,6 +76,6 @@ return [
     'summary.description' => 'Summary description of the offer',
     'section.summary' => 'Section to be filled in penultimate, just before the summary of the opinions',
     'advice.summary' => 'Advice Summary',
-    'commentaries' => 'commentaries',
+    'commentaries' => 'Commentaries',
 
 ];
