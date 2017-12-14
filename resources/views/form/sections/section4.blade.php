@@ -64,7 +64,7 @@
     @endif
     <div class="row justify-content-center">
         <div class="form-group col-md-12">
-            <label for="" class="col-form-label label-red">@lang('form.global.warning')</label>
+            <label for="" class="col-form-label label-red">@lang('form.global.warming')</label>
             <textarea id="global-warning"  placeholder="" class="form-control textarea-1600" name="project_content[19]" maxlength="1600">{{ $result->content[19] }}</textarea>
             <p class="line-under-textarea mt-1" id="compteur19">0 / 1600 @lang('form.char_max')</p>
         </div>
@@ -79,7 +79,7 @@
     @if(Auth::user() && Auth::user()->role->name == "Administrator" || Auth::user()->role->name == "Supervisor")
     <div class="row justify-content-center">
         <div class="form-group col-md-12">
-            <label for="" class="col-form-label">@lang('sections')</label>
+            <label for="" class="col-form-label">@lang('form.global.advice')</label>
             <textarea id="sections"  placeholder="" class="form-control textarea-200" name="project_content[21]" maxlength="200" autofocus>{{ $result->content[21] }}</textarea>
             <p class="line-under-textarea mt-1" id="compteur21">0 / 200 @lang('form.char_max')</p>
         </div>
@@ -103,7 +103,7 @@
     @endif
     <div class="row justify-content-center">
         <div class="form-group col-md-12">
-            <label for="" class="col-form-label label_blue">@lang('form.financial.arrangement')</label>
+            <label for="" class="col-form-label label-red">@lang('form.financial.arrangement')</label>
             <textarea id="financial-arrangement"  placeholder="" class="form-control textarea-800" name="project_content[24]" maxlength="800">{{ $result->content[24] }}</textarea>
             <p class="mr-auto mt-2" id="compteur24">0 / 800 @lang('form.char_max')</p>
         </div>

@@ -17,7 +17,7 @@
         </div>
     </div>
     <hr>
-    <h3>@lang('form.sections')</h3>
+    <h3>@lang('form.line-up')</h3>
     <div class="row justify-content-left">
         <div class="form-group col-12 col-lg-9 col-xl-6">
             <label for="" class="col-form-label">@lang('form.mandatory')</label>
