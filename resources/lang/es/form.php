@@ -9,6 +9,7 @@ return [
     '800.sign' => '800 carácters max',
     '1000.sign' => '1000 carácters max',
     '1600.sign' => '1600 carácters max',
+    'char_max' => 'carácters max',
 
     /* buttons */
     'back' => 'Regreso',
@@ -67,6 +68,10 @@ return [
 
 	/* section 6 */
     'graphic.items' => 'Componentes graficas',
+    'upload_file' => 'Elige tu archivo',
+    'delete_file' => 'Eliminó la imagen actual',
+    'modify_image' => 'Modificar la imagen',
+    'perpective1' => 'Perspectiva n°1',
 
     /* section 7 */
     'summary.description' => 'Descripción resumida de la oferta',

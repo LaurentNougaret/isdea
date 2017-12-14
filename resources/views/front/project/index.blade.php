@@ -5,7 +5,22 @@
     <div class="text-center my-4">
         <h2>@lang('project.projects')</h2>
     </div>
-{{--    {{ dump ($projects->results_id) }}--}}
+    @if(Auth::user() && Auth::user()->role->name == "Administrator" || Auth::user()->role->name == "Supervisor")
+        <div class="row">
+            <div class="col-9 col-sm-8 col-md-6 col-lg-5">
+                <form action="{{action('Back\ProjectController@index')}}" method="GET" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name ="search" id="inlineFormInputGroup" placeholder="Search..."/>
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit">
+                                <i class="fa fa-search fa-fw" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    @endif
     <div class="projects-table">
         <table class="table table-hover table-striped">
             <thead>
@@ -20,7 +35,7 @@
             <tbody>
             @foreach($projects as $project)
                 <tr>
-                    <td>{{ $project->number }}</td>
+                    <td>{{ $project->id }}</td>
                     <td><a class="link-color" href="{{ route('result.edit', $project->result_id) }}">{{ $project->name }}</a></td>
                     <td>{{ $project->unit }}</td>
                     <td>{{ $project->area }}</td>

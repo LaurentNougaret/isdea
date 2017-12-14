@@ -139,8 +139,10 @@ class UserController extends Controller
 			$user->password = bcrypt($request->password);
 		};
 		$user->save();
-//		dump($request->only('email'));
-//		$user->sendPasswordResetNotification($request->only('email'));
+//		dd($request->only('email'));
+//		dd($user->sendPasswordResetNotification($request->only('email')));
+
+
 		return redirect()->route('users.index')
 		                 ->with('message', Lang::get('message.user_update'));
 	}

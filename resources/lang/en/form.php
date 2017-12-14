@@ -8,6 +8,7 @@ return [
     '500.sign' => '500 characters max',
     '1000.sign' => '1000 characters max',
     '1600.sign' => '1600 characters max',
+	'char_max' => 'characters max',
 
     /* button */
     'back' => 'Back',
@@ -66,6 +67,10 @@ return [
 
 	/* section 6 */
     'graphic.items' => 'Graphic items',
+    'upload_file' => 'Choose your file',
+    'delete_file' => 'Deleted the current image',
+    'modify_image' => 'Modify image',
+    'perpective1' => 'Perspective n°1',
 
     /* section 7 */
     'summary.description' => 'Summary description of the offer',

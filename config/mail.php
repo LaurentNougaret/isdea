@@ -55,9 +55,14 @@ return [
     |
     */
 
+//    'from' => [
+//        'address' => env('MAIL_FROM_ADDRESS'),
+//        'name' => env('MAIL_FROM_NAME'),
+//    ],
+
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS'),
-        'name' => env('MAIL_FROM_NAME'),
+	    'address' => env('postmaster@sandbox02374753d0844a35afba84d878d6fc15.mailgun.org'),
+	    'name' => env('smtp.mailgun.org'),
     ],
 
     /*
