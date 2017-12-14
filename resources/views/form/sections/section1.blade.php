@@ -14,7 +14,6 @@
         <div class="form-group col-md-6">
             <label for="" class="col-form-label">@lang('form.project.title')</label>
             <input id="title" type="text" placeholder="" class="form-control textarea-min bg-white" name="project_content[1]" value="{{ $result->project_name }}" readonly maxlength="100">
-
         </div>
     </div>
     <hr>

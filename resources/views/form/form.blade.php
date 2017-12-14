@@ -37,8 +37,6 @@
                 <label for="tab7" class="forms_label"><span>@lang('form.synthesis')</span></label>
 
 
-                <a href="{{action('Back\AdminController@generatePDF', $result->result_id)}}" target="_blank">Générer la fiche PDF</a>
-
                 @include('form.sections.section1')
                 @include('form.sections.section2')
                 @include('form.sections.section3')
