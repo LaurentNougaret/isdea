@@ -16,9 +16,10 @@ return [
     'next' => 'Next',
 
     /* section 1 */
+    'generate_PDF' => 'Generate PDF file',
     'identity' => 'Identity',
     'completeness' => 'Completeness',
-    'analysis' => 'Analysis / CPS',
+    'analysis' => 'Analysis / SCS',
     'sections' => 'Sections',
     'analysis.criterias' => 'Analysis / Criterias',
     'analysis.areas' => 'Analysis / Areas',
@@ -39,10 +40,10 @@ return [
     'missing_element.commentary' => 'Missing elements / Commentary',
 
     /* section 3 */
-    'analysis.cps' => 'Analysis of the candidacy with regard to the CPS',
-    'recall.stage2' => 'Recall mains waiting expect to CPS - stage 2',
-    'vigilance.point' => 'Points vigilance on the offer with regard to CPS - stage 2',
-    'plu.urban' => 'Points of vigilance on the offer with regard to the PLU and all urban easements',
+    'analysis.scs' => 'Analysis of the candidacy with regard to the Special Conditions of the Site',
+    'recall.stage2' => 'Recall mains waiting expect to the Special Conditions of the Site - Stage 2',
+    'vigilance.point' => 'Points vigilance on the offer with regard to the Special Conditions of the Site - Stage 2',
+    'lpd.urban' => 'Points of vigilance on the offer with regard to the LDP and all urban easements',
 
     /* section 4 */
     'analysis.offer' => 'Analysis of the offer with regard to the selection criteria of the Regulation',
@@ -70,12 +71,28 @@ return [
     'upload_file' => 'Choose your file',
     'delete_file' => 'Deleted the current image',
     'modify_image' => 'Modify image',
-    'perpective1' => 'Perspective n°1',
+	'viewpoint_1' => 'Viewpoint n°1',
+    'viewpoint_2' => 'Viewpoint n°2',
+    'viewpoint_3' => 'Viewpoint n°3',
+    'overall_plan' => 'Overall plan',
+    'representative_diagram_program' => 'Representitive diagram program',
+    'raise_wall' => 'Principal wall(s) raise(s)',
+    'cut' => 'Cut(s)',
+    'level_plan' => 'Significant level plan(s)',
+    'ground_floor_outside_plan' => 'Ground floor and outside plan',
 
     /* section 7 */
     'summary.description' => 'Summary description of the offer',
     'section.summary' => 'Section to be filled in penultimate, just before the summary of the opinions',
     'advice.summary' => 'Advice Summary',
     'commentaries' => 'Commentaries',
+
+	/* PDF * /
+		/* section 7 */
+    'offer_synthesis' => 'Summary of the offer',
+    'description' => 'Description',
+
+	/* section */
+    'offer_analysis_particular_conditions' => 'ANALYSIS OF THE OFFER WITH REGARD TO THE SPECIAL CONDITIONS OF THE SITE',
 
 ];

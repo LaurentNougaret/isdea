@@ -20,8 +20,6 @@ class FormController extends Controller
      */
     public function edit($id){
 
-//		$result = Result::find($id);
-
         $result = DB::table('results')
             ->join('projects', 'results.project_id', '=', 'projects.id')
             ->select('projects.id as project_id', 'projects.name as project_name', 'results.project_content as content', 'results.id as result_id')

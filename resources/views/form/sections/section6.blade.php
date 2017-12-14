@@ -4,7 +4,7 @@
     <!-- picture1 -->
     <div class="row col-md-12 mx-0 justify-content-around">
         <div class=" justify-content-center picture_row">
-            <h4 class="picture_title mx-3">@lang('form.perpective1')</h4>
+            <h4 class="picture_title mx-3">@lang('form.viewpoint_1')</h4>
             <div class="picture_block col-md-12 justify-content-center">
                 <div class="fdw-background">
                     <h6 class="modify_picture">@lang('form.modify_image')</h6>
@@ -48,7 +48,7 @@
         </div>
         <!-- picture2 -->
         <div class=" justify-content-center picture_row">
-            <h4 class="picture_title mx-3">@lang('form.perpective1')</h4>
+            <h4 class="picture_title mx-3">@lang('form.viewpoint_2')</h4>
             <div class="picture_block col-md-12 justify-content-center">
                 <div class="fdw-background">
                     <h6 class="modify_picture">@lang('form.modify_image')</h6>
@@ -95,7 +95,7 @@
     <!-- picture3 -->
     <div class="row col-md-12 mx-0 justify-content-around">
         <div class=" justify-content-center picture_row">
-            <h4 class="picture_title mx-3">@lang('form.perpective1')</h4>
+            <h4 class="picture_title mx-3">@lang('form.viewpoint_3')</h4>
             <div class="picture_block col-md-12 justify-content-center">
                 <div class="fdw-background">
                     <h6 class="modify_picture">@lang('form.modify_image')</h6>
@@ -139,7 +139,7 @@
         </div>
         <!-- picture4 -->
         <div class=" justify-content-center picture_row">
-            <h4 class="picture_title mx-3">@lang('form.perpective1')</h4>
+            <h4 class="picture_title mx-3">@lang('form.overall_plan')</h4>
             <div class="picture_block col-md-12 justify-content-center">
                 <div class="fdw-background">
                     <h6 class="modify_picture">@lang('form.modify_image')</h6>
@@ -186,7 +186,7 @@
     <!-- picture5 -->
     <div class="row col-md-12 mx-0 justify-content-around">
         <div class=" justify-content-center picture_row">
-            <h4 class="picture_title mx-3">@lang('form.perpective1')</h4>
+            <h4 class="picture_title mx-3">@lang('form.representative_diagram_program')</h4>
             <div class="picture_block col-md-12 justify-content-center">
                 <div class="fdw-background">
                     <h6 class="modify_picture">@lang('form.modify_image')</h6>
@@ -230,7 +230,7 @@
         </div>
         <!-- picture6 -->
         <div class=" justify-content-center picture_row">
-            <h4 class="picture_title mx-3">@lang('form.perpective1')</h4>
+            <h5 class="picture_title mx-3">@lang('form.raise_wall')</h5>
             <div class="picture_block col-md-12 justify-content-center">
                 <div class="fdw-background">
                     <h6 class="modify_picture">@lang('form.modify_image')</h6>
@@ -278,7 +278,7 @@
     <!-- picture7 -->
     <div class="row col-md-12 mx-0 justify-content-around">
         <div class=" justify-content-center picture_row">
-            <h4 class="picture_title mx-3">@lang('form.perpective1')</h4>
+            <h4 class="picture_title mx-3">@lang('form.cut')</h4>
             <div class="picture_block col-md-12 justify-content-center">
                 <div class="fdw-background">
                     <h6 class="modify_picture">@lang('form.modify_image')</h6>
@@ -322,7 +322,7 @@
         </div>
         <!-- picture8 -->
         <div class=" justify-content-center picture_row">
-            <h4 class="picture_title mx-3">@lang('form.perpective1')</h4>
+            <h4 class="picture_title mx-3">@lang('form.level_plan')</h4>
             <div class="picture_block col-md-12 justify-content-center">
                 <div class="fdw-background">
                     <h6 class="modify_picture">@lang('form.modify_image')</h6>
@@ -370,7 +370,7 @@
     <!-- picture9 -->
     <div class="row col-md-12 mx-0 justify-content-around">
         <div class=" justify-content-center picture_row">
-            <h4 class="picture_title mx-3">@lang('form.perpective1')</h4>
+            <h4 class="picture_title mx-3">@lang('form.ground_floor_outside_plan')</h4>
             <div class="picture_block col-md-12 justify-content-center">
                 <div class="fdw-background">
                     <h6 class="modify_picture">@lang('form.modify_image')</h6>

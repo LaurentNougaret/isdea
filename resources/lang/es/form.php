@@ -17,9 +17,10 @@ return [
     'next' => 'Según',
 
     /* section 1 */
+    'generate_PDF' => 'Generar el archivo PDF',
     'identity' => 'Identitad',
     'completeness' => 'Lo completo',
-    'analysis' => 'Análisis / CPS',
+    'analysis' => 'Análisis / CES',
     'sections' => 'Secciones',
     'analysis.criterias' => 'Análisis / Criterios',
     'analysis.areas' => 'Análisis / Areas',
@@ -40,10 +41,10 @@ return [
     'missing_element.commentary' => 'Elementos faltantes / Commentarios',
 
     /* section 3 */
-    'analysis.cps' => 'Análisis de la candidatura con respecto a la CPS',
-    'recall.stage2' => 'Retirada de los primarios expectativas a la vista de CPS - paso 2',
-    'vigilance.point' => 'Puntos de vigilancia en oferta con respecto a la CPS - stage 2',
-    'plu.urban' => 'Puntos de vigilancia sobre la oferta con respecto al PLU y todas las servidumbres urbanas',
+    'analysis.scs' => 'Análisis de la candidatura con respecto a las Condiciones Especiales del Sitio',
+    'recall.stage2' => 'Retirada de los primarios expectativas a la vista de las Condiciones Especiales del Sitio - Paso 2',
+    'vigilance.point' => 'Puntos de vigilancia en oferta con respecto a las Condiciones Especiales del Sitio - Paso 2',
+    'lpd.urban' => 'Puntos de vigilancia sobre la oferta con respecto al PLU y todas las servidumbres urbanas',
 
     /* section 4 */
     'analysis.offer' => 'Análisis de la oferta con respecto a los criterios de selección del Reglamento',
@@ -68,6 +69,15 @@ return [
 
 	/* section 6 */
     'graphic.items' => 'Componentes graficas',
+    'viewpoint_1' => 'Punto de vista n°1',
+    'viewpoint_2' => 'Punto de vista n°2',
+    'viewpoint_3' => 'Punto de vista n°3',
+    'overall_plan' => 'Plan general',
+    'representative_diagram_program' => 'Esquema representativo del programa',
+    'raise_wall' => 'Mejora de la / des fachada(s) principal(es)',
+    'cut' => 'Corte(s)',
+    'level_plan' => 'Plan del / de los nivel(es) importante(s)',
+    'ground_floor_outside_plan' => 'Plan de la planta baja y de los espacios verdes',
     'upload_file' => 'Elige tu archivo',
     'delete_file' => 'Eliminó la imagen actual',
     'modify_image' => 'Modificar la imagen',
@@ -79,6 +89,13 @@ return [
     'advice.summary' => 'Aviso de resumen',
     'commentaries' => 'Commentarios',
 
+	/* PDF * /
+		/* section 7 */
+    'offer_synthesis' => 'Resumida de la oferta',
+    'description' => 'Descripción',
+
+	/* section */
+	'offer_analysis_particular_conditions' => 'ANALISIS DE LA OFERTA CON RESPECTO A LAS CONDICIONES ESPECIALES DEL SITIO',
 
 
 ];
