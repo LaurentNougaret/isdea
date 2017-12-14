@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FormUpdateRequest;
 use App\Result;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
@@ -19,11 +20,13 @@ class FormController extends Controller
 	 */
 	public function edit($id){
 
-		$result = Result::find($id)
-		                ->join('projects', 'results.project_id', '=', 'projects.id')
-		                ->join('form_project', 'projects.id', '=', 'form_project.project_id')
-		                ->select('projects.id as project_id', 'projects.name as project_name', 'results.project_content as content', 'results.id as result_id', 'form_project.form_id as form_id')
-		                ->first();
+//		$result = Result::find($id);
+        $result = DB::table('results')
+              ->join('projects', 'results.project_id', '=', 'projects.id')
+            ->select('projects.id as project_id', 'projects.name as project_name', 'results.project_content as content', 'results.id as result_id')
+            ->join('form_project', 'projects.id', '=', 'form_project.project_id')
+            ->select('projects.id as project_id', 'projects.name as project_name', 'results.project_content as content', 'results.id as result_id', 'form_project.form_id as form_id')
+            ->first();
 
 		$result->content = unserialize($result->content);
 
