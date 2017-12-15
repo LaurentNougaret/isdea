@@ -1,5 +1,5 @@
 <section id="content7" class="tab-content">
-    <h3>@lang('form.synthesis')</h3>
+    <h3>@lang('form.summary.description')</h3>
     <div class="row justify-content-center">
         <div class="form-group col-md-12">
             <label for="" class="col-form-label">@lang('form.section.summary')</label>
