@@ -1,6 +1,6 @@
 @import "variables";
 
-#global_form {
+#global-form {
   margin-right: 10px;
   margin-left: 10px;
 
@@ -84,18 +84,18 @@
     text-align: justify;
   }
 
-  .tab_container {
+  .tab-container {
     width: 100%;
     padding-top: 70px;
   }
 
-  .forms_input, section {
+  .forms-input, section {
     clear: both;
     padding-top: 10px;
     display: none;
   }
 
-  .forms_label {
+  .forms-label {
     font-weight: 700;
     font-size: 15px;
     display: block;
@@ -117,14 +117,14 @@
     display: block;
   }
 
-  .tab_container [id^="tab"]:checked + .forms_label {
+  .tab-container [id^="tab"]:checked + .forms_label {
     background: #fff;
     box-shadow: inset 0 3px $brand-danger;
   }
 
   /*Media query*/
   @media only screen and (max-width: 930px) {
-    .forms_label span {
+    .forms-label span {
       font-size: 14px;
     }
     label .fa {
@@ -133,15 +133,15 @@
   }
 
   @media only screen and (max-width: 768px) {
-    .forms_label span {
+    .forms-label span {
       display: none;
     }
 
-    .forms_label .fa {
+    .forms-label .fa {
       font-size: 16px;
     }
 
-    .tab_container {
+    .tab-container {
       width: 98%;
     }
   }
@@ -162,15 +162,15 @@
 
 }
 
-.picture_row{
+.picture-row{
   width: 500px;
 }
 
-.picture_block{
+.picture-block{
   width: 500px;
 }
 
-.picture_block:hover > .fdw-background{
+.picture-block:hover > .fdw-background{
   opacity: 1;
 }
 
@@ -190,13 +190,13 @@
   filter: alpha(opacity=0);
 }
 
-.input_style{
+.input-style{
   background: none;
   border: none;
   color:white;
 }
 
-.delete_file
+.delete-file
 {
   padding-left: 0.4rem;
   color:white;
@@ -208,23 +208,23 @@
   outline: none;
 }
 
-.load_file
+.load-file
 {
   margin: 0.3rem 0.3rem;
 }
 
-.modify_picture{
+.modify-picture{
   color:white;
   padding-top: 0.4rem;
   padding-left: 0.5rem;
 }
 
-.title_items
+.title-items
 {
   margin-top: 0.4rem;
   margin-bottom: 0.7rem ;
 }
 
-.picture_title{
+.picture-title{
   margin-top: 1.5rem;
 }

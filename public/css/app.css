@@ -306,104 +306,104 @@ a .icon {
   right: 5px;
 }
 
-#global_form {
+#global-form {
   margin-right: 10px;
   margin-left: 10px;
   /*Media query*/
 }
 
-#global_form h2 {
+#global-form h2 {
   text-align: center;
 }
 
-#global_form body {
+#global-form body {
   font-family: sans-serif;
 }
 
-#global_form label {
+#global-form label {
   font-weight: 600px;
   font-size: 14px;
 }
 
-#global_form textarea {
+#global-form textarea {
   resize: none;
 }
 
-#global_form .col-form-label {
+#global-form .col-form-label {
   font-weight: bold;
 }
 
-#global_form .label-red {
+#global-form .label-red {
   font-size: 24px;
   font-weight: bold;
   color: #dc3545;
   text-transform: uppercase;
 }
 
-#global_form .textarea-min {
+#global-form .textarea-min {
   height: 2rem;
   text-align: justify;
 }
 
-#global_form .textarea-100 {
+#global-form .textarea-100 {
   height: 5rem;
   text-align: justify;
 }
 
-#global_form .textarea-200 {
+#global-form .textarea-200 {
   height: 5rem;
   text-align: justify;
 }
 
-#global_form .textarea-300 {
+#global-form .textarea-300 {
   height: 5rem;
   text-align: justify;
 }
 
-#global_form .textarea-500 {
+#global-form .textarea-500 {
   height: 7.5rem;
   text-align: justify;
 }
 
-#global_form .textarea-800 {
+#global-form .textarea-800 {
   height: 9rem;
   text-align: justify;
 }
 
-#global_form .textarea-1000 {
+#global-form .textarea-1000 {
   height: 10rem;
   text-align: justify;
 }
 
-#global_form .textarea-1400 {
+#global-form .textarea-1400 {
   height: 13rem;
   text-align: justify;
 }
 
-#global_form .textarea-1600 {
+#global-form .textarea-1600 {
   height: 14rem;
   text-align: justify;
 }
 
-#global_form .line-under-textarea {
+#global-form .line-under-textarea {
   font-size: 0.8rem;
   font-style: italic;
   text-align: justify;
 }
 
-#global_form .tab_container {
+#global-form .tab-container {
   width: 100%;
   padding-top: 70px;
 }
 
-#global_form .forms_input,
-#global_form section {
+#global-form .forms-input,
+#global-form section {
   clear: both;
   padding-top: 10px;
   display: none;
 }
 
-#global_form .forms_label {
+#global-form .forms-label {
   font-weight: 700;
   font-size: 15px;
   display: block;
@@ -415,42 +415,42 @@ a .icon {
   background: #f0f0f0;
 }
 
-#global_form #tab1:checked ~ #content1,
-#global_form #tab2:checked ~ #content2,
-#global_form #tab3:checked ~ #content3,
-#global_form #tab4:checked ~ #content4,
-#global_form #tab5:checked ~ #content5,
-#global_form #tab6:checked ~ #content6,
-#global_form #tab7:checked ~ #content7 {
+#global-form #tab1:checked ~ #content1,
+#global-form #tab2:checked ~ #content2,
+#global-form #tab3:checked ~ #content3,
+#global-form #tab4:checked ~ #content4,
+#global-form #tab5:checked ~ #content5,
+#global-form #tab6:checked ~ #content6,
+#global-form #tab7:checked ~ #content7 {
   display: block;
 }
 
-#global_form .tab_container [id^="tab"]:checked + .forms_label {
+#global-form .tab-container [id^="tab"]:checked + .forms_label {
   background: #fff;
   -webkit-box-shadow: inset 0 3px #dc3545;
           box-shadow: inset 0 3px #dc3545;
 }
 
 @media only screen and (max-width: 930px) {
-  #global_form .forms_label span {
+  #global-form .forms-label span {
     font-size: 14px;
   }
 
-  #global_form label .fa {
+  #global-form label .fa {
     font-size: 14px;
   }
 }
 
 @media only screen and (max-width: 768px) {
-  #global_form .forms_label span {
+  #global-form .forms-label span {
     display: none;
   }
 
-  #global_form .forms_label .fa {
+  #global-form .forms-label .fa {
     font-size: 16px;
   }
 
-  #global_form .tab_container {
+  #global-form .tab-container {
     width: 98%;
   }
 }
@@ -469,15 +469,15 @@ a .icon {
   opacity: 0;
 }
 
-.picture_row {
+.picture-row {
   width: 500px;
 }
 
-.picture_block {
+.picture-block {
   width: 500px;
 }
 
-.picture_block:hover > .fdw-background {
+.picture-block:hover > .fdw-background {
   opacity: 1;
 }
 
@@ -498,13 +498,13 @@ a .icon {
   filter: alpha(opacity=0);
 }
 
-.input_style {
+.input-style {
   background: none;
   border: none;
   color: white;
 }
 
-.delete_file {
+.delete-file {
   padding-left: 0.4rem;
   color: white;
 }
@@ -515,22 +515,22 @@ a .icon {
   outline: none;
 }
 
-.load_file {
+.load-file {
   margin: 0.3rem 0.3rem;
 }
 
-.modify_picture {
+.modify-picture {
   color: white;
   padding-top: 0.4rem;
   padding-left: 0.5rem;
 }
 
-.title_items {
+.title-items {
   margin-top: 0.4rem;
   margin-bottom: 0.7rem;
 }
 
-.picture_title {
+.picture-title {
   margin-top: 1.5rem;
 }
 

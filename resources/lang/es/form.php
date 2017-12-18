@@ -78,8 +78,8 @@ return [
     'cut' => 'Corte(s)',
     'level_plan' => 'Plan del / de los nivel(es) importante(s)',
     'ground_floor_outside_plan' => 'Plan de la planta baja y de los espacios verdes',
-    'upload_file' => 'Elige tu archivo',
-    'delete_file' => 'Eliminó la imagen actual',
+    'upload-file' => 'Elige tu archivo',
+    'delete-file' => 'Eliminó la imagen actual',
     'modify_image' => 'Modificar la imagen',
     'perpective1' => 'Perspectiva n°1',
 

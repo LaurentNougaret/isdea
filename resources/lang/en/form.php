@@ -68,8 +68,8 @@ return [
 
 	/* section 6 */
     'graphic.items' => 'Graphic items',
-    'upload_file' => 'Choose your file',
-    'delete_file' => 'Deleted the current image',
+    'upload-file' => 'Choose your file',
+    'delete-file' => 'Delete the current image',
     'modify_image' => 'Modify image',
 	'viewpoint_1' => 'Viewpoint n°1',
     'viewpoint_2' => 'Viewpoint n°2',
