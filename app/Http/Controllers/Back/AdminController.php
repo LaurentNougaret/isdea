@@ -7,7 +7,7 @@ use App\Repositories\PDFRepository;
 use App\Result;
 use Mpdf\Mpdf;
 use App;
-
+use Zip;
 
 class AdminController extends Controller
 {
@@ -24,14 +24,15 @@ class AdminController extends Controller
 	{
 		$data['projects']  = $this->project->getResultInfos($result->id);
 
-//		dd($data['projects']->content);
-//		$data['prenom'] = "Julien";
-
  		$pdf = App::make('dompdf.wrapper');
 		$pdf->loadView('pdf.invoice', $data);
 		$pdf->setOptions(['dpi' => 300, 'defaultFont' => 'sans-serif']);
-		return $pdf->stream('invoice.pdf');
+		$pdf->save(storage_path('app/public/pdf/invoice.pdf'));
 
+		$zip = Zip::create(storage_path('app/public/archives/archive.zip'));
+		$zip->add(storage_path('app/public/pdf/invoice.pdf'));
+
+		return $pdf->stream('invoice.pdf');
 	}
 }
 
