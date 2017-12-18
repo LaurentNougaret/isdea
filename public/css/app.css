@@ -306,104 +306,104 @@ a .icon {
   right: 5px;
 }
 
-#global_form {
+#global-form {
   margin-right: 10px;
   margin-left: 10px;
   /*Media query*/
 }
 
-#global_form h2 {
+#global-form h2 {
   text-align: center;
 }
 
-#global_form body {
+#global-form body {
   font-family: sans-serif;
 }
 
-#global_form label {
+#global-form label {
   font-weight: 600px;
   font-size: 14px;
 }
 
-#global_form textarea {
+#global-form textarea {
   resize: none;
 }
 
-#global_form .col-form-label {
+#global-form .col-form-label {
   font-weight: bold;
 }
 
-#global_form .label-red {
+#global-form .label-red {
   font-size: 24px;
   font-weight: bold;
   color: #dc3545;
   text-transform: uppercase;
 }
 
-#global_form .textarea-min {
+#global-form .textarea-min {
   height: 2rem;
   text-align: justify;
 }
 
-#global_form .textarea-100 {
+#global-form .textarea-100 {
   height: 5rem;
   text-align: justify;
 }
 
-#global_form .textarea-200 {
+#global-form .textarea-200 {
   height: 5rem;
   text-align: justify;
 }
 
-#global_form .textarea-300 {
+#global-form .textarea-300 {
   height: 5rem;
   text-align: justify;
 }
 
-#global_form .textarea-500 {
+#global-form .textarea-500 {
   height: 7.5rem;
   text-align: justify;
 }
 
-#global_form .textarea-800 {
+#global-form .textarea-800 {
   height: 9rem;
   text-align: justify;
 }
 
-#global_form .textarea-1000 {
+#global-form .textarea-1000 {
   height: 10rem;
   text-align: justify;
 }
 
-#global_form .textarea-1400 {
+#global-form .textarea-1400 {
   height: 13rem;
   text-align: justify;
 }
 
-#global_form .textarea-1600 {
+#global-form .textarea-1600 {
   height: 14rem;
   text-align: justify;
 }
 
-#global_form .line-under-textarea {
+#global-form .line-under-textarea {
   font-size: 0.8rem;
   font-style: italic;
   text-align: justify;
 }
 
-#global_form .tab_container {
+#global-form .tab-container {
   width: 100%;
   padding-top: 70px;
 }
 
-#global_form .forms_input,
-#global_form section {
+#global-form .forms-input,
+#global-form section {
   clear: both;
   padding-top: 10px;
   display: none;
 }
 
-#global_form .forms_label {
+#global-form .forms-label {
   font-weight: 700;
   font-size: 15px;
   display: block;
@@ -415,78 +415,79 @@ a .icon {
   background: #f0f0f0;
 }
 
-#global_form #tab1:checked ~ #content1,
-#global_form #tab2:checked ~ #content2,
-#global_form #tab3:checked ~ #content3,
-#global_form #tab4:checked ~ #content4,
-#global_form #tab5:checked ~ #content5,
-#global_form #tab6:checked ~ #content6,
-#global_form #tab7:checked ~ #content7 {
+#global-form #tab1:checked ~ #content1,
+#global-form #tab2:checked ~ #content2,
+#global-form #tab3:checked ~ #content3,
+#global-form #tab4:checked ~ #content4,
+#global-form #tab5:checked ~ #content5,
+#global-form #tab6:checked ~ #content6,
+#global-form #tab7:checked ~ #content7 {
   display: block;
 }
 
-#global_form .tab_container [id^="tab"]:checked + .forms_label {
+#global-form .tab-container [id^="tab"]:checked + .forms_label {
   background: #fff;
   -webkit-box-shadow: inset 0 3px #dc3545;
           box-shadow: inset 0 3px #dc3545;
 }
 
 @media only screen and (max-width: 930px) {
-  #global_form .forms_label span {
+  #global-form .forms-label span {
     font-size: 14px;
   }
 
-  #global_form label .fa {
+  #global-form label .fa {
     font-size: 14px;
   }
 }
 
 @media only screen and (max-width: 768px) {
-  #global_form .forms_label span {
+  #global-form .forms-label span {
     display: none;
   }
 
-  #global_form .forms_label .fa {
+  #global-form .forms-label .fa {
     font-size: 16px;
   }
 
-  #global_form .tab_container {
+  #global-form .tab-container {
     width: 98%;
   }
 }
 
-/* layout.css Style */
-
-.upload-drop-zone {
-  height: 200px;
-  border-width: 2px;
-  margin-bottom: 20px;
+.image-preview-input-title {
+  margin-left: 2px;
 }
 
-/* skin.css Style*/
-
-.upload-drop-zone {
-  color: #ccc;
-  border: dashed #ccc;
-  line-height: 200px;
-  text-align: center;
+.fdw-background {
+  background-color: rgba(0, 0, 0, 0.6);
+  margin-left: 0;
+  margin-right: 0;
+  width: 23.1rem;
+  height: 6.5rem;
+  position: absolute;
+  opacity: 0;
 }
 
-.upload-drop-zone.drop {
-  color: #222;
-  border-color: #222;
+.picture-row {
+  width: 500px;
 }
 
-.image-preview-input {
+.picture-block {
+  width: 500px;
+}
+
+.picture-block:hover > .fdw-background {
+  opacity: 1;
+}
+
+.fileUpload {
   position: relative;
   overflow: hidden;
-  margin: 0px;
-  color: #333;
-  background-color: #fff;
-  border-color: #ccc;
+  margin: 10px;
 }
 
-.image-preview-input input[type=file] {
+.fileUpload input.upload {
   position: absolute;
   top: 0;
   right: 0;
@@ -494,11 +495,42 @@ a .icon {
   padding: 0;
   font-size: 20px;
   cursor: pointer;
-  opacity: 0;
   filter: alpha(opacity=0);
 }
 
-.image-preview-input-title {
-  margin-left: 2px;
+.input-style {
+  background: none;
+  border: none;
+  color: white;
+}
+
+.delete-file {
+  padding-left: 0.4rem;
+  color: white;
+}
+
+.modal-content {
+  width: 900px !important;
+  right: 40%;
+  outline: none;
+}
+
+.load-file {
+  margin: 0.3rem 0.3rem;
+}
+
+.modify-picture {
+  color: white;
+  padding-top: 0.4rem;
+  padding-left: 0.5rem;
+}
+
+.title-items {
+  margin-top: 0.4rem;
+  margin-bottom: 0.7rem;
+}
+
+.picture-title {
+  margin-top: 1.5rem;
 }
 

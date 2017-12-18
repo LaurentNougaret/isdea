@@ -1,4 +1,5 @@
 <section id="content1" class="tab-content">
+    <a href="{{action('Back\AdminController@generatePDF', $result->result_id)}}" target="_blank">Générer la fiche PDF</a>
     <h3 class="mr-auto">@lang('form.project.identity')</h3>
     @if(Auth::user() && Auth::user()->role->name == "Administrator")
     <a class="ml-auto" href="{{action('Back\AdminController@generatePDF', $result->result_id)}}" target="_blank">@lang('form.generate_PDF')</a>
@@ -14,7 +15,6 @@
         <div class="form-group col-md-6">
             <label for="" class="col-form-label">@lang('form.project.title')</label>
             <input id="title" type="text" placeholder="" class="form-control textarea-min bg-white" name="project_content[1]" value="{{ $result->project_name }}" readonly maxlength="100">
-
         </div>
     </div>
     <hr>
