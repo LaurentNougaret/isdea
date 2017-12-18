@@ -79,6 +79,10 @@ return [
 	'cut' => 'Coupe(s)',
 	'level_plan' => 'Plan du / des niveau(x) significatif(s)',
 	'ground_floor_outside_plan' => 'Plan du RDC et des espaces extérieurs',
+    'upload-file' => 'Choisir votre fichier',
+    'delete-file' => "Supprimer l'image actuelle",
+    'modify_image' => "Modifier l'image",
+    'perpective1' => 'Perspective n°1',
 
 	/* section 7 */
 	'summary.description' => "Description synthétique de l'offre",

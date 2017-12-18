@@ -31742,6 +31742,46 @@ $('button#btnreturn').click(function () {
     $(':radio:eq(' + compteur + ')').trigger('click');
 });
 
+// jQuery(document).ready(function($){
+//
+//     //portfolio - show link
+//
+//     $('.mypicture').hover(
+//
+//     function () {
+//
+//         $('.fdw-background').animate({opacity:'1'},300);
+//
+//     },
+//
+//         function () {
+//
+//         $('.fdw-background').animate({opacity:'0'});
+//
+//     }
+//
+//     );
+//
+//     $('.fdw-background').hover(
+//
+//         function () {
+//
+//             $('.fdw-background').animate({opacity:'1'});
+//
+//         },
+//
+//         function () {
+//
+//             $('.fdw-background').animate({opacity:'0'});
+//
+//         }
+//
+//     );
+//
+// });
+//
+//
+
 /***/ }),
 /* 39 */
 /***/ (function(module, exports) {
