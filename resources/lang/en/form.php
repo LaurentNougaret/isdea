@@ -95,4 +95,6 @@ return [
 	/* section */
     'offer_analysis_particular_conditions' => 'ANALYSIS OF THE OFFER WITH REGARD TO THE SPECIAL CONDITIONS OF THE SITE',
 
+    /* Title PDF */
+    'title' => 'Summary'
 ];

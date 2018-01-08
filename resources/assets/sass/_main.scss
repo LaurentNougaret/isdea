@@ -2,7 +2,6 @@
 @import "variables";
 
 h1{
-  font-family: $font-family-title;
   font-size: $font-size-title;
   color: $text-color-title;
   font-weight: $text-weight-title;
@@ -13,6 +12,7 @@ body {
   font-size: $font-size;
   line-height: $line-height-base;
   color: $text-color-base;
+  background-color: red;
 }
 
 a {

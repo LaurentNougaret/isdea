@@ -98,5 +98,6 @@ return [
 	/* section */
 	'offer_analysis_particular_conditions' => "ANALYSE DE L'OFFRE AU REGARD DES CONDITIONS PARTICULIERES DE SITE",
 
-
+    /* Title PDF */
+    'title' => 'Récaptulatif'
 ];

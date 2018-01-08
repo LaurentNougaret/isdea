@@ -25,7 +25,7 @@ Route::group(['middleware' => 'auth'], function (){
 //        return view('front.project.form.section6');
 //    });
 //    Route::post('fileUpload', ['as'=>'fileUpload','uses'=>'Front\FormController@fileUpload']);
-Route::get('fiche/{result}', 'Back\AdminController@generatePDF');
+Route::get('fiche/{result}', 'Back\PdfController@generatePDF');
 });
 Route::get('lang/{lang}', ['as'=>'lang.switch', 'uses'=>'LanguageController@switchLang']);
 Auth::routes();

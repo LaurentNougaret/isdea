@@ -1,8 +1,7 @@
 <section id="content1" class="tab-content">
-    <a href="{{action('Back\AdminController@generatePDF', $result->result_id)}}" target="_blank">Générer la fiche PDF</a>
     <h3 class="mr-auto">@lang('form.project.identity')</h3>
     @if(Auth::user() && Auth::user()->role->name == "Administrator")
-    <a class="ml-auto" href="{{action('Back\AdminController@generatePDF', $result->result_id)}}" target="_blank">@lang('form.generate_PDF')</a>
+    <a class="ml-auto" href="{{action('Back\PdfController@generatePDF', $result->result_id)}}" target="_blank">@lang('form.generate_PDF')</a>
     @endif
     <div class="row justify-content-between">
         <div class="form-group col-md-2">
